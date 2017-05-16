@@ -9,10 +9,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //田杰谕去吃屎!!
+        //哈哈哈哈哈哈哈哈哈。／。
         //金虎前来报到
-        //崔涵淞菊花疼!!
+        //崔涵淞篮子疼前去探菊花路被直男爆菊!!
         //贾建海2017
+        //对赌丢丢丢敌对对独岛
         //壮壮哥
+        //我是郭彦君
+        //再来一次2017
     }
 }
