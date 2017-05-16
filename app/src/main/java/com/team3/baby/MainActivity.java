@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         //崔涵淞篮子疼前去探菊花路被直男爆菊!!
         //贾建海2017
         //对赌丢丢丢敌对对独岛
-        //壮壮哥
+        //壮壮哥：直男就是我，我就是直男
         //我是郭彦君。。。
         //再来一次2017
     }
