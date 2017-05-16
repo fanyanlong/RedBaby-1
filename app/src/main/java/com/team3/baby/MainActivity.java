@@ -9,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //哈哈哈哈哈哈哈哈哈。。／。
+        //田杰谕去吃屎,大家都拍手叫好!!
         //金虎前来报到
         //崔涵淞篮子疼前去探菊花路被直男爆菊!!
         //贾建海2017
