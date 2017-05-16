@@ -17,6 +17,6 @@ public class MainActivity extends AppCompatActivity {
         //壮壮哥：直男就是我，我就是直男
         //我是郭彦君。。。
         //再来一次2017
-        //ok拉
+        //点击诶昂得分都不顾曾几何时动画
     }
 }
