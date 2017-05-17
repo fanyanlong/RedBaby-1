@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/iv_scan_include"
+            android:id="@+id/image_scan_include"
             android:layout_marginLeft="5dp"
             android:layout_gravity="center"
             android:src="@mipmap/icon_scan_top"
@@ -18,7 +18,7 @@
             android:layout_height="30dp"/>
 
         <LinearLayout
-
+            android:id="@+id/linear_inquire_include"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
@@ -40,6 +40,7 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
         <ImageView
+            android:id="@+id/image_mes_include"
             android:layout_gravity="center"
             android:layout_marginRight="5dp"
             android:src="@mipmap/icon_mes_top"

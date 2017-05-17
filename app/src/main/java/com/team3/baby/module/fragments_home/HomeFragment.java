@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
@@ -13,22 +15,25 @@ import com.team3.baby.base.BaseFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import android.support.v4.app.Fragment;
-
 /**
  * Created by tianjieyu on 2017/5/17.
  */
 
-public class HomeFragment extends Fragment {
 public class HomeFragment extends BaseFragment {
     @BindView(R.id.tab_top_home_fragment)
     TabLayout mTabTopHomeFragment;
     @BindView(R.id.vp_home_fragment)
     ViewPager mVpHomeFragment;
+    @BindView(R.id.image_scan_include)
+    ImageView mImageScanInclude;
+    @BindView(R.id.linear_inquire_include)
+    LinearLayout mLinearInquireInclude;
+    @BindView(R.id.image_mes_include)
+    ImageView mImageMesInclude;
 
     @Override
     protected View initView() {
-        View view = View.inflate(mContext, R.layout.homefragment_layout, null);
+        View view = View.inflate(mContext, R.layout.fragment_home, null);
         return view;
     }
 
