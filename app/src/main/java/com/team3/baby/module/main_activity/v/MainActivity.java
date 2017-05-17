@@ -3,6 +3,7 @@ package com.team3.baby.module.main_activity.v;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity {
     RadioGroup rdoGroup;
     @BindView(R.id.iv_groupBuy_main_activity)
     ImageView ivGroupBuyMainActivity;
+    private FragmentManager manager;
 
     @Override
     protected void initView() {
@@ -49,7 +51,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        FragmentManager manager = getSupportFragmentManager();
+        manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         ClassFragment classFragment = new ClassFragment();
         GroupBuyFragment groupBuyFragment = new GroupBuyFragment();
@@ -61,6 +63,12 @@ public class MainActivity extends BaseActivity {
         transaction.add(R.id.relative_layout_main_activity,homeFragment,"tag3");
         transaction.add(R.id.relative_layout_main_activity,myebuyFragment,"tag4");
         transaction.add(R.id.relative_layout_main_activity,shoppingFragment,"tag5");
+        transaction.show(classFragment);
+        transaction.hide(groupBuyFragment);
+        transaction.hide(homeFragment);
+        transaction.hide(myebuyFragment);
+        transaction.hide(shoppingFragment);
+        transaction.commit();
     }
 
     @Override
@@ -70,7 +78,36 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
+        rdoBtnHomeMainActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
+        rdoBtnClassMainActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        ivGroupBuyMainActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        rdoBtnShoppingMainActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        rdoBtnMyebuyMainActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
