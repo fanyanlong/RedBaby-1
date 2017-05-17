@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
 
     <RelativeLayout
@@ -22,6 +23,7 @@
             android:text="乐拼购"
             android:textColor="@color/hei"
             android:textSize="25sp"/>
+
         <ImageView
             android:id="@+id/imager_right_fragment_groupbuy"
             style="@style/text_image_jianju"
@@ -33,4 +35,14 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/huise"></View>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_fragment_groupbuy"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:tabMode="scrollable"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="4dp"
+        app:tabPaddingTop="5dp"
+        app:tabPaddingBottom="10dp"></android.support.design.widget.TabLayout>
 </LinearLayout>
