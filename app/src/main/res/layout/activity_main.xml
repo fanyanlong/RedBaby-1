@@ -34,6 +34,7 @@
                      android:layout_height="wrap_content"
                      android:layout_weight="1"
                      android:button="@null"
+                     android:id="@+id/rdoBtn_hide_main_activity"
                      android:drawableTop="@drawable/main_tab_home"
         />
         <RadioButton android:id="@+id/rdoBtn_shopping_main_activity"
