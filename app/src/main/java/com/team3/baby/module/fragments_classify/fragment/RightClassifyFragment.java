@@ -1,7 +1,8 @@
-package com.team3.baby.module.fragments_classify;
+package com.team3.baby.module.fragments_classify.fragment;
 
 import android.view.View;
 
+import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
 
 /**
@@ -10,10 +11,11 @@ import com.team3.baby.base.BaseFragment;
  * 2017/5/17  16:23
  */
 
-public class RightFragmentClassify extends BaseFragment {
+public class RightClassifyFragment extends BaseFragment {
     @Override
     protected View initView() {
-        return null;
+        View view = View.inflate(mContext, R.layout.fragment_right_classify, null);
+        return view;
     }
 
     @Override
