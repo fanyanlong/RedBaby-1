@@ -19,9 +19,6 @@ import butterknife.OnClick;
  */
 
 public class GroupBuyFragment extends BaseFragment {
-
-    @BindView(R.id.imager_left_fragment_groupbuy)
-    ImageView imagerLeftFragmentGroupbuy;
     @BindView(R.id.imager_right_fragment_groupbuy)
     ImageView imagerRightFragmentGroupbuy;
     @BindView(R.id.tab_fragment_groupbuy)
@@ -48,6 +45,17 @@ public class GroupBuyFragment extends BaseFragment {
                 .ic_launcher));
         tabFragmentGroupbuy.addTab(tabFragmentGroupbuy.newTab().setText("Tab 4").setIcon(R.mipmap
                 .ic_launcher));
+        tabFragmentGroupbuy.addTab(tabFragmentGroupbuy.newTab().setText("Tab 4").setIcon(R.mipmap
+                .ic_launcher));
+        tabFragmentGroupbuy.addTab(tabFragmentGroupbuy.newTab().setText("Tab 4").setIcon(R.mipmap
+                .ic_launcher));
+        tabFragmentGroupbuy.addTab(tabFragmentGroupbuy.newTab().setText("Tab 4").setIcon(R.mipmap
+                .ic_launcher));
+        tabFragmentGroupbuy.addTab(tabFragmentGroupbuy.newTab().setText("Tab 4").setIcon(R.mipmap
+                .ic_launcher));
+        tabFragmentGroupbuy.addTab(tabFragmentGroupbuy.newTab().setText("Tab 4").setIcon(R.mipmap
+                .ic_launcher));
+
 
     }
 
@@ -60,12 +68,9 @@ public class GroupBuyFragment extends BaseFragment {
         return rootView;
     }
 
-    @OnClick({R.id.imager_left_fragment_groupbuy, R.id.imager_right_fragment_groupbuy})
+    @OnClick({ R.id.imager_right_fragment_groupbuy})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.imager_left_fragment_groupbuy:
-
-                break;
             case R.id.imager_right_fragment_groupbuy:
                 break;
         }
