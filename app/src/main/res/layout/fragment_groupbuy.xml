@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imager_left_fragment_groupbuy"
+            style="@style/text_image_jianju"
+            android:src="@mipmap/ucwv_btn_back"/>
+
+        <TextView
+            style="@style/text_image_jianju"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="乐拼购"
+            android:textColor="@color/hei"
+            android:textSize="25sp"/>
+        <ImageView
+            android:id="@+id/imager_right_fragment_groupbuy"
+            style="@style/text_image_jianju"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ucwv_ebuy"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/huise"></View>
+</LinearLayout>
