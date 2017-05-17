@@ -1,4 +1,4 @@
-package com.team3.baby.modules.fragments_myebuy;
+package com.team3.baby.module.fragments_myebuy;
 
 /**
  * Created by tianjieyu on 2017/5/17.

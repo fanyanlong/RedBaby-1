@@ -1,4 +1,4 @@
-package com.team3.baby.modules;
+package com.team3.baby.module;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
