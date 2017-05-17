@@ -73,9 +73,9 @@ public class MainActivity extends BaseActivity {
         transaction.add(R.id.relative_layout_main_activity, homeFragment, "tag3");
         transaction.add(R.id.relative_layout_main_activity, myebuyFragment, "tag4");
         transaction.add(R.id.relative_layout_main_activity, shoppingFragment, "tag5");
-        transaction.show(classFragment);
+        transaction.hide(classFragment);
         transaction.hide(groupBuyFragment);
-        transaction.hide(homeFragment);
+        transaction.show(homeFragment);
         transaction.hide(myebuyFragment);
         transaction.hide(shoppingFragment);
         transaction.commit();
@@ -157,9 +157,6 @@ public class MainActivity extends BaseActivity {
 
         // TODO: add setContentView(...) invocation
         setContentView(R.layout.activity_main);
-        initView();
-
-
         ButterKnife.bind(this);
     }
 }

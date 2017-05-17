@@ -6,13 +6,16 @@
                 android:layout_height="match_parent"
                 tools:context="com.team3.baby.module.main_activity.v.MainActivity">
 
-    <RelativeLayout android:layout_width="match_parent"
+    <RelativeLayout android:id="@+id/relative_layout_main_activity"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/relative_layout_main_activity"
+
     ></RelativeLayout>
+
     <RadioGroup android:id="@+id/rdoGroup"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:background="#ffffff"
                 android:layout_alignParentBottom="true"
                 android:orientation="horizontal">
         <RadioButton android:id="@+id/rdoBtn_home_main_activity"
@@ -30,11 +33,11 @@
                      android:button="@null"
                      android:drawableTop="@drawable/main_tab_class"
         />
-        <RadioButton android:layout_width="0dp"
+        <RadioButton android:id="@+id/rdoBtn_hide_main_activity"
+                     android:layout_width="0dp"
                      android:layout_height="wrap_content"
                      android:layout_weight="1"
                      android:button="@null"
-                     android:id="@+id/rdoBtn_hide_main_activity"
                      android:drawableTop="@drawable/main_tab_home"
         />
         <RadioButton android:id="@+id/rdoBtn_shopping_main_activity"
@@ -52,6 +55,14 @@
                      android:drawableTop="@drawable/main_tab_myebuy"
         />
     </RadioGroup>
+
+
+    <View android:layout_width="match_parent"
+          android:layout_height="0.1dp"
+          android:layout_above="@id/rdoGroup"
+          android:background="#999999"
+    />
+
     <ImageView android:id="@+id/iv_groupBuy_main_activity"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -59,9 +70,7 @@
                android:layout_centerHorizontal="true"
                android:src="@mipmap/img_tab_groupbuy"/>
 
-    <View android:layout_width="match_parent"
-          android:layout_height="0.1dp"
-          android:layout_above="@id/rdoGroup"
-          android:background="#999999"
-    />
+
 </RelativeLayout>
+
+
