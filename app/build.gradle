@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 //ButterKnife，金虎，0517 14:55
 apply plugin: 'android-apt'
 android {
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
