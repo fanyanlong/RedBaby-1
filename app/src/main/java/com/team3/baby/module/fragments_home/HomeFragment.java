@@ -13,10 +13,13 @@ import com.team3.baby.base.BaseFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import android.support.v4.app.Fragment;
+
 /**
  * Created by tianjieyu on 2017/5/17.
  */
 
+public class HomeFragment extends Fragment {
 public class HomeFragment extends BaseFragment {
     @BindView(R.id.tab_top_home_fragment)
     TabLayout mTabTopHomeFragment;
