@@ -29,9 +29,10 @@ public abstract class BaseActivity extends FragmentActivity {
         mActivity = this;
         mSharedPreferences = App.getSharedPrefernces(mActivity);
         mEditor = mSharedPreferences.edit();
+        initView();
         ButterKnife.bind(this);
         //初始化视图控件
-        initView();
+
     }
     @Override
     protected void onResume() {

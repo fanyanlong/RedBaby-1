@@ -12,7 +12,7 @@ import com.team3.baby.base.BaseFragment;
 public class ShoppingFragment extends BaseFragment {
     @Override
     protected View initView() {
-        View view = View.inflate(mContext, R.layout.shoppingfragment_layout, null);
+        View view = View.inflate(mContext, R.layout.fragment_shopping, null);
         return view;
     }
 
