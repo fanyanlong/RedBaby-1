@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
+ *
  * @class describe
  * @anthor 田杰谕
  * @time 2017/5/17 下午4:00
@@ -116,6 +117,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
+        initView();
         ButterKnife.bind(this);
     }
 }
