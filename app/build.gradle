@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+//ButterKnife，金虎，0517 14:55
+apply plugin: 'android-apt'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -26,4 +27,9 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+//    金虎，5.17 14:49 添加
+    // butterknife
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile 'com.jakewharton:butterknife:8.2.1'
+
 }
