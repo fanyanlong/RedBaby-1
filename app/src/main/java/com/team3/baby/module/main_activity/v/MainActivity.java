@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.team3.baby.R;
 import com.team3.baby.base.BaseActivity;
-import com.team3.baby.module.fragments_class.ClassFragment;
+import com.team3.baby.module.fragments_classify.fragment.ClassifyFragment;
 import com.team3.baby.module.fragments_groupBuy.GroupBuyFragment;
 import com.team3.baby.module.fragments_home.HomeFragment;
 import com.team3.baby.module.fragments_myebuy.MyebuyFragment;
@@ -26,8 +26,8 @@ import butterknife.ButterKnife;
  * @anthor 田杰谕
  * @time 2017/5/17 下午4:00
  */
-public class MainActivity extends BaseActivity {
 
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.relative_layout_main_activity)
     RelativeLayout relativeLayoutMainActivity;
@@ -43,32 +43,39 @@ public class MainActivity extends BaseActivity {
     RadioGroup rdoGroup;
     @BindView(R.id.iv_groupBuy_main_activity)
     ImageView ivGroupBuyMainActivity;
+    @BindView(R.id.rdoBtn_hide_main_activity)
+    RadioButton rdoBtnHideMainActivity;
     private FragmentManager manager;
+
+    private GroupBuyFragment groupBuyFragment;
+    private HomeFragment homeFragment;
+    private MyebuyFragment myebuyFragment;
+    private ShoppingFragment shoppingFragment;
+    private ClassifyFragment classFragment;
 
     @Override
     protected void initView() {
-        setContentView(R.layout.activity_main);
     }
 
     @Override
     protected void initData() {
         manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        ClassFragment classFragment = new ClassFragment();
-        GroupBuyFragment groupBuyFragment = new GroupBuyFragment();
-        HomeFragment homeFragment = new HomeFragment();
-        MyebuyFragment myebuyFragment = new MyebuyFragment();
+        classFragment = new ClassifyFragment();
+        groupBuyFragment = new GroupBuyFragment();
+        homeFragment = new HomeFragment();
+        myebuyFragment = new MyebuyFragment();
         //ShoppingFragment shoppingFragment = new ShoppingFragment();
         //transaction.add(R.id.relative_layout_main_activity,classFragment,"tag1");
-        ShoppingFragment shoppingFragment = new ShoppingFragment();
-        transaction.add(R.id.relative_layout_main_activity,classFragment,"tag1");
-        transaction.add(R.id.relative_layout_main_activity,groupBuyFragment,"tag2");
-        transaction.add(R.id.relative_layout_main_activity,homeFragment,"tag3");
-        transaction.add(R.id.relative_layout_main_activity,myebuyFragment,"tag4");
-        transaction.add(R.id.relative_layout_main_activity,shoppingFragment,"tag5");
-        transaction.show(classFragment);
+        shoppingFragment = new ShoppingFragment();
+        transaction.add(R.id.relative_layout_main_activity, classFragment, "tag1");
+        transaction.add(R.id.relative_layout_main_activity, groupBuyFragment, "tag2");
+        transaction.add(R.id.relative_layout_main_activity, homeFragment, "tag3");
+        transaction.add(R.id.relative_layout_main_activity, myebuyFragment, "tag4");
+        transaction.add(R.id.relative_layout_main_activity, shoppingFragment, "tag5");
+        transaction.hide(classFragment);
         transaction.hide(groupBuyFragment);
-        transaction.hide(homeFragment);
+        transaction.show(homeFragment);
         transaction.hide(myebuyFragment);
         transaction.hide(shoppingFragment);
         transaction.commit();
@@ -84,31 +91,62 @@ public class MainActivity extends BaseActivity {
         rdoBtnHomeMainActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.show(homeFragment);
+                transaction.hide(classFragment);
+                transaction.hide(groupBuyFragment);
+                transaction.hide(myebuyFragment);
+                transaction.hide(shoppingFragment);
+                transaction.commit();
             }
         });
         rdoBtnClassMainActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.hide(homeFragment);
+                transaction.show(classFragment);
+                transaction.hide(groupBuyFragment);
+                transaction.hide(myebuyFragment);
+                transaction.hide(shoppingFragment);
+                transaction.commit();
             }
         });
         ivGroupBuyMainActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.hide(homeFragment);
+                transaction.hide(classFragment);
+                transaction.show(groupBuyFragment);
+                transaction.hide(myebuyFragment);
+                transaction.hide(shoppingFragment);
+                transaction.commit();
+                rdoBtnHideMainActivity.setChecked(true);
             }
         });
         rdoBtnShoppingMainActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.hide(homeFragment);
+                transaction.hide(classFragment);
+                transaction.hide(groupBuyFragment);
+                transaction.hide(myebuyFragment);
+                transaction.show(shoppingFragment);
+                transaction.commit();
             }
         });
         rdoBtnMyebuyMainActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.hide(homeFragment);
+                transaction.hide(classFragment);
+                transaction.hide(groupBuyFragment);
+                transaction.show(myebuyFragment);
+                transaction.hide(shoppingFragment);
+                transaction.commit();
             }
         });
     }
@@ -116,8 +154,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // TODO: add setContentView(...) invocation
-        initView();
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
     }
 }
+
