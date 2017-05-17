@@ -10,7 +10,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.team3.baby.R;
+import com.team3.baby.module.fragments_home.adapter.HomeAdapter;
 import com.team3.baby.base.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +35,7 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.image_mes_include)
     ImageView mImageMesInclude;
 
+
     @Override
     protected View initView() {
         View view = View.inflate(mContext, R.layout.fragment_home, null);
@@ -44,8 +49,17 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 1"));
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 2"));
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 3"));
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 4"));
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 5"));
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 6"));
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 7"));
+        mTabTopHomeFragment.addTab(mTabTopHomeFragment.newTab().setText("Tab 8"));
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
