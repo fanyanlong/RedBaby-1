@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
 import com.team3.baby.module.fragments_classify.adapter.LeftRvAdapter;
+import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,8 @@ public class LeftClassifyFragment extends BaseFragment {
     private void initRecyclerView(List<String> list) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         mRecyclerLeftClassify.setLayoutManager(layoutManager);
+        //分割线
+        mRecyclerLeftClassify.addItemDecoration(new RecyclerViewDivider(mContext, layoutManager.HORIZONTAL));
         LeftRvAdapter adapter = new LeftRvAdapter(list, mContext);
         mRecyclerLeftClassify.setAdapter(adapter);
     }
