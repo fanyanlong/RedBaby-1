@@ -94,11 +94,18 @@
                 android:layout_gravity="right"
                 android:background="@drawable/xuanzedian"
                 android:button="@null"
-                android:text=" ***"
+                android:text="     ***"
                 android:textColor="@drawable/xuanzeziti"
                 android:textSize="16sp" />
         </RadioGroup>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9999">
 
     </LinearLayout>
 </LinearLayout>
