@@ -1,4 +1,4 @@
-package com.team3.baby.modules.fragments_home;
+package com.team3.baby.module.fragments_home;
 
 /**
  * Created by tianjieyu on 2017/5/17.

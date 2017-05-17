@@ -1,4 +1,4 @@
-package com.team3.baby.modules.fragments_groupBuy;
+package com.team3.baby.module.fragments_groupBuy;
 
 /**
  * Created by tianjieyu on 2017/5/17.
