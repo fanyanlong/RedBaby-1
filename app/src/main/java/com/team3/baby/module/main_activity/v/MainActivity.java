@@ -55,6 +55,8 @@ public class MainActivity extends BaseActivity {
         GroupBuyFragment groupBuyFragment = new GroupBuyFragment();
         HomeFragment homeFragment = new HomeFragment();
         MyebuyFragment myebuyFragment = new MyebuyFragment();
+        //ShoppingFragment shoppingFragment = new ShoppingFragment();
+        //transaction.add(R.id.relative_layout_main_activity,classFragment,"tag1");
         ShoppingFragment shoppingFragment = new ShoppingFragment();
         transaction.add(R.id.relative_layout_main_activity,classFragment,"tag1");
         transaction.add(R.id.relative_layout_main_activity,groupBuyFragment,"tag2");
