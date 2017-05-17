@@ -60,11 +60,11 @@ public class MainActivity extends BaseActivity {
         //ShoppingFragment shoppingFragment = new ShoppingFragment();
         //transaction.add(R.id.relative_layout_main_activity,classFragment,"tag1");
         ShoppingFragment shoppingFragment = new ShoppingFragment();
-        transaction.add(R.id.relative_layout_main_activity,classFragment,"tag1");
-        transaction.add(R.id.relative_layout_main_activity,groupBuyFragment,"tag2");
-        transaction.add(R.id.relative_layout_main_activity,homeFragment,"tag3");
-        transaction.add(R.id.relative_layout_main_activity,myebuyFragment,"tag4");
-        transaction.add(R.id.relative_layout_main_activity,shoppingFragment,"tag5");
+        transaction.add(R.id.relative_layout_main_activity, classFragment, "tag1");
+        transaction.add(R.id.relative_layout_main_activity, groupBuyFragment, "tag2");
+        transaction.add(R.id.relative_layout_main_activity, homeFragment, "tag3");
+        transaction.add(R.id.relative_layout_main_activity, myebuyFragment, "tag4");
+        transaction.add(R.id.relative_layout_main_activity, shoppingFragment, "tag5");
         transaction.show(classFragment);
         transaction.hide(groupBuyFragment);
         transaction.hide(homeFragment);
@@ -115,7 +115,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
     }
 }
