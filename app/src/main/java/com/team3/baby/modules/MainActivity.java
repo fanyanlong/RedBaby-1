@@ -1,7 +1,9 @@
-package com.team3.baby;
+package com.team3.baby.modules;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.team3.baby.R;
 
 public class MainActivity extends AppCompatActivity {
 
