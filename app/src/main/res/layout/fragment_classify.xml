@@ -35,16 +35,18 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <fragment
             android:id="@+id/fl_01_classify"
+            android:name="com.team3.baby.module.fragments_classify.fragment.LeftClassifyFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            />
+
+        <fragment
+            android:id="@+id/fl_02_classify"
+            android:name="com.team3.baby.module.fragments_classify.fragment.RightClassifyFragment"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
-
-        <FrameLayout
-            android:id="@+id/fl_02_classify"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"/>
     </LinearLayout>
 </LinearLayout>

@@ -1,13 +1,11 @@
 package com.team3.baby.module.fragments_classify.fragment;
 
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.team3.baby.R;
@@ -35,22 +33,11 @@ public class LeftClassifyFragment extends BaseFragment {
     Unbinder unbinder;
     private LeftRvAdapter mAdapter;
     private List<LeftClassifyBean> mList;
-
+    private TranceInfo mTranceInfo;
 
     @Override
     protected View initView() {
         final View view = View.inflate(mContext, R.layout.fragment_left_classify, null);
-        final ImageView imageView = (ImageView) view.findViewById(R.id.image_test);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //动画，抖动
-                ObjectAnimator objectAnimatorTranslate3 = ObjectAnimator.ofFloat(imageView, "translationX", -50f, 50f);
-                objectAnimatorTranslate3.setDuration(500);
-                objectAnimatorTranslate3.setRepeatCount(3);
-                objectAnimatorTranslate3.start();
-            }
-        });
         return view;
     }
 
@@ -59,11 +46,8 @@ public class LeftClassifyFragment extends BaseFragment {
         mAdapter.setmOnItemClickListener(new LeftRvAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                ObjectAnimator objectAnimatorTranslate3 = ObjectAnimator.ofFloat(view, "translationX", -50f, 50f);
-                objectAnimatorTranslate3.setDuration(500);
-                objectAnimatorTranslate3.setRepeatCount(3);
-                objectAnimatorTranslate3.start();
                 Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
+                mTranceInfo.onTranceInfo(position + "");
             }
         });
     }
@@ -71,7 +55,7 @@ public class LeftClassifyFragment extends BaseFragment {
     @Override
     protected void initData() {
         mList = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 10; i++) {
             LeftClassifyBean bean = new LeftClassifyBean();
             bean.setText("第" + i + "个");
             mList.add(bean);
@@ -101,5 +85,14 @@ public class LeftClassifyFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    //传值接口
+    public interface TranceInfo {
+        void onTranceInfo(String info);
+    }
+
+    public void setTraceInfo(TranceInfo tranceInfo) {
+        this.mTranceInfo = tranceInfo;
     }
 }
