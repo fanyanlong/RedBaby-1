@@ -9,10 +9,16 @@ import android.support.v4.app.FragmentTransaction;
 
 public interface MainView {
     Fragment getFragment1();
+
     Fragment getFragment2();
+
     Fragment getFragment3();
+
     Fragment getFragment4();
+
     Fragment getFragment5();
+
     int getLayout();
+
     FragmentTransaction getFragmentTransaction();
 }

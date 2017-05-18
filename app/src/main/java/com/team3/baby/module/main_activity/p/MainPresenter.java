@@ -18,22 +18,16 @@ import com.team3.baby.module.main_activity.v.MainView;
 public class MainPresenter {
     private MainModuleImpl mainModule;
     private MainView mainView;
-   /* HomeFragment homeFragment = (HomeFragment) mainView.getFragment1();
-    ClassifyFragment classFragment = (ClassifyFragment) mainView.getFragment2();
 
-    GroupBuyFragment groupBuyFragment = (GroupBuyFragment) mainView.getFragment3();
-    ShoppingFragment shoppingFragment = (ShoppingFragment) mainView.getFragment4();
-    MyebuyFragment myebuyFragment = (MyebuyFragment) mainView.getFragment5();
-*/
     public MainPresenter(MainView mainView) {
         this.mainModule = new MainModuleImpl();
         this.mainView = mainView;
     }
 
     public void addFragment() {
-        mainModule.addFragment(mainView.getLayout(),mainView.getFragmentTransaction(),
-                mainView.getFragment1(),mainView.getFragment2(),mainView.getFragment3(),
-                mainView.getFragment4(),mainView.getFragment5());
+        mainModule.addFragment(mainView.getLayout(), mainView.getFragmentTransaction(),
+                mainView.getFragment1(), mainView.getFragment2(), mainView.getFragment3(),
+                mainView.getFragment4(), mainView.getFragment5());
     }
 
     public void setMainOnListenerHome() {
@@ -41,11 +35,6 @@ public class MainPresenter {
             @Override
             public void onClickRaoBtnHome() {
                 FragmentTransaction transaction = mainView.getFragmentTransaction();
-                /*transaction.show(homeFragment);
-                transaction.hide(classFragment);
-                transaction.hide(groupBuyFragment);
-                transaction.hide(myebuyFragment);
-                transaction.hide(shoppingFragment);*/
                 transaction.show(mainView.getFragment1());
                 transaction.hide(mainView.getFragment2());
                 transaction.hide(mainView.getFragment3());
@@ -61,11 +50,6 @@ public class MainPresenter {
             @Override
             public void onClickRaoBtnClass() {
                 FragmentTransaction transaction = mainView.getFragmentTransaction();
-                /*transaction.hide(homeFragment);
-                transaction.show(classFragment);
-                transaction.hide(groupBuyFragment);
-                transaction.hide(myebuyFragment);
-                transaction.hide(shoppingFragment);*/
                 transaction.hide(mainView.getFragment1());
                 transaction.show(mainView.getFragment2());
                 transaction.hide(mainView.getFragment3());
@@ -81,11 +65,6 @@ public class MainPresenter {
             @Override
             public void onClickRaoBtnGroupBuy() {
                 FragmentTransaction transaction = mainView.getFragmentTransaction();
-                /*transaction.hide(homeFragment);
-                transaction.hide(classFragment);
-                transaction.show(groupBuyFragment);
-                transaction.hide(myebuyFragment);
-                transaction.hide(shoppingFragment);*/
                 transaction.hide(mainView.getFragment1());
                 transaction.hide(mainView.getFragment2());
                 transaction.show(mainView.getFragment3());
@@ -102,11 +81,6 @@ public class MainPresenter {
             @Override
             public void onClickRaoBtnShopping() {
                 FragmentTransaction transaction = mainView.getFragmentTransaction();
-                /*transaction.hide(homeFragment);
-                transaction.hide(classFragment);
-                transaction.hide(groupBuyFragment);
-                transaction.hide(myebuyFragment);
-                transaction.show(shoppingFragment);*/
                 transaction.hide(mainView.getFragment1());
                 transaction.hide(mainView.getFragment2());
                 transaction.hide(mainView.getFragment3());
@@ -122,11 +96,6 @@ public class MainPresenter {
             @Override
             public void onClickRaoBtnMyeBuy() {
                 FragmentTransaction transaction = mainView.getFragmentTransaction();
-                /*transaction.hide(homeFragment);
-                transaction.hide(classFragment);
-                transaction.hide(groupBuyFragment);
-                transaction.show(myebuyFragment);
-                transaction.hide(shoppingFragment);*/
                 transaction.hide(mainView.getFragment1());
                 transaction.hide(mainView.getFragment2());
                 transaction.hide(mainView.getFragment3());
