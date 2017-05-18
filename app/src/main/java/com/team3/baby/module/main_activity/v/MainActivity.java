@@ -62,7 +62,6 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     protected void initData() {
-
         classFragment = new ClassifyFragment();
         groupBuyFragment = new GroupBuyFragment();
         homeFragment = new HomeFragment();
