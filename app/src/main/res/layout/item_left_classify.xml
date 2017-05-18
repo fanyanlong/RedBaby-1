@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="100dp"
-              android:layout_height="40dp"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="40dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_item_left_classify"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:background="@drawable/sel_tv_bg_leftclassify"
         android:gravity="center"
         android:text="左边条目"
-        android:textColor="@drawable/sel_tv_color_leftclassify"
         android:textSize="15sp"/>
 </LinearLayout>
