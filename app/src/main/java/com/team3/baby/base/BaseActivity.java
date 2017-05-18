@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 
 import com.team3.baby.app.App;
 
@@ -59,4 +61,14 @@ public abstract class BaseActivity extends FragmentActivity {
     protected abstract void setListener();
 
     //protected abstract void ortherToDo();
+
+    protected void addFragment(int containerViewId, Fragment fragment, String tag) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        // 设置tag，不然下面 findFragmentByTag(tag)找不到
+        fragmentTransaction.add(containerViewId, fragment, tag);
+        fragmentTransaction.addToBackStack(tag);
+        fragmentTransaction.commit();
+    }
+
+
 }
