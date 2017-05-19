@@ -32,6 +32,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     //崔涵淞 5.17 15:54 添加 首页TabLayout
     compile 'com.android.support:design:25.3.1'
+    //崔涵淞 5.19 14:45 添加 下拉刷新
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
     //    金虎，5.17 14:49 添加
