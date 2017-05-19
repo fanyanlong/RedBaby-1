@@ -117,6 +117,7 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner {
     public void gotoPay() {
         //进入待支付界面
         startActivity(new Intent(mContext, PayAcitvity.class));
+        getActivity().finish();
     }
 
     @Override
@@ -135,6 +136,7 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner {
     public void gotoService() {
         //进入后续服务界面
         startActivity(new Intent(mContext, MyService.class));
+
     }
 
     @Override

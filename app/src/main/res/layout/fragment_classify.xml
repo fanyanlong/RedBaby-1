@@ -35,19 +35,14 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_left_classify"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"/>
 
-        <fragment
-            android:id="@+id/fl_01_classify"
-            android:name="com.team3.baby.module.fragments_classify.fragment.LeftClassifyFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            />
-
-        <fragment
-            android:id="@+id/fl_02_classify"
-            android:name="com.team3.baby.module.fragments_classify.fragment.RightClassifyFragment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_right_classify"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </LinearLayout>

@@ -20,18 +20,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
-* @class describe
-* @anthor 郭彦君
-* @time 2017/5/19 
-*/
+ * @class describe
+ * @anthor 郭彦君
+ * @time 2017/5/19
+ */
 
 public class ShoppingFragment extends BaseFragment {
     @BindView(R.id.fragment_shopping_recyclerView)
     RecyclerView fragmentShoppingRecyclerView;
     @BindView(R.id.tv_compile_fragment_shopping)
     TextView tvCompileFragmentShopping;
-
-
 
 
     private HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
@@ -56,16 +54,16 @@ public class ShoppingFragment extends BaseFragment {
             dataList.add("item" + i);
         }
 
-      Fragment_shopping_RecycleAdapter dataAdapter = new Fragment_shopping_RecycleAdapter(getActivity(),dataList,fragmentShoppingRecyclerView);
+        Fragment_shopping_RecycleAdapter dataAdapter = new Fragment_shopping_RecycleAdapter(mContext, dataList, fragmentShoppingRecyclerView);
 
         mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
         fragmentShoppingRecyclerView.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
 
-        GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
+        GridLayoutManager manager = new GridLayoutManager(mContext, 2);
         manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) fragmentShoppingRecyclerView.getAdapter(), manager.getSpanCount()));
         fragmentShoppingRecyclerView.setLayoutManager(manager);
 
-        RecyclerViewUtils.setHeaderView(fragmentShoppingRecyclerView, new SampleHeader(getActivity()));
+        RecyclerViewUtils.setHeaderView(fragmentShoppingRecyclerView, new SampleHeader(mContext));
 
 
     }
