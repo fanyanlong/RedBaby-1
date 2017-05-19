@@ -6,10 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
 import com.team3.baby.module.fragments_classify.adapter.LeftRvAdapter;
+import com.team3.baby.module.fragments_classify.bean.LeftClassifyBean;
+import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,32 +31,46 @@ public class LeftClassifyFragment extends BaseFragment {
     @BindView(R.id.recycler_left_classify)
     RecyclerView mRecyclerLeftClassify;
     Unbinder unbinder;
+    private LeftRvAdapter mAdapter;
+    private List<LeftClassifyBean> mList;
+    private TranceInfo mTranceInfo;
 
     @Override
     protected View initView() {
-        View view = View.inflate(mContext, R.layout.fragment_left_classify, null);
+        final View view = View.inflate(mContext, R.layout.fragment_left_classify, null);
         return view;
     }
 
     @Override
     protected void setListener() {
-
+        mAdapter.setmOnItemClickListener(new LeftRvAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
+                mTranceInfo.onTranceInfo(position + "");
+            }
+        });
     }
 
     @Override
     protected void initData() {
-        List<String> list = new ArrayList<>();
+        mList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            list.add("第" + i + "个");
+            LeftClassifyBean bean = new LeftClassifyBean();
+            bean.setText("第" + i + "个");
+            mList.add(bean);
         }
-        initRecyclerView(list);
+        initRecyclerView(mList);
     }
 
-    private void initRecyclerView(List<String> list) {
+    private void initRecyclerView(List<LeftClassifyBean> list) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         mRecyclerLeftClassify.setLayoutManager(layoutManager);
-        LeftRvAdapter adapter = new LeftRvAdapter(list, mContext);
-        mRecyclerLeftClassify.setAdapter(adapter);
+        //分割线
+        mRecyclerLeftClassify.addItemDecoration(new RecyclerViewDivider(mContext, layoutManager.HORIZONTAL));
+        mAdapter = new LeftRvAdapter(list, mContext);
+        mRecyclerLeftClassify.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -68,5 +85,14 @@ public class LeftClassifyFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    //传值接口
+    public interface TranceInfo {
+        void onTranceInfo(String info);
+    }
+
+    public void setTraceInfo(TranceInfo tranceInfo) {
+        this.mTranceInfo = tranceInfo;
     }
 }

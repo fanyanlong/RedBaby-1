@@ -1,7 +1,5 @@
 package com.team3.baby.module.fragments_classify.fragment;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.team3.baby.R;
@@ -29,12 +27,5 @@ public class ClassifyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        LeftClassifyFragment leftClassifyFragment = new LeftClassifyFragment();
-        RightClassifyFragment rightClassifyFragment = new RightClassifyFragment();
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(R.id.fl_01_classify, leftClassifyFragment);
-        transaction.add(R.id.fl_02_classify, rightClassifyFragment);
-        transaction.commit();
     }
 }
