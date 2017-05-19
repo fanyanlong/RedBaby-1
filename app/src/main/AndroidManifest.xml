@@ -10,27 +10,27 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".module.fragments_myebuy.otheractivity.Receive"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.MyMessage"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.Setting"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.ShowItem"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.MyService"></activity>
+        <activity android:name=".module.fragments_myebuy.Receive"></activity>
+        <activity android:name=".module.fragments_myebuy.MyMessage"></activity>
+        <activity android:name=".module.fragments_myebuy.Setting"></activity>
+        <activity android:name=".module.fragments_myebuy.ShowItem"></activity>
+        <activity android:name=".module.fragments_myebuy.MyService"></activity>
 
-        <activity android:name=".module.fragments_myebuy.otheractivity.PayAcitvity"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.MyMember"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.XiaoXi"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.BindSeting"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.Checkdetails"></activity>
+        <activity android:name=".module.fragments_myebuy.PayAcitvity"></activity>
+        <activity android:name=".module.fragments_myebuy.MyMember"></activity>
+        <activity android:name=".module.fragments_myebuy.XiaoXi"></activity>
+        <activity android:name=".module.fragments_myebuy.BindSeting"></activity>
+        <activity android:name=".module.fragments_myebuy.Checkdetails"></activity>
 
-        <activity android:name=".module.fragments_myebuy.otheractivity.CheckOrder"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.Coupon"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.Judge"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.Collect"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.Diamond"></activity>
+        <activity android:name=".module.fragments_myebuy.CheckOrder"></activity>
+        <activity android:name=".module.fragments_myebuy.Coupon"></activity>
+        <activity android:name=".module.fragments_myebuy.Judge"></activity>
+        <activity android:name=".module.fragments_myebuy.Collect"></activity>
+        <activity android:name=".module.fragments_myebuy.Diamond"></activity>
 
 
-        <activity android:name=".module.fragments_myebuy.otheractivity.Myhistory"></activity>
-        <activity android:name=".module.fragments_myebuy.otheractivity.Accountsecurity"></activity>
+        <activity android:name=".module.fragments_myebuy.Myhistory"></activity>
+        <activity android:name=".module.fragments_myebuy.Accountsecurity"></activity>
         <activity android:name=".CuiHanSong_Activity"></activity>
         <activity android:name=".module.main_activity.v.MainActivity">
             <intent-filter>

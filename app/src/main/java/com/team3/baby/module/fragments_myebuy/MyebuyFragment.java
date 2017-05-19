@@ -14,23 +14,6 @@ import android.widget.TextView;
 
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Accountsecurity;
-import com.team3.baby.module.fragments_myebuy.otheractivity.BindSeting;
-import com.team3.baby.module.fragments_myebuy.otheractivity.CheckOrder;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Checkdetails;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Collect;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Coupon;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Diamond;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Judge;
-import com.team3.baby.module.fragments_myebuy.otheractivity.MyMember;
-import com.team3.baby.module.fragments_myebuy.otheractivity.MyMessage;
-import com.team3.baby.module.fragments_myebuy.otheractivity.MyService;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Myhistory;
-import com.team3.baby.module.fragments_myebuy.otheractivity.PayAcitvity;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Receive;
-import com.team3.baby.module.fragments_myebuy.otheractivity.Setting;
-import com.team3.baby.module.fragments_myebuy.otheractivity.ShowItem;
-import com.team3.baby.module.fragments_myebuy.otheractivity.XiaoXi;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -304,7 +287,7 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner {
                 break;
             case R.id.ll_zuji_myebuy_fragment:
                 //进入足迹界面
-                startActivity(new Intent(mContext, Myhistory.class));
+                startActivity(new Intent(getActivity(), Myhistory.class));
                 break;
             case R.id.ll_youhui_myebuy_fragment:
                 //进入优惠券界面

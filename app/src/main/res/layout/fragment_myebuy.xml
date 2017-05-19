@@ -194,6 +194,7 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
+                        android:clickable="true"
                         android:src="@mipmap/icon_act_myebuy_waitfor_evaluation" />
 
                     <TextView
@@ -309,6 +310,7 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
+                        android:clickable="true"
                         android:src="@mipmap/zuji_wode" />
 
                     <TextView

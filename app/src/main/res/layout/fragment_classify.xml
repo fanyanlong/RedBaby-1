@@ -35,6 +35,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+
         <fragment
             android:id="@+id/fl_01_classify"
             android:name="com.team3.baby.module.fragments_classify.fragment.LeftClassifyFragment"

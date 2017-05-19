@@ -1,21 +1,20 @@
-package com.team3.baby.module.fragments_myebuy.otheractivity;
+package com.team3.baby.module.fragments_myebuy;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 
 import com.team3.baby.R;
+import com.team3.baby.base.BaseActivity;
 
 /**
- * @类的用途:
+ * @类的用途:我的个人信息
  * @author:jiajianhai
  * @date:2017/5/18
  */
-public class Collect  extends Activity {
+public class MyMessage extends BaseActivity {
+
+
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void initView() {
         setContentView(R.layout.accountsecurity);
         findViewById(R.id.iv_back_myebuy_activity).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,5 +22,20 @@ public class Collect  extends Activity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void getServerData() {
+
+    }
+
+    @Override
+    protected void setListener() {
+
     }
 }
