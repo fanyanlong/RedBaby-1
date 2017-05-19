@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_shopping;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,8 +35,6 @@ public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
     }
 
 
-
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(mLayoutInflater.inflate(R.layout.sample_item_card, parent, false));
@@ -63,11 +62,13 @@ public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.info_text);
 
-            textView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(fragmentShoppingRecyclerView, ViewHolder.this));
                     Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context,ShoppingCarActivity.class);
+                    context.startActivity(intent);
                 }
             });
         }
