@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * data:2017/5/19
  * author:郭彦君(Administrator)
- * function:
+ * function:哎
  */
 public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
 
