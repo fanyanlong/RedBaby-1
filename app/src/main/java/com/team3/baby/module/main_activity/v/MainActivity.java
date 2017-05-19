@@ -46,7 +46,6 @@ public class MainActivity extends BaseActivity implements MainView {
     ImageView ivGroupBuyMainActivity;
     @BindView(R.id.rdoBtn_hide_main_activity)
     RadioButton rdoBtnHideMainActivity;
-    private FragmentManager manager;
 
     private GroupBuyFragment groupBuyFragment;
     private HomeFragment homeFragment;
