@@ -31,13 +31,14 @@
                 <ImageView
                     android:id="@+id/iv_touxiang_wode_fragment"
 
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="60dp"
                     android:src="@mipmap/wode_rebate_snshop" />
 
                 <TextView
+                    android:id="@+id/tv_phone_myebuy_fragment"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -71,6 +72,7 @@
                             android:textSize="20sp" />
 
                         <ImageView
+                            android:id="@+id/iv_liuyan_myebuy_fragment"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
@@ -82,6 +84,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_dizhi_myebuy_fragment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="50dp"
@@ -96,11 +99,13 @@
             <include layout="@layout/include_xian"></include>
 
             <LinearLayout
+                android:id="@+id/ll_quanbuOrder_myebuy_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
 
                 <TextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
@@ -109,6 +114,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -128,6 +134,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_daizhifu_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -135,86 +142,89 @@
 
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/icon_act_myebuy_waitfor_pay" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="待支付"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_daishouhuo_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/icon_act_myebuy_waitfor_accept" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="待收货"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_daipingjia_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/icon_act_myebuy_waitfor_evaluation" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="待评价"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_tuihuan_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/icon_act_myebuy_waitfor_return" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="退还/维修"
                         android:textSize="15sp" />
@@ -231,6 +241,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_shoucang_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -238,17 +249,18 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/love_jokebar_textpage_selected_normal" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="商品收藏"
                         android:textSize="15sp" />
@@ -257,6 +269,7 @@
                 <include layout="@layout/include_shuxian"></include>
 
                 <LinearLayout
+                    android:id="@+id/ll_yunzuan_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -264,17 +277,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/jewlery" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="查看云钻"
                         android:textSize="15sp" />
@@ -283,6 +296,7 @@
                 <include layout="@layout/include_shuxian"></include>
 
                 <LinearLayout
+                    android:id="@+id/ll_zuji_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -291,17 +305,17 @@
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/zuji_wode" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="足迹"
                         android:textSize="15sp" />
@@ -317,6 +331,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_youhui_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -324,17 +339,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/coupons" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="优惠券"
                         android:textSize="15sp" />
@@ -343,6 +358,7 @@
                 <include layout="@layout/include_shuxian"></include>
 
                 <LinearLayout
+                    android:id="@+id/ll_bangding_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -350,17 +366,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/commodity_extend_warranty_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="绑定设置"
                         android:textSize="15sp" />
@@ -369,6 +385,7 @@
                 <include layout="@layout/include_shuxian"></include>
 
                 <LinearLayout
+                    android:id="@+id/ll_anquan_myebuy_fragment"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -377,17 +394,17 @@
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:src="@mipmap/message_center_recommend_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:text="账户安全"
                         android:textSize="15sp" />
