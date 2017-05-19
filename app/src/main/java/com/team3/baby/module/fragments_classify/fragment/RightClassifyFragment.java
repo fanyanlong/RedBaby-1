@@ -29,6 +29,7 @@ public class RightClassifyFragment extends BaseFragment {
     @BindView(R.id.recycler_right_classify)
     RecyclerView mRecyclerRightClassify;
     Unbinder unbinder;
+    private List<RightClassifyBean> mList = new ArrayList<>();
 
     @Override
     protected View initView() {
@@ -43,12 +44,30 @@ public class RightClassifyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        List<RightClassifyBean> list = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
             RightClassifyBean rightClassifyBean = new RightClassifyBean();
-            rightClassifyBean.setText("第" + i + "个");
-            list.add(rightClassifyBean);
+            rightClassifyBean.setText("第" + 0 + "个");
+            mList.add(rightClassifyBean);
+            initRv(mList);
         }
+        initRv(mList);
+        LeftClassifyFragment leftClassifyFragment = (LeftClassifyFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fl_01_classify);
+        leftClassifyFragment.setTraceInfo(new LeftClassifyFragment.TranceInfo() {
+            @Override
+            public void onTranceInfo(String info) {
+                mList.clear();
+                for (int i = 0; i < 30; i++) {
+                    RightClassifyBean rightClassifyBean = new RightClassifyBean();
+                    rightClassifyBean.setText("第" + info + "个");
+                    mList.add(rightClassifyBean);
+                    initRv(mList);
+                }
+            }
+        });
+
+    }
+
+    private void initRv(List<RightClassifyBean> list) {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 3);
         mRecyclerRightClassify.setLayoutManager(gridLayoutManager);
         RightRvAdapter adapter = new RightRvAdapter(list, mContext);
