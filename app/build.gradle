@@ -53,6 +53,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     //金虎 5.19 16:40 logger
     compile 'com.orhanobut:logger:1.15'
+    compile 'com.google.code.gson:gson:2.8.0'
     /*无限录播*/
     compile 'com.youth.banner:banner:1.4.9'
     compile 'com.google.code.gson:gson:2.8.0'

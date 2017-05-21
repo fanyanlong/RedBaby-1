@@ -1,13 +1,22 @@
 package com.team3.baby.module.fragments_home.fragments;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
+import com.team3.baby.module.fragments_home.HomeFragment;
+import com.team3.baby.module.fragments_home.adapter.MyRecyclerAdapter;
 import com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +37,16 @@ public class ItemHomeFragment extends BaseFragment {
     @Override
     protected View initView() {
         View view = View.inflate(mContext, R.layout.fragment_home_recyclerview, null);
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            list.add("这是条目"+i);
+
+        }
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
+
+        MyRecyclerAdapter adapter = new MyRecyclerAdapter(mContext,list);
+       // mRvFragmentHomeRecyclerView.setAdapter(adapter);
+       // mRvFragmentHomeRecyclerView.setLayoutManager(linearLayoutManager);
         return view;
     }
 
@@ -39,6 +58,9 @@ public class ItemHomeFragment extends BaseFragment {
     @Override
     protected void initData() {
 
+
+
+
     }
 
     @Override
@@ -48,5 +70,11 @@ public class ItemHomeFragment extends BaseFragment {
         ButterKnife.bind(this, rootView);
         return rootView;
     }
-
+    public static ItemHomeFragment newInstance(String url) {
+        Bundle bundle = new Bundle();
+        bundle.putString("url", url);
+        ItemHomeFragment itemHomeFragment = new ItemHomeFragment();
+        itemHomeFragment.setArguments(bundle);
+        return itemHomeFragment;
+    }
 }

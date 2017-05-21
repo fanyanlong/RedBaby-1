@@ -1,8 +1,13 @@
 package com.team3.baby.module.fragments_home.adapter;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.team3.baby.base.BaseFragment;
 
 import java.util.List;
 
@@ -12,38 +17,29 @@ import java.util.List;
  * 时间: 2017/5/17 19:29.
  */
 
-public class HomeAdapter extends PagerAdapter {
-    private List<View> viewList;
+public class HomeAdapter extends FragmentPagerAdapter {
+    private List<BaseFragment> list;
     private List<String> titleList;
 
-    public HomeAdapter(List<View> viewList, List<String> titleList) {
-        this.viewList = viewList;
+    public HomeAdapter(FragmentManager fm,List<BaseFragment> list,List<String> titleList) {
+        super(fm);
+        this.list = list;
         this.titleList = titleList;
+    }
+
+
+    @Override
+    public Fragment getItem(int position) {
+        return list.get(position);
     }
 
     @Override
     public int getCount() {
-        return viewList.size();
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == object;
-    }
-
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-       container.addView(viewList.get(position));
-        return viewList.get(position);
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(viewList.get(position));
+        return list.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return titleList.get(position);//页卡标题;
+        return titleList.get(position);
     }
 }
