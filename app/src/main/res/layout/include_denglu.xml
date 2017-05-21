@@ -10,6 +10,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/iv_back_myebuy_include"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginLeft="15dp"
@@ -37,12 +38,14 @@
             android:text="账号" />
 
         <EditText
+            android:id="@+id/et_zhanghao_include"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="手机号/邮箱/用户名/门店会员卡" />
 
         <ImageView
+            android:id="@+id/iv_zhanghao_include"
             android:layout_width="28dp"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
@@ -61,13 +64,14 @@
             android:text="密码" />
 
         <EditText
+            android:id="@+id/et_mima_include"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="请输入6-12位易购密码" />
 
         <RadioGroup
-            android:id="@+id/radiogroup"
+
 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -78,7 +82,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/guanzhu"
+                android:id="@+id/rb_abc_myebuy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/xuanzeabc"
@@ -88,7 +92,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/remen"
+                android:id="@+id/rb_dian_myebuy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"

@@ -6,8 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="8"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <View
@@ -27,115 +26,33 @@
             android:textSize="30sp" />
 
         <TextView
+            android:id="@+id/tv_compile_fragment_shopping"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="编辑"
+            android:text=" "
             android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:background="@color/gainsboro"
         android:layout_width="match_parent"
-        android:layout_height="392dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
 
-
-        <LinearLayout
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_shopping_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@color/gainsboro">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"></View>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="偶遇总有无限惊喜，一起" />
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"></View>
-
-                <Button
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/goto_button_shape"
-                    android:gravity="center_horizontal"
-                    android:text="去逛逛"
-                    android:textColor="@color/white" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"></View>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@color/gainsboro"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="200dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@color/darkgrey"></View>
-
-                <View
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"></View>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:src="@mipmap/cart_pull_arrow" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="您可能感兴趣的商品" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"></View>
-
-                <View
-                    android:layout_width="200dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@color/darkgrey"></View>
-
-            </LinearLayout>
-        </LinearLayout>
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="8"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <LinearLayout

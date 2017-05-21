@@ -8,6 +8,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".module.fragments_myebuy.Receive" />
+        <activity android:name=".module.fragments_myebuy.MyMessage" />
+        <activity android:name=".module.fragments_myebuy.Setting" />
+        <activity android:name=".module.fragments_myebuy.ShowItem" />
+        <activity android:name=".module.fragments_myebuy.MyService" />
+        <activity android:name=".module.fragments_myebuy.PayAcitvity" />
+        <activity android:name=".module.fragments_myebuy.MyMember" />
+        <activity android:name=".module.fragments_myebuy.XiaoXi" />
+        <activity android:name=".module.fragments_myebuy.BindSeting" />
+        <activity android:name=".module.fragments_myebuy.Checkdetails" />
+        <activity android:name=".module.fragments_myebuy.CheckOrder" />
+        <activity android:name=".module.fragments_myebuy.Coupon" />
+        <activity android:name=".module.fragments_myebuy.Judge" />
+        <activity android:name=".module.fragments_myebuy.Collect" />
+        <activity android:name=".module.fragments_myebuy.Diamond" />
+        <activity android:name=".module.fragments_myebuy.Myhistory" />
+        <activity android:name=".module.fragments_myebuy.Accountsecurity" />
+
         <activity android:name=".module.main_activity.v.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".module.fragments_shopping.ShoppingCarActivity"></activity>
     </application>
 
 </manifest>
