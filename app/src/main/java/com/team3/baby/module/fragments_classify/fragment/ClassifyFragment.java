@@ -101,6 +101,17 @@ public class ClassifyFragment extends BaseFragment {
 
     private void initRightRv(List<RightClassifyBean> list) {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 3);
+        //显示标题栏的grid
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position == 0 || position == 10 || position == 17) {
+                    return 3;
+                } else {
+                    return 1;
+                }
+            }
+        });
         mRecyclerRightClassify.setLayoutManager(gridLayoutManager);
         RightRvAdapter adapter = new RightRvAdapter(list, mContext);
         mRecyclerRightClassify.setAdapter(adapter);
