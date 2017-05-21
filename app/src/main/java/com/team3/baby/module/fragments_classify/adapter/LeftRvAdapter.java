@@ -21,6 +21,7 @@ import java.util.List;
 public class LeftRvAdapter extends RecyclerView.Adapter<LeftRvAdapter.ViewHolder> {
     private List<LeftClassifyBean> mList;
     private Context mContext;
+    //点击位置
     private int layoutPosition;
     //点击
     private OnItemClickListener mOnItemClickListener;
