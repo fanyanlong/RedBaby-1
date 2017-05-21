@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.team3.baby.R;
-import com.team3.baby.base.BaseActivity;
+import com.team3.baby.base.BaseFragmentActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
  * @author:jiajianhai
  * @date:2017/5/18
  */
-public class Judge extends BaseActivity {
+public class Judge extends BaseFragmentActivity {
     @BindView(R.id.iv_back_myebuy_activity)
     ImageView ivBackMyebuyActivity;
 

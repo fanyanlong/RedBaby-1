@@ -23,7 +23,7 @@ public class OkUtils {
     static final int GET_EXCUTE = 111;
     static final int GET_ENQUEUE = 222;
     static final int POST_EXCUTE = 333;
-    static final int POST_ENQUEUE = 111;
+    static final int POST_ENQUEUE = 444;
 
     private OkUtils() {
     }
