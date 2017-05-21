@@ -86,8 +86,6 @@ public class GroupBuyFragment extends BaseFragment {
 
             }
         });
-        ArrayList<Fragment> strings = new ArrayList<>();
-
        /*GroupBuyAdapter adapter = new GroupBuyAdapter(getFragmentManager(), strings,catesName);
         viewpagerFragmentGroupbuy.setAdapter(adapter);
         tabFragmentGroupbuy.setupWithViewPager(viewpagerFragmentGroupbuy);
