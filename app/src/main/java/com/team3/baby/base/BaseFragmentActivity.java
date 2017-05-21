@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 
 import com.team3.baby.app.App;
 
@@ -17,7 +19,7 @@ import butterknife.ButterKnife;
  * 2017/5/17  14:44
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseFragmentActivity extends FragmentActivity {
     protected Activity mActivity;
     protected SharedPreferences mSharedPreferences;
     protected SharedPreferences.Editor mEditor;
@@ -60,8 +62,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     //protected abstract void ortherToDo();
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void addFragment(int containerViewId, Fragment fragment, String tag) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        // 设置tag，不然下面 findFragmentByTag(tag)找不到
+        fragmentTransaction.add(containerViewId, fragment, tag);
+        fragmentTransaction.addToBackStack(tag);
+        fragmentTransaction.commit();
     }
+
+
 }
