@@ -12,18 +12,21 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            style="@style/text_image_jianju"
+        <ImageView
+            android:id="@+id/image_top_groupbuy"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
             android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="乐拼购"
-            android:textColor="@color/hei"
-            android:textSize="25sp"/>
+            />
 
         <ImageView
             android:id="@+id/imager_right_fragment_groupbuy"
             style="@style/text_image_jianju"
             android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
             android:src="@mipmap/ucwv_ebuy"/>
     </RelativeLayout>
 
@@ -47,11 +50,11 @@
         app:tabPaddingTop="5dp"
         app:tabSelectedTextColor="@android:color/holo_red_dark"></android.support.design.widget.TabLayout>
 
-    <FrameLayout
-        android:id="@+id/fram_fragment_groupbuy"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_fragment_groupbuy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/white"></FrameLayout>
+        android:background="@color/white"></android.support.v4.view.ViewPager>
 </LinearLayout>
