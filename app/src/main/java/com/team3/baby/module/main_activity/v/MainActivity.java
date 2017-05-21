@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 import com.team3.baby.R;
-import com.team3.baby.base.BaseActivity;
+import com.team3.baby.base.BaseFragmentActivity;
 import com.team3.baby.module.fragments_classify.fragment.ClassifyFragment;
 import com.team3.baby.module.fragments_groupBuy.GroupBuyFragment;
 import com.team3.baby.module.fragments_home.HomeFragment;
@@ -23,12 +23,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @class describe
+ * @class 主界面
  * @anthor 田杰谕
  * @time 2017/5/17 下午4:00
  */
 
-public class MainActivity extends BaseActivity implements MainView {
+public class MainActivity extends BaseFragmentActivity implements MainView {
 
     @BindView(R.id.relative_layout_main_activity)
     RelativeLayout relativeLayoutMainActivity;

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.team3.baby.R;
-import com.team3.baby.base.BaseActivity;
+import com.team3.baby.base.BaseFragmentActivity;
 
 import butterknife.ButterKnife;
 
@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
  * @author:jiajianhai
  * @date:2017/5/18
  */
-public class ShowItem  extends BaseActivity {
+public class ShowItem  extends BaseFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
