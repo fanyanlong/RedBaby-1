@@ -1,10 +1,12 @@
 package com.team3.baby.module.fragments_myebuy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragmentActivity;
+import com.team3.baby.module.main_activity.v.MainActivity;
 
 import butterknife.ButterKnife;
 
@@ -23,6 +25,8 @@ public class Accountsecurity extends BaseFragmentActivity {
         findViewById(R.id.iv_back_myebuy_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(Accountsecurity.this, MainActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -49,4 +53,13 @@ public class Accountsecurity extends BaseFragmentActivity {
     protected void setListener() {
 
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
 }
