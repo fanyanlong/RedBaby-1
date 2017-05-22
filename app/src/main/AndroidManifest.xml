@@ -26,7 +26,6 @@
         <activity android:name=".module.fragments_myebuy.Myhistory"/>
         <activity android:name=".module.fragments_myebuy.Accountsecurity"/>
         <activity android:name=".module.main_activity.v.MainActivity">
-
         </activity>
         <activity android:name=".module.fragments_shopping.ShoppingCarActivity"/>
         <activity android:name=".module.welcome_activity.WelcomeActivity">
@@ -35,6 +34,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".module.fragments_shopping.indent_activity.IndentAffirmActivity">
         </activity>
     </application>
 
