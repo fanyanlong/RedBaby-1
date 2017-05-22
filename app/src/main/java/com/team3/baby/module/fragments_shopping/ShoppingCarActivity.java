@@ -6,16 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.team3.baby.R;
 import com.team3.baby.module.main_activity.v.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 
 
 public class ShoppingCarActivity extends AppCompatActivity {
@@ -52,15 +49,19 @@ public class ShoppingCarActivity extends AppCompatActivity {
         tvImmediatelyBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ShoppingCarActivity.this, "sss", Toast.LENGTH_SHORT).show();
-                View contentView = View.inflate(ShoppingCarActivity.this, R.layout.immediately_buy_popwindow_layout, null);
-                PopupWindow  popupWindow = new PopupWindow(contentView, width, height/3*2);
-                popupWindow.setOutsideTouchable(true);
-                popupWindow.setFocusable(true);
-                popupWindow.showAsDropDown(contentView, width, height/4);
+                Intent intent = new Intent(ShoppingCarActivity.this, AddIndentActivity.class);
+                startActivity(intent);
+
+
             }
         });
-
+        tvJoinShoppingCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShoppingCarActivity.this, AddIndentActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
