@@ -65,11 +65,12 @@ public class GroupBuyFragment extends BaseFragment {
                 //头布局
                 String imgUrl = boutiqueBean.getTopLogo().getImgUrl();
                 ImageUtils.loadImageNormal(getActivity(), http + imgUrl, imageTopGroupbuy);
-                //Tab
+                //Tab接口
                 List<BoutiqueBean.CatesBean> catesBeen = boutiqueBean.getCates();
                 catesName = new ArrayList<String>();
                 //catesimager = new ArrayList<String>();
                 ArrayList<Fragment> fragmentlist = new ArrayList<Fragment>();
+
                 //fragment接口
                 String[] urlstr = new String[]{UrlGroupBuy.url, UrlGroupBuy.ONE, UrlGroupBuy.TWO,
                         UrlGroupBuy.THREE, UrlGroupBuy.FORM, UrlGroupBuy.FIVE, UrlGroupBuy.SIX,
