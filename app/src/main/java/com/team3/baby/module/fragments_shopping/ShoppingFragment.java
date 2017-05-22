@@ -69,6 +69,7 @@ public class ShoppingFragment extends BaseFragment {
         tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
             }
         });
 

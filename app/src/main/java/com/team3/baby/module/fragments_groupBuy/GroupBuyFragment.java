@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
 import com.team3.baby.utils.ImageUtils;
 import com.team3.baby.utils.OkUtils;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +75,7 @@ public class GroupBuyFragment extends BaseFragment {
                         UrlGroupBuy.SEVEN, UrlGroupBuy.EIGHT, UrlGroupBuy.NINE, UrlGroupBuy.TEN};
                 ArrayList<String> urlList = new ArrayList<>();
                 for (int i = 0; i < urlstr.length; i++) {
-                    urlList.add(urlList.get(i));
+                    urlList.add(urlstr[i]);
                 }
 
                 for (int i = 0; i < catesBeen.size(); i++) {
