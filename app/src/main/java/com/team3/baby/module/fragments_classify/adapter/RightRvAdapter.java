@@ -18,7 +18,7 @@ import java.util.List;
  * 2017/5/17  16:53
  */
 
-public class RightRvAdapter extends RecyclerView.Adapter<RightRvAdapter.ViewHolder> {
+public class RightRvAdapter extends RecyclerView.Adapter {
     private List<RightClassifyBean> mList;
     private Context mContext;
 
@@ -27,11 +27,11 @@ public class RightRvAdapter extends RecyclerView.Adapter<RightRvAdapter.ViewHold
         mContext = context;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder_Item extends RecyclerView.ViewHolder {
         TextView mTextView;
         ImageView mImageView;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder_Item(View itemView) {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.tv_item_right_classify);
             mImageView = (ImageView) itemView.findViewById(R.id.iv_item_right_classify);
@@ -39,21 +39,63 @@ public class RightRvAdapter extends RecyclerView.Adapter<RightRvAdapter.ViewHold
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.item_right_classify, null);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        switch (viewType) {
+            case 0:
+                View view_00 = View.inflate(mContext, R.layout.item_left_classify, null);
+                ViewHolder_Title holder_00 = new ViewHolder_Title(view_00);
+                return holder_00;
+            case 1:
+                View view_01 = View.inflate(mContext, R.layout.item_right_classify, null);
+                ViewHolder_Item holder_01 = new ViewHolder_Item(view_01);
+                return holder_01;
+        }
+        return null;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         RightClassifyBean rightClassifyBean = mList.get(position);
-        holder.mImageView.setImageResource(R.mipmap.ic_launcher);
-        holder.mTextView.setText(rightClassifyBean.getText());
+        int itemViewType = getItemViewType(position);
+        switch (itemViewType) {
+            case 0:
+                ViewHolder_Title holder_title = (ViewHolder_Title) holder;
+                holder_title.mTextView.setText("栏目名字");
+                break;
+            case 1:
+                ViewHolder_Item holder_item = (ViewHolder_Item) holder;
+                holder_item.mImageView.setImageResource(R.mipmap.ic_launcher);
+                holder_item.mTextView.setText(rightClassifyBean.getText());
+                break;
+        }
     }
 
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    static class ViewHolder_Title extends RecyclerView.ViewHolder {
+        TextView mTextView;
+
+        public ViewHolder_Title(View itemView) {
+            super(itemView);
+            mTextView = (TextView) itemView.findViewById(R.id.tv_item_left_classify);
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        int i = position;
+        switch (i) {
+            case 0:
+                return 0;
+            case 10:
+                return 0;
+            case 17:
+                return 0;
+            default:
+                return 1;
+        }
     }
 }
