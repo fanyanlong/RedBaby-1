@@ -89,7 +89,7 @@ public class LeftRvAdapter extends RecyclerView.Adapter<LeftRvAdapter.ViewHolder
         }
         //更改状态
         if (position == layoutPosition) {
-//            holder.mTextView.setBackgroundColor(Color.parseColor("#cccccc"));
+            holder.mTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
             holder.mTextView.setTextColor(Color.parseColor("#f4a460"));
         } else {
             holder.mTextView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));

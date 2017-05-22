@@ -23,7 +23,7 @@
             android:gravity="center"
             android:text="购物车"
             android:textColor="#000"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_compile_fragment_shopping"
@@ -138,6 +138,7 @@
             android:background="@drawable/settlement_selector">
 
             <TextView
+                android:id="@+id/tv_goto_settlement"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
