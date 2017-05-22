@@ -1,5 +1,6 @@
 package com.team3.baby.module.fragments_groupBuy.fragment;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,9 +21,15 @@ import com.team3.baby.R;
  * 时间：2017/5/17 21:58
  */
 
+@SuppressLint("ValidFragment")
 public class TabFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private String url;
+
+    public TabFragment(String url) {
+        this.url = url;
+    }
 
     @Nullable
     @Override

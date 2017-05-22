@@ -16,6 +16,8 @@ import com.team3.baby.module.fragments_classify.adapter.RightRvAdapter;
 import com.team3.baby.module.fragments_classify.bean.LeftClassifyBean;
 import com.team3.baby.module.fragments_classify.bean.RightClassifyBean;
 import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
+import com.team3.baby.module.fragments_classify.util.UrlClassify;
+import com.team3.baby.utils.OkUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,17 @@ public class ClassifyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        OkUtils.getEnqueue(UrlClassify.ADD_CLASSIFY, null, new OkUtils.MyCallback() {
+            @Override
+            public void onSuccess(String result) {
+
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
         mLeftList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             LeftClassifyBean bean = new LeftClassifyBean();
