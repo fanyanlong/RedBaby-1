@@ -23,6 +23,7 @@ public class Accountsecurity extends BaseFragmentActivity {
         findViewById(R.id.iv_back_myebuy_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 finish();
             }
         });
@@ -49,4 +50,5 @@ public class Accountsecurity extends BaseFragmentActivity {
     protected void setListener() {
 
     }
+
 }
