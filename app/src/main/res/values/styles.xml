@@ -15,7 +15,11 @@
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:layout_marginTop">5dp</item>
     </style>
-
+    <style name="indent_affirm_cut_off_rule">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:background">#eeeeee</item>
+    </style>
 
 
     <!-- 定义一个样式，继承android系统的对话框样式 android:style/Theme.Dialog-->
