@@ -16,10 +16,11 @@ import com.team3.baby.base.BaseFragment;
 import com.team3.baby.module.fragments_groupBuy.adapter.GroupBuyAdapter;
 import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 import com.team3.baby.module.fragments_groupBuy.fragment.TabFragment;
-import com.team3.baby.module.fragments_groupBuy.url.Url;
+import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
 import com.team3.baby.utils.ImageUtils;
 import com.team3.baby.utils.OkUtils;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,40 +57,51 @@ public class GroupBuyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        OkUtils.getEnqueue(Url.url, null, new OkUtils.MyCallback() {
+        OkUtils.getEnqueue(UrlGroupBuy.url, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
                 Gson gson = new Gson();
-
                 BoutiqueBean boutiqueBean = gson.fromJson(result, BoutiqueBean.class);
                 //头布局
                 String imgUrl = boutiqueBean.getTopLogo().getImgUrl();
                 ImageUtils.loadImageNormal(getActivity(), http + imgUrl, imageTopGroupbuy);
-                //Tab
+                //Tab接口
                 List<BoutiqueBean.CatesBean> catesBeen = boutiqueBean.getCates();
                 catesName = new ArrayList<String>();
-                catesimager = new ArrayList<String>();
+                //catesimager = new ArrayList<String>();
+                ArrayList<Fragment> fragmentlist = new ArrayList<Fragment>();
+
+                //fragment接口
+                String[] urlstr = new String[]{UrlGroupBuy.url, UrlGroupBuy.ONE, UrlGroupBuy.TWO,
+                        UrlGroupBuy.THREE, UrlGroupBuy.FORM, UrlGroupBuy.FIVE, UrlGroupBuy.SIX,
+                        UrlGroupBuy.SEVEN, UrlGroupBuy.EIGHT, UrlGroupBuy.NINE, UrlGroupBuy.TEN};
+                ArrayList<String> urlList = new ArrayList<>();
+                for (int i = 0; i < urlstr.length; i++) {
+                    urlList.add(urlList.get(i));
+                }
+
                 for (int i = 0; i < catesBeen.size(); i++) {
                     catesName.add(catesBeen.get(i).getCateName());
-                    catesimager.add(catesBeen.get(i).getCateIconUrl());
+                    //catesimager.add(catesBeen.get(i).getCateIconUrl());
+                    //fragment数据
+                    TabFragment tabFragment = new TabFragment(urlList.get(i));
+                    fragmentlist.add(tabFragment);
                 }
-                for (int i = 0; i < catesName.size(); i++) {
-                    tabFragmentGroupbuy.addTab(tabFragmentGroupbuy.newTab().setText(catesName.get
-                            (i)).setIcon(R.mipmap.history_xin_icon));
-                   /* TabFragment tabFragment = new TabFragment();
-                    strings.add(tabFragment);*/
-                }
+
+                GroupBuyAdapter adapter = new GroupBuyAdapter(getFragmentManager(), fragmentlist,
+                        catesName);
+                viewpagerFragmentGroupbuy.setAdapter(adapter);
+                tabFragmentGroupbuy.setupWithViewPager(viewpagerFragmentGroupbuy);
+                tabFragmentGroupbuy.setTabsFromPagerAdapter(adapter);
             }
+
 
             @Override
             public void onError(String errorMsg) {
 
             }
         });
-       /*GroupBuyAdapter adapter = new GroupBuyAdapter(getFragmentManager(), strings,catesName);
-        viewpagerFragmentGroupbuy.setAdapter(adapter);
-        tabFragmentGroupbuy.setupWithViewPager(viewpagerFragmentGroupbuy);
-        tabFragmentGroupbuy.setTabsFromPagerAdapter(adapter);*/
+
 
     }
 
