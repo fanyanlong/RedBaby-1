@@ -30,6 +30,8 @@ public class ShoppingFragment extends BaseFragment {
     RecyclerView fragmentShoppingRecyclerView;
     @BindView(R.id.tv_compile_fragment_shopping)
     TextView tvCompileFragmentShopping;
+    @BindView(R.id.tv_goto_settlement)
+    TextView tvGotoSettlement;
 
 
     private HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
@@ -64,7 +66,12 @@ public class ShoppingFragment extends BaseFragment {
         fragmentShoppingRecyclerView.setLayoutManager(manager);
 
         RecyclerViewUtils.setHeaderView(fragmentShoppingRecyclerView, new SampleHeader(mContext));
+        tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
     }
 
