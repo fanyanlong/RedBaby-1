@@ -3,12 +3,22 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
+        <TextView
+            android:text="11111111111"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <TextView
+        android:text="11111111111"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout
        android:id="@+id/ppf_fragment_home_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
+
             android:id="@+id/rv_fragment_home_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
