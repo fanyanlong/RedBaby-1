@@ -10,12 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.google.gson.Gson;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
 import com.team3.baby.module.fragments_groupBuy.adapter.GroupBuyAdapter;
 import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 import com.team3.baby.module.fragments_groupBuy.fragment.TabFragment;
 import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
+import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.ImageUtils;
 import com.team3.baby.utils.OkUtils;
 
@@ -25,6 +28,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * Created by Shizhuangzhaung on 2017/5/17.
@@ -55,11 +60,12 @@ public class GroupBuyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        OkUtils.getEnqueue(UrlGroupBuy.url, null, new OkUtils.MyCallback() {
+
+
+        OkGo.get(UrlGroupBuy.url).execute(new StringCallback() {
             @Override
-            public void onSuccess(String result) {
-                Gson gson = new Gson();
-                BoutiqueBean boutiqueBean = gson.fromJson(result, BoutiqueBean.class);
+            public void onSuccess(String s, Call call, Response response) {
+                BoutiqueBean boutiqueBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
                 //头布局
                 String imgUrl = boutiqueBean.getTopLogo().getImgUrl();
                 ImageUtils.loadImageNormal(getActivity(), http + imgUrl, imageTopGroupbuy);
@@ -92,15 +98,7 @@ public class GroupBuyFragment extends BaseFragment {
                 tabFragmentGroupbuy.setupWithViewPager(viewpagerFragmentGroupbuy);
                 tabFragmentGroupbuy.setTabsFromPagerAdapter(adapter);
             }
-
-
-            @Override
-            public void onError(String errorMsg) {
-
-            }
         });
-
-
     }
 
     @Override
