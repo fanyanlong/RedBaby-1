@@ -69,4 +69,5 @@ dependencies {
     compile project(':greendao-library')
     //金虎 5.23 13:48 okGo
     compile 'com.lzy.net:okgo:2.1.4'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }

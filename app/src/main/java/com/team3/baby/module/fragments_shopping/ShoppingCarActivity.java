@@ -69,7 +69,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
         tvImmediatelyBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShoppingCarActivity.this, AddIndentActivity.class);
+                Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_buyActivity.class);
                 intent.putExtra("position", position);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
@@ -81,7 +81,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
         tvJoinShoppingCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShoppingCarActivity.this, AddIndentActivity.class);
+                Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_carActivity.class);
                 intent.putExtra("position", position);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);

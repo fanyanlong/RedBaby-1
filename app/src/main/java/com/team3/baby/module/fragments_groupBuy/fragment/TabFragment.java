@@ -13,7 +13,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 import com.team3.baby.utils.GsonUtils;
@@ -22,9 +25,14 @@ import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Response;
+
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 /**
  * 类用途：
@@ -65,35 +73,32 @@ public class TabFragment extends Fragment {
         //设置固定大小
         recyclerView.setHasFixedSize(true);
         //设置Adapter
-        OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
+        OkGo.get(url).execute(new StringCallback() {
             @Override
-            public void onSuccess(String result) {
-                BoutiqueBean toBean = GsonUtils.gsonToBean(result, BoutiqueBean.class);
+            public void onSuccess(String s, Call call, Response response) {
+                BoutiqueBean toBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
          /*       //横向滑动
                 List<BoutiqueBean.Enrolls1Bean.ListBeanX> beanXes = toBean.getEnrolls_1()
                         .getList();
                 //RecView
                 List<BoutiqueBean.CatesBean> catesList = toBean.getCates();*/
-
                 //轮播
                 List<BoutiqueBean.AdsBean> adsList = toBean.getAds();
-                ArrayList<String> imagerlist = new ArrayList<String>();
-                //Log.e("---------", adsList.size()+"");
-                for (int i = 0; i < adsList.size(); i++) {
-                    imagerlist.add(http + adsList.get(i).getImgUrl());
+                if (adsList != null) {
+                    ArrayList<String> imagerlist = new ArrayList<String>();
+                    Log.e(TAG, adsList.size() + "");
+                    for (int i = 0; i < adsList.size(); i++) {
+                        imagerlist.add(http + adsList.get(i).getImgUrl());
+                    }
+                    Log.e(TAG, imagerlist.toString());
+                    banner.setImages(imagerlist).setImageLoader(new GlideImageLoader()).start();
+                    RecAdapter recAdapter = new RecAdapter();
+                    recyclerView.setAdapter(recAdapter);
+                } else {
+                    Toast.makeText(getActivity(), "没网", Toast.LENGTH_SHORT).show();
                 }
-                Log.e("---------", imagerlist.toString());
-                banner.setImages(imagerlist).setImageLoader(new GlideImageLoader()).start();
-                RecAdapter recAdapter = new RecAdapter();
-                recyclerView.setAdapter(recAdapter);
-            }
-
-            @Override
-            public void onError(String errorMsg) {
-
             }
         });
-
         //设置分隔线
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
                 .VERTICAL, Color.RED, 5));
