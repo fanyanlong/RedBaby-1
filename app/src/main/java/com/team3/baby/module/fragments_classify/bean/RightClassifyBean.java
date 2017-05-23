@@ -7,14 +7,14 @@ package com.team3.baby.module.fragments_classify.bean;
  */
 
 public class RightClassifyBean {
-    private int image;
+    private String image;
     private String text;
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
