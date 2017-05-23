@@ -1,7 +1,0 @@
-#Tue May 23 08:43:19 CST 2017
-base.0=D\:\\AS\\workSpace\\RedBaby\\sample\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_ba7bfac15d6b37b370cfb90995bf1a48ab571b52
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=D\:\\AS\\workSpace\\RedBaby\\sample\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_30faf16220d6c5bd3c016b5f203aeb80f6e7867e\\classes.dex
-base.1=D\:\\AS\\workSpace\\RedBaby\\sample\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_30faf16220d6c5bd3c016b5f203aeb80f6e7867e
-file.0=D\:\\AS\\workSpace\\RedBaby\\sample\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_ba7bfac15d6b37b370cfb90995bf1a48ab571b52\\classes.dex

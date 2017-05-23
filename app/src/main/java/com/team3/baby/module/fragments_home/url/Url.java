@@ -8,4 +8,5 @@ package com.team3.baby.module.fragments_home.url;
 
 public class Url {
     public static final String TITLE = "http://lib.suning.com/app/redbaby/80000_8.2.0-155.json";
+    public static final String IMAGE ="http://image.suning.cn";
 }
