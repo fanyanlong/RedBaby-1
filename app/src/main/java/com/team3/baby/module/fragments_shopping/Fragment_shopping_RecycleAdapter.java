@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_shopping.shopping_bean.Shopping_Bean;
+import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 
 import java.util.ArrayList;
 
@@ -42,16 +43,28 @@ public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
-        ViewHolder viewHolder = (ViewHolder) holder;
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
+        final ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.textView.setText(mDataList.get(position).getAuxdescription());
-        viewHolder.price_text.setText(mDataList.get(position).getPrice());
-        viewHolder.tv_manypeoplebuy.setText(mDataList.get(position).getExtenalFileds().getCommentShow());
+        viewHolder.price_text.setText("￥" + mDataList.get(position).getPrice());
+        viewHolder.tv_manypeoplebuy.setText(mDataList.get(position).getExtenalFileds().getCommentShow() + "人已购买");
+
         Glide
                 .with(context)
-                .load("http://image2.suning.cn/uimg/cms/img/149087236896225414.png")
+                .load(picUrl.get(position))
                 .into(viewHolder.imageView);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ShoppingCarActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("shopName", viewHolder.textView.getText().toString());
+                intent.putExtra("shopPrice", viewHolder.price_text.getText().toString());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,18 +81,13 @@ public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
 
         public ViewHolder(View itemView) {
             super(itemView);
+
             textView = (TextView) itemView.findViewById(R.id.info_text);
             imageView = (ImageView) itemView.findViewById(R.id.img_shopping);
             price_text = (TextView) itemView.findViewById(R.id.price_text);
             tv_manypeoplebuy = (TextView) itemView.findViewById(R.id.tv_manypeoplebuy);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, ShoppingCarActivity.class);
-                    context.startActivity(intent);
-                }
-            });
+
         }
     }
 
