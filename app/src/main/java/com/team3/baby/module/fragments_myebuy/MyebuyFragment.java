@@ -1,16 +1,23 @@
 package com.team3.baby.module.fragments_myebuy;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
 import com.cundong.recyclerview.HeaderSpanSizeLookup;
@@ -51,6 +58,12 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     private RecyclerView recyclerCailoveMyebuy;
     private ArrayList<SkusBean> skus;
     private RecyclerAddHeader recyclerAddHeader;
+    private SharedPreferences.Editor edit;
+    private LinearLayout denglujiemian;
+    private ScrollView sv_yidenglu_myebuy;
+    private Button bt_denglu_myebuy;
+    private EditText et_zhanghao_include;
+    private EditText et_mima_include;
 
     protected void initData() {
 
@@ -94,7 +107,13 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
         recyclerAddHeader = new RecyclerAddHeader(getContext());
 
+
         View inflate = recyclerAddHeader.inflate;
+        denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
+        sv_yidenglu_myebuy = (ScrollView) view.findViewById(R.id.sv_yidenglu_myebuy);
+        bt_denglu_myebuy = (Button) view.findViewById(R.id.bt_denglu_myebuy);
+        et_zhanghao_include = (EditText) view.findViewById(R.id.et_zhanghao_include);
+        et_mima_include = (EditText) view.findViewById(R.id.et_mima_include);
         inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_phone_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_shezhi_wode_fragment).setOnClickListener(this);
@@ -112,6 +131,26 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
 
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
+
+        edit = sharedPreferences.edit();
+        if (sharedPreferences.getBoolean("yidenglu", false)) {
+            denglujiemian.setVisibility(View.INVISIBLE);
+            sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
+        }
+        bt_denglu_myebuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!TextUtils.isEmpty(et_mima_include.getText()) && !TextUtils.isEmpty(et_zhanghao_include.getText())) {
+                    edit.putBoolean("yidenglu", true);
+                    denglujiemian.setVisibility(View.INVISIBLE);
+                    sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
+
+                } else {
+                    Toast.makeText(getContext(), "用户名密码不正确", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         initData();
         return view;
