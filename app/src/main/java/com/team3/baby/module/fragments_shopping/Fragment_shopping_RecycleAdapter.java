@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_shopping.shopping_bean.Shopping_Bean;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
+import com.team3.baby.utils.ImageUtils;
 
 import java.util.ArrayList;
 
@@ -50,10 +50,7 @@ public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
         viewHolder.price_text.setText("￥" + mDataList.get(position).getPrice());
         viewHolder.tv_manypeoplebuy.setText(mDataList.get(position).getExtenalFileds().getCommentShow() + "人已购买");
 
-        Glide
-                .with(context)
-                .load(picUrl.get(position))
-                .into(viewHolder.imageView);
+        ImageUtils.loadImageNormal(context,picUrl.get(position),viewHolder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
