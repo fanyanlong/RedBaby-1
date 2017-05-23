@@ -15,9 +15,9 @@ import com.cundong.recyclerview.RecyclerViewUtils;
 import com.google.gson.Gson;
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
-import com.team3.baby.module.fragments_classify.util.UrlClassify;
 import com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity;
 import com.team3.baby.module.fragments_shopping.shopping_bean.Shopping_Bean;
+import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 import com.team3.baby.utils.OkUtils;
 
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class ShoppingFragment extends BaseFragment {
     @Override
     protected void initData() {
 
-        OkUtils.getEnqueue(UrlClassify.BBNF, null, new OkUtils.MyCallback() {
+        OkUtils.getEnqueue(Shop_Utils.BBNF, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
                 Gson gson = new Gson();
