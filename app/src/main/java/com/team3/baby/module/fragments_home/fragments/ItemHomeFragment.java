@@ -9,11 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
 import com.team3.baby.module.fragments_home.HomeFragment;
 import com.team3.baby.module.fragments_home.adapter.MyRecyclerAdapter;
+import com.team3.baby.module.fragments_home.bean.TitleBean;
+import com.team3.baby.module.fragments_home.url.Url;
 import com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout;
+import com.team3.baby.utils.OkUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,20 +37,14 @@ public class ItemHomeFragment extends BaseFragment {
     RecyclerView mRvFragmentHomeRecyclerView;
     @BindView(R.id.ppf_fragment_home_recyclerview)
     ParallaxPtrFrameLayout mPpfFragmentHomeRecyclerView;
-
+    private String url;
     @Override
     protected View initView() {
+        Bundle bundle = getArguments();
+        url = bundle.getString("url");
         View view = View.inflate(mContext, R.layout.fragment_home_recyclerview, null);
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            list.add("这是条目"+i);
 
-        }
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
 
-        MyRecyclerAdapter adapter = new MyRecyclerAdapter(mContext,list);
-       // mRvFragmentHomeRecyclerView.setAdapter(adapter);
-       // mRvFragmentHomeRecyclerView.setLayoutManager(linearLayoutManager);
         return view;
     }
 
@@ -57,8 +55,27 @@ public class ItemHomeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        Bundle bundle = getArguments();
+        url = bundle.getString("url");
+        OkUtils.getEnqueue(Url.TITLE, null, new OkUtils.MyCallback() {
+            @Override
+            public void onSuccess(String result) {
+                Gson gson = new Gson();
+                TitleBean titleBean = gson.fromJson(result, TitleBean.class);
+                List<TitleBean.DataBean> list = titleBean.getData();
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
 
+                mRvFragmentHomeRecyclerView.setLayoutManager(linearLayoutManager);
+                MyRecyclerAdapter adapter = new MyRecyclerAdapter(mContext,list);
+                mRvFragmentHomeRecyclerView.setAdapter(adapter);
 
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
 
 
     }

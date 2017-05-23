@@ -124,7 +124,7 @@ public class ParallaxHeader extends FrameLayout implements PtrUIHandler {
             iv_mama.setVisibility(View.VISIBLE);
             iv_baby.setVisibility(View.VISIBLE);
 
-            iv_mama_and_baby.setVisibility(View.GONE);
+            iv_mama_and_baby.setVisibility(View.INVISIBLE);
 
         }
     }
