@@ -2,6 +2,7 @@ package com.team3.baby.module.main_activity.v;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -11,7 +12,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 import com.team3.baby.R;
-import com.team3.baby.base.BaseFragmentActivity;
 import com.team3.baby.module.fragments_classify.fragment.ClassifyFragment;
 import com.team3.baby.module.fragments_groupBuy.GroupBuyFragment;
 import com.team3.baby.module.fragments_home.HomeFragment;
@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
  * @time 2017/5/17 下午4:00
  */
 
-public class MainActivity extends BaseFragmentActivity implements MainView {
+public class MainActivity extends FragmentActivity implements MainView {
 
     @BindView(R.id.relative_layout_main_activity)
     RelativeLayout relativeLayoutMainActivity;
@@ -54,12 +54,9 @@ public class MainActivity extends BaseFragmentActivity implements MainView {
     private ClassifyFragment classFragment;
     private MainPresenter p;
 
-    @Override
-    protected void initView() {
-    }
 
 
-    @Override
+
     protected void initData() {
         classFragment = new ClassifyFragment();
         groupBuyFragment = new GroupBuyFragment();
@@ -72,12 +69,8 @@ public class MainActivity extends BaseFragmentActivity implements MainView {
 
     }
 
-    @Override
-    protected void getServerData() {
 
-    }
 
-    @Override
     protected void setListener() {
 
         rdoBtnHomeMainActivity.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +112,8 @@ public class MainActivity extends BaseFragmentActivity implements MainView {
         // TODO: add setContentView(...) invocation
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initData();
+        setListener();
     }
 
     @Override
