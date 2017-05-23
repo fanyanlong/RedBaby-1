@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/item_home_two_lotto_image"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:id="@+id/item_home_two_lotto_text"
+                android:text="111"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/item_home_two_centre_image"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:id="@+id/item_home_two_centre_text"
+                android:gravity="center"
+                android:text="111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/item_home_two_import_image"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:id="@+id/item_home_two_import_text"
+                android:text="111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/item_home_two_probation_image"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:id="@+id/item_home_two_probation_text"
+                android:text="111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/item_home_two_pregnant_image"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:id="@+id/item_home_two_pregnant_text"
+                android:text="111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

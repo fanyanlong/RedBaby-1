@@ -68,7 +68,9 @@ public class HomeFragment extends BaseFragment {
                 Gson gson = new Gson();
                 TitleBean titleBean = gson.fromJson(result, TitleBean.class);
                 List<TitleBean.DataBean> data = titleBean.getData();
-
+                ItemHomeFragment itemHomeFragment1 = new ItemHomeFragment().newInstance(Url.TITLE);
+                listFram.add(itemHomeFragment1);
+                listStr.add("上新");
                 mInflater = LayoutInflater.from(mContext);
                 for (int i = 0; i <data.get(0).getTag().size() ; i++) {
                     ItemHomeFragment itemHomeFragment = new ItemHomeFragment().newInstance(data.get(0).getTag().get(i).getElementDesc());

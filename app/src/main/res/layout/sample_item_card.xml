@@ -16,13 +16,56 @@
         card_view:cardElevation="4dp"
         card_view:cardUseCompatPadding="true">
 
-        <TextView
-            android:text="455"
-            android:id="@+id/info_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_shopping"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:maxLines="2"
+                android:id="@+id/info_text"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:text="sss"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/price_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="aaa"
+                android:textColor="@color/red"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_manypeoplebuy"
+                    android:gravity="center_vertical"
+                    android:text="多少人购买"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></TextView>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:paddingRight="10dp"
+                    android:src="@mipmap/cart1_add_recommand" />
+            </LinearLayout>
+        </LinearLayout>
+
+
     </android.support.v7.widget.CardView>
 </LinearLayout>
 
