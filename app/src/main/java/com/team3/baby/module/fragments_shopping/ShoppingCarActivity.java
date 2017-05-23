@@ -9,7 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.team3.baby.R;
+import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 import com.team3.baby.module.main_activity.v.MainActivity;
+import com.team3.baby.utils.ImageUtils;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +27,12 @@ public class ShoppingCarActivity extends AppCompatActivity {
     TextView tvImmediatelyBuy;
     @BindView(R.id.tv_join_shopping_car)
     TextView tvJoinShoppingCar;
+    @BindView(R.id.iv_shoppingPicture)
+    ImageView ivShoppingPicture;
+    @BindView(R.id.tv_shoppingName)
+    TextView tvShoppingName;
+    @BindView(R.id.tv_shoppingPrice)
+    TextView tvShoppingPrice;
     private int width;
     private int height;
 
@@ -38,18 +48,31 @@ public class ShoppingCarActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
+
+        Intent intent = getIntent();
+        final int position = intent.getIntExtra("position", 0);
+        final String shopName = intent.getStringExtra("shopName");
+        final String shopPrice = intent.getStringExtra("shopPrice");
+        ImageUtils.loadImageNormal(this, picUrl.get(position), ivShoppingPicture);
+        tvShoppingName.setText(shopName);
+        tvShoppingPrice.setText(shopPrice);
 
         ivBackShoppingcarActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShoppingCarActivity.this, MainActivity.class);
+
                 startActivity(intent);
             }
         });
         tvImmediatelyBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShoppingCarActivity.this, AddIndentActivity.class);
+                Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_buyActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("shopName", shopName);
+                intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
 
 
@@ -58,7 +81,10 @@ public class ShoppingCarActivity extends AppCompatActivity {
         tvJoinShoppingCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShoppingCarActivity.this, AddIndentActivity.class);
+                Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_carActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("shopName", shopName);
+                intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
             }
         });

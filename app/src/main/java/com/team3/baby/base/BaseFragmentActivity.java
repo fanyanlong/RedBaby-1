@@ -36,9 +36,10 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         //初始化视图控件
 
     }
+
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
         //初始化数据
         initData();
         //获取网络数据
@@ -50,6 +51,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         //其他
         //ortherToDo();
     }
+
     protected abstract void initView();
 
     protected abstract void initData();
