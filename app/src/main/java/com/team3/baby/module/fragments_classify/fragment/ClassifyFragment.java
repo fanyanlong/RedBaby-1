@@ -13,10 +13,12 @@ import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
 import com.team3.baby.module.fragments_classify.adapter.LeftRvAdapter;
 import com.team3.baby.module.fragments_classify.adapter.RightRvAdapter;
+import com.team3.baby.module.fragments_classify.bean.ClassifyBean;
 import com.team3.baby.module.fragments_classify.bean.LeftClassifyBean;
 import com.team3.baby.module.fragments_classify.bean.RightClassifyBean;
 import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 import com.team3.baby.module.fragments_classify.util.UrlClassify;
+import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.OkUtils;
 
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ public class ClassifyFragment extends BaseFragment {
     RecyclerView mRecyclerRightClassify;
     Unbinder unbinder;
     private LeftRvAdapter mAdapter;
-    private List<LeftClassifyBean> mLeftList;
+    private List<LeftClassifyBean> mLeftList = new ArrayList<>();
     private List<RightClassifyBean> mRightList = new ArrayList<>();
     private TranceInfo mTranceInfo;
 
@@ -61,13 +63,7 @@ public class ClassifyFragment extends BaseFragment {
 
     @Override
     protected void setListener() {
-        mAdapter.setmOnItemClickListener(new LeftRvAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
-                mTranceInfo.onTranceInfo(position + "");
-            }
-        });
+
     }
 
     @Override
@@ -75,7 +71,55 @@ public class ClassifyFragment extends BaseFragment {
         OkUtils.getEnqueue(UrlClassify.ADD_CLASSIFY, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
-
+                ClassifyBean classifyBean = GsonUtils.gsonToBean(result, ClassifyBean.class);
+                final List<ClassifyBean.RsBean> rsBeanList = classifyBean.getRs();
+                for (int i = 0; i < rsBeanList.size(); i++) {
+                    //为左边的数据适配
+                    LeftClassifyBean bean = new LeftClassifyBean();
+                    bean.setText(rsBeanList.get(i).getDirName());
+                    mLeftList.add(bean);
+                }
+                initLeftRecyclerView(mLeftList);
+                mAdapter.setmOnItemClickListener(new LeftRvAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
+                        mTranceInfo.onTranceInfo(position);
+                    }
+                });
+                //为右边的数据适配
+                List<ClassifyBean.RsBean.ChildrenBeanX> childrenBeanXList = rsBeanList.get(0).getChildren();
+                for (int i = 0; i < childrenBeanXList.size(); i++) {
+                    RightClassifyBean rightClassifyBean = new RightClassifyBean();
+                    rightClassifyBean.setText(childrenBeanXList.get(i).getDirName());
+                    mRightList.add(rightClassifyBean);
+                    for (int j = 0; j < childrenBeanXList.get(i).getChildren().size(); j++) {
+                        RightClassifyBean rightClassifyBean_02 = new RightClassifyBean();
+                        rightClassifyBean_02.setText(childrenBeanXList.get(i).getChildren().get(j).getDirName());
+                        rightClassifyBean_02.setImage(childrenBeanXList.get(i).getChildren().get(j).getImgApp());
+                        mRightList.add(rightClassifyBean_02);
+                    }
+                }
+                initRightRv(mRightList);
+                setTraceInfo(new TranceInfo() {
+                    @Override
+                    public void onTranceInfo(int info) {
+                        mRightList.clear();
+                        List<ClassifyBean.RsBean.ChildrenBeanX> childrenBeanXList = rsBeanList.get(info).getChildren();
+                        for (int i = 0; i < childrenBeanXList.size(); i++) {
+                            RightClassifyBean rightClassifyBean = new RightClassifyBean();
+                            rightClassifyBean.setText(childrenBeanXList.get(i).getDirName());
+                            mRightList.add(rightClassifyBean);
+                            for (int j = 0; j < childrenBeanXList.get(i).getChildren().size(); j++) {
+                                RightClassifyBean rightClassifyBean_02 = new RightClassifyBean();
+                                rightClassifyBean_02.setText(childrenBeanXList.get(i).getChildren().get(j).getDirName());
+                                rightClassifyBean_02.setImage(childrenBeanXList.get(i).getChildren().get(j).getImgApp());
+                                mRightList.add(rightClassifyBean_02);
+                            }
+                        }
+                        initRightRv(mRightList);
+                    }
+                });
             }
 
             @Override
@@ -83,42 +127,17 @@ public class ClassifyFragment extends BaseFragment {
 
             }
         });
-        mLeftList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            LeftClassifyBean bean = new LeftClassifyBean();
-            bean.setText("第" + i + "个");
-            mLeftList.add(bean);
-        }
-        initLeftRecyclerView(mLeftList);
-        //
-        for (int i = 0; i < 30; i++) {
-            RightClassifyBean rightClassifyBean = new RightClassifyBean();
-            rightClassifyBean.setText("第" + 0 + "个");
-            mRightList.add(rightClassifyBean);
-            initRightRv(mRightList);
-        }
-        initRightRv(mRightList);
-        setTraceInfo(new TranceInfo() {
-            @Override
-            public void onTranceInfo(String info) {
-                mRightList.clear();
-                for (int i = 0; i < 30; i++) {
-                    RightClassifyBean rightClassifyBean = new RightClassifyBean();
-                    rightClassifyBean.setText("第" + info + "个");
-                    mRightList.add(rightClassifyBean);
-                    initRightRv(mRightList);
-                }
-            }
-        });
+
+
     }
 
-    private void initRightRv(List<RightClassifyBean> list) {
+    private void initRightRv(final List<RightClassifyBean> list) {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 3);
         //显示标题栏的grid
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (position == 0 || position == 10 || position == 17) {
+                if (null == list.get(position).getImage()) {
                     return 3;
                 } else {
                     return 1;
@@ -155,7 +174,7 @@ public class ClassifyFragment extends BaseFragment {
 
     //传值接口
     public interface TranceInfo {
-        void onTranceInfo(String info);
+        void onTranceInfo(int info);
     }
 
     public void setTraceInfo(TranceInfo tranceInfo) {

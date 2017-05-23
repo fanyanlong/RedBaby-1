@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_classify.bean.RightClassifyBean;
 
@@ -27,6 +28,21 @@ public class RightRvAdapter extends RecyclerView.Adapter {
         mContext = context;
     }
 
+    //点击位置
+    private int layoutPosition;
+    //点击
+    private OnItemClickListener mOnItemClickListener;
+
+    //点击
+    public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
+    //点击监听接口
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
     static class ViewHolder_Item extends RecyclerView.ViewHolder {
         TextView mTextView;
         ImageView mImageView;
@@ -35,6 +51,15 @@ public class RightRvAdapter extends RecyclerView.Adapter {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.tv_item_right_classify);
             mImageView = (ImageView) itemView.findViewById(R.id.iv_item_right_classify);
+        }
+    }
+
+    static class ViewHolder_Title extends RecyclerView.ViewHolder {
+        TextView mTextView;
+
+        public ViewHolder_Title(View itemView) {
+            super(itemView);
+            mTextView = (TextView) itemView.findViewById(R.id.tv_item_left_classify);
         }
     }
 
@@ -54,18 +79,31 @@ public class RightRvAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        RightClassifyBean rightClassifyBean = mList.get(position);
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        RightClassifyBean bean = mList.get(position);
         int itemViewType = getItemViewType(position);
         switch (itemViewType) {
             case 0:
                 ViewHolder_Title holder_title = (ViewHolder_Title) holder;
-                holder_title.mTextView.setText("栏目名字");
+                holder_title.mTextView.setText(bean.getText());
                 break;
             case 1:
-                ViewHolder_Item holder_item = (ViewHolder_Item) holder;
-                holder_item.mImageView.setImageResource(R.mipmap.ic_launcher);
-                holder_item.mTextView.setText(rightClassifyBean.getText());
+                final ViewHolder_Item holder_item = (ViewHolder_Item) holder;
+                Glide.with(mContext).load(bean.getImage()).into(holder_item.mImageView);
+                holder_item.mTextView.setText(bean.getText());
+
+                if (mOnItemClickListener != null) {
+                    //为ItemView设置监听器
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            layoutPosition = holder_item.getLayoutPosition(); // 1
+
+                            mOnItemClickListener.onItemClick(holder_item.itemView, layoutPosition); // 2
+                            notifyDataSetChanged();
+                        }
+                    });
+                }
                 break;
         }
     }
@@ -75,27 +113,13 @@ public class RightRvAdapter extends RecyclerView.Adapter {
         return mList.size();
     }
 
-    static class ViewHolder_Title extends RecyclerView.ViewHolder {
-        TextView mTextView;
-
-        public ViewHolder_Title(View itemView) {
-            super(itemView);
-            mTextView = (TextView) itemView.findViewById(R.id.tv_item_left_classify);
-        }
-    }
 
     @Override
     public int getItemViewType(int position) {
-        int i = position;
-        switch (i) {
-            case 0:
-                return 0;
-            case 10:
-                return 0;
-            case 17:
-                return 0;
-            default:
-                return 1;
+        if (null == mList.get(position).getImage()) {
+            return 0;
+        } else {
+            return 1;
         }
     }
 }
