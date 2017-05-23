@@ -47,7 +47,7 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
     Button mBtn03ClassifyGoodslist;
     @BindView(R.id.btn_04_classify_goodslist)
     Button mBtn04ClassifyGoodslist;
-    private String mPcci;
+    private String mUrl;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +61,8 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
     }
 
     private void getServerData() {
-        HttpUtils.getData(UrlClassify.ADD_CLASSIFY, new StringCallback() {
+
+        HttpUtils.getData(mUrl, new StringCallback() {
             @Override
             public void onSuccess(String s, Call call, Response response) {
 
@@ -71,7 +72,8 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
 
     private void initData() {
         Intent intent = getIntent();
-        mPcci = intent.getStringExtra("pcci");
+        String pcci = intent.getStringExtra("pcci");
+        mUrl = UrlClassify.ADD_BASE_RIGHT_01 + pcci + UrlClassify.ADD_BASE_RIGHT_02;
     }
 
     @OnClick({R.id.iv_back_classify_goodslist, R.id.btn_screen_classify_goodslist, R.id.btn_compositive_classify_goodslist, R.id.btn_sales_classify_goodslist, R.id.chk_service_classify_goodslist, R.id.chk_promotion_classify_goodslist, R.id.btn_01_classify_goodslist, R.id.btn_02_classify_goodslist, R.id.btn_03_classify_goodslist, R.id.btn_04_classify_goodslist})
