@@ -8,12 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_classify.util.UrlClassify;
+import com.team3.baby.utils.HttpUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,13 +61,12 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
     }
 
     private void getServerData() {
-        OkGo.get(UrlClassify.ADD_BASE_RIGHT_01 + mPcci + UrlClassify.ADD_BASE_RIGHT_02)
-                .execute(new StringCallback() {
-                    @Override
-                    public void onSuccess(String s, Call call, Response response) {
-                        Toast.makeText(ClassifyGoodsListFragment.this, s, Toast.LENGTH_SHORT).show();
-                    }
-                });
+        HttpUtils.getData(UrlClassify.ADD_CLASSIFY, new StringCallback() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+
+            }
+        });
     }
 
     private void initData() {
