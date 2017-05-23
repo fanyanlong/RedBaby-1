@@ -76,6 +76,7 @@ private Handler mHandler = new Handler() {
     protected void initData() {
         Bundle bundle = getArguments();
         url = bundle.getString("url");
+        
         OkUtils.getEnqueue(Url.TITLE, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
