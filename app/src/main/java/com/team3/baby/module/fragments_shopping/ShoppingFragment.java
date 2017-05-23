@@ -1,5 +1,6 @@
 package com.team3.baby.module.fragments_shopping;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import com.cundong.recyclerview.HeaderSpanSizeLookup;
 import com.cundong.recyclerview.RecyclerViewUtils;
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
+import com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity;
 
 import java.util.ArrayList;
 
@@ -69,7 +71,8 @@ public class ShoppingFragment extends BaseFragment {
         tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getActivity(), IndentAffirmActivity.class);
+                startActivity(intent);
             }
         });
 
