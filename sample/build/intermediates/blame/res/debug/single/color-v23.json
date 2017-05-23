@@ -1,5 +1,7 @@
 [
     {
+        "merged": "D:\\AS\\workSpace\\RedBaby\\sample\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "D:\\AS\\workSpace\\RedBaby\\sample\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\color-v23\\abc_color_highlight_material.xml"
         "merged": "/Users/tianjieyu/AndroidStudioProjects/RedBaby/sample/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
         "source": "/Users/tianjieyu/AndroidStudioProjects/RedBaby/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/color-v23/abc_color_highlight_material.xml"
     }
