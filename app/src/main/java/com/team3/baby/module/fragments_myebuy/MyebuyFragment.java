@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 
 import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
 import com.cundong.recyclerview.HeaderSpanSizeLookup;
@@ -46,10 +45,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     ImageView ivZhanghaoInclude;
     @BindView(R.id.et_mima_include)
     EditText etMimaInclude;
-    @BindView(R.id.rb_abc_myebuy)
-    RadioButton rbAbcMyebuy;
-    @BindView(R.id.rb_dian_myebuy)
-    RadioButton rbDianMyebuy;
+
 
     private Unbinder unbinder;
     private RecyclerView recyclerCailoveMyebuy;
@@ -57,6 +53,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     private RecyclerAddHeader recyclerAddHeader;
 
     protected void initData() {
+
+
         OkHttpClient client = OkUtils.getClient();
         String url = "http://tuijian.suning.com/recommend-portal/dyBase.jsonp?u=&c=864394010080028&cityId=579&sceneIds=18-41&count=50";
         OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
@@ -113,6 +111,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         inflate.findViewById(R.id.ll_bangding_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
+
+
         initData();
         return view;
     }

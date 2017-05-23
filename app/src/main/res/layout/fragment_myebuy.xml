@@ -6,22 +6,34 @@
     <include
         android:id="@+id/include_weidenglu"
         layout="@layout/include_denglu"
-        android:visibility="gone"></include>
+        android:visibility="visible"></include>
 
 
-
-    <android.support.v7.widget.RecyclerView
-
-        android:id="@+id/recycler_cailove_myebuy"
+    <ScrollView
+        android:visibility="invisible"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="165dp"
-        android:layout_below="@id/recycler_cailove_myebuy"
-        android:background="#9fffffff"
-        android:text="到底了" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/recycler_cailove_myebuy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="165dp"
+                android:layout_below="@id/recycler_cailove_myebuy"
+                android:background="#9fffffff"
+                android:text="到底了" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
