@@ -19,6 +19,7 @@ import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 import com.team3.baby.module.fragments_groupBuy.fragment.TabFragment;
 import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
 import com.team3.baby.utils.GsonUtils;
+import com.team3.baby.utils.HttpUtils;
 import com.team3.baby.utils.ImageUtils;
 import com.team3.baby.utils.OkUtils;
 
@@ -60,9 +61,7 @@ public class GroupBuyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
-
-        OkGo.get(UrlGroupBuy.url).execute(new StringCallback() {
+        HttpUtils.getData(UrlGroupBuy.url, new StringCallback() {
             @Override
             public void onSuccess(String s, Call call, Response response) {
                 BoutiqueBean boutiqueBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
@@ -88,7 +87,7 @@ public class GroupBuyFragment extends BaseFragment {
                     catesName.add(catesBeen.get(i).getCateName());
                     //catesimager.add(catesBeen.get(i).getCateIconUrl());
                     //fragment数据
-                    TabFragment tabFragment = new TabFragment(urlList.get(i));
+                    TabFragment tabFragment = new TabFragment(urlList.get(i),urlList);
                     fragmentlist.add(tabFragment);
                 }
 
@@ -97,8 +96,31 @@ public class GroupBuyFragment extends BaseFragment {
                 viewpagerFragmentGroupbuy.setAdapter(adapter);
                 tabFragmentGroupbuy.setupWithViewPager(viewpagerFragmentGroupbuy);
                 tabFragmentGroupbuy.setTabsFromPagerAdapter(adapter);
+                viewpagerFragmentGroupbuy.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int
+                            positionOffsetPixels) {
+
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        if (position==0){
+
+                        }
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                });
             }
         });
+
+
     }
 
     @Override
