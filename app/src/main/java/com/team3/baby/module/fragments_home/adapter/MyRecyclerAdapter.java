@@ -72,7 +72,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int viewType = getItemViewType(position);
-
         switch (viewType) {
             case 0:
                 ViewHolder_One holder_one = (ViewHolder_One) holder;
