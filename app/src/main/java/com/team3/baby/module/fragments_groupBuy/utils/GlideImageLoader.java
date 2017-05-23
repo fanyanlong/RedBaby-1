@@ -1,4 +1,4 @@
-package com.team3.baby.module.fragments_groupBuy.fragment;
+package com.team3.baby.module.fragments_groupBuy.utils;
 
 import android.content.Context;
 import android.widget.ImageView;
@@ -16,6 +16,6 @@ public class GlideImageLoader extends ImageLoader {
     @Override
     public void displayImage(Context context, Object path, ImageView imageView) {
         //Glide 加载图片简单用法
-        Glide.with(context).load(path).placeholder(R.mipmap.ic_launcher).into(imageView);
+        Glide.with(context).load(path).placeholder(R.mipmap.home_store_card_header_icon).into(imageView);
     }
 }
