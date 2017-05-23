@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#cccccc"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back_xiaoxi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@mipmap/ucwv_btn_back" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="消息"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/iv_jia_xiaoxi"
+            android:layout_width="38dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:src="@mipmap/addicon_titlebar_topic_normal_night" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mengshi" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="智能客服 Sunny"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+</LinearLayout>

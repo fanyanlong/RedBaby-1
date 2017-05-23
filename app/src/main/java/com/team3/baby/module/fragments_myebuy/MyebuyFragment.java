@@ -2,6 +2,7 @@ package com.team3.baby.module.fragments_myebuy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,7 +18,6 @@ import com.cundong.recyclerview.HeaderSpanSizeLookup;
 import com.cundong.recyclerview.RecyclerViewUtils;
 import com.google.gson.Gson;
 import com.team3.baby.R;
-import com.team3.baby.base.BaseFragment;
 import com.team3.baby.module.fragments_myebuy.bean_myebuy.LoveGoodsBean;
 import com.team3.baby.module.fragments_myebuy.bean_myebuy.SkusBean;
 import com.team3.baby.utils.OkUtils;
@@ -25,7 +25,6 @@ import com.team3.baby.utils.OkUtils;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import okhttp3.OkHttpClient;
 
@@ -35,7 +34,7 @@ import okhttp3.OkHttpClient;
  * Created by tianjieyu on 2017/5/17.
  */
 
-public class MyebuyFragment extends BaseFragment implements View.OnClickListener {
+public class MyebuyFragment extends Fragment implements View.OnClickListener {
 
 
     HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
@@ -57,39 +56,6 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
     private ArrayList<SkusBean> skus;
     private RecyclerAddHeader recyclerAddHeader;
 
-    @Override
-    protected View initView() {
-        View view = View.inflate(mContext, R.layout.fragment_myebuy, null);
-        recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
-        recyclerAddHeader = new RecyclerAddHeader(mContext);
-
-        View inflate = recyclerAddHeader.inflate;
-        inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.tv_phone_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.tv_shezhi_wode_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.iv_liuyan_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.tv_dizhi_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_quanbuOrder_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_daizhifu_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_daishouhuo_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_daipingjia_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_tuihuan_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_yunzuan_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_zuji_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_youhui_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_bangding_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
-        inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
-
-        return view;
-    }
-
-    @Override
-    protected void setListener() {
-
-    }
-
-    @Override
     protected void initData() {
         OkHttpClient client = OkUtils.getClient();
         String url = "http://tuijian.suning.com/recommend-portal/dyBase.jsonp?u=&c=864394010080028&cityId=579&sceneIds=18-41&count=50";
@@ -100,13 +66,13 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
                 Gson gson = new Gson();
                 LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
                 skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
-                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(mContext, skus, recyclerCailoveMyebuy);
+                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(getActivity(), skus, recyclerCailoveMyebuy);
 
                 mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
                 recyclerCailoveMyebuy.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
 
 
-                GridLayoutManager manager = new GridLayoutManager(mContext, 2);
+                GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
                 manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) recyclerCailoveMyebuy.getAdapter(), manager.getSpanCount()));
                 recyclerCailoveMyebuy.setLayoutManager(manager);
 
@@ -126,11 +92,29 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        // unbinder = ButterKnife.bind(this, rootView);
-        unbinder = ButterKnife.bind(getActivity());
-        return rootView;
+        View view = View.inflate(getContext(), R.layout.fragment_myebuy, null);
+        recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
+        recyclerAddHeader = new RecyclerAddHeader(getContext());
+
+        View inflate = recyclerAddHeader.inflate;
+        inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.tv_phone_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.tv_shezhi_wode_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.iv_liuyan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.tv_dizhi_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_quanbuOrder_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_daizhifu_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_daishouhuo_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_daipingjia_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_tuihuan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_yunzuan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_zuji_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_youhui_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_bangding_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
+        initData();
+        return view;
     }
 
     @Override
@@ -146,67 +130,67 @@ public class MyebuyFragment extends BaseFragment implements View.OnClickListener
         switch (view.getId()) {
             case R.id.iv_touxiang_wode_fragment:
                 //进入我的信息界面
-                startActivity(new Intent(mContext, MyMessage.class));
+                startActivity(new Intent(getActivity(), MyMessage.class));
                 break;
             case R.id.tv_phone_myebuy_fragment:
                 //进入会员界面
-                startActivity(new Intent(mContext, MyMember.class));
+                startActivity(new Intent(getActivity(), MyMember.class));
                 break;
             case R.id.tv_shezhi_wode_fragment:
                 //进入设置界面
-                startActivity(new Intent(mContext, Setting.class));
+                startActivity(new Intent(getActivity(), Setting.class));
                 break;
             case R.id.iv_liuyan_myebuy_fragment:
                 //进入消息界面
-                startActivity(new Intent(mContext, XiaoXi.class));
+                startActivity(new Intent(getActivity(), XiaoXi.class));
                 break;
             case R.id.tv_dizhi_myebuy_fragment:
                 //进入地址管理界面
-                startActivity(new Intent(mContext, ShowItem.class));
+                startActivity(new Intent(getActivity(), ShowItem.class));
                 break;
             case R.id.ll_quanbuOrder_myebuy_fragment:
                 //进入查看订单界面
-                startActivity(new Intent(mContext, CheckOrder.class));
+                startActivity(new Intent(getActivity(), CheckOrder.class));
                 break;
             case R.id.ll_daizhifu_myebuy_fragment:
                 //进入待支付界面
-                startActivity(new Intent(mContext, PayAcitvity.class));
+                startActivity(new Intent(getActivity(), PayAcitvity.class));
                 break;
             case R.id.ll_daishouhuo_myebuy_fragment:
                 //进入待收货界面
-                startActivity(new Intent(mContext, Receive.class));
+                startActivity(new Intent(getActivity(), Receive.class));
                 break;
             case R.id.ll_daipingjia_myebuy_fragment:
                 //进入待评价界面
-                startActivity(new Intent(mContext, Judge.class));
+                startActivity(new Intent(getActivity(), Judge.class));
                 break;
             case R.id.ll_tuihuan_myebuy_fragment:
                 //进入后续服务界面
-                startActivity(new Intent(mContext, MyService.class));
+                startActivity(new Intent(getActivity(), MyService.class));
                 break;
             case R.id.ll_yunzuan_myebuy_fragment:
                 //进入查看云钻界面
-                startActivity(new Intent(mContext, Diamond.class));
+                startActivity(new Intent(getActivity(), Diamond.class));
                 break;
             case R.id.ll_zuji_myebuy_fragment:
                 //进入足迹界面
-                startActivity(new Intent(mContext, Myhistory.class));
+                startActivity(new Intent(getActivity(), Myhistory.class));
                 break;
             case R.id.ll_youhui_myebuy_fragment:
                 //进入优惠券界面
-                startActivity(new Intent(mContext, Coupon.class));
+                startActivity(new Intent(getActivity(), Coupon.class));
                 break;
             case R.id.ll_bangding_myebuy_fragment:
                 //进入绑定设置界面
-                startActivity(new Intent(mContext, BindSeting.class));
+                startActivity(new Intent(getActivity(), BindSeting.class));
                 break;
             case R.id.ll_anquan_myebuy_fragment:
                 //进入账户安全界面
-                startActivity(new Intent(mContext, Accountsecurity.class));
+                startActivity(new Intent(getActivity(), Accountsecurity.class));
                 break;
             case R.id.ll_shoucang_myebuy_fragment:
                 //进入收藏界面
-                startActivity(new Intent(mContext, Collect.class));
+                startActivity(new Intent(getActivity(), Collect.class));
                 break;
 
         }

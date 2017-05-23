@@ -35,15 +35,11 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="70dp"
-                android:text="150***********"
+                android:layout_marginTop="78dp"
+                android:text="150*********96"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
 
             <LinearLayout
                 android:layout_width="120dp"
@@ -66,12 +62,12 @@
 
                     <ImageView
                         android:id="@+id/iv_liuyan_myebuy_fragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="40dp"
-                        android:background="#ffffff"
-                        android:src="@mipmap/wode_message" />
+                        android:layout_marginTop="35dp"
+
+                        android:src="@mipmap/see_more_toolbar" />
 
 
                 </LinearLayout>
