@@ -34,6 +34,9 @@ public class RecyclerAddHeader extends RelativeLayout {
     public void init(Context context) {
 
         inflate = inflate(context, R.layout.linearlayout_myebuy_tou, this);
+
+
     }
+
 
 }

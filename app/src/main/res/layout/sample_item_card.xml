@@ -17,6 +17,7 @@
         card_view:cardUseCompatPadding="true">
 
         <TextView
+            android:text="455"
             android:id="@+id/info_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

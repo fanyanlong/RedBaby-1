@@ -35,7 +35,7 @@ import okhttp3.OkHttpClient;
  * Created by tianjieyu on 2017/5/17.
  */
 
-public class MyebuyFragment extends BaseFragment implements MyebuyLisenner, View.OnClickListener {
+public class MyebuyFragment extends BaseFragment implements View.OnClickListener {
 
 
     HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
@@ -55,55 +55,13 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner, View
     private Unbinder unbinder;
     private RecyclerView recyclerCailoveMyebuy;
     private ArrayList<SkusBean> skus;
+    private RecyclerAddHeader recyclerAddHeader;
 
     @Override
     protected View initView() {
         View view = View.inflate(mContext, R.layout.fragment_myebuy, null);
         recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
-        return view;
-    }
-
-    @Override
-    protected void setListener() {
-
-    }
-
-    @Override
-    protected void initData() {
-        OkHttpClient client = OkUtils.getClient();
-        String url = "http://tuijian.suning.com/recommend-portal/dyBase.jsonp?u=&c=864394010080028&cityId=579&sceneIds=18-41&count=50";
-        OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
-            @Override
-            public void onSuccess(String result) {
-              //  Toast.makeText(mContext, "得到数据：" + result, Toast.LENGTH_SHORT).show();
-                Gson gson=new Gson();
-                LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
-                skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
-            }
-
-            @Override
-            public void onError(String errorMsg) {
-
-                Log.d("ddd", "请求数据失败了");
-            }
-        });
-        ArrayList<String> dataList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            dataList.add("item" + i);
-        }
-
-        Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(mContext, skus, recyclerCailoveMyebuy);
-
-        mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
-        recyclerCailoveMyebuy.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
-
-
-        GridLayoutManager manager = new GridLayoutManager(mContext, 2);
-        manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) recyclerCailoveMyebuy.getAdapter(), manager.getSpanCount()));
-        recyclerCailoveMyebuy.setLayoutManager(manager);
-
-        RecyclerAddHeader recyclerAddHeader = new RecyclerAddHeader(mContext);
-        RecyclerViewUtils.setHeaderView(recyclerCailoveMyebuy, recyclerAddHeader);
+        recyclerAddHeader = new RecyclerAddHeader(mContext);
 
         View inflate = recyclerAddHeader.inflate;
         inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
@@ -123,6 +81,46 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner, View
         inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
 
+        return view;
+    }
+
+    @Override
+    protected void setListener() {
+
+    }
+
+    @Override
+    protected void initData() {
+        OkHttpClient client = OkUtils.getClient();
+        String url = "http://tuijian.suning.com/recommend-portal/dyBase.jsonp?u=&c=864394010080028&cityId=579&sceneIds=18-41&count=50";
+        OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
+            @Override
+            public void onSuccess(String result) {
+                //  Toast.makeText(mContext, "得到数据：" + result, Toast.LENGTH_SHORT).show();
+                Gson gson = new Gson();
+                LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
+                skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
+                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(mContext, skus, recyclerCailoveMyebuy);
+
+                mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
+                recyclerCailoveMyebuy.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
+
+
+                GridLayoutManager manager = new GridLayoutManager(mContext, 2);
+                manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) recyclerCailoveMyebuy.getAdapter(), manager.getSpanCount()));
+                recyclerCailoveMyebuy.setLayoutManager(manager);
+
+                RecyclerViewUtils.setHeaderView(recyclerCailoveMyebuy, recyclerAddHeader);
+
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+                Log.d("ddd", "请求数据失败了");
+            }
+        });
+
 
     }
 
@@ -139,114 +137,6 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner, View
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-    }
-
-
-    @Override
-    public void gotoPay() {
-        //进入待支付界面
-        startActivity(new Intent(mContext, PayAcitvity.class));
-    }
-
-    @Override
-    public void gotoReceive() {
-        //进入待收货界面
-        startActivity(new Intent(mContext, Receive.class));
-    }
-
-    @Override
-    public void gotoJudge() {
-        //进入待评价界面
-        startActivity(new Intent(mContext, Judge.class));
-    }
-
-    @Override
-    public void gotoService() {
-        //进入后续服务界面
-        startActivity(new Intent(mContext, MyService.class));
-
-    }
-
-    @Override
-    public void gotoCheckOrder() {
-        //进入查看订单界面
-        startActivity(new Intent(mContext, CheckOrder.class));
-    }
-
-    @Override
-    public void gotoDiamond() {
-        //进入查看云钻界面
-        startActivity(new Intent(mContext, Diamond.class));
-    }
-
-    @Override
-    public void gotoMyhistory() {
-        //进入足迹界面
-        startActivity(new Intent(mContext, Myhistory.class));
-
-    }
-
-    @Override
-    public void gotocoupon() {
-        //进入优惠券界面
-        startActivity(new Intent(mContext, Coupon.class));
-    }
-
-    @Override
-    public void gotoBindSeting() {
-        //进入绑定设置界面
-        startActivity(new Intent(mContext, BindSeting.class));
-    }
-
-    @Override
-    public void gotoaccountsecurity() {
-        //进入账户安全界面
-        startActivity(new Intent(mContext, Accountsecurity.class));
-    }
-
-    //进入地址管理界面
-    @Override
-    public void gotoShowAddress() {
-
-        startActivity(new Intent(mContext, ShowItem.class));
-    }
-
-    @Override
-    //进入收藏界面
-    public void gotoCollect() {
-        startActivity(new Intent(mContext, Collect.class));
-    }
-
-    @Override
-    //进入设置界面
-    public void Setting() {
-        startActivity(new Intent(mContext, Setting.class));
-    }
-
-
-    @Override
-    //进入查看详情界面
-    public void checkdetails(int goodsid) {
-        startActivity(new Intent(mContext, Checkdetails.class));
-    }
-
-    //进入消息界面
-    @Override
-    public void gotoXiaoXi() {
-        startActivity(new Intent(mContext, XiaoXi.class));
-
-    }
-
-    //进入我的信息界面
-    @Override
-    public void gotoMyMessage(int Mid) {
-        startActivity(new Intent(mContext, MyMessage.class));
-    }
-
-    //进入会员界面
-    @Override
-    public void gotoMember(int Myid) {
-        startActivity(new Intent(mContext, MyMember.class));
     }
 
 
