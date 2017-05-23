@@ -12,9 +12,13 @@ import android.widget.TextView;
 import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
 import com.cundong.recyclerview.HeaderSpanSizeLookup;
 import com.cundong.recyclerview.RecyclerViewUtils;
+import com.google.gson.Gson;
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
+import com.team3.baby.module.fragments_classify.util.UrlClassify;
 import com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity;
+import com.team3.baby.module.fragments_shopping.shopping_bean.Shopping_Bean;
+import com.team3.baby.utils.OkUtils;
 
 import java.util.ArrayList;
 
@@ -52,22 +56,32 @@ public class ShoppingFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        //init data
-        ArrayList<String> dataList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            dataList.add("item" + i);
-        }
 
-        Fragment_shopping_RecycleAdapter dataAdapter = new Fragment_shopping_RecycleAdapter(mContext, dataList, fragmentShoppingRecyclerView);
+        OkUtils.getEnqueue(UrlClassify.BBNF, null, new OkUtils.MyCallback() {
+            @Override
+            public void onSuccess(String result) {
+                Gson gson = new Gson();
+                Shopping_Bean shopping_bean = gson.fromJson(result, Shopping_Bean.class);
+                ArrayList<Shopping_Bean.GoodsBean> goods = (ArrayList<Shopping_Bean.GoodsBean>) shopping_bean.getGoods();
+                Fragment_shopping_RecycleAdapter dataAdapter = new Fragment_shopping_RecycleAdapter(mContext, goods, fragmentShoppingRecyclerView);
 
-        mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
-        fragmentShoppingRecyclerView.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
+                mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
+                fragmentShoppingRecyclerView.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
 
-        GridLayoutManager manager = new GridLayoutManager(mContext, 2);
-        manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) fragmentShoppingRecyclerView.getAdapter(), manager.getSpanCount()));
-        fragmentShoppingRecyclerView.setLayoutManager(manager);
+                GridLayoutManager manager = new GridLayoutManager(mContext, 2);
+                manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) fragmentShoppingRecyclerView.getAdapter(), manager.getSpanCount()));
+                fragmentShoppingRecyclerView.setLayoutManager(manager);
 
-        RecyclerViewUtils.setHeaderView(fragmentShoppingRecyclerView, new SampleHeader(mContext));
+                RecyclerViewUtils.setHeaderView(fragmentShoppingRecyclerView, new SampleHeader(mContext));
+
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
+
         tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
