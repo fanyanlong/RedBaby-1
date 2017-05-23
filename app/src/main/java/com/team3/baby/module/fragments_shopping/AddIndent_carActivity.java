@@ -110,6 +110,7 @@ public class AddIndent_carActivity extends AppCompatActivity {
         tvAnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvMinus.setTextColor(Color.BLACK);
                 num = num + 1;
                 etNumber.setText(num + "");
             }
