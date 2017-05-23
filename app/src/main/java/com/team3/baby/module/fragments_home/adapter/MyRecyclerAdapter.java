@@ -56,6 +56,14 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_five, parent, false);
                 holder = new ViewHolder_Five(view);
                 break;
+            case 5:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_six, parent, false);
+                holder = new ViewHolder_Six(view);
+                break;
+            case 6:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_seven, parent, false);
+                holder = new ViewHolder_Seven(view);
+                break;
         }
         return holder;
 
@@ -161,6 +169,76 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_five.item_home_five_gestation_prefecture_image);
                 break;
+            case 5:
+                ViewHolder_Six holder_Six = (ViewHolder_Six) holder;
+                Glide.with(context).load(Url.IMAGE + list.get(13).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_trademark_image);
+                Glide.with(context).load(Url.IMAGE + list.get(14).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_trademark_hui_image);
+                Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_image1);
+                Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
+                        .get(2).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_image2);
+                Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
+                        .get(3).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_image3);
+                Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
+                        .get(4).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_image4);
+                Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
+                        .get(5).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_image5);
+                Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
+                        .get(6).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_image6);
+                Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_Six.item_home_six_image7);
+                holder_Six.item_home_six_name1.setText(list.get(15).getTag().get(1).getElementName());
+                holder_Six.item_home_six_name2.setText(list.get(15).getTag().get(2).getElementName());
+                holder_Six.item_home_six_name3.setText(list.get(15).getTag().get(3).getElementName());
+                holder_Six.item_home_six_name4.setText(list.get(15).getTag().get(4).getElementName());
+                holder_Six.item_home_six_name5.setText(list.get(15).getTag().get(5).getElementName());
+                holder_Six.item_home_six_name6.setText(list.get(15).getTag().get(6).getElementName());
+                //holder_Six.item_home_six_name7.setText(list.get(15).getTag().get(0).getElementName());
+                break;
+            case 6:
+                ViewHolder_Seven holder_seven = (ViewHolder_Seven) holder;
+                Glide.with(context).load(Url.IMAGE + list.get(16).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_good_method_image);
+                Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_image1);
+                Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
+                        .get(2).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_image2);
+                Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
+                        .get(3).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_image3);
+                Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
+                        .get(4).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_image4);
+                Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
+                        .get(5).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_image5);
+                Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
+                        .get(6).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_image6);
+                Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_seven.item_home_seven_image7);
+                holder_seven.item_home_seven_name1.setText(list.get(17).getTag().get(1).getElementName());
+                holder_seven.item_home_seven_name2.setText(list.get(17).getTag().get(2).getElementName());
+                holder_seven.item_home_seven_name3.setText(list.get(17).getTag().get(3).getElementName());
+                holder_seven.item_home_seven_name4.setText(list.get(17).getTag().get(4).getElementName());
+                holder_seven.item_home_seven_name5.setText(list.get(17).getTag().get(5).getElementName());
+                holder_seven.item_home_seven_name6.setText(list.get(17).getTag().get(6).getElementName());
+                break;
         }
     }
 
@@ -171,7 +249,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public int getItemViewType(int position) {
-        int i = position % 5;
+        int i = position % 7;
         switch (i) {
             case 0:
                 return 0;
@@ -183,6 +261,10 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 return 3;
             case 4:
                 return 4;
+            case 5:
+                return 5;
+            case 6:
+                return 6;
         }
         return 0;
 
@@ -286,4 +368,80 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
+    public class ViewHolder_Six extends RecyclerView.ViewHolder {
+        ImageView item_home_six_trademark_image;
+        ImageView item_home_six_trademark_hui_image;
+        ImageView item_home_six_image1;
+        ImageView item_home_six_image2;
+        ImageView item_home_six_image3;
+        ImageView item_home_six_image4;
+        ImageView item_home_six_image5;
+        ImageView item_home_six_image6;
+        ImageView item_home_six_image7;
+        TextView item_home_six_name1;
+        TextView item_home_six_name2;
+        TextView item_home_six_name3;
+        TextView item_home_six_name4;
+        TextView item_home_six_name5;
+        TextView item_home_six_name6;
+       // TextView item_home_six_name7;
+
+        public ViewHolder_Six(View itemView) {
+            super(itemView);
+            item_home_six_trademark_image = (ImageView) itemView.findViewById(R.id.item_home_six_trademark_image);
+            item_home_six_trademark_hui_image = (ImageView) itemView.findViewById(R.id.item_home_six_trademark_hui_image);
+            item_home_six_image1 = (ImageView) itemView.findViewById(R.id.item_home_six_image1);
+            item_home_six_image2 = (ImageView) itemView.findViewById(R.id.item_home_six_image2);
+            item_home_six_image3 = (ImageView) itemView.findViewById(R.id.item_home_six_image3);
+            item_home_six_image4 = (ImageView) itemView.findViewById(R.id.item_home_six_image4);
+            item_home_six_image5 = (ImageView) itemView.findViewById(R.id.item_home_six_image5);
+            item_home_six_image6 = (ImageView) itemView.findViewById(R.id.item_home_six_image6);
+            item_home_six_image7 = (ImageView) itemView.findViewById(R.id.item_home_six_image7);
+            item_home_six_name1 = (TextView) itemView.findViewById(R.id.item_home_six_name1);
+            item_home_six_name2 = (TextView) itemView.findViewById(R.id.item_home_six_name2);
+            item_home_six_name3 = (TextView) itemView.findViewById(R.id.item_home_six_name3);
+            item_home_six_name4 = (TextView) itemView.findViewById(R.id.item_home_six_name4);
+            item_home_six_name5 = (TextView) itemView.findViewById(R.id.item_home_six_name5);
+            item_home_six_name6 = (TextView) itemView.findViewById(R.id.item_home_six_name6);
+            //item_home_six_name7 = (TextView) itemView.findViewById(R.id.item_home_six_name7);
+
+        }
+    }
+
+    public class ViewHolder_Seven extends RecyclerView.ViewHolder {
+        ImageView item_home_seven_good_method_image;
+        ImageView item_home_seven_image1;
+        ImageView item_home_seven_image2;
+        ImageView item_home_seven_image3;
+        ImageView item_home_seven_image4;
+        ImageView item_home_seven_image5;
+        ImageView item_home_seven_image6;
+        ImageView item_home_seven_image7;
+        TextView item_home_seven_name1;
+        TextView item_home_seven_name2;
+        TextView item_home_seven_name3;
+        TextView item_home_seven_name4;
+        TextView item_home_seven_name5;
+        TextView item_home_seven_name6;
+        TextView item_home_seven_name7;
+
+        public ViewHolder_Seven(View itemView) {
+            super(itemView);
+            item_home_seven_good_method_image = (ImageView) itemView.findViewById(R.id.item_home_seven_good_method_image);
+            item_home_seven_image1 = (ImageView) itemView.findViewById(R.id.item_home_seven_image1);
+            item_home_seven_image2 = (ImageView) itemView.findViewById(R.id.item_home_seven_image2);
+            item_home_seven_image3 = (ImageView) itemView.findViewById(R.id.item_home_seven_image3);
+            item_home_seven_image4 = (ImageView) itemView.findViewById(R.id.item_home_seven_image4);
+            item_home_seven_image5 = (ImageView) itemView.findViewById(R.id.item_home_seven_image5);
+            item_home_seven_image6 = (ImageView) itemView.findViewById(R.id.item_home_seven_image6);
+            item_home_seven_image7 = (ImageView) itemView.findViewById(R.id.item_home_seven_image7);
+            item_home_seven_name1 = (TextView) itemView.findViewById(R.id.item_home_seven_name1);
+            item_home_seven_name2 = (TextView) itemView.findViewById(R.id.item_home_seven_name2);
+            item_home_seven_name3 = (TextView) itemView.findViewById(R.id.item_home_seven_name3);
+            item_home_seven_name4 = (TextView) itemView.findViewById(R.id.item_home_seven_name4);
+            item_home_seven_name5 = (TextView) itemView.findViewById(R.id.item_home_seven_name5);
+            item_home_seven_name6 = (TextView) itemView.findViewById(R.id.item_home_seven_name6);
+            item_home_seven_name7 = (TextView) itemView.findViewById(R.id.item_home_seven_name7);
+        }
+    }
 }
