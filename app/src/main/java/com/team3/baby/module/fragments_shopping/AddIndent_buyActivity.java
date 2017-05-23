@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_shopping;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +33,13 @@ public class AddIndent_buyActivity extends AppCompatActivity {
     TextView tvAddShoppingPrice;
     @BindView(R.id.btn_confirm_buy)
     Button btnConfirmBuy;
-
+    @BindView(R.id.tv_minus)
+    TextView tvMinus;
+    @BindView(R.id.et_number)
+    EditText etNumber;
+    @BindView(R.id.tv_and)
+    TextView tvAnd;
+    private int num = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +60,33 @@ public class AddIndent_buyActivity extends AppCompatActivity {
         tvAddShoppingName.setText(shopName);
         tvAddShoppingPrice.setText(shopPrice);
 
+
+
+
+
+        tvMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (num == 1) {
+                    tvMinus.setTextColor(Color.GRAY);
+                    etNumber.setText("1");
+                }else{
+                    tvMinus.setTextColor(Color.BLACK);
+                    num = num - 1;
+                    etNumber.setText(num + "");
+                }
+            }
+        });
+        tvAnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvMinus.setTextColor(Color.BLACK);
+                num = num + 1;
+                etNumber.setText(num + "");
+            }
+        });
+
         btnConfirmBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,9 +94,11 @@ public class AddIndent_buyActivity extends AppCompatActivity {
                 intent1.putExtra("position", position);
                 intent1.putExtra("shopName", shopName);
                 intent1.putExtra("shopPrice", shopPrice);
+                intent1.putExtra("number",num);
                 startActivity(intent1);
             }
         });
+
     }
 
     @Override
