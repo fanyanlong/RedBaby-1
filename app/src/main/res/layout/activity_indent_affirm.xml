@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity">
+
+    <include layout="@layout/shopping_head_layout"/>
+
     <ScrollView android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
@@ -14,7 +17,6 @@
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
         >
-            <include layout="@layout/shopping_head_layout"/>
             <!--地址布局-->
 
             <LinearLayout android:layout_width="match_parent"
@@ -317,7 +319,7 @@
                   android:layout_weight="3"
                     android:gravity="right"
                   android:text="实付金额："
-                  android:textSize="20sp"/>
+                  android:textSize="15sp"/>
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
@@ -325,7 +327,7 @@
                   android:paddingTop="15dp"
                   android:paddingBottom="15dp"
                   android:textColor="@color/red"
-                  android:textSize="20sp"/>
+                  android:textSize="15sp"/>
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
@@ -335,6 +337,6 @@
                   android:paddingTop="15dp"
                   android:paddingBottom="15dp"
                   android:textColor="@color/white"
-                  android:textSize="20sp"/>
+                  android:textSize="15sp"/>
     </LinearLayout>
 </LinearLayout>
