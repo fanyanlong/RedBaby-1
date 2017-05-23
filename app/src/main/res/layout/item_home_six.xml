@@ -49,13 +49,14 @@
                     android:id="@+id/item_home_six_name1"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/item_home_six_price1"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥151.2"
+                    android:textColor="#ff00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -80,7 +81,8 @@
                 <TextView
                     android:id="@+id/item_home_six_price2"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥149.0"
+                    android:textColor="#ff00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -104,7 +106,8 @@
                 <TextView
                     android:id="@+id/item_home_six_price3"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥69.0"
+                    android:textColor="#ff00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -128,7 +131,8 @@
                 <TextView
                     android:id="@+id/item_home_six_price4"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥49.0"
+                    android:textColor="#ff00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -152,7 +156,8 @@
                 <TextView
                     android:id="@+id/item_home_six_price5"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥79.0"
+                    android:textColor="#ff00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -176,7 +181,8 @@
                 <TextView
                     android:id="@+id/item_home_six_price6"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥28.8"
+                    android:textColor="#ff00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>

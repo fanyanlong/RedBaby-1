@@ -420,7 +420,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         TextView item_home_seven_name4;
         TextView item_home_seven_name5;
         TextView item_home_seven_name6;
-        TextView item_home_seven_name7;
+        //TextView item_home_seven_name7;
 
         public ViewHolder_Seven(View itemView) {
             super(itemView);
@@ -438,7 +438,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             item_home_seven_name4 = (TextView) itemView.findViewById(R.id.item_home_seven_name4);
             item_home_seven_name5 = (TextView) itemView.findViewById(R.id.item_home_seven_name5);
             item_home_seven_name6 = (TextView) itemView.findViewById(R.id.item_home_seven_name6);
-            item_home_seven_name7 = (TextView) itemView.findViewById(R.id.item_home_seven_name7);
+            //item_home_seven_name7 = (TextView) itemView.findViewById(R.id.item_home_seven_name7);
         }
     }
 }

@@ -97,6 +97,7 @@ public class RightRvAdapter extends RecyclerView.Adapter {
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+
                             layoutPosition = holder_item.getLayoutPosition(); // 1
 
                             mOnItemClickListener.onItemClick(holder_item.itemView, layoutPosition); // 2

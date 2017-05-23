@@ -33,7 +33,7 @@
         android:layout_height="52dp">
 
         <TextView
-            android:layout_width="90dp"
+            android:layout_width="38dp"
             android:layout_height="55dp"
             android:text="账号" />
 
@@ -59,7 +59,7 @@
         android:layout_height="52dp">
 
         <TextView
-            android:layout_width="90dp"
+            android:layout_width="38dp"
             android:layout_height="55dp"
             android:text="密码" />
 
@@ -68,40 +68,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:hint="请输入6-12位易购密码" />
+            android:hint="请输入6-12位易购密码"
+            android:password="true" />
 
-        <RadioGroup
 
-
-            android:layout_width="0dp"
+        <CheckBox
+            android:id="@+id/rb_abc_myebuy"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_abc_myebuy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/xuanzeabc"
-                android:button="@null"
-                android:text="  ABC"
-                android:textColor="@drawable/xuanzeziti"
-                android:textSize="16sp" />
-
-            <RadioButton
-                android:id="@+id/rb_dian_myebuy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="@drawable/xuanzedian"
-                android:button="@null"
-                android:text="     ***"
-                android:textColor="@drawable/xuanzeziti"
-                android:textSize="16sp" />
-        </RadioGroup>
+            android:background="@drawable/denglu_selector"
+            android:button="@null"
+            android:checked="true" />
 
 
     </LinearLayout>
@@ -109,7 +86,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9999">
+        android:background="#ccccc9"
+        android:orientation="vertical">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:background="#999999"
+            android:text="登录" />
     </LinearLayout>
+
+
 </LinearLayout>
