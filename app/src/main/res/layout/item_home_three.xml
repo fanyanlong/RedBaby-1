@@ -3,17 +3,22 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
+    <View
+    android:layout_marginTop="10dp"
+    android:background="#cccccc"
+    android:layout_width="match_parent"
+    android:layout_height="10dp"></View>
     <LinearLayout
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="40dp">
         <ImageView
             android:id="@+id/item_home_three_headline_image"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="50dp"/>
+            android:layout_height="40dp"/>
         <TextView
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
@@ -27,8 +32,12 @@
             android:layout_width="15dp"
             android:layout_height="15dp"/>
     </LinearLayout>
-
+<View
+    android:background="#cccccc"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"></View>
     <HorizontalScrollView
+        android:layout_marginTop="5dp"
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -44,8 +53,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image1"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout
@@ -56,8 +77,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image2"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -67,8 +100,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image3"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -78,8 +123,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image4"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -89,8 +146,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image5"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -100,8 +169,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image6"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -111,8 +192,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image7"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -123,8 +216,20 @@
                 <ImageView
                     android:id="@+id/item_home_three_image8"
                     android:src="@mipmap/ic_launcher"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="111"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:text="111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
         </LinearLayout>

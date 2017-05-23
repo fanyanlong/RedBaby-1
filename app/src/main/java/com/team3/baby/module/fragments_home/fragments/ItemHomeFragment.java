@@ -1,6 +1,8 @@
 package com.team3.baby.module.fragments_home.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,8 +24,12 @@ import com.team3.baby.utils.OkUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.logging.LogRecord;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * 类用途:
@@ -47,9 +53,22 @@ public class ItemHomeFragment extends BaseFragment {
 
         return view;
     }
-
+private Handler mHandler = new Handler() {
+    @Override
+    public void handleMessage(Message msg) {
+        super.handleMessage(msg);
+        mPpfFragmentHomeRecyclerView.refreshComplete();
+    }
+};
     @Override
     protected void setListener() {
+        mPpfFragmentHomeRecyclerView.setPtrHandler(new PtrDefaultHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                mHandler.sendEmptyMessageDelayed(0,2000);
+
+            }
+        });
 
     }
 

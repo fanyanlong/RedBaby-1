@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_home.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,16 +37,24 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         View view = null;
         switch (viewType) {
             case 0:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_one, parent,false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_one, parent, false);
                 holder = new ViewHolder_One(view);
                 break;
             case 1:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_two, parent,false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_two, parent, false);
                 holder = new ViewHolder_Two(view);
                 break;
             case 2:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_three, parent,false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_three, parent, false);
                 holder = new ViewHolder_Three(view);
+                break;
+            case 3:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_four, parent, false);
+                holder = new ViewHolder_Four(view);
+                break;
+            case 4:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_five, parent, false);
+                holder = new ViewHolder_Five(view);
                 break;
         }
         return holder;
@@ -58,8 +67,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         switch (viewType) {
             case 0:
-                ViewHolder_One holder_one = (ViewHolder_One)holder;
-                Glide.with(context).load(Url.IMAGE+list.get(1).getTag().get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher).into(holder_one.item_home_one_image);
+                ViewHolder_One holder_one = (ViewHolder_One) holder;
+                Glide.with(context).load(Url.IMAGE + list.get(1).getTag().get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher).into(holder_one.item_home_one_image);
                 break;
             case 1:
                 ViewHolder_Two holder_two = (ViewHolder_Two) holder;
@@ -68,57 +77,89 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 holder_two.import_text.setText(list.get(2).getTag().get(2).getElementName());
                 holder_two.probation_text.setText(list.get(2).getTag().get(3).getElementName());
                 holder_two.pregnant_text.setText(list.get(2).getTag().get(4).getElementName());
-                Glide.with(context).load(Url.IMAGE+list.get(2).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
                         .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_two.lotto_image);
-                Glide.with(context).load(Url.IMAGE+list.get(2).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
                         .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_two.centre_image);
-                Glide.with(context).load(Url.IMAGE+list.get(2).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
                         .get(2).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_two.import_image);
-                Glide.with(context).load(Url.IMAGE+list.get(2).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
                         .get(3).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_two.probation_image);
-                Glide.with(context).load(Url.IMAGE+list.get(2).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
                         .get(4).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_two.pregnant_image);
 
                 break;
             case 2:
                 ViewHolder_Three holder_three = (ViewHolder_Three) holder;
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image0);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image1);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(2).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image2);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(3).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image3);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(4).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image4);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(5).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image5);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(6).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image6);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(7).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image7);
-                Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
+                Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
                         .get(8).getPicUrl()).placeholder(R.mipmap.ic_launcher)
                         .into(holder_three.image8);
-               /* Glide.with(context).load(Url.IMAGE+list.get(3).getTag()
-                        .get(9).getPicUrl()).placeholder(R.mipmap.ic_launcher)
-                        .into(holder_three.image1);*/
+                break;
 
-
+            case 3:
+                ViewHolder_Four holder_four = (ViewHolder_Four) holder;
+                Glide.with(context).load(Url.IMAGE + list.get(5).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_four.item_home_four_activity_image);
+                Glide.with(context).load(Url.IMAGE + list.get(6).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_four.item_home_four_big_poly_hui_image);
+                Glide.with(context).load(Url.IMAGE + list.get(6).getTag()
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_four.item_home_four_tesco_image);
+                break;
+            case 4:
+                ViewHolder_Five holder_five = (ViewHolder_Five) holder;
+                Glide.with(context).load(Url.IMAGE + list.get(8).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_five.item_home_five_knowledge_image);
+                Glide.with(context).load(Url.IMAGE + list.get(9).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_five.item_home_five_newborn_image);
+                Glide.with(context).load(Url.IMAGE + list.get(9).getTag()
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_five.item_home_five_infant_image);
+                Glide.with(context).load(Url.IMAGE + list.get(10).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_five.item_home_five_infant_prefecture_image);
+                Glide.with(context).load(Url.IMAGE + list.get(10).getTag()
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_five.item_home_five_preschool_prefecture_image);
+                Glide.with(context).load(Url.IMAGE + list.get(11).getTag()
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_five.item_home_five_ready_prefecture_image);
+                Glide.with(context).load(Url.IMAGE + list.get(11).getTag()
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .into(holder_five.item_home_five_gestation_prefecture_image);
                 break;
         }
     }
@@ -130,14 +171,18 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public int getItemViewType(int position) {
-        int i = position%3;
-        switch (i){
+        int i = position % 5;
+        switch (i) {
             case 0:
                 return 0;
             case 1:
                 return 1;
             case 2:
                 return 2;
+            case 3:
+                return 3;
+            case 4:
+                return 4;
         }
         return 0;
 
@@ -202,8 +247,42 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             image6 = (ImageView) itemView.findViewById(R.id.item_home_three_image6);
             image7 = (ImageView) itemView.findViewById(R.id.item_home_three_image7);
             image8 = (ImageView) itemView.findViewById(R.id.item_home_three_image8);
+        }
+    }
 
-            ;
+    public class ViewHolder_Four extends RecyclerView.ViewHolder {
+        ImageView item_home_four_activity_image;
+        ImageView item_home_four_big_poly_hui_image;
+        ImageView item_home_four_tesco_image;
+
+        public ViewHolder_Four(View itemView) {
+            super(itemView);
+            item_home_four_activity_image = (ImageView) itemView.findViewById(R.id.item_home_four_activity_image);
+            item_home_four_big_poly_hui_image = (ImageView) itemView.findViewById(R.id.item_home_four_big_poly_hui_image);
+            item_home_four_tesco_image = (ImageView) itemView.findViewById(R.id.item_home_four_tesco_image);
+        }
+    }
+
+    public class ViewHolder_Five extends RecyclerView.ViewHolder {
+        ImageView item_home_five_knowledge_image;
+        ImageView item_home_five_newborn_image;
+        ImageView item_home_five_infant_image;
+        ImageView item_home_five_infant_prefecture_image;
+        ImageView item_home_five_preschool_prefecture_image;
+        ImageView item_home_five_ready_prefecture_image;
+        ImageView item_home_five_gestation_prefecture_image;
+
+
+        public ViewHolder_Five(View itemView) {
+            super(itemView);
+            item_home_five_knowledge_image = (ImageView) itemView.findViewById(R.id.item_home_five_knowledge_image);
+            item_home_five_newborn_image = (ImageView) itemView.findViewById(R.id.item_home_five_newborn_image);
+            item_home_five_infant_image = (ImageView) itemView.findViewById(R.id.item_home_five_infant_image);
+            item_home_five_infant_prefecture_image = (ImageView) itemView.findViewById(R.id.item_home_five_infant_prefecture_image);
+            item_home_five_preschool_prefecture_image = (ImageView) itemView.findViewById(R.id.item_home_five_preschool_prefecture_image);
+            item_home_five_ready_prefecture_image = (ImageView) itemView.findViewById(R.id.item_home_five_ready_prefecture_image);
+            item_home_five_gestation_prefecture_image = (ImageView) itemView.findViewById(R.id.item_home_five_gestation_prefecture_image);
+
         }
     }
 
