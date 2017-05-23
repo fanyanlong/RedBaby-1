@@ -58,7 +58,8 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 169.00"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -82,7 +83,8 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 29.90"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -105,7 +107,8 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 35.90"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -128,7 +131,8 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 33.00"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -151,7 +155,8 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 79.00"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -174,7 +179,8 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 145.00"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -197,7 +203,8 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 89.00"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -221,15 +228,12 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥ 00.00"
+                    android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:gravity="center"
-                    android:text="111"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+               
             </LinearLayout>
 
         </LinearLayout>
