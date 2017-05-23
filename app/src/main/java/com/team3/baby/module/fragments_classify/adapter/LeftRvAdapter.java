@@ -25,24 +25,21 @@ public class LeftRvAdapter extends RecyclerView.Adapter<LeftRvAdapter.ViewHolder
     private int layoutPosition;
     //点击
     private OnItemClickListener mOnItemClickListener;
-    //长按
-    private OnItemLongClickListener mOnItemLongClickListener;
-
     //点击
     public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
-
-    //长按
-    public void setmOnItemLongClickListener(OnItemLongClickListener mOnItemLongClickListener) {
-        this.mOnItemLongClickListener = mOnItemLongClickListener;
-    }
-
     //点击监听接口
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
 
+    //长按
+    private OnItemLongClickListener mOnItemLongClickListener;
+    //长按
+    public void setmOnItemLongClickListener(OnItemLongClickListener mOnItemLongClickListener) {
+        this.mOnItemLongClickListener = mOnItemLongClickListener;
+    }
     //长按监听接口
     public interface OnItemLongClickListener {
         void onItemLongClick(View view, int position);
