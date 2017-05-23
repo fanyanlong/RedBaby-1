@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragmentActivity;
-import com.team3.baby.module.fragments_classify.fragment.ClassifyFragment;
+import com.team3.baby.module.fragments_classify.fragment.view.ClassifyFragment;
 import com.team3.baby.module.fragments_groupBuy.GroupBuyFragment;
 import com.team3.baby.module.fragments_home.HomeFragment;
 import com.team3.baby.module.fragments_myebuy.MyebuyFragment;
