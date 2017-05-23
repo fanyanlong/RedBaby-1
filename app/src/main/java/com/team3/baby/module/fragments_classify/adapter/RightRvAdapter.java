@@ -28,6 +28,21 @@ public class RightRvAdapter extends RecyclerView.Adapter {
         mContext = context;
     }
 
+    //点击位置
+    private int layoutPosition;
+    //点击
+    private OnItemClickListener mOnItemClickListener;
+
+    //点击
+    public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
+    //点击监听接口
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
     static class ViewHolder_Item extends RecyclerView.ViewHolder {
         TextView mTextView;
         ImageView mImageView;
@@ -64,7 +79,7 @@ public class RightRvAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         RightClassifyBean bean = mList.get(position);
         int itemViewType = getItemViewType(position);
         switch (itemViewType) {
@@ -73,9 +88,22 @@ public class RightRvAdapter extends RecyclerView.Adapter {
                 holder_title.mTextView.setText(bean.getText());
                 break;
             case 1:
-                ViewHolder_Item holder_item = (ViewHolder_Item) holder;
+                final ViewHolder_Item holder_item = (ViewHolder_Item) holder;
                 Glide.with(mContext).load(bean.getImage()).into(holder_item.mImageView);
                 holder_item.mTextView.setText(bean.getText());
+
+                if (mOnItemClickListener != null) {
+                    //为ItemView设置监听器
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            layoutPosition = holder_item.getLayoutPosition(); // 1
+
+                            mOnItemClickListener.onItemClick(holder_item.itemView, layoutPosition); // 2
+                            notifyDataSetChanged();
+                        }
+                    });
+                }
                 break;
         }
     }
