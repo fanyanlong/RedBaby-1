@@ -66,7 +66,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 break;
         }
         return holder;
-
     }
 
     @Override
@@ -289,7 +288,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         ImageView import_image;
         ImageView probation_image;
         ImageView pregnant_image;
-
 
         public ViewHolder_Two(View itemView) {
             super(itemView);
