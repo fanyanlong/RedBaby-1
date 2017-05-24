@@ -1,7 +1,6 @@
-package com.team3.baby.module.fragments_groupBuy.fragment;
+package com.team3.baby.module.fragments_groupBuy.adapter;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.makeramen.roundedimageview.RoundedImageView;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 
@@ -51,7 +49,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout
-                .tacfragment_itme, parent, false);
+                .tabfragment_itme, parent, false);
         return new ViewHolders(view);
     }
 
@@ -63,7 +61,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 .imager_tabfragment);
         holders.text_title_tabfragment.setText(enrollsList.get(position).getItemName());
         holders.text_content_tabfragment.setText(enrollsList.get(position).getItemDesc());
-        holders.text_price_tabfragment.setText(enrollsList.get(position).getPrice() + "");
+        holders.text_price_tabfragment.setText("￥："+enrollsList.get(position).getPrice() + "");
     }
 
     @Override

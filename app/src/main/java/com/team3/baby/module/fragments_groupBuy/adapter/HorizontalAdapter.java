@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -32,12 +33,12 @@ public class HorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     //视图1
     public class ViewHolderss extends RecyclerView.ViewHolder {
-        private RoundedImageView roundeimager_horizontala;
+        private ImageView roundeimager_horizontala;
         private TextView text_title_horizontala, text_content_horizontala, text_price_horizontala;
 
         public ViewHolderss(View root) {
             super(root);
-            roundeimager_horizontala = (RoundedImageView) root.findViewById(R.id
+            roundeimager_horizontala = (ImageView) root.findViewById(R.id
                     .roundeimager_horizontala);
             text_title_horizontala = (TextView) root.findViewById(R.id.text_title_horizontala);
             text_content_horizontala = (TextView) root.findViewById(R.id.text_content_horizontala);
@@ -45,7 +46,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         }
     }
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout

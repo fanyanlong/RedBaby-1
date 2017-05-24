@@ -20,8 +20,19 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
+            android:visibility="gone"
             />
-
+        <TextView
+            android:id="@+id/texttop_groupbuy"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:text="乐拼购"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            />
         <ImageView
             android:id="@+id/imager_right_fragment_groupbuy"
             style="@style/text_image_jianju"
@@ -38,7 +49,7 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_fragment_groupbuy"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/white"
@@ -47,7 +58,7 @@
         app:tabIndicatorHeight="2dp"
         app:tabMode="scrollable"
         app:tabPaddingBottom="10dp"
-        app:tabPaddingTop="5dp"
+        app:tabTextAppearance="@android:style/TextAppearance.Holo.Small"
         app:tabSelectedTextColor="@android:color/holo_red_dark"></android.support.design.widget.TabLayout>
 
         <android.support.v4.view.ViewPager
