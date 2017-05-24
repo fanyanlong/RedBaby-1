@@ -53,10 +53,10 @@ public class AddIndent_buyActivity extends AppCompatActivity {
     private void initData() {
         ArrayList<String> picUrl = Shop_Utils.getPicUrl();
         final Intent intent = getIntent();
-        final int position = intent.getIntExtra("position", 0);
+        final String pic_url = intent.getStringExtra("position");
         final String shopName = intent.getStringExtra("shopName");
         final String shopPrice = intent.getStringExtra("shopPrice");
-        ImageUtils.loadImageNormal(this, picUrl.get(position), ivAddPicture);
+        ImageUtils.loadImageNormal(this, pic_url, ivAddPicture);
         tvAddShoppingName.setText(shopName);
         tvAddShoppingPrice.setText(shopPrice);
 
@@ -91,7 +91,7 @@ public class AddIndent_buyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(AddIndent_buyActivity.this, IndentAffirmActivity.class);
-                intent1.putExtra("position", position);
+                intent1.putExtra("position", pic_url);
                 intent1.putExtra("shopName", shopName);
                 intent1.putExtra("shopPrice", shopPrice);
                 intent1.putExtra("number",num);

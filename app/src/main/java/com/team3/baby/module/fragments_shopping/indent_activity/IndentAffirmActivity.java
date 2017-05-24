@@ -75,11 +75,11 @@ public class IndentAffirmActivity extends AppCompatActivity {
     private void initData() {
         ArrayList<String> picUrl = Shop_Utils.getPicUrl();
         Intent intent = getIntent();
-        int position = intent.getIntExtra("position", 0);
+        String pic_url = intent.getStringExtra("position");
         String shopName = intent.getStringExtra("shopName");
         String shopPrice = intent.getStringExtra("shopPrice");
         int num = intent.getIntExtra("number", 0);
-        ImageUtils.loadImageNormal(this, picUrl.get(position), ivThumbnailAffirmIndentActivity);
+        ImageUtils.loadImageNormal(this, pic_url, ivThumbnailAffirmIndentActivity);
         tvShopTitleAffirmIndentActivity.setText(shopName);
         tvShopPriceAffirmIndentActivity.setText(shopPrice);
         tvShopNumAffirmIndentActivity.setText("x" + num);

@@ -87,23 +87,11 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
                 Gson gson = new Gson();
                 LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
                 skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
-               /* for (int i = 0; i < skus.size(); i++) {
-                    String code = skus.get(i).getSugGoodsCode();
-                    String url2 = "http://image3.suning.cn/uimg/b2c/newcatentries/0000000000-" + code + "_1_400x400.jpg?ver=2015&from=mobile";
-//获取图片
 
-                    Log.d("ddd", "size1:" + images.size());
-                    Log.d("ddd", "code:" + code);
-                    Log.d("uuu", "url2:" + url2);
-
-                    getImage(url2);
-                }*/
                 Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(getActivity(), skus, images, recyclerCailoveMyebuy);
 
                 mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
                 recyclerCailoveMyebuy.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
-
-
                 GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
                 manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) recyclerCailoveMyebuy.getAdapter(), manager.getSpanCount()));
                 recyclerCailoveMyebuy.setLayoutManager(manager);
@@ -128,7 +116,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
         recyclerAddHeader = new RecyclerAddHeader(getContext());
 
-
+//
         View inflate = recyclerAddHeader.inflate;
         denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
         sv_yidenglu_myebuy = (ScrollView) view.findViewById(R.id.sv_yidenglu_myebuy);
