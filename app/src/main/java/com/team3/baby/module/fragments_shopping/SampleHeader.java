@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -68,20 +69,19 @@ public class SampleHeader extends RelativeLayout {
 
     }
 
-    public void AddListView(Context context) {
+    public void AddListView(final Context context) {
         ListView listView = (ListView) view.findViewById(R.id.fragment_shopping_listview);
         lv_head_head = (LinearLayout) view.findViewById(R.id.lv_head_head);
 
 
-
-        Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+        final Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
         QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
-        List<Table_shopping> list = queryBuilder.list();
-        ArrayList<ShopCarBean> arrayList  = new ArrayList<>();
+        final List<Table_shopping> list = queryBuilder.list();
+        final ArrayList<ShopCarBean> arrayList = new ArrayList<>();
 
         Logger.d(arrayList.size());
-        if (list.size()!=0){
-            for (int i = 0 ;i<list.size();i++){
+        if (list.size() != 0) {
+            for (int i = 0; i < list.size(); i++) {
                 ShopCarBean shopCarBean = new ShopCarBean();
                 shopCarBean.setName(list.get(i).getShopping_name());
                 shopCarBean.setNumber(list.get(i).getShopping_count());
@@ -91,14 +91,23 @@ public class SampleHeader extends RelativeLayout {
             }
             lv_head_head.setVisibility(GONE);
             listView.setVisibility(VISIBLE);
-            adapter = new HeadBaseAdapter(context,arrayList);
+            adapter = new HeadBaseAdapter(context, arrayList);
             listView.setAdapter(adapter);
 
-        }else{
+        } else {
             lv_head_head.setVisibility(VISIBLE);
         }
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-       // adapter.notifyDataSetChanged();
+                tableShoppingDao.delete(list.get(position));
+                arrayList.remove(position);
+                adapter.notifyDataSetChanged();
+                lv_head_head.setVisibility(VISIBLE);
+                return true;
+            }
+        });
     }
 
 
