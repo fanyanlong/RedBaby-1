@@ -1,4 +1,4 @@
-package com.team3.baby.module.fragments_shopping.indent_activity.shop_adapter;
+package com.team3.baby.module.fragments_shopping.shop_adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -22,6 +22,11 @@ public class HeadBaseAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<ShopCarBean> list;
+
+    public HeadBaseAdapter(Context context, ArrayList<ShopCarBean> list) {
+        this.context = context;
+        this.list = list;
+    }
 
     @Override
     public int getCount() {
@@ -48,7 +53,7 @@ public class HeadBaseAdapter extends BaseAdapter {
             holder.textView_name = (TextView) convertView.findViewById(R.id.tv_add_shoppingName_item);
             holder.textView_price = (TextView) convertView.findViewById(R.id.tv_add_shoppingPrice_item);
             holder.textView_unmber = (TextView) convertView.findViewById(R.id.tv_add_shoppingNumber_item);
-            convertView.getTag();
+            convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
