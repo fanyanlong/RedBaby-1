@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.team3.baby.R;
@@ -55,28 +56,28 @@ public class Fragment_myebuy_RecycleAdapter extends RecyclerView.Adapter {
 
         viewHolder.price.setText(mDataList.get(position).getPrice());
         viewHolder.name.setText(mDataList.get(position).getSugGoodsName());
-        String goodid = mDataList.get(position).getSugGoodsCode();
-        String goodscode = mDataList.get(position).getVendorId();
+        String SugGoodsCode = mDataList.get(position).getSugGoodsCode();
+        String VendorId = mDataList.get(position).getVendorId();
         url2 = "http://image3.suning.cn/uimg/b2c/newcatentries/0000000000-" + mDataList.get(position).getSugGoodsCode() + "_1_400x400.jpg?ver=2015&from=mobile";
         Log.d("dds", "" + url2);
         Glide.with(context).load(url2).into(viewHolder.goodsimage);
-    /*    HttpUtils.getData(url2, new StringCallback() {
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSuccess(String s, Call call, Response response) {
-                try {
-                    Log.d("dds", "" + s);
-                    Toast.makeText(context, "sss" + url2, Toast.LENGTH_SHORT).show();
-                    Glide.with(context).load(s).into(viewHolder.goodsimage);
+            public void onClick(View v) {
+                v.getTag();
+                //String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(fragmentShoppingRecyclerView, Fragment_myebuy_RecycleAdapter.ViewHolder.this));
+                // Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ShoppingCarActivity.class);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                Toast.makeText(context, " v.getTag();" + position, Toast.LENGTH_SHORT).show();
+
+                intent.putExtra("position", url2);
+                intent.putExtra("shopName", mDataList.get(position).getSugGoodsName());
+                intent.putExtra("shopPrice", mDataList.get(position).getPrice());
+                context.startActivity(intent);
             }
-        });*/
-
-        //   Glide.with(context).load(images.get(position)).into(viewHolder.goodsimage);
-
-
+        });
     }
 
     @Override
@@ -99,15 +100,6 @@ public class Fragment_myebuy_RecycleAdapter extends RecyclerView.Adapter {
             goodsimage = (ImageView) itemView.findViewById(R.id.iv_item_goodsimage_myebuy);
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(fragmentShoppingRecyclerView, Fragment_myebuy_RecycleAdapter.ViewHolder.this));
-                    // Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, ShoppingCarActivity.class);
-                    context.startActivity(intent);
-                }
-            });
         }
     }
 

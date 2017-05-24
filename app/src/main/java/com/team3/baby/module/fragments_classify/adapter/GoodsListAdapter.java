@@ -23,6 +23,20 @@ import java.util.List;
 public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.ViewHolder> {
     private List<GoodsListBean.GoodsBean> mList;
     private Context mContext;
+    //点击位置
+    private int layoutPosition;
+    //点击
+    private OnItemClickListener mOnItemClickListener;
+
+    //点击
+    public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
+    //点击监听接口
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
 
     public GoodsListAdapter(List<GoodsListBean.GoodsBean> list, Context context) {
         mList = list;
@@ -37,7 +51,7 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         GoodsListBean.GoodsBean goodsBean = mList.get(position);
         ImageUtils.loadImageNormal(mContext, Shop_Utils.getPicUrl().get(position), holder.iv_item_goodslist);
         holder.tv_salesName_item_goodslist.setText(goodsBean.getSalesName());
@@ -45,6 +59,20 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.View
         holder.tv_describe_item_goodslist.setText(goodsBean.getCatentdesc());
         holder.tv_praiseRate_item_goodslist.setText(goodsBean.getPraiseRate());
         holder.tv_price_item_goodslist.setText(goodsBean.getPrice());
+        if (mOnItemClickListener != null) {
+            //为ItemView设置监听器
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    layoutPosition = holder.getLayoutPosition(); // 1
+
+                    mOnItemClickListener.onItemClick(holder.itemView, layoutPosition); // 2
+
+                    notifyDataSetChanged();
+                }
+            });
+        }
     }
 
     @Override
