@@ -47,6 +47,7 @@ public class ShoppingFragment extends BaseFragment {
     protected View initView() {
         View view = View.inflate(mContext, R.layout.fragment_shopping, null);
         return view;
+
     }
 
     @Override
