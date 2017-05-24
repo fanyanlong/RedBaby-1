@@ -18,10 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.team3.baby.R;
+import com.team3.baby.app.App;
 import com.team3.baby.utils.ImageUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.redbaby.greendao.Table_shopping;
+import me.redbaby.greendao.Table_shoppingDao;
 
 public class AddIndent_carActivity extends AppCompatActivity {
 
@@ -54,16 +57,29 @@ public class AddIndent_carActivity extends AppCompatActivity {
 
     private void initData() {
         Intent intent = getIntent();
-        String position = intent.getStringExtra("position");
-        String shopName = intent.getStringExtra("shopName");
-        String shopPrice = intent.getStringExtra("shopPrice");
+        final String position = intent.getStringExtra("position");
+        final String shopName = intent.getStringExtra("shopName");
+        final String shopPrice = intent.getStringExtra("shopPrice");
         ImageUtils.loadImageNormal(this, position, ivAddPicture);
         tvAddShoppingName.setText(shopName);
         tvAddShoppingPrice.setText(shopPrice);
+        String substring = shopPrice.substring(1);
+        final float price = Float.parseFloat(substring);
+        String number = etNumber.getText().toString();
+        final int num = Integer.parseInt(number);
+
+
         final AnimationSet animationSet = (AnimationSet) AnimationUtils.loadAnimation(AddIndent_carActivity.this, R.anim.shoppingcarpic_set);
         btnConfirmBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Table_shoppingDao table_shoppingDao = ((App) getApplicationContext()).getDaoSession().getTable_shoppingDao();
+                Table_shopping bb = new Table_shopping();
+                bb.setShopping_name(shopName);
+                bb.setShopping_pic(position);
+                bb.setShopping_price(price);
+                bb.setShopping_count(num);
+                table_shoppingDao.insert(bb);
 
                 ivAddPicture.startAnimation(animationSet);
 
@@ -93,13 +109,13 @@ public class AddIndent_carActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (num == 1) {
+                if (AddIndent_carActivity.this.num == 1) {
                     tvMinus.setTextColor(Color.GRAY);
                     etNumber.setText("1");
-                }else{
+                } else {
                     tvMinus.setTextColor(Color.BLACK);
-                    num = num - 1;
-                    etNumber.setText(num + "");
+                    AddIndent_carActivity.this.num = AddIndent_carActivity.this.num - 1;
+                    etNumber.setText(AddIndent_carActivity.this.num + "");
                 }
             }
         });
@@ -107,8 +123,8 @@ public class AddIndent_carActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tvMinus.setTextColor(Color.BLACK);
-                num = num + 1;
-                etNumber.setText(num + "");
+                AddIndent_carActivity.this.num = AddIndent_carActivity.this.num + 1;
+                etNumber.setText(AddIndent_carActivity.this.num + "");
             }
         });
 
