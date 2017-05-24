@@ -68,7 +68,7 @@ dependencies {
     compile 'de.greenrobot:greendao:2.1.0'
     compile project(':greendao-library')
     //金虎 5.23 13:48 okGo
-    compile 'com.lzy.net:okgo:2.1.4'
+    compile 'com.lzy.net:okgo:+'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.makeramen:roundedimageview:2.3.0'
 }
