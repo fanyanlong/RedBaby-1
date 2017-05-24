@@ -19,17 +19,16 @@ public class UrlGroupBuy {
     public static final String FORM = "http://f.m.suning.com/api/pgs/cateView" +
             ".do?version=2&cateId=4444&page=1&size=10";
     public static final String FIVE = "http://f.m.suning.com/api/pgs/cateView" +
-            ".do?version=2&cateId=1004&page=1&size=10";
-    public static final String SIX = "http://f.m.suning.com/api/pgs/cateView" +
             ".do?version=2&cateId=1006&page=1&size=10";
-    public static final String SEVEN = "http://f.m.suning.com/api/pgs/cateView" +
+    public static final String SIX = "http://f.m.suning.com/api/pgs/cateView" +
             ".do?version=2&cateId=1026&page=1&size=10";
+    public static final String SEVEN = "http://f.m.suning.com/api/pgs/cateView" +
+            ".do?version=2&cateId=1008&page=1&size=10";
     public static final String EIGHT = "http://f.m.suning.com/api/pgs/cateView" +
             ".do?version=2&cateId=1008&page=1&size=10";
     public static final String NINE = "http://f.m.suning.com/api/pgs/cateView" +
-            ".do?version=2&cateId=1007&page=1&size=10";
-    public static final String TEN = "http://f.m.suning.com/api/pgs/cateView" +
             ".do?version=2&cateId=1017&page=1&size=10";
+
 
 
 

@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="horizontal">
+              android:orientation="vertical">
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/roundeimager_horizontala"
+    <ImageView
+        android:id="@+id/imager_tabfragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"/>
+        android:layout_marginTop="10dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_title_horizontala"
+            android:id="@+id/text_title_tabfragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="测试"
@@ -26,7 +26,7 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/text_content_horizontala"
+            android:id="@+id/text_content_tabfragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -35,7 +35,7 @@
             />
 
         <TextView
-            android:id="@+id/text_price_horizontala"
+            android:id="@+id/text_price_tabfragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

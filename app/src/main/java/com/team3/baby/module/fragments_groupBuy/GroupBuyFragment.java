@@ -4,13 +4,12 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.google.gson.Gson;
-import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.base.BaseFragment;
@@ -21,7 +20,6 @@ import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 import com.team3.baby.utils.ImageUtils;
-import com.team3.baby.utils.OkUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +59,7 @@ public class GroupBuyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+
         HttpUtils.getData(UrlGroupBuy.url, new StringCallback() {
             @Override
             public void onSuccess(String s, Call call, Response response) {
@@ -72,17 +71,17 @@ public class GroupBuyFragment extends BaseFragment {
                 List<BoutiqueBean.CatesBean> catesBeen = boutiqueBean.getCates();
                 catesName = new ArrayList<String>();
                 //catesimager = new ArrayList<String>();
-                ArrayList<Fragment> fragmentlist = new ArrayList<Fragment>();
+
 
                 //fragment接口
                 String[] urlstr = new String[]{UrlGroupBuy.url, UrlGroupBuy.ONE, UrlGroupBuy.TWO,
                         UrlGroupBuy.THREE, UrlGroupBuy.FORM, UrlGroupBuy.FIVE, UrlGroupBuy.SIX,
-                        UrlGroupBuy.SEVEN, UrlGroupBuy.EIGHT, UrlGroupBuy.NINE, UrlGroupBuy.TEN};
+                        UrlGroupBuy.SEVEN, UrlGroupBuy.EIGHT, UrlGroupBuy.NINE};
                 ArrayList<String> urlList = new ArrayList<>();
                 for (int i = 0; i < urlstr.length; i++) {
                     urlList.add(urlstr[i]);
                 }
-
+                ArrayList<Fragment> fragmentlist = new ArrayList<Fragment>();
                 for (int i = 0; i < catesBeen.size(); i++) {
                     catesName.add(catesBeen.get(i).getCateName());
                     //catesimager.add(catesBeen.get(i).getCateIconUrl());
@@ -90,33 +89,11 @@ public class GroupBuyFragment extends BaseFragment {
                     TabFragment tabFragment = new TabFragment(urlList.get(i),urlList);
                     fragmentlist.add(tabFragment);
                 }
-
                 GroupBuyAdapter adapter = new GroupBuyAdapter(getFragmentManager(), fragmentlist,
                         catesName);
-                viewpagerFragmentGroupbuy.setAdapter(adapter);
                 tabFragmentGroupbuy.setupWithViewPager(viewpagerFragmentGroupbuy);
                 tabFragmentGroupbuy.setTabsFromPagerAdapter(adapter);
-                viewpagerFragmentGroupbuy.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-
-                    @Override
-                    public void onPageScrolled(int position, float positionOffset, int
-                            positionOffsetPixels) {
-
-                    }
-
-                    @Override
-                    public void onPageSelected(int position) {
-                        if (position==0){
-
-                        }
-                    }
-
-                    @Override
-                    public void onPageScrollStateChanged(int state) {
-
-                    }
-                });
+                viewpagerFragmentGroupbuy.setAdapter(adapter);
             }
         });
 
