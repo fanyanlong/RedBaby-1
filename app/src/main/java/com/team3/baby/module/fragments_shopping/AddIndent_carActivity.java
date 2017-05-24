@@ -18,13 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.team3.baby.R;
-import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
+import com.team3.baby.app.App;
 import com.team3.baby.utils.ImageUtils;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.redbaby.greendao.Table_shopping;
+import me.redbaby.greendao.Table_shoppingDao;
 
 public class AddIndent_carActivity extends AppCompatActivity {
 
@@ -56,18 +56,29 @@ public class AddIndent_carActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
         Intent intent = getIntent();
-        int position = intent.getIntExtra("position", 0);
-        String shopName = intent.getStringExtra("shopName");
-        String shopPrice = intent.getStringExtra("shopPrice");
-        ImageUtils.loadImageNormal(this, picUrl.get(position), ivAddPicture);
+        final String position = intent.getStringExtra("position");
+        final String shopName = intent.getStringExtra("shopName");
+        final String shopPrice = intent.getStringExtra("shopPrice");
+        ImageUtils.loadImageNormal(this, position, ivAddPicture);
         tvAddShoppingName.setText(shopName);
         tvAddShoppingPrice.setText(shopPrice);
+        String substring = shopPrice.substring(1);
+        final float price = Float.parseFloat(substring);
+
+
+
         final AnimationSet animationSet = (AnimationSet) AnimationUtils.loadAnimation(AddIndent_carActivity.this, R.anim.shoppingcarpic_set);
         btnConfirmBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Table_shoppingDao table_shoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+                Table_shopping bb = new Table_shopping();
+                bb.setShopping_name(shopName);
+                bb.setShopping_pic(position);
+                bb.setShopping_price(price);
+                bb.setShopping_count(num);
+                table_shoppingDao.insert(bb);
 
                 ivAddPicture.startAnimation(animationSet);
 
@@ -97,13 +108,13 @@ public class AddIndent_carActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (num == 1) {
+                if (AddIndent_carActivity.this.num == 1) {
                     tvMinus.setTextColor(Color.GRAY);
                     etNumber.setText("1");
-                }else{
+                } else {
                     tvMinus.setTextColor(Color.BLACK);
-                    num = num - 1;
-                    etNumber.setText(num + "");
+                    AddIndent_carActivity.this.num = AddIndent_carActivity.this.num - 1;
+                    etNumber.setText(AddIndent_carActivity.this.num + "");
                 }
             }
         });
@@ -111,8 +122,8 @@ public class AddIndent_carActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tvMinus.setTextColor(Color.BLACK);
-                num = num + 1;
-                etNumber.setText(num + "");
+                AddIndent_carActivity.this.num = AddIndent_carActivity.this.num + 1;
+                etNumber.setText(AddIndent_carActivity.this.num + "");
             }
         });
 

@@ -8,11 +8,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ListView
+        <com.team3.baby.widget.MyListView
             android:visibility="gone"
             android:id="@+id/fragment_shopping_listview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
+            android:layout_height="wrap_content"></com.team3.baby.widget.MyListView>
 
         <LinearLayout
 
@@ -21,6 +21,8 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/lv_head_head"
+                android:clickable="false"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/gainsboro">
@@ -41,6 +43,8 @@
                     android:layout_height="wrap_content"></View>
 
                 <Button
+                    android:clickable="true"
+                    android:id="@+id/btn_goto_gg"
                     android:layout_width="80dp"
                     android:layout_height="35dp"
                     android:background="@drawable/goto_button_shape"

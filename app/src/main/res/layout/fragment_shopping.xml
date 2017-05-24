@@ -36,23 +36,25 @@
     </LinearLayout>
 
     <LinearLayout
-        android:background="@color/gainsboro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        >
+        android:background="@color/gainsboro">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/fragment_shopping_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+            android:layout_height="wrap_content"
+            android:background="#f00"></android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lv_foot_foot"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,6 +86,7 @@
         </LinearLayout>
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
