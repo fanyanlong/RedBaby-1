@@ -1,5 +1,6 @@
 package com.team3.baby.module.fragments_classify.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,8 @@ import com.team3.baby.module.fragments_classify.adapter.GoodsListAdapter;
 import com.team3.baby.module.fragments_classify.bean.GoodsListBean;
 import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 import com.team3.baby.module.fragments_classify.util.UrlClassify;
+import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
+import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 
@@ -77,6 +80,7 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
                 GoodsListBean goodsListBean = GsonUtils.gsonToBean(s, GoodsListBean.class);
                 List<GoodsListBean.GoodsBean> goods = goodsListBean.getGoods();
                 initRv(goods);
+
             }
         });
     }
@@ -88,6 +92,22 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
         mRvClassifyGoodslist.setAdapter(adapter);
         //分割线
         mRvClassifyGoodslist.addItemDecoration(new RecyclerViewDivider(this, layoutManager.HORIZONTAL));
+        //条目点击
+        setListener(adapter, goods);
+    }
+
+    private void setListener(GoodsListAdapter adapter, final List<GoodsListBean.GoodsBean> goods) {
+        adapter.setmOnItemClickListener(new GoodsListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(ClassifyGoodsListFragment.this, ShoppingCarActivity.class);
+                intent.putExtra("position", Shop_Utils.getPicUrl().get(position));
+                intent.putExtra("shopName", goods.get(position).getAuxdescription());
+                intent.putExtra("shopPrice", goods.get(position).getPrice());
+                startActivity(intent);
+                
+            }
+        });
     }
 
     private void initData() {
