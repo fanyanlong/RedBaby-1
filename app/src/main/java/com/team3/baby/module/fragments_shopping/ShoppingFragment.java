@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
 import com.cundong.recyclerview.HeaderSpanSizeLookup;
@@ -41,6 +42,7 @@ public class ShoppingFragment extends BaseFragment {
 
 
     private HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
+    private SampleHeader sam;
 
 
     @Override
@@ -73,7 +75,9 @@ public class ShoppingFragment extends BaseFragment {
                 manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) fragmentShoppingRecyclerView.getAdapter(), manager.getSpanCount()));
                 fragmentShoppingRecyclerView.setLayoutManager(manager);
 
-                RecyclerViewUtils.setHeaderView(fragmentShoppingRecyclerView, new SampleHeader(mContext));
+                sam = new SampleHeader(mContext);
+                RecyclerViewUtils.setHeaderView(fragmentShoppingRecyclerView, sam);
+                sam.setOnLinsener(mContext);
 
             }
 
@@ -86,10 +90,24 @@ public class ShoppingFragment extends BaseFragment {
         tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(mContext, "aaa", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), IndentAffirmActivity.class);
                 startActivity(intent);
             }
         });
+
+
+        //填充头布局
+
+//        View headView = View.inflate(mContext, R.layout.fragment_shopping_hearder_layout, null);
+//        Button btn_goto_gg = (Button) headView.findViewById(R.id.btn_goto_gg);
+//        btn_goto_gg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(mContext, "去逛逛", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
     }
 
