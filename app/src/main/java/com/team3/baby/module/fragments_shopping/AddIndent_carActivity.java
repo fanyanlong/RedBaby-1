@@ -65,15 +65,14 @@ public class AddIndent_carActivity extends AppCompatActivity {
         tvAddShoppingPrice.setText(shopPrice);
         String substring = shopPrice.substring(1);
         final float price = Float.parseFloat(substring);
-        String number = etNumber.getText().toString();
-        final int num = Integer.parseInt(number);
+
 
 
         final AnimationSet animationSet = (AnimationSet) AnimationUtils.loadAnimation(AddIndent_carActivity.this, R.anim.shoppingcarpic_set);
         btnConfirmBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Table_shoppingDao table_shoppingDao = ((App) getApplicationContext()).getDaoSession().getTable_shoppingDao();
+                Table_shoppingDao table_shoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
                 Table_shopping bb = new Table_shopping();
                 bb.setShopping_name(shopName);
                 bb.setShopping_pic(position);
