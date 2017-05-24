@@ -20,9 +20,9 @@ android {
         }
     }
     //金虎 5.23 9:32
-    sourceSets{
-        main{
-            java.srcDirs=['src/main/java','src/main/java-gen']
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java-gen']
         }
     }
 }
@@ -71,4 +71,5 @@ dependencies {
     compile 'com.lzy.net:okgo:+'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.makeramen:roundedimageview:2.3.0'
+    compile 'com.android.support:design:25.2.0'
 }

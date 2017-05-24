@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.team3.baby.R;
@@ -54,7 +53,7 @@ public class Fragment_myebuy_RecycleAdapter extends RecyclerView.Adapter {
 
         final ViewHolder viewHolder = (ViewHolder) holder;
 
-        viewHolder.price.setText(mDataList.get(position).getPrice());
+        viewHolder.price.setText(" " + mDataList.get(position).getPrice());
         viewHolder.name.setText(mDataList.get(position).getSugGoodsName());
         String SugGoodsCode = mDataList.get(position).getSugGoodsCode();
         String VendorId = mDataList.get(position).getVendorId();
@@ -65,12 +64,10 @@ public class Fragment_myebuy_RecycleAdapter extends RecyclerView.Adapter {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getTag();
-                //String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(fragmentShoppingRecyclerView, Fragment_myebuy_RecycleAdapter.ViewHolder.this));
-                // Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(context, ShoppingCarActivity.class);
 
-                Toast.makeText(context, " v.getTag();" + position, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(context, " v.getTag();" + position, Toast.LENGTH_SHORT).show();
 
                 intent.putExtra("position", url2);
                 intent.putExtra("shopName", mDataList.get(position).getSugGoodsName());

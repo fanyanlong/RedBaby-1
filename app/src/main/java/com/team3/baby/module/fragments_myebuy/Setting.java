@@ -25,8 +25,7 @@ public class Setting extends Activity {
         findViewById(R.id.iv_back_huiyuan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Setting.this, MainActivity.class);
-                startActivity(intent);
+
                 finish();
             }
         });
