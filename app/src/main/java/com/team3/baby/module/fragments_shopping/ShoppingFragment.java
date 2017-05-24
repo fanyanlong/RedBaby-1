@@ -117,7 +117,7 @@ public class ShoppingFragment extends BaseFragment {
         ButterKnife.bind(this, rootView);
         return rootView;
     }
-
+//gyj
     @Override
     public void onResume() {
         super.onResume();
