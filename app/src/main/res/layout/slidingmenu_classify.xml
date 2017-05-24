@@ -2,10 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="shaixuan"/>
+    <View
+        android:id="@+id/v_shadow_slidingmenu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                style="@style/style_chk_sliding"
+                android:text="苏宁服务"/>
+
+            <CheckBox
+                style="@style/style_chk_sliding"
+                android:text="苏宁服务"/>
+
+            <CheckBox
+                style="@style/style_chk_sliding"
+                android:text="苏宁服务"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>

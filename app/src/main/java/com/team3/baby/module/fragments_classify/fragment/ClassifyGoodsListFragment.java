@@ -1,11 +1,13 @@
 package com.team3.baby.module.fragments_classify.fragment;
 
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_classify.adapter.GoodsListAdapter;
 import com.team3.baby.module.fragments_classify.bean.GoodsListBean;
+import com.team3.baby.module.fragments_classify.fragment.view.SlidingClssifyActivity;
 import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 import com.team3.baby.module.fragments_classify.util.UrlClassify;
 import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
@@ -70,7 +73,7 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
         setContentView(R.layout.fragment_classify_goods_list);
         ButterKnife.bind(this);
         //侧滑
-        toSlideingMenu();
+        //toSlideingMenu();
         //
         initData();
         //
@@ -141,13 +144,18 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back_classify_goodslist:
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Instrumentation inst = new Instrumentation();
+                        inst.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
+                    }
+                }).start();
                 break;
             case R.id.tv_screen_classify_goodslist:
                 //侧滑
-                mMenu.toggle();
+                //mMenu.toggle();
+                startActivity(new Intent(this, SlidingClssifyActivity.class));
                 break;
             case R.id.tv_compositive_classify_goodslist:
                 break;
@@ -187,13 +195,16 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
         mMenu.setMode(SlidingMenu.RIGHT);
         // 设置滑动菜单视图的宽度
         int widthPixels = this.getResources().getDisplayMetrics().widthPixels;
-        mMenu.setBehindWidth(widthPixels / 7 * 6);
+        mMenu.setBehindWidth(widthPixels / 9 * 8);
         // 设置渐入渐出效果的值
         mMenu.setFadeDegree(0.35f);
         // 设置触摸屏幕的模式,这里设置为全屏
         mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         // 设置下方视图的在滚动时的缩放比例
         mMenu.setBehindScrollScale(0.0f);
+        //
+        mMenu.setShadowWidthRes(R.dimen.shadow_width);
+        mMenu.setShadowDrawable(R.drawable.shadow);
         //判断侧滑页是否是打开的
         if (!mMenu.isSecondaryMenuShowing()) {
             mMenu.showContent();
