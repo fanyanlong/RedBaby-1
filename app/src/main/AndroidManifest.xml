@@ -41,6 +41,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".module.fragments_classify.fragment.view.SlidingClssifyActivity"
+            android:theme="@style/SlidingClassify"
+            />
+        <activity
             android:name=".module.fragments_shopping.AddIndent_buyActivity"
             android:theme="@style/MyDialogStyleBottom"/>
         <activity

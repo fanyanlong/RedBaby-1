@@ -19,7 +19,9 @@ import android.widget.Toast;
 import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_groupBuy.adapter.HorizontalAdapter;
+import com.team3.baby.module.fragments_groupBuy.adapter.RecAdapter;
 import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
+import com.team3.baby.module.fragments_groupBuy.utils.DividerItemDecoration;
 import com.team3.baby.module.fragments_groupBuy.utils.GlideImageLoader;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
@@ -40,7 +42,6 @@ import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
  * 作者：ShiZhuangZhuang
  * 时间：2017/5/17 21:58
  */
-
 @SuppressLint("ValidFragment")
 public class TabFragment extends Fragment {
     @BindView(R.id.banner)
@@ -51,15 +52,14 @@ public class TabFragment extends Fragment {
     RecyclerView recyclerTabfragment;
     @BindView(R.id.tab_view)
     View tabView;
-    private RecyclerView recyclerView;
+    @BindView(R.id.recycler_fragment_recyclerview)
+    RecyclerView recyclerview;
     private String url;
     private String http = "http:";
-    private ArrayList<String> list;
-    private List<BoutiqueBean.Enrolls1Bean.ListBeanX> beanXes;
 
-    public TabFragment(String url, ArrayList<String> list) {
+    public TabFragment(String url) {
         this.url = url;
-        this.list = list;
+
     }
 
     @Nullable
@@ -67,16 +67,7 @@ public class TabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tabfragment_fragment, null);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_fragment_recyclerview);
         ButterKnife.bind(this, view);
-
-        if (list.get(0).equals(url)) {
-            imagerTabfragment.setVisibility(View.VISIBLE);
-            tabView.setVisibility(View.VISIBLE);
-        } else {
-            imagerTabfragment.setVisibility(View.GONE);
-            tabView.setVisibility(View.GONE);
-        }
         return view;
     }
 
@@ -87,29 +78,28 @@ public class TabFragment extends Fragment {
         getGorizontalrec();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         //设置布局管理器
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerview.setLayoutManager(layoutManager);
         //设置为垂直布局，这也是默认的
         layoutManager.setOrientation(OrientationHelper.VERTICAL);
         //设置固定大小
-        recyclerView.setHasFixedSize(true);
+        recyclerview.setHasFixedSize(true);
         //设置分隔线
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
-                .VERTICAL, Color.parseColor("#F8F8F8"), 10));
+        recyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
+                .VERTICAL));
         //设置增加或删除条目的动画
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerview.setItemAnimator(new DefaultItemAnimator());
         //设置Adapter
         HttpUtils.getData(url, new StringCallback() {
             @Override
             public void onSuccess(String s, Call call, Response response) {
-                BoutiqueBean toBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
-                //横向滑动
-                beanXes = toBean.getEnrolls_1()
-                        .getList();
-            /*    //RecView
-                List<BoutiqueBean.CatesBean> catesList = toBean.getCates();*/
-                //轮播
-                List<BoutiqueBean.AdsBean> adsList = toBean.getAds();
-                if (adsList != null) {
+                if (s != null) {
+                    BoutiqueBean toBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
+                    //RecView
+                    List<BoutiqueBean.EnrollsBean.ListBean> enrollsList = toBean.getEnrolls()
+                            .getList();
+
+                    //轮播
+                    List<BoutiqueBean.AdsBean> adsList = toBean.getAds();
                     ArrayList<String> imagerlist = new ArrayList<String>();
                     Log.e(TAG, adsList.size() + "");
                     for (int i = 0; i < adsList.size(); i++) {
@@ -117,31 +107,42 @@ public class TabFragment extends Fragment {
                     }
                     Log.e(TAG, imagerlist.toString());
                     banner.setImages(imagerlist).setImageLoader(new GlideImageLoader()).start();
-                    RecAdapter recAdapter = new RecAdapter();
-                    recyclerView.setAdapter(recAdapter);
+
+                    RecAdapter recAdapter = new RecAdapter(getActivity(), enrollsList);
+                    recyclerview.setAdapter(recAdapter);
                 } else {
-                    Toast.makeText(getActivity(), "没网", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "网络被外星人带走了~", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
     private void getGorizontalrec() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         //设置布局管理器
         recyclerTabfragment.setLayoutManager(layoutManager);
-        //设置为垂直布局，这也是默认的
+        //设置为横向布局
         layoutManager.setOrientation(OrientationHelper.HORIZONTAL);
         //设置固定大小
         recyclerTabfragment.setHasFixedSize(true);
         //设置分隔线
-        recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(),
-                LinearLayoutManager
-                        .VERTICAL, Color.parseColor("#F8F8F8"), 10));
+        recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
+                .VERTICAL));
         //设置增加或删除条目的动画
         recyclerTabfragment.setItemAnimator(new DefaultItemAnimator());
-        HorizontalAdapter adapter = new HorizontalAdapter(getActivity(), beanXes);
-        recyclerTabfragment.setAdapter(adapter);
+        HttpUtils.getData(url, new StringCallback() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                BoutiqueBean gsonToBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
+                List<BoutiqueBean.Enrolls1Bean.ListBeanX> listBeanXes = gsonToBean
+                        .getEnrolls_1().getList();
+                if (listBeanXes != null) {
+                    HorizontalAdapter adapter = new HorizontalAdapter(getActivity(),
+                            listBeanXes);
+                    recyclerTabfragment.setAdapter(adapter);
+                }
+            }
+        });
+
     }
 }
