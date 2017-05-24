@@ -51,10 +51,10 @@ public class ShoppingCarActivity extends AppCompatActivity {
         final ArrayList<String> picUrl = Shop_Utils.getPicUrl();
 
         Intent intent = getIntent();
-        final int position = intent.getIntExtra("position", 0);
+        final String position = intent.getStringExtra("position");
         final String shopName = intent.getStringExtra("shopName");
         final String shopPrice = intent.getStringExtra("shopPrice");
-        ImageUtils.loadImageNormal(this, picUrl.get(position), ivShoppingPicture);
+        ImageUtils.loadImageNormal(this, position, ivShoppingPicture);
         tvShoppingName.setText(shopName);
         tvShoppingPrice.setText(shopPrice);
 
@@ -70,7 +70,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_buyActivity.class);
-                intent.putExtra("position", picUrl.get(position));
+                intent.putExtra("position", position);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
@@ -82,7 +82,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_carActivity.class);
-                intent.putExtra("position",picUrl.get(position));
+                intent.putExtra("position",position);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
@@ -94,7 +94,8 @@ public class ShoppingCarActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        finish();
+      /*  Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);*/
     }
 }

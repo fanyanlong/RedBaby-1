@@ -44,7 +44,7 @@ public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
+        final ArrayList<String> picUrl = Shop_Utils.getPicUrl();
         final ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.textView.setText(mDataList.get(position).getAuxdescription());
         viewHolder.price_text.setText("￥" + mDataList.get(position).getPrice());
@@ -56,7 +56,7 @@ public class Fragment_shopping_RecycleAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ShoppingCarActivity.class);
-                intent.putExtra("position", position);
+                intent.putExtra("position", picUrl.get(position));
                 intent.putExtra("shopName", viewHolder.textView.getText().toString());
                 intent.putExtra("shopPrice", viewHolder.price_text.getText().toString());
                 context.startActivity(intent);

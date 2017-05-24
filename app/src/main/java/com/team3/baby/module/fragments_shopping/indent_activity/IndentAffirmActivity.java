@@ -1,5 +1,6 @@
 package com.team3.baby.module.fragments_shopping.indent_activity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,10 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.team3.baby.R;
+import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
+import com.team3.baby.utils.ImageUtils;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,7 +73,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
     }
 
     private void initData() {
-/*        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
+        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
         Intent intent = getIntent();
         String pic_url = intent.getStringExtra("position");
         String shopName = intent.getStringExtra("shopName");
@@ -83,7 +88,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
         float number = Float.parseFloat(substring);
         number = number * num;
         tvZongPrice.setText("￥" + number);
-        tvMoneyPayAffirmIndentActivity.setText("￥" + number);*/
+        tvMoneyPayAffirmIndentActivity.setText("￥" + number);
     }
 
     /**
