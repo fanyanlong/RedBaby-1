@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:clickable="false"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/gainsboro">
@@ -41,6 +42,8 @@
                     android:layout_height="wrap_content"></View>
 
                 <Button
+                    android:clickable="true"
+                    android:id="@+id/btn_goto_gg"
                     android:layout_width="80dp"
                     android:layout_height="35dp"
                     android:background="@drawable/goto_button_shape"

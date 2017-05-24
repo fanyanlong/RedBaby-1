@@ -48,7 +48,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
+        final ArrayList<String> picUrl = Shop_Utils.getPicUrl();
 
         Intent intent = getIntent();
         final int position = intent.getIntExtra("position", 0);
@@ -70,7 +70,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_buyActivity.class);
-                intent.putExtra("position", position);
+                intent.putExtra("position", picUrl.get(position));
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
@@ -82,7 +82,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_carActivity.class);
-                intent.putExtra("position", position);
+                intent.putExtra("position",picUrl.get(position));
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
