@@ -33,6 +33,8 @@ public class ImageUtils {
                 .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                 //设置渐现效果
                 //.crossFade()
+                //设置缓存
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 //设置给控件
                 .into(imageView);
     }
@@ -58,8 +60,9 @@ public class ImageUtils {
 
     /**
      * 加载GIF动图
-     * @param mContext 上下文
-     * @param url      图片地址
+     *
+     * @param mContext  上下文
+     * @param url       图片地址
      * @param imageView imageView控件
      */
     public static void loadImageGIF(Context mContext, String url, ImageView imageView) {

@@ -1,1 +1,1 @@
-include ':app', ':library', ':greendao-library'
+include ':app', ':library', ':greendao-library', ':SlidingMenu-library'

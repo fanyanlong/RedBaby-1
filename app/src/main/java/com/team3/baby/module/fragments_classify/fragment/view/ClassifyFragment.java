@@ -132,7 +132,7 @@ public class ClassifyFragment extends Fragment {
                             public void onItemClick(View view, int position) {
                                 Toast.makeText(mContext, position + "", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(mContext, ClassifyGoodsListFragment.class);
-                                intent.putExtra("pcci", mRightList.get(position).getPcci());
+//                                intent.putExtra("pcci", mRightList.get(position).getPcci());
                                 startActivity(intent);
                             }
                         });

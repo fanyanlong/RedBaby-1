@@ -4,7 +4,7 @@ package me.redbaby.greendao;
 /**
  * Entity mapped to table "TABLE_SHOPPING".
  */
-public class table_shopping {
+public class Table_shopping {
 
     private Long id;
     private int shopping_id;
@@ -16,14 +16,14 @@ public class table_shopping {
     private int shopping_count;
     private int shopping_state;
 
-    public table_shopping() {
+    public Table_shopping() {
     }
 
-    public table_shopping(Long id) {
+    public Table_shopping(Long id) {
         this.id = id;
     }
 
-    public table_shopping(Long id, int shopping_id, String shopping_name , float shopping_price, String shopping_url, String shopping_pic, int shopping_count, int shopping_state) {
+    public Table_shopping(Long id, int shopping_id, String shopping_name , float shopping_price, String shopping_url, String shopping_pic, int shopping_count, int shopping_state) {
         this.id = id;
         this.shopping_id = shopping_id;
         this.shopping_name  = shopping_name ;
