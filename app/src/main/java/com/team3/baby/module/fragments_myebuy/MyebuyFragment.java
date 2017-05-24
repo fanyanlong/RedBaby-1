@@ -1,33 +1,57 @@
 package com.team3.baby.module.fragments_myebuy;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
+import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
+import com.cundong.recyclerview.HeaderSpanSizeLookup;
+import com.cundong.recyclerview.RecyclerViewUtils;
+import com.google.gson.Gson;
+import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
-import com.team3.baby.base.BaseFragment;
+import com.team3.baby.module.fragments_myebuy.bean_myebuy.LoveGoodsBean;
+import com.team3.baby.module.fragments_myebuy.bean_myebuy.SkusBean;
+import com.team3.baby.utils.HttpUtils;
+import com.team3.baby.utils.OkUtils;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Response;
+
+//import com.team3.baby.module.fragments_myebuy.utils_myebuy.RecyclerAddHeader;
 
 /**
  * Created by tianjieyu on 2017/5/17.
  */
 
-public class MyebuyFragment extends BaseFragment implements MyebuyLisenner {
+public class MyebuyFragment extends Fragment implements View.OnClickListener {
 
 
-    Unbinder unbinder;
+    ArrayList<String> images = new ArrayList<>();
+    HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
     @BindView(R.id.iv_back_myebuy_include)
     ImageView ivBackMyebuyInclude;
     @BindView(R.id.et_zhanghao_include)
@@ -36,74 +60,133 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner {
     ImageView ivZhanghaoInclude;
     @BindView(R.id.et_mima_include)
     EditText etMimaInclude;
-    @BindView(R.id.rb_abc_myebuy)
-    RadioButton rbAbcMyebuy;
-    @BindView(R.id.rb_dian_myebuy)
-    RadioButton rbDianMyebuy;
-    @BindView(R.id.iv_touxiang_wode_fragment)
-    ImageView ivTouxiangWodeFragment;
-    @BindView(R.id.tv_phone_myebuy_fragment)
-    TextView tvPhoneMyebuyFragment;
-    @BindView(R.id.tv_shezhi_wode_fragment)
-    TextView tvShezhiWodeFragment;
-    @BindView(R.id.iv_liuyan_myebuy_fragment)
-    ImageView ivLiuyanMyebuyFragment;
-    @BindView(R.id.tv_dizhi_myebuy_fragment)
-    TextView tvDizhiMyebuyFragment;
-    @BindView(R.id.ll_quanbuOrder_myebuy_fragment)
-    LinearLayout llQuanbuOrderMyebuyFragment;
-    @BindView(R.id.imageView)
-    ImageView imageView;
-    @BindView(R.id.ll_daizhifu_myebuy_fragment)
-    LinearLayout llDaizhifuMyebuyFragment;
-    @BindView(R.id.ll_daishouhuo_myebuy_fragment)
-    LinearLayout llDaishouhuoMyebuyFragment;
-    @BindView(R.id.ll_daipingjia_myebuy_fragment)
-    LinearLayout llDaipingjiaMyebuyFragment;
-    @BindView(R.id.ll_tuihuan_myebuy_fragment)
-    LinearLayout llTuihuanMyebuyFragment;
-    @BindView(R.id.ll_shoucang_myebuy_fragment)
-    LinearLayout llShoucangMyebuyFragment;
-    @BindView(R.id.ll_yunzuan_myebuy_fragment)
-    LinearLayout llYunzuanMyebuyFragment;
-    @BindView(R.id.imageView3)
-    ImageView imageView3;
-    @BindView(R.id.ll_zuji_myebuy_fragment)
-    LinearLayout llZujiMyebuyFragment;
-    @BindView(R.id.ll_youhui_myebuy_fragment)
-    LinearLayout llYouhuiMyebuyFragment;
-    @BindView(R.id.ll_bangding_myebuy_fragment)
-    LinearLayout llBangdingMyebuyFragment;
-    @BindView(R.id.imageView2)
-    ImageView imageView2;
-    @BindView(R.id.ll_anquan_myebuy_fragment)
-    LinearLayout llAnquanMyebuyFragment;
-    @BindView(R.id.recycler_cailove_myebuy)
-    RecyclerView recyclerCailoveMyebuy;
 
-    @Override
-    protected View initView() {
-        View view = View.inflate(mContext, R.layout.fragment_myebuy, null);
 
-        return view;
-    }
+    private Unbinder unbinder;
+    private RecyclerView recyclerCailoveMyebuy;
+    private ArrayList<SkusBean> skus;
+    private RecyclerAddHeader recyclerAddHeader;
+    private SharedPreferences.Editor edit;
+    private LinearLayout denglujiemian;
+    private ScrollView sv_yidenglu_myebuy;
+    private Button bt_denglu_myebuy;
+    private EditText et_zhanghao_include;
+    private EditText et_mima_include;
+    private CheckBox rb_abc_myebuy;
+    private Object image;
 
-    @Override
-    protected void setListener() {
-
-    }
-
-    @Override
     protected void initData() {
+
+
+        OkHttpClient client = OkUtils.getClient();
+        String url = "http://tuijian.suning.com/recommend-portal/dyBase.jsonp?u=&c=864394010080028&cityId=579&sceneIds=18-41&count=50";
+        OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
+            @Override
+            public void onSuccess(String result) {
+               // Toast.makeText(getActivity(), "得到数据：" + result, Toast.LENGTH_SHORT).show();
+                Gson gson = new Gson();
+                LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
+                skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
+               /* for (int i = 0; i < skus.size(); i++) {
+                    String code = skus.get(i).getSugGoodsCode();
+                    String url2 = "http://image3.suning.cn/uimg/b2c/newcatentries/0000000000-" + code + "_1_400x400.jpg?ver=2015&from=mobile";
+//获取图片
+
+                    Log.d("ddd", "size1:" + images.size());
+                    Log.d("ddd", "code:" + code);
+                    Log.d("uuu", "url2:" + url2);
+
+                    getImage(url2);
+                }*/
+                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(getActivity(), skus, images, recyclerCailoveMyebuy);
+
+                mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
+                recyclerCailoveMyebuy.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
+
+
+                GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
+                manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) recyclerCailoveMyebuy.getAdapter(), manager.getSpanCount()));
+                recyclerCailoveMyebuy.setLayoutManager(manager);
+
+                RecyclerViewUtils.setHeaderView(recyclerCailoveMyebuy, recyclerAddHeader);
+
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+                Log.d("ddd", "请求数据失败了");
+            }
+        });
+
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
+        View view = View.inflate(getContext(), R.layout.fragment_myebuy, null);
+        recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
+        recyclerAddHeader = new RecyclerAddHeader(getContext());
+
+
+        View inflate = recyclerAddHeader.inflate;
+        denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
+        sv_yidenglu_myebuy = (ScrollView) view.findViewById(R.id.sv_yidenglu_myebuy);
+        bt_denglu_myebuy = (Button) view.findViewById(R.id.bt_denglu_myebuy);
+        et_zhanghao_include = (EditText) view.findViewById(R.id.et_zhanghao_include);
+        et_mima_include = (EditText) view.findViewById(R.id.et_mima_include);
+        rb_abc_myebuy = (CheckBox) view.findViewById(R.id.rb_abc_myebuy);
+        inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.tv_phone_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.tv_shezhi_wode_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.iv_liuyan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.tv_dizhi_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_quanbuOrder_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_daizhifu_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_daishouhuo_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_daipingjia_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_tuihuan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_yunzuan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_zuji_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_youhui_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_bangding_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
+        inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
+
+        edit = sharedPreferences.edit();
+        if (sharedPreferences.getBoolean("yidenglu", false)) {
+            denglujiemian.setVisibility(View.INVISIBLE);
+            sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
+        }
+        bt_denglu_myebuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!TextUtils.isEmpty(et_mima_include.getText()) && !TextUtils.isEmpty(et_zhanghao_include.getText())) {
+                    edit.putBoolean("yidenglu", true);
+                    denglujiemian.setVisibility(View.INVISIBLE);
+                    sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
+                    edit.commit();
+                } else {
+                    Toast.makeText(getContext(), "用户名密码不正确", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        rb_abc_myebuy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+
+                    et_mima_include.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    et_mima_include.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                }
+            }
+        });
+
+        initData();
+        return view;
     }
 
     @Override
@@ -114,177 +197,52 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner {
 
 
     @Override
-    public void gotoPay() {
-        //进入待支付界面
-        startActivity(new Intent(mContext, PayAcitvity.class));
-    }
+    public void onClick(View view) {
 
-    @Override
-    public void gotoReceive() {
-        //进入待收货界面
-        startActivity(new Intent(mContext, Receive.class));
-    }
-
-    @Override
-    public void gotoJudge() {
-        //进入待评价界面
-        startActivity(new Intent(mContext, Judge.class));
-    }
-
-    @Override
-    public void gotoService() {
-        //进入后续服务界面
-        startActivity(new Intent(mContext, MyService.class));
-
-    }
-
-    @Override
-    public void gotoCheckOrder() {
-        //进入查看订单界面
-        startActivity(new Intent(mContext, CheckOrder.class));
-    }
-
-    @Override
-    public void gotoDiamond() {
-        //进入查看云钻界面
-        startActivity(new Intent(mContext, Diamond.class));
-    }
-
-    @Override
-    public void gotoMyhistory() {
-        //进入足迹界面
-        startActivity(new Intent(mContext, Myhistory.class));
-
-    }
-
-    @Override
-    public void gotocoupon() {
-        //进入优惠券界面
-        startActivity(new Intent(mContext, Coupon.class));
-    }
-
-    @Override
-    public void gotoBindSeting() {
-        //进入绑定设置界面
-        startActivity(new Intent(mContext, BindSeting.class));
-    }
-
-    @Override
-    public void gotoaccountsecurity() {
-        //进入账户安全界面
-        startActivity(new Intent(mContext, Accountsecurity.class));
-    }
-
-    //进入地址管理界面
-    @Override
-    public void gotoShowAddress() {
-
-        startActivity(new Intent(mContext, ShowItem.class));
-    }
-
-    @Override
-    //进入收藏界面
-    public void gotoCollect() {
-        startActivity(new Intent(mContext, Collect.class));
-    }
-
-    @Override
-    //进入设置界面
-    public void Setting() {
-        startActivity(new Intent(mContext, Setting.class));
-    }
-
-
-    @Override
-    //进入查看详情界面
-    public void checkdetails(int goodsid) {
-        startActivity(new Intent(mContext, Checkdetails.class));
-    }
-
-    //进入消息界面
-    @Override
-    public void gotoXiaoXi() {
-        startActivity(new Intent(mContext, XiaoXi.class));
-
-    }
-
-    //进入我的信息界面
-    @Override
-    public void gotoMyMessage(int Mid) {
-        startActivity(new Intent(mContext, MyMessage.class));
-    }
-
-    //进入会员界面
-    @Override
-    public void gotoMember(int Myid) {
-        startActivity(new Intent(mContext, MyMember.class));
-    }
-
-    @OnClick({R.id.iv_back_myebuy_include, R.id.et_zhanghao_include, R.id.iv_zhanghao_include, R.id.et_mima_include, R.id.rb_abc_myebuy, R.id.rb_dian_myebuy, R.id.iv_touxiang_wode_fragment, R.id.tv_phone_myebuy_fragment, R.id.tv_shezhi_wode_fragment, R.id.iv_liuyan_myebuy_fragment, R.id.tv_dizhi_myebuy_fragment, R.id.ll_quanbuOrder_myebuy_fragment, R.id.imageView, R.id.ll_daizhifu_myebuy_fragment, R.id.ll_daishouhuo_myebuy_fragment, R.id.ll_daipingjia_myebuy_fragment, R.id.ll_tuihuan_myebuy_fragment, R.id.ll_shoucang_myebuy_fragment, R.id.ll_yunzuan_myebuy_fragment, R.id.imageView3, R.id.ll_zuji_myebuy_fragment, R.id.ll_youhui_myebuy_fragment, R.id.ll_bangding_myebuy_fragment, R.id.imageView2, R.id.ll_anquan_myebuy_fragment, R.id.recycler_cailove_myebuy})
-    public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.iv_back_myebuy_include:
-                getActivity().finish();
-                break;
-            case R.id.et_zhanghao_include:
-                break;
-            case R.id.iv_zhanghao_include:
-                break;
-            case R.id.et_mima_include:
-                break;
-            case R.id.rb_abc_myebuy:
-                break;
-            case R.id.rb_dian_myebuy:
-                break;
             case R.id.iv_touxiang_wode_fragment:
                 //进入我的信息界面
-                startActivity(new Intent(mContext, MyMessage.class));
+                startActivity(new Intent(getActivity(), MyMessage.class));
                 break;
             case R.id.tv_phone_myebuy_fragment:
                 //进入会员界面
-                startActivity(new Intent(mContext, MyMember.class));
+                startActivity(new Intent(getActivity(), MyMember.class));
                 break;
             case R.id.tv_shezhi_wode_fragment:
                 //进入设置界面
-                startActivity(new Intent(mContext, Setting.class));
+                startActivity(new Intent(getActivity(), Setting.class));
                 break;
             case R.id.iv_liuyan_myebuy_fragment:
                 //进入消息界面
-                startActivity(new Intent(mContext, XiaoXi.class));
+                startActivity(new Intent(getActivity(), XiaoXi.class));
                 break;
             case R.id.tv_dizhi_myebuy_fragment:
                 //进入地址管理界面
-                startActivity(new Intent(mContext, ShowItem.class));
+                startActivity(new Intent(getActivity(), ShowItem.class));
                 break;
             case R.id.ll_quanbuOrder_myebuy_fragment:
                 //进入查看订单界面
-                startActivity(new Intent(mContext, CheckOrder.class));
-                break;
-            case R.id.imageView:
+                startActivity(new Intent(getActivity(), CheckOrder.class));
                 break;
             case R.id.ll_daizhifu_myebuy_fragment:
-                startActivity(new Intent(mContext, PayAcitvity.class));
+                //进入待支付界面
+                startActivity(new Intent(getActivity(), PayAcitvity.class));
                 break;
             case R.id.ll_daishouhuo_myebuy_fragment:
-                startActivity(new Intent(mContext, Receive.class));
+                //进入待收货界面
+                startActivity(new Intent(getActivity(), Receive.class));
                 break;
             case R.id.ll_daipingjia_myebuy_fragment:
                 //进入待评价界面
-                startActivity(new Intent(mContext, Judge.class));
+                startActivity(new Intent(getActivity(), Judge.class));
                 break;
             case R.id.ll_tuihuan_myebuy_fragment:
                 //进入后续服务界面
-                startActivity(new Intent(mContext, MyService.class));
-                break;
-            case R.id.ll_shoucang_myebuy_fragment:
-                //进入收藏界面
-                startActivity(new Intent(mContext, Collect.class));
+                startActivity(new Intent(getActivity(), MyService.class));
                 break;
             case R.id.ll_yunzuan_myebuy_fragment:
                 //进入查看云钻界面
-                startActivity(new Intent(mContext, Diamond.class));
-                break;
-            case R.id.imageView3:
+                startActivity(new Intent(getActivity(), Diamond.class));
                 break;
             case R.id.ll_zuji_myebuy_fragment:
                 //进入足迹界面
@@ -292,20 +250,38 @@ public class MyebuyFragment extends BaseFragment implements MyebuyLisenner {
                 break;
             case R.id.ll_youhui_myebuy_fragment:
                 //进入优惠券界面
-                startActivity(new Intent(mContext, Coupon.class));
+                startActivity(new Intent(getActivity(), Coupon.class));
                 break;
             case R.id.ll_bangding_myebuy_fragment:
                 //进入绑定设置界面
-                startActivity(new Intent(mContext, BindSeting.class));
-                break;
-            case R.id.imageView2:
+                startActivity(new Intent(getActivity(), BindSeting.class));
                 break;
             case R.id.ll_anquan_myebuy_fragment:
                 //进入账户安全界面
-                startActivity(new Intent(mContext, Accountsecurity.class));
+                startActivity(new Intent(getActivity(), Accountsecurity.class));
                 break;
-            case R.id.recycler_cailove_myebuy:
+            case R.id.ll_shoucang_myebuy_fragment:
+                //进入收藏界面
+                startActivity(new Intent(getActivity(), Collect.class));
                 break;
+
         }
+    }
+
+    public void getImage(String url2) {
+        HttpUtils.getData(url2, new StringCallback() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                try {
+                    Log.d("ddd", "size:" + images.size());
+                    images.add(s);
+                    Log.d("ddd", "size:" + images.size());
+                   // Toast.makeText(getContext(), "size" + images.size(), Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 }
