@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\team\\RedBaby\\SlidingMenu-library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\slidingmenumain.xml",
+        "source": "C:\\team\\RedBaby\\SlidingMenu-library\\build\\intermediates\\bundles\\debug\\res\\layout\\slidingmenumain.xml"
+    },
+    {
         "merged": "D:\\AS\\workSpace\\RedBaby\\SlidingMenu-library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\slidingmenumain.xml",
         "source": "D:\\AS\\workSpace\\RedBaby\\SlidingMenu-library\\build\\intermediates\\bundles\\debug\\res\\layout\\slidingmenumain.xml"
     }
