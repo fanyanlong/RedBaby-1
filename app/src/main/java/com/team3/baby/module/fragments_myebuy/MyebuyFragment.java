@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,16 +26,20 @@ import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
 import com.cundong.recyclerview.HeaderSpanSizeLookup;
 import com.cundong.recyclerview.RecyclerViewUtils;
 import com.google.gson.Gson;
+import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_myebuy.bean_myebuy.LoveGoodsBean;
 import com.team3.baby.module.fragments_myebuy.bean_myebuy.SkusBean;
+import com.team3.baby.utils.HttpUtils;
 import com.team3.baby.utils.OkUtils;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
+import okhttp3.Call;
 import okhttp3.OkHttpClient;
+import okhttp3.Response;
 
 //import com.team3.baby.module.fragments_myebuy.utils_myebuy.RecyclerAddHeader;
 
@@ -43,6 +50,7 @@ import okhttp3.OkHttpClient;
 public class MyebuyFragment extends Fragment implements View.OnClickListener {
 
 
+    ArrayList<String> images = new ArrayList<>();
     HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
     @BindView(R.id.iv_back_myebuy_include)
     ImageView ivBackMyebuyInclude;
@@ -64,6 +72,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     private Button bt_denglu_myebuy;
     private EditText et_zhanghao_include;
     private EditText et_mima_include;
+    private CheckBox rb_abc_myebuy;
+    private Object image;
 
     protected void initData() {
 
@@ -73,11 +83,22 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
-                //  Toast.makeText(mContext, "得到数据：" + result, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getActivity(), "得到数据：" + result, Toast.LENGTH_SHORT).show();
                 Gson gson = new Gson();
                 LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
                 skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
-                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(getActivity(), skus, recyclerCailoveMyebuy);
+               /* for (int i = 0; i < skus.size(); i++) {
+                    String code = skus.get(i).getSugGoodsCode();
+                    String url2 = "http://image3.suning.cn/uimg/b2c/newcatentries/0000000000-" + code + "_1_400x400.jpg?ver=2015&from=mobile";
+//获取图片
+
+                    Log.d("ddd", "size1:" + images.size());
+                    Log.d("ddd", "code:" + code);
+                    Log.d("uuu", "url2:" + url2);
+
+                    getImage(url2);
+                }*/
+                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(getActivity(), skus, images, recyclerCailoveMyebuy);
 
                 mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
                 recyclerCailoveMyebuy.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
@@ -114,6 +135,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         bt_denglu_myebuy = (Button) view.findViewById(R.id.bt_denglu_myebuy);
         et_zhanghao_include = (EditText) view.findViewById(R.id.et_zhanghao_include);
         et_mima_include = (EditText) view.findViewById(R.id.et_mima_include);
+        rb_abc_myebuy = (CheckBox) view.findViewById(R.id.rb_abc_myebuy);
         inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_phone_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_shezhi_wode_fragment).setOnClickListener(this);
@@ -145,9 +167,20 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
                     edit.putBoolean("yidenglu", true);
                     denglujiemian.setVisibility(View.INVISIBLE);
                     sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
-
+                    edit.commit();
                 } else {
                     Toast.makeText(getContext(), "用户名密码不正确", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        rb_abc_myebuy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+
+                    et_mima_include.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    et_mima_include.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                 }
             }
         });
@@ -233,5 +266,22 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
                 break;
 
         }
+    }
+
+    public void getImage(String url2) {
+        HttpUtils.getData(url2, new StringCallback() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                try {
+                    Log.d("ddd", "size:" + images.size());
+                    images.add(s);
+                    Log.d("ddd", "size:" + images.size());
+                   // Toast.makeText(getContext(), "size" + images.size(), Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 }

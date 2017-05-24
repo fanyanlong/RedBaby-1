@@ -3,12 +3,14 @@ package com.team3.baby.module.fragments_myebuy;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_myebuy.bean_myebuy.SkusBean;
 import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
@@ -24,14 +26,18 @@ public class Fragment_myebuy_RecycleAdapter extends RecyclerView.Adapter {
     private Context context;
     private LayoutInflater mLayoutInflater;
     private ArrayList<SkusBean> mDataList;
+    private ArrayList<String> images;
     private RecyclerView recyclerCailoveMyebuy;
+    private String url2;
 
 
-    public Fragment_myebuy_RecycleAdapter(Context context, ArrayList<SkusBean> mDataList, RecyclerView recyclerCailoveMyebuy) {
+    public Fragment_myebuy_RecycleAdapter(Context context, ArrayList<SkusBean> mDataList, ArrayList<String> images, RecyclerView recyclerCailoveMyebuy) {
         this.context = context;
         this.mDataList = mDataList;
+        this.images = images;
         this.mLayoutInflater = LayoutInflater.from(context);
         this.recyclerCailoveMyebuy = recyclerCailoveMyebuy;
+
     }
 
 
@@ -41,17 +47,34 @@ public class Fragment_myebuy_RecycleAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
         mDataList.get(position);
 
-        ViewHolder viewHolder = (ViewHolder) holder;
+        final ViewHolder viewHolder = (ViewHolder) holder;
 
         viewHolder.price.setText(mDataList.get(position).getPrice());
         viewHolder.name.setText(mDataList.get(position).getSugGoodsName());
         String goodid = mDataList.get(position).getSugGoodsCode();
         String goodscode = mDataList.get(position).getVendorId();
-        String url = "http://pas.suning.com/nsitemsale_" + goodid + " _ " + goodscode + " _100_025_0250101_0_2__8.html ";
+        url2 = "http://image3.suning.cn/uimg/b2c/newcatentries/0000000000-" + mDataList.get(position).getSugGoodsCode() + "_1_400x400.jpg?ver=2015&from=mobile";
+        Log.d("dds", "" + url2);
+        Glide.with(context).load(url2).into(viewHolder.goodsimage);
+    /*    HttpUtils.getData(url2, new StringCallback() {
+            @Override
+            public void onSuccess(String s, Call call, Response response) {
+                try {
+                    Log.d("dds", "" + s);
+                    Toast.makeText(context, "sss" + url2, Toast.LENGTH_SHORT).show();
+                    Glide.with(context).load(s).into(viewHolder.goodsimage);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });*/
+
+        //   Glide.with(context).load(images.get(position)).into(viewHolder.goodsimage);
 
 
     }
