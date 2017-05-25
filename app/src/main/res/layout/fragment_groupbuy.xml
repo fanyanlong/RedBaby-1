@@ -27,7 +27,7 @@
             android:layout_width="150dp"
             android:layout_height="30dp"
             android:text="乐拼购"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
