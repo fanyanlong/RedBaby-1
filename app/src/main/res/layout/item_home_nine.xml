@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:background="#ffffff"
               android:orientation="vertical">
     <View
         android:background="#cccccc"
@@ -36,7 +37,7 @@
             android:id="@+id/item_home_nine_name_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_below="@+id/item_home_nine_bigpicture_image"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
@@ -142,7 +143,7 @@
             android:id="@+id/item_home_nine_name1_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_below="@+id/item_home_nine_bigpicture1_image"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
@@ -241,7 +242,7 @@
         <TextView
             android:layout_marginRight="10dp"
             android:text="查看更多"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <ImageView
