@@ -80,7 +80,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     private CheckBox rb_abc_myebuy;
     private Object image;
     private TextView zhuce;
-    private SHARE_MEDIA mShare_media;
+
     protected void initData() {
 
 
@@ -126,48 +126,11 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         View inflate = recyclerAddHeader.inflate;
         denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
         ImageView qqdenglu = (ImageView) view.findViewById(R.id.iv_qq_denglu);
-        mShare_media = SHARE_MEDIA.QQ;
+        //qq登录
         qqdenglu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UMShareAPI.get(getActivity()).getPlatformInfo(getActivity(),
-                        mShare_media, new UMAuthListener() {
-                            @Override
-                            public void onStart(SHARE_MEDIA share_media) {
-
-                            }
-                            //授权成功并返回个人信息
-                            @Override
-                            public void onComplete(SHARE_MEDIA share_media, int i, Map<String,
-                                    String>
-                                    map) {
-                                //回传时要按照SDK文档给予的字段来回传
-                                String uid = map.get("uid");
-                                String name = map.get("name");
-                                String gender = map.get("gender");
-                                String iconurl = map.get("iconurl");
-                                String yellow_vip_level = map.get("yellow_vip_level");
-                             /*   mZuan.setText(yellow_vip_level);
-                                mName.setText(name);
-                                mGender.setText(gender);
-                                mUid.setText(uid);
-                                Glide.with(MainActivity.this).load(iconurl).error(R.mipmap
-                                        .ic_launcher)
-                                        .placeholder(R.mipmap.ic_launcher).into(mIconurl);*/
-                                Toast.makeText(getActivity(), "授权成功", Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onError(SHARE_MEDIA share_media, int i, Throwable
-                                    throwable) {
-
-                            }
-
-                            @Override
-                            public void onCancel(SHARE_MEDIA share_media, int i) {
-
-                            }
-                        });
+                startActivity(new Intent(getActivity(), QQdenglu.class));
             }
         });
         sv_yidenglu_myebuy = (ScrollView) view.findViewById(R.id.sv_yidenglu_myebuy);
@@ -193,13 +156,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
 
-        edit = sharedPreferences.edit();
-        if (sharedPreferences.getBoolean("yidenglu", false)) {
-            denglujiemian.setVisibility(View.INVISIBLE);
-            sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
-        }
         bt_denglu_myebuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,7 +191,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case  R.id.tv_zhuce_mebuy:
+            case R.id.tv_zhuce_mebuy:
 
                 startActivity(new Intent(getActivity(), Zhuce.class));
                 break;
