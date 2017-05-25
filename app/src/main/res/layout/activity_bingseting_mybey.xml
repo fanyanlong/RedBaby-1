@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:id="@+id/ll_checkorder_tou"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#fffff9"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back_bind"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@mipmap/ucwv_btn_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="绑定设置"
+            android:textSize="22sp" />
+
+
+        <TextView
+
+            android:id="@+id/tv_juhao_dizhiguanli"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="。。。"
+            android:textSize="22sp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:id="@+id/ll_netorder"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_checkorder_tou"
+        android:orientation="vertical">
+
+        <include layout="@layout/include_huige"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="易付宝管理"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/arrow_drawer" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="微信解绑"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/arrow_drawer" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

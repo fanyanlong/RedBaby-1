@@ -95,6 +95,7 @@ public class AddIndent_buyActivity extends AppCompatActivity {
                 intent1.putExtra("shopName", shopName);
                 intent1.putExtra("shopPrice", shopPrice);
                 intent1.putExtra("number",num);
+                intent1.putExtra("code",1);
                 startActivity(intent1);
             }
         });

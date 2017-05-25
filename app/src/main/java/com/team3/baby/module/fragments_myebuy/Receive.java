@@ -18,13 +18,11 @@ public class Receive extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO: add setContentView(...) invocation
-        setContentView(R.layout.activity_daizhifu_mybey);
-        findViewById(R.id.iv_back_myebuy_activity).setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_daishouhuo_mybey);
+        findViewById(R.id.iv_back_shouhuo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Receive.this, MainActivity.class);
-                startActivity(intent);
+
                 finish();
             }
         });

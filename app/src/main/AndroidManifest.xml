@@ -49,7 +49,6 @@
         <activity android:name=".module.main_activity.v.MainActivity"/>
         <activity android:name=".module.fragments_shopping.ShoppingCarActivity"/>
         <activity android:name=".module.welcome_activity.WelcomeActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -83,9 +82,32 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
 
-        <activity android:name=".module.fragments_shopping.indent_activity.IndentAffirm_settlementActivity"/>
         <activity android:name=".module.fragments_groupBuy.utils.WebViewUtils">
         </activity>
+        <!--QQ登录-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58f4ae9e76661320e800000f">
+        </meta-data>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent1106029755"/>
+            </intent-filter>
+        </activity>
+        <!--QQ登录-->
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
     </application>
 

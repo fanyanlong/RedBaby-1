@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <include
+
         android:id="@+id/include_weidenglu"
         layout="@layout/include_denglu"
         android:visibility="visible"></include>

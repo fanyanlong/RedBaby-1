@@ -1,12 +1,12 @@
 package com.team3.baby.module.fragments_home;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
+import com.mylhyl.acp.Acp;
+import com.mylhyl.acp.AcpListener;
+import com.mylhyl.acp.AcpOptions;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_home.adapter.HomeAdapter;
 import com.team3.baby.module.fragments_home.bean.TitleBean;
@@ -22,7 +25,6 @@ import com.team3.baby.module.fragments_home.fragments.ItemHomeFragmentTitle;
 import com.team3.baby.module.fragments_home.url.Url;
 import com.team3.baby.utils.OkUtils;
 import com.team3.baby.zxing.activity.CaptureActivity;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +95,32 @@ public class HomeFragment extends Fragment {
                 mImageScanInclude.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(getContext(), CaptureActivity.class));
+
+                        Acp.getInstance(getActivity() ).request(new AcpOptions.Builder()
+                                        .setPermissions(Manifest.permission.CAMERA
+                                                , Manifest.permission.READ_PHONE_STATE
+                                                , Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                        )
+                /*以下为自定义提示语、按钮文字
+                .setDeniedMessage()
+                .setDeniedCloseBtn()
+                .setDeniedSettingBtn()
+                .setRationalMessage()
+                .setRationalBtn()*/
+                                        .build(),
+                                new AcpListener() {
+                                    @Override
+                                    public void onGranted() {
+                                        startActivity(new Intent(getContext(), CaptureActivity.class));
+
+                                    }
+
+                                    @Override
+                                    public void onDenied(List<String> permissions) {
+
+                                    }
+                                });
+
                     }
                 });
             }

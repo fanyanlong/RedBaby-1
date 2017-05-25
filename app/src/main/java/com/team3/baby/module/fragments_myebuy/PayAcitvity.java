@@ -23,8 +23,7 @@ public class PayAcitvity extends Activity {
         findViewById(R.id.iv_back_dizhi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PayAcitvity.this, MainActivity.class);
-                startActivity(intent);
+
                 finish();
             }
         });
