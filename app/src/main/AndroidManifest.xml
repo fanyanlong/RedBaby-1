@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.team3.baby">
+    package="com.team3.baby">
+    package="com.team3.baby">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--崔涵淞 添加 5.23 二维码需要权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
           package="com.team3.baby">
     package="com.team3.baby">
     package="com.team3.baby">
@@ -42,14 +55,23 @@
         </activity>
         <activity
             android:name=".module.fragments_classify.fragment.view.SlidingClssifyActivity"
-            android:theme="@style/SlidingClassify"
-            />
+            android:theme="@style/SlidingClassify"/>
         <activity
             android:name=".module.fragments_shopping.AddIndent_buyActivity"
             android:theme="@style/MyDialogStyleBottom"/>
         <activity
             android:name=".module.fragments_shopping.AddIndent_carActivity"
             android:theme="@style/MyDialogStyleBottom"/>
+            android:theme="@style/MyDialogStyleBottom" />
+        <!--崔涵淞添加 二维码-->
+        <activity
+            android:name=".zxing.activity.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name=".zxing.activity.ResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -58,11 +80,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
 
-        <activity
-            android:name=".module.fragments_shopping.indent_activity.IndentAffirm_settlementActivity"/>
-        <activity android:name=".module.main_activity.Main2Activity">
-
-
+        <activity android:name=".module.fragments_shopping.indent_activity.IndentAffirm_settlementActivity"/>
+        <activity android:name=".module.fragments_groupBuy.utils.WebViewUtils">
         </activity>
     </application>
 

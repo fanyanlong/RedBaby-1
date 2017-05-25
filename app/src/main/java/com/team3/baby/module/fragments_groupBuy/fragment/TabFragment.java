@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_groupBuy.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,12 +21,16 @@ import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_groupBuy.adapter.HorizontalAdapter;
 import com.team3.baby.module.fragments_groupBuy.adapter.RecAdapter;
+import com.team3.baby.module.fragments_groupBuy.adapter.RecyclerItemClickListener;
 import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 import com.team3.baby.module.fragments_groupBuy.utils.DividerItemDecoration;
 import com.team3.baby.module.fragments_groupBuy.utils.GlideImageLoader;
+import com.team3.baby.module.fragments_groupBuy.utils.WebViewUtils;
+import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +61,8 @@ public class TabFragment extends Fragment {
     RecyclerView recyclerview;
     private String url;
     private String http = "http:";
-
+    private List<BoutiqueBean.Enrolls1Bean.ListBeanX> listBeanXes;
+    private List<BoutiqueBean.EnrollsBean.ListBean> enrollsList;
     public TabFragment(String url) {
         this.url = url;
 
@@ -94,20 +100,24 @@ public class TabFragment extends Fragment {
             public void onSuccess(String s, Call call, Response response) {
                 if (s != null) {
                     BoutiqueBean toBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
-                    //RecView
-                    List<BoutiqueBean.EnrollsBean.ListBean> enrollsList = toBean.getEnrolls()
-                            .getList();
-
                     //轮播
-                    List<BoutiqueBean.AdsBean> adsList = toBean.getAds();
+                    final List<BoutiqueBean.AdsBean> adsList = toBean.getAds();
                     ArrayList<String> imagerlist = new ArrayList<String>();
-                    Log.e(TAG, adsList.size() + "");
                     for (int i = 0; i < adsList.size(); i++) {
                         imagerlist.add(http + adsList.get(i).getImgUrl());
                     }
-                    Log.e(TAG, imagerlist.toString());
                     banner.setImages(imagerlist).setImageLoader(new GlideImageLoader()).start();
-
+                    banner.setOnBannerListener(new OnBannerListener() {
+                        @Override
+                        public void OnBannerClick(int position) {
+                            Intent intent = new Intent(getActivity(), WebViewUtils.class);
+                            intent.putExtra("url", http+adsList.get(position).getTargetUrl());
+                            startActivity(intent);
+                        }
+                    });
+                    //RecView
+                    enrollsList = toBean.getEnrolls()
+                            .getList();
                     RecAdapter recAdapter = new RecAdapter(getActivity(), enrollsList);
                     recyclerview.setAdapter(recAdapter);
                 } else {
@@ -115,6 +125,24 @@ public class TabFragment extends Fragment {
                 }
             }
         });
+        recyclerview.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
+                recyclerview, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // ...
+                Intent intent = new Intent(getActivity(), ShoppingCarActivity.class);
+                intent.putExtra("position", http + enrollsList.get(position).getImgUrl());
+                intent.putExtra("shopName", enrollsList.get(position).getItemName());
+                intent.putExtra("shopPrice", "￥" + enrollsList.get(position).getPrice());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                // ...
+            }
+        }));
+
     }
 
     private void getGorizontalrec() {
@@ -126,15 +154,16 @@ public class TabFragment extends Fragment {
         //设置固定大小
         recyclerTabfragment.setHasFixedSize(true);
         //设置分隔线
-        recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
-                .VERTICAL));
+        recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(),
+                LinearLayoutManager
+                        .VERTICAL));
         //设置增加或删除条目的动画
         recyclerTabfragment.setItemAnimator(new DefaultItemAnimator());
         HttpUtils.getData(url, new StringCallback() {
             @Override
             public void onSuccess(String s, Call call, Response response) {
                 BoutiqueBean gsonToBean = GsonUtils.gsonToBean(s, BoutiqueBean.class);
-                List<BoutiqueBean.Enrolls1Bean.ListBeanX> listBeanXes = gsonToBean
+                listBeanXes = gsonToBean
                         .getEnrolls_1().getList();
                 if (listBeanXes != null) {
                     HorizontalAdapter adapter = new HorizontalAdapter(getActivity(),
@@ -143,6 +172,23 @@ public class TabFragment extends Fragment {
                 }
             }
         });
+        recyclerTabfragment.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
+                recyclerview, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // ...
+                Intent intent = new Intent(getActivity(), ShoppingCarActivity.class);
+                intent.putExtra("position", http + listBeanXes.get(position).getImgUrl());
+                intent.putExtra("shopName", listBeanXes.get(position).getItemName());
+                intent.putExtra("shopPrice", "￥" + listBeanXes.get(position).getPrice());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                // ...
+            }
+        }));
 
     }
 }

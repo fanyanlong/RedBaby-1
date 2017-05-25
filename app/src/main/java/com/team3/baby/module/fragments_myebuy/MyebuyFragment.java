@@ -83,7 +83,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
-               // Toast.makeText(getActivity(), "得到数据：" + result, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity(), "得到数据：" + result, Toast.LENGTH_SHORT).show();
                 Gson gson = new Gson();
                 LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
                 skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
@@ -177,12 +177,6 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
 
     @Override
     public void onClick(View view) {
@@ -264,7 +258,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
                     Log.d("ddd", "size:" + images.size());
                     images.add(s);
                     Log.d("ddd", "size:" + images.size());
-                   // Toast.makeText(getContext(), "size" + images.size(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getContext(), "size" + images.size(), Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

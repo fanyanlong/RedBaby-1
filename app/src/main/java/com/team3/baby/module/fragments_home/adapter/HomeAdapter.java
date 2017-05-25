@@ -18,10 +18,10 @@ import java.util.List;
  */
 
 public class HomeAdapter extends FragmentPagerAdapter {
-    private List<BaseFragment> list;
+    private List<Fragment> list;
     private List<String> titleList;
 
-    public HomeAdapter(FragmentManager fm,List<BaseFragment> list,List<String> titleList) {
+    public HomeAdapter(FragmentManager fm,List<Fragment> list,List<String> titleList) {
         super(fm);
         this.list = list;
         this.titleList = titleList;

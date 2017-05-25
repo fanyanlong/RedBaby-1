@@ -50,7 +50,6 @@ public class GroupBuyFragment extends Fragment {
     TextView texttopGroupbuy;
     private String http = "http:";
     private ArrayList<String> catesName;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
@@ -100,8 +99,6 @@ public class GroupBuyFragment extends Fragment {
                         TabFragments tabFragments = new TabFragments(urlList.get(i));
                         fragmentlist.add(tabFragments);
                     }
-                    Log.e("----------------", fragmentlist.size() + "");
-
                     GroupBuyAdapter adapter = new GroupBuyAdapter(getFragmentManager(),
                             fragmentlist,
                             catesName);
@@ -123,6 +120,7 @@ public class GroupBuyFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imager_right_fragment_groupbuy:
+
                 break;
         }
     }

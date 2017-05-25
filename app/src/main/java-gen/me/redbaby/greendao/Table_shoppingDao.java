@@ -16,6 +16,8 @@ public class Table_shoppingDao extends AbstractDao<Table_shopping, Long> {
 
     public static final String TABLENAME = "TABLE_SHOPPING";
 
+
+
     /**
      * Properties of entity Table_shopping.<br/>
      * Can be used for QueryBuilder and for referencing column names.
