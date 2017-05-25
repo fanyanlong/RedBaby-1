@@ -20,6 +20,11 @@ import de.greenrobot.dao.query.QueryBuilder;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
 
+/**
+ * @class describe
+ * @anthor 田杰谕
+ * @time 2017/5/25 下午5:10
+ */
 public class IndentAffirmActivity extends AppCompatActivity {
 
 
@@ -73,6 +78,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
 
     private void initData() {
 
+        //gh
         Intent intent = getIntent();
         int code = intent.getIntExtra("code", 0);
         if (code == 1) {
