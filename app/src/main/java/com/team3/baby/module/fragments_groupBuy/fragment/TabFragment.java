@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -51,8 +52,6 @@ public class TabFragment extends Fragment {
     ImageView imagerTabfragment;
     @BindView(R.id.recycler_tabfragment)
     RecyclerView recyclerTabfragment;
-    @BindView(R.id.tab_view)
-    View tabView;
     @BindView(R.id.recycler_fragment_recyclerview)
     RecyclerView recyclerview;
     private String url;
@@ -86,7 +85,8 @@ public class TabFragment extends Fragment {
         recyclerview.setHasFixedSize(true);
         //设置分隔线
         recyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
-                .VERTICAL));
+                .VERTICAL, 10, ContextCompat.getColor(getActivity(), R.color.danhui)));
+
         //设置增加或删除条目的动画
         recyclerview.setItemAnimator(new DefaultItemAnimator());
         //设置Adapter
@@ -149,9 +149,8 @@ public class TabFragment extends Fragment {
         //设置固定大小
         recyclerTabfragment.setHasFixedSize(true);
         //设置分隔线
-        recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(),
-                LinearLayoutManager
-                        .VERTICAL));
+        recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
+                .HORIZONTAL, 10, ContextCompat.getColor(getActivity(), R.color.danhui)));
         //设置增加或删除条目的动画
         recyclerTabfragment.setItemAnimator(new DefaultItemAnimator());
         HttpUtils.getData(url, new StringCallback() {

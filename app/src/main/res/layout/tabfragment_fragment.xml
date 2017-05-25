@@ -19,9 +19,7 @@
             />
 
         <View
-
-            style="@style/fengexian"
-            android:visibility="gone"></View>
+            style="@style/fengexian"></View>
 
         <ImageView
             android:id="@+id/imager_tabfragment"
@@ -29,13 +27,15 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/diertiao"/>
 
+        <View
+            style="@style/fengexian"></View>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_tabfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
         <View
-            android:id="@+id/tab_view"
             style="@style/fengexian"></View>
 
         <android.support.v7.widget.RecyclerView

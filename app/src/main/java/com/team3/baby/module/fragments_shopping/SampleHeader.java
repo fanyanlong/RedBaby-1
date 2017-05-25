@@ -21,6 +21,8 @@ import de.greenrobot.dao.query.QueryBuilder;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
 
+import static com.team3.baby.module.fragments_shopping.ShoppingFragment.lvFootFoot;
+
 /**
  * Created by cundong on 2015/10/9.
  * <p/>
@@ -31,6 +33,7 @@ public class SampleHeader extends RelativeLayout {
     private View view;
     private HeadBaseAdapter adapter;
     private LinearLayout lv_head_head;
+    public static ListView listView;
 
     public SampleHeader(Context context) {
         super(context);
@@ -67,7 +70,7 @@ public class SampleHeader extends RelativeLayout {
     }
 
     public void AddListView(final Context context) {
-        ListView listView = (ListView) view.findViewById(R.id.fragment_shopping_listview);
+        listView = (ListView) view.findViewById(R.id.fragment_shopping_listview);
         lv_head_head = (LinearLayout) view.findViewById(R.id.lv_head_head);
 
 
@@ -100,9 +103,9 @@ public class SampleHeader extends RelativeLayout {
                 tableShoppingDao.delete(list.get(position));
                 list.remove(position);
                 adapter.notifyDataSetChanged();
-                if(list.size()==0){
+                if (list.size() == 0) {
                     lv_head_head.setVisibility(VISIBLE);
-
+                    lvFootFoot.setVisibility(GONE);
                 }
                 return true;
             }

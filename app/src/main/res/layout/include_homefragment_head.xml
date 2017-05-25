@@ -28,16 +28,12 @@
             android:background="@drawable/include_homefragment_head_layout"
             android:orientation="horizontal">
 
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_height="35dp">
-
             <ImageView
 
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10dp"
                 android:src="@mipmap/icon_search_home"/>
 
             <TextView
