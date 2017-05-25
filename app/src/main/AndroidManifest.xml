@@ -111,6 +111,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity android:name=".module.fragments_home.activity.HomeSeekActivity">
         </activity>
+        <activity android:name=".alipay.PayDemoActivity"/>
     </application>
 
 </manifest>
