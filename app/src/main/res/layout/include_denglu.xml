@@ -98,17 +98,19 @@
             android:layout_marginTop="25dp"
             android:background="#999999"
             android:text="登录" />
+
         <TextView
 
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:text="  免费注册  "
-            android:textColor="#ff9900"
-            android:layout_gravity="center"
+            android:id="@+id/tv_zhuce_mebuy"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:background="@drawable/text_border"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/text_border"
+            android:gravity="center"
+            android:text="  免费注册  "
+            android:textColor="#ff9900"
+            android:textSize="20sp" />
     </LinearLayout>
 
 

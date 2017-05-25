@@ -44,7 +44,7 @@ public class Accountsecurity extends FragmentActivity {
             public void onClick(View view) {
                 progress = 100;
                 timer = new Timer();
-                timer.schedule(new Mytimer(), 1000, 50);
+                timer.schedule(new Mytimer(), 100, 50);
 
 
             }

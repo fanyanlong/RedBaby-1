@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
@@ -74,6 +75,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     private EditText et_mima_include;
     private CheckBox rb_abc_myebuy;
     private Object image;
+    private TextView zhuce;
 
     protected void initData() {
 
@@ -124,6 +126,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         et_zhanghao_include = (EditText) view.findViewById(R.id.et_zhanghao_include);
         et_mima_include = (EditText) view.findViewById(R.id.et_mima_include);
         rb_abc_myebuy = (CheckBox) view.findViewById(R.id.rb_abc_myebuy);
+        zhuce = (TextView) view.findViewById(R.id.tv_zhuce_mebuy);
         inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_phone_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_shezhi_wode_fragment).setOnClickListener(this);
@@ -182,6 +185,10 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
         switch (view.getId()) {
+            case  R.id.tv_zhuce_mebuy:
+
+                startActivity(new Intent(getActivity(), Zhuce.class));
+                break;
             case R.id.iv_touxiang_wode_fragment:
                 //进入我的信息界面
                 startActivity(new Intent(getActivity(), MyMessage.class));
