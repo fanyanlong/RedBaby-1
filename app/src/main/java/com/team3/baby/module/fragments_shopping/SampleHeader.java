@@ -10,14 +10,11 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
 import com.team3.baby.app.App;
 import com.team3.baby.module.fragments_shopping.shop_adapter.HeadBaseAdapter;
-import com.team3.baby.module.fragments_shopping.shopping_bean.ShopCarBean;
 import com.team3.baby.module.main_activity.v.MainActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.greenrobot.dao.query.QueryBuilder;
@@ -77,34 +74,36 @@ public class SampleHeader extends RelativeLayout {
         final Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
         QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
         final List<Table_shopping> list = queryBuilder.list();
-        final ArrayList<ShopCarBean> arrayList = new ArrayList<>();
 
-        Logger.d(arrayList.size());
         if (list.size() != 0) {
-            for (int i = 0; i < list.size(); i++) {
+            /*for (int i = 0; i < list.size(); i++) {
                 ShopCarBean shopCarBean = new ShopCarBean();
                 shopCarBean.setName(list.get(i).getShopping_name());
                 shopCarBean.setNumber(list.get(i).getShopping_count());
                 shopCarBean.setPicUrl(list.get(i).getShopping_pic());
                 shopCarBean.setPrice(list.get(i).getShopping_price());
                 arrayList.add(shopCarBean);
-            }
+            }*/
             lv_head_head.setVisibility(GONE);
             listView.setVisibility(VISIBLE);
-            adapter = new HeadBaseAdapter(context, arrayList);
+            adapter = new HeadBaseAdapter(context, list);
             listView.setAdapter(adapter);
 
         } else {
             lv_head_head.setVisibility(VISIBLE);
         }
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                 tableShoppingDao.delete(list.get(position));
-                arrayList.remove(position);
+                list.remove(position);
                 adapter.notifyDataSetChanged();
-                lv_head_head.setVisibility(VISIBLE);
+                if(list.size()==0){
+                    lv_head_head.setVisibility(VISIBLE);
+
+                }
                 return true;
             }
         });
