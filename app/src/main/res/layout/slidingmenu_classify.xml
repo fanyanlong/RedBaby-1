@@ -29,13 +29,13 @@
 
             <CheckBox
                 style="@style/style_chk_sliding"
-                android:text="苏宁服务"/>
+                android:text="有货商品"/>
 
             <CheckBox
                 style="@style/style_chk_sliding"
-                android:text="苏宁服务"/>
+                android:text="海外购"/>
         </LinearLayout>
-
+        
         <ExpandableListView
             android:id="@+id/ex_sliding"
             android:layout_width="match_parent"
