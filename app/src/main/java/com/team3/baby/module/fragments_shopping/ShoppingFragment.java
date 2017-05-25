@@ -36,6 +36,7 @@ import de.greenrobot.event.ThreadMode;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
 
+import static android.view.View.GONE;
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 /**
@@ -51,8 +52,8 @@ public class ShoppingFragment extends BaseFragment {
     TextView tvGotoSettlement;
     @BindView(R.id.tv_compile_fragment_shopping)
     TextView tvCompileFragmentShopping;
-    @BindView(R.id.lv_foot_foot)
-    LinearLayout lvFootFoot;
+    //@BindView(R.id.lv_foot_foot)
+    public static  LinearLayout lvFootFoot;
     @BindView(R.id.tv_total_price)
     TextView tvTotalPrice;
 
@@ -75,6 +76,8 @@ public class ShoppingFragment extends BaseFragment {
     protected View initView() {
         View view = View.inflate(mContext, R.layout.fragment_shopping, null);
         sam = new SampleHeader(mContext);
+         lvFootFoot  = (LinearLayout) view.findViewById(R.id.lv_foot_foot);
+
         return view;
 
     }
@@ -155,6 +158,8 @@ public class ShoppingFragment extends BaseFragment {
         if (list.size() != 0) {
             tvCompileFragmentShopping.setText("编辑");
             lvFootFoot.setVisibility(View.VISIBLE);
+        } else {
+            lvFootFoot.setVisibility(GONE);
         }
 
     }

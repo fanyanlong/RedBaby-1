@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_groupBuy.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,10 +32,10 @@ public class RecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.enrollsList = enrollsList;
     }
 
-    //视图1
+    //视图
     public class ViewHolders extends RecyclerView.ViewHolder {
         private ImageView imager_tabfragment;
-        private TextView text_title_tabfragment, text_content_tabfragment, text_price_tabfragment;
+        private TextView text_title_tabfragment, text_content_tabfragment, text_price_tabfragment,texts_price_tabfragment;
 
         public ViewHolders(View root) {
             super(root);
@@ -42,7 +43,8 @@ public class RecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             text_title_tabfragment = (TextView) root.findViewById(R.id.text_title_tabfragment);
             text_content_tabfragment = (TextView) root.findViewById(R.id.text_content_tabfragment);
             text_price_tabfragment = (TextView) root.findViewById(R.id.text_price_tabfragment);
-
+            texts_price_tabfragment = (TextView) root.findViewById(R.id.texts_price_tabfragment);
+            texts_price_tabfragment.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         }
     }
 
@@ -61,7 +63,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 .imager_tabfragment);
         holders.text_title_tabfragment.setText(enrollsList.get(position).getItemName());
         holders.text_content_tabfragment.setText(enrollsList.get(position).getItemDesc());
-        holders.text_price_tabfragment.setText("￥："+enrollsList.get(position).getPrice() + "");
+        holders.text_price_tabfragment.setText("￥"+enrollsList.get(position).getPrice() + "");
     }
 
     @Override

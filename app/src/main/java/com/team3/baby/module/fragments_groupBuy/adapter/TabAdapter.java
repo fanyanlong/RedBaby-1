@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_groupBuy.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,7 @@ public class TabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class ViewHolders extends RecyclerView.ViewHolder {
         private ImageView imager_tabfragments;
         private TextView text_title_tabfragments, text_content_tabfragments,
-                text_price_tabfragments;
+                text_price_tabfragments,texts_price_tabfragments;
 
         public ViewHolders(View root) {
             super(root);
@@ -43,7 +44,8 @@ public class TabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             text_content_tabfragments = (TextView) root.findViewById(R.id
                     .text_content_tabfragments);
             text_price_tabfragments = (TextView) root.findViewById(R.id.text_price_tabfragments);
-
+            texts_price_tabfragments = (TextView) root.findViewById(R.id.texts_price_tabfragment);
+            texts_price_tabfragments.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         }
     }
 
@@ -62,7 +64,7 @@ public class TabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 .imager_tabfragments);
         holders.text_title_tabfragments.setText(listBeen.get(position).getItemName());
         holders.text_content_tabfragments.setText(listBeen.get(position).getItemDesc());
-        holders.text_price_tabfragments.setText("￥：" + listBeen.get(position).getPrice() + "");
+        holders.text_price_tabfragments.setText("￥" + listBeen.get(position).getPrice() + "");
     }
 
     @Override

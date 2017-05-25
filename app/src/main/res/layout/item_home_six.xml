@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:background="#ffffff"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
     <View
@@ -25,7 +26,7 @@
         android:src="@mipmap/ic_launcher"
         android:id="@+id/item_home_six_trademark_hui_image"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="160dp"/>
     <HorizontalScrollView
         android:layout_marginTop="5dp"
         android:scrollbars="none"
@@ -49,7 +50,6 @@
                     android:id="@+id/item_home_six_name1"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView

@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_home.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -329,6 +330,13 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         ImageView image6;
         ImageView image7;
         ImageView image8;
+        TextView item_home_three_text1;
+        TextView item_home_three_text2;
+        TextView item_home_three_text3;
+        TextView item_home_three_text4;
+        TextView item_home_three_text5;
+        TextView item_home_three_text6;
+        TextView item_home_three_text7;
 
         public ViewHolder2(View itemView) {
             super(itemView);
@@ -341,6 +349,30 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             image6 = (ImageView) itemView.findViewById(R.id.item_home_three_image6);
             image7 = (ImageView) itemView.findViewById(R.id.item_home_three_image7);
             image8 = (ImageView) itemView.findViewById(R.id.item_home_three_image8);
+            item_home_three_text1 = (TextView) itemView.findViewById(R.id.item_home_three_text1);
+            item_home_three_text2 = (TextView) itemView.findViewById(R.id.item_home_three_text2);
+            item_home_three_text3 = (TextView) itemView.findViewById(R.id.item_home_three_text3);
+            item_home_three_text4 = (TextView) itemView.findViewById(R.id.item_home_three_text4);
+            item_home_three_text5 = (TextView) itemView.findViewById(R.id.item_home_three_text5);
+            item_home_three_text6 = (TextView) itemView.findViewById(R.id.item_home_three_text6);
+            item_home_three_text7 = (TextView) itemView.findViewById(R.id.item_home_three_text7);
+
+            item_home_three_text1.setText("¥202.10");
+            item_home_three_text2.setText("¥158.60");
+            item_home_three_text3.setText("¥161.20");
+            item_home_three_text4.setText("¥199.00");
+            item_home_three_text5.setText("¥149.00");
+            item_home_three_text6.setText("¥309.00");
+            item_home_three_text7.setText("¥302.40");
+
+
+            item_home_three_text1.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text2.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text3.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text4.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text5.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text6.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text7.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         }
     }
 
