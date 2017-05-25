@@ -69,7 +69,7 @@ public class Fragment_myebuy_RecycleAdapter extends RecyclerView.Adapter {
 
                 // Toast.makeText(context, " v.getTag();" + position, Toast.LENGTH_SHORT).show();
 
-                intent.putExtra("position", url2);
+                intent.putExtra("position", "http://image3.suning.cn/uimg/b2c/newcatentries/0000000000-" + mDataList.get(position).getSugGoodsCode() + "_1_400x400.jpg?ver=2015&from=mobile");
                 intent.putExtra("shopName", mDataList.get(position).getSugGoodsName());
                 intent.putExtra("shopPrice", mDataList.get(position).getPrice());
                 context.startActivity(intent);
