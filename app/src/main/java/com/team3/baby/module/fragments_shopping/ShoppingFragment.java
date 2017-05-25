@@ -66,8 +66,7 @@ public class ShoppingFragment extends BaseFragment {
     //处理消息的方法
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(Account_shoppingcar messageEvent) {
-        totalPrice = messageEvent.getPrice();
-        totalCount = messageEvent.getCount();
+
         Log.d(TAG, "onShowMessageEvent: --------------" + messageEvent.getPrice());
         tvTotalPrice.setText(messageEvent.getPrice());
         tvGotoSettlement.setText("去结算（" + messageEvent.getCount() + "）");
@@ -121,9 +120,11 @@ public class ShoppingFragment extends BaseFragment {
         tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                totalPrice = tvTotalPrice.getText().toString();
+                totalCount = tvGotoSettlement.getText().toString();
                 Intent intent = new Intent(getActivity(), IndentAffirmActivity.class);
-                intent.putExtra("totalPrice",totalPrice);
-                intent.putExtra("totalCount",totalCount);
+                intent.putExtra("totalPrice", totalPrice);
+                intent.putExtra("totalCount", totalCount);
                 startActivity(intent);
             }
         });
