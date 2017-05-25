@@ -139,12 +139,10 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 UMShareAPI.get(getActivity()).getPlatformInfo(getActivity(),
                         mShare_media, new UMAuthListener() {
-
                             @Override
                             public void onStart(SHARE_MEDIA share_media) {
 
                             }
-
                             //授权成功并返回个人信息
                             @Override
                             public void onComplete(SHARE_MEDIA share_media, int i, Map<String,
