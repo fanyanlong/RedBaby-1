@@ -6,6 +6,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               tools:context="com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity">
+
     <include layout="@layout/shopping_head_layout"/>
 
     <ScrollView
