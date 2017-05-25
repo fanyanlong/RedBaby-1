@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -29,6 +30,9 @@ import butterknife.ButterKnife;
 import de.greenrobot.dao.query.QueryBuilder;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
+
+import static android.view.View.GONE;
+import static com.team3.baby.module.fragments_shopping.ShoppingFragment.lvFootFoot;
 
 public class AddIndent_carActivity extends AppCompatActivity {
 
@@ -183,5 +187,20 @@ public class AddIndent_carActivity extends AppCompatActivity {
         }
 
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+        QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
+        List<Table_shopping> list = queryBuilder.list();
+        Log.d("sssssssssssssss", list.size() + "");
+        if (list.size() != 0) {
+            lvFootFoot.setVisibility(View.VISIBLE);
+        } else {
+            lvFootFoot.setVisibility(GONE);
+        }
     }
 }
