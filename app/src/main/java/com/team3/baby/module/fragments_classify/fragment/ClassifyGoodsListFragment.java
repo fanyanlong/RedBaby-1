@@ -1,13 +1,11 @@
 package com.team3.baby.module.fragments_classify.fragment;
 
-import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -23,6 +21,7 @@ import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 import com.team3.baby.module.fragments_classify.util.UrlClassify;
 import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
+import com.team3.baby.utils.BackUtils;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 
@@ -144,13 +143,7 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back_classify_goodslist:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Instrumentation inst = new Instrumentation();
-                        inst.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
-                    }
-                }).start();
+                BackUtils.toBack();
                 break;
             case R.id.tv_screen_classify_goodslist:
                 //侧滑

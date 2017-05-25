@@ -91,7 +91,7 @@ public class ClassifyFragment extends Fragment {
                         mAdapterLeft.setmOnItemClickListener(new LeftRvAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
                                 mTranceInfo.onTranceInfo(position);
                             }
                         });
