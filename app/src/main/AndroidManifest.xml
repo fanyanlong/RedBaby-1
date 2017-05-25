@@ -80,7 +80,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
 
-        <activity android:name=".module.fragments_shopping.indent_activity.IndentAffirm_settlementActivity"/>
         <activity android:name=".module.fragments_groupBuy.utils.WebViewUtils">
         </activity>
     </application>
