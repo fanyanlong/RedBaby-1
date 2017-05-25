@@ -36,7 +36,6 @@ import com.team3.baby.utils.OkUtils;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -62,7 +61,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     EditText etMimaInclude;
 
 
-    private Unbinder unbinder;
+
     private RecyclerView recyclerCailoveMyebuy;
     private ArrayList<SkusBean> skus;
     private RecyclerAddHeader recyclerAddHeader;

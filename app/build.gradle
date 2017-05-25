@@ -71,4 +71,6 @@ dependencies {
     compile 'com.lzy.net:okgo:+'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.makeramen:roundedimageview:2.3.0'
+    //田杰谕 5.25 运动时权限
+    compile 'com.mylhyl:acp:1.1.7'
 }
