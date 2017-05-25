@@ -29,6 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         mActivity = this;
         mSharedPreferences = App.getSharedPrefernces(mActivity);
         mEditor = mSharedPreferences.edit();
+
         initView();
         ButterKnife.bind(this);
         //初始化视图控件
@@ -36,8 +37,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
+
         //初始化数据
         initData();
         //获取网络数据
@@ -61,6 +63,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void setListener();
 
     //protected abstract void ortherToDo();
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+    }
 
     @Override
     protected void onDestroy() {

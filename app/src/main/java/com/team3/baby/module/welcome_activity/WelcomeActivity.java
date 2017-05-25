@@ -22,6 +22,7 @@ public class WelcomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
         ButterKnife.bind(this);
         initData();
     }
@@ -54,4 +55,5 @@ public class WelcomeActivity extends BaseActivity {
     protected void setListener() {
 
     }
+
 }

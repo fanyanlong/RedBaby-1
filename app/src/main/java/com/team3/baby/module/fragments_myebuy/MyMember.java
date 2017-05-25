@@ -23,8 +23,7 @@ public class MyMember extends Activity {
         findViewById(R.id.iv_back_huiyuan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyMember.this, MainActivity.class);
-                startActivity(intent);
+
                 finish();
             }
         });

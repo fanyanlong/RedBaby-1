@@ -125,6 +125,7 @@
     <include layout="@layout/include_xixian"></include>
 
     <TextView
+        android:id="@+id/tv_tuivhu_shezhi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"

@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
@@ -32,10 +33,15 @@ import com.team3.baby.module.fragments_myebuy.bean_myebuy.LoveGoodsBean;
 import com.team3.baby.module.fragments_myebuy.bean_myebuy.SkusBean;
 import com.team3.baby.utils.HttpUtils;
 import com.team3.baby.utils.OkUtils;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import butterknife.BindView;
+import butterknife.Unbinder;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -61,7 +67,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     EditText etMimaInclude;
 
 
-
+    private Unbinder unbinder;
     private RecyclerView recyclerCailoveMyebuy;
     private ArrayList<SkusBean> skus;
     private RecyclerAddHeader recyclerAddHeader;
@@ -73,12 +79,15 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     private EditText et_mima_include;
     private CheckBox rb_abc_myebuy;
     private Object image;
+    private TextView zhuce;
+    private SHARE_MEDIA mShare_media;
 
     protected void initData() {
 
 
         OkHttpClient client = OkUtils.getClient();
-        String url = "http://tuijian.suning.com/recommend-portal/dyBase.jsonp?u=&c=864394010080028&cityId=579&sceneIds=18-41&count=50";
+        String url = "http://tuijian.suning.com/recommend-portal/dyBase" +
+                ".jsonp?u=&c=864394010080028&cityId=579&sceneIds=18-41&count=50";
         OkUtils.getEnqueue(url, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
@@ -87,12 +96,16 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
                 LoveGoodsBean loveGoodsBean = gson.fromJson(result, LoveGoodsBean.class);
                 skus = (ArrayList<SkusBean>) loveGoodsBean.getSugGoods().get(0).getSkus();
 
-                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter(getActivity(), skus, images, recyclerCailoveMyebuy);
+                Fragment_myebuy_RecycleAdapter dataAdapter = new Fragment_myebuy_RecycleAdapter
+                        (getActivity(), skus, images, recyclerCailoveMyebuy);
 
-                mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter(dataAdapter);
+                mHeaderAndFooterRecyclerViewAdapter = new HeaderAndFooterRecyclerViewAdapter
+                        (dataAdapter);
                 recyclerCailoveMyebuy.setAdapter(mHeaderAndFooterRecyclerViewAdapter);
                 GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
-                manager.setSpanSizeLookup(new HeaderSpanSizeLookup((HeaderAndFooterRecyclerViewAdapter) recyclerCailoveMyebuy.getAdapter(), manager.getSpanCount()));
+                manager.setSpanSizeLookup(new HeaderSpanSizeLookup(
+                        (HeaderAndFooterRecyclerViewAdapter) recyclerCailoveMyebuy.getAdapter(),
+                        manager.getSpanCount()));
                 recyclerCailoveMyebuy.setLayoutManager(manager);
 
                 RecyclerViewUtils.setHeaderView(recyclerCailoveMyebuy, recyclerAddHeader);
@@ -110,7 +123,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
+            savedInstanceState) {
         View view = View.inflate(getContext(), R.layout.fragment_myebuy, null);
         recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
         recyclerAddHeader = new RecyclerAddHeader(getContext());
@@ -118,11 +132,56 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
 //
         View inflate = recyclerAddHeader.inflate;
         denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
+        ImageView qqdenglu = (ImageView) view.findViewById(R.id.iv_qq_denglu);
+        mShare_media = SHARE_MEDIA.QQ;
+        qqdenglu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UMShareAPI.get(getActivity()).getPlatformInfo(getActivity(),
+                        mShare_media, new UMAuthListener() {
+                            @Override
+                            public void onStart(SHARE_MEDIA share_media) {
+
+                            }
+                            //授权成功并返回个人信息
+                            @Override
+                            public void onComplete(SHARE_MEDIA share_media, int i, Map<String,
+                                    String>
+                                    map) {
+                                //回传时要按照SDK文档给予的字段来回传
+                                String uid = map.get("uid");
+                                String name = map.get("name");
+                                String gender = map.get("gender");
+                                String iconurl = map.get("iconurl");
+                                String yellow_vip_level = map.get("yellow_vip_level");
+                             /*   mZuan.setText(yellow_vip_level);
+                                mName.setText(name);
+                                mGender.setText(gender);
+                                mUid.setText(uid);
+                                Glide.with(MainActivity.this).load(iconurl).error(R.mipmap
+                                        .ic_launcher)
+                                        .placeholder(R.mipmap.ic_launcher).into(mIconurl);*/
+                            }
+
+                            @Override
+                            public void onError(SHARE_MEDIA share_media, int i, Throwable
+                                    throwable) {
+
+                            }
+
+                            @Override
+                            public void onCancel(SHARE_MEDIA share_media, int i) {
+
+                            }
+                        });
+            }
+        });
         sv_yidenglu_myebuy = (ScrollView) view.findViewById(R.id.sv_yidenglu_myebuy);
         bt_denglu_myebuy = (Button) view.findViewById(R.id.bt_denglu_myebuy);
         et_zhanghao_include = (EditText) view.findViewById(R.id.et_zhanghao_include);
         et_mima_include = (EditText) view.findViewById(R.id.et_mima_include);
         rb_abc_myebuy = (CheckBox) view.findViewById(R.id.rb_abc_myebuy);
+        zhuce = (TextView) view.findViewById(R.id.tv_zhuce_mebuy);
         inflate.findViewById(R.id.iv_touxiang_wode_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_phone_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.tv_shezhi_wode_fragment).setOnClickListener(this);
@@ -140,7 +199,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("config",
+                Context.MODE_PRIVATE);
 
         edit = sharedPreferences.edit();
         if (sharedPreferences.getBoolean("yidenglu", false)) {
@@ -150,7 +210,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         bt_denglu_myebuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(et_mima_include.getText()) && !TextUtils.isEmpty(et_zhanghao_include.getText())) {
+                if (!TextUtils.isEmpty(et_mima_include.getText()) && !TextUtils.isEmpty
+                        (et_zhanghao_include.getText())) {
                     edit.putBoolean("yidenglu", true);
                     denglujiemian.setVisibility(View.INVISIBLE);
                     sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
@@ -165,7 +226,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
 
-                    et_mima_include.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    et_mima_include.setInputType(InputType.TYPE_CLASS_TEXT | InputType
+                            .TYPE_TEXT_VARIATION_PASSWORD);
                 } else {
                     et_mima_include.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                 }
@@ -176,17 +238,15 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-    }
-
 
     @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
+            case R.id.tv_zhuce_mebuy:
+
+                startActivity(new Intent(getActivity(), Zhuce.class));
+                break;
             case R.id.iv_touxiang_wode_fragment:
                 //进入我的信息界面
                 startActivity(new Intent(getActivity(), MyMessage.class));
@@ -263,7 +323,8 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
                     Log.d("ddd", "size:" + images.size());
                     images.add(s);
                     Log.d("ddd", "size:" + images.size());
-                    // Toast.makeText(getContext(), "size" + images.size(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getContext(), "size" + images.size(), Toast.LENGTH_SHORT)
+                    // .show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
-import com.team3.baby.module.main_activity.v.MainActivity;
 import com.team3.baby.utils.ImageUtils;
 
 import java.util.ArrayList;
@@ -61,9 +60,10 @@ public class ShoppingCarActivity extends AppCompatActivity {
         ivBackShoppingcarActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShoppingCarActivity.this, MainActivity.class);
+                finish();
+              /*  Intent intent = new Intent(ShoppingCarActivity.this, MainActivity.class);
 
-                startActivity(intent);
+                startActivity(intent);*/
             }
         });
         tvImmediatelyBuy.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +82,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShoppingCarActivity.this, AddIndent_carActivity.class);
-                intent.putExtra("position",position);
+                intent.putExtra("position", position);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);

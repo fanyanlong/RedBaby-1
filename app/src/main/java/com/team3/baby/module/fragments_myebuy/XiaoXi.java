@@ -23,8 +23,7 @@ public class XiaoXi extends Activity {
         findViewById(R.id.iv_back_xiaoxi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(XiaoXi.this, MainActivity.class);
-                startActivity(intent);
+
                 finish();
             }
         });
