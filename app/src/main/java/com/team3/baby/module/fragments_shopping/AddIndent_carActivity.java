@@ -17,12 +17,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
 import com.team3.baby.app.App;
 import com.team3.baby.utils.ImageUtils;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.greenrobot.dao.query.QueryBuilder;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
 
@@ -44,6 +48,7 @@ public class AddIndent_carActivity extends AppCompatActivity {
     TextView tvAnd;
 
     private int num = 1;
+    private boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,19 +71,48 @@ public class AddIndent_carActivity extends AppCompatActivity {
         String substring = shopPrice.substring(1);
         final float price = Float.parseFloat(substring);
 
-
-
+        flag = true;
         final AnimationSet animationSet = (AnimationSet) AnimationUtils.loadAnimation(AddIndent_carActivity.this, R.anim.shoppingcarpic_set);
         btnConfirmBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Table_shoppingDao table_shoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
-                Table_shopping bb = new Table_shopping();
-                bb.setShopping_name(shopName);
-                bb.setShopping_pic(position);
-                bb.setShopping_price(price);
-                bb.setShopping_count(num);
-                table_shoppingDao.insert(bb);
+
+                QueryBuilder<Table_shopping> queryBuilder = table_shoppingDao.queryBuilder();
+                List<Table_shopping> list = queryBuilder.list();
+
+
+                if (list.size() > 0) {
+
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i).getShopping_name().equals(shopName)) {
+                            Table_shopping shopping = list.get(i);
+                            shopping.setShopping_count(shopping.getShopping_count() + 1);
+                            table_shoppingDao.update(shopping);
+                            flag = false;
+                        }
+                    }
+                    if (flag) {
+                        Table_shopping bb = new Table_shopping();
+                        bb.setShopping_name(shopName);
+                        bb.setShopping_pic(position);
+                        bb.setShopping_price(price);
+                        bb.setShopping_count(num);
+                        table_shoppingDao.insert(bb);
+                        com.orhanobut.logger.Logger.d(bb);
+                    }
+
+                } else {
+                    Table_shopping bb = new Table_shopping();
+                    bb.setShopping_name(shopName);
+                    bb.setShopping_pic(position);
+                    bb.setShopping_price(price);
+                    bb.setShopping_count(num);
+                    table_shoppingDao.insert(bb);
+                    Logger.d("---------------------------->list");
+                }
+
 
                 ivAddPicture.startAnimation(animationSet);
 
