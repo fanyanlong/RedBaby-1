@@ -8,7 +8,6 @@
               tools:context="com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity">
 
     <include layout="@layout/shopping_head_layout"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -33,7 +32,7 @@
                 <LinearLayout
                     android:id="@+id/no_address_layout_indent_affirm_activity"
                     android:layout_width="match_parent"
-                    android:visibility="gone"
+
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -59,6 +58,7 @@
                 <LinearLayout android:id="@+id/have_address_layout_indent_affirm_activity"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
+                              android:visibility="gone"
                               android:orientation="horizontal">
 
                     <LinearLayout android:layout_width="0dp"
@@ -452,6 +452,7 @@
 
         </LinearLayout>
     </ScrollView>
+
 
     <View
         android:layout_width="match_parent"

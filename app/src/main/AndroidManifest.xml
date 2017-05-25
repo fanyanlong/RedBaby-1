@@ -112,6 +112,7 @@
         <activity android:name=".module.fragments_home.activity.HomeSeekActivity">
         </activity>
         <activity android:name=".alipay.PayDemoActivity"/>
+        <activity android:name=".module.fragments_shopping.indent_activity.EditAddressActivity"/>
     </application>
 
 </manifest>
