@@ -493,6 +493,7 @@
             android:paddingBottom="15dp"
             android:paddingTop="15dp"
             android:text="提交订单"
+            android:id="@+id/tv_submit_affirm_indent_activity"
             android:textColor="@color/white"
             android:textSize="15sp"/>
     </LinearLayout>
