@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_groupBuy.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,9 +17,11 @@ import android.widget.Toast;
 
 import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
+import com.team3.baby.module.fragments_groupBuy.adapter.RecyclerItemClickListener;
 import com.team3.baby.module.fragments_groupBuy.adapter.TabAdapter;
 import com.team3.baby.module.fragments_groupBuy.bean.TabBean;
 import com.team3.baby.module.fragments_groupBuy.utils.DividerItemDecoration;
+import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 
@@ -40,6 +43,8 @@ public class TabFragments extends Fragment {
     @BindView(R.id.recycler_tabfragments_recyclerview)
     RecyclerView recyclerview;
     private String url;
+    private List<TabBean.EnrollsBean.ListBean> listBeen;
+    private String http = "http:";
 
     public TabFragments(String url) {
         this.url = url;
@@ -74,7 +79,7 @@ public class TabFragments extends Fragment {
             public void onSuccess(String s, Call call, Response response) {
                 if (s != null) {
                     TabBean tabBean = GsonUtils.gsonToBean(s, TabBean.class);
-                    List<TabBean.EnrollsBean.ListBean> listBeen = tabBean.getEnrolls().getList();
+                    listBeen = tabBean.getEnrolls().getList();
                     TabAdapter adapter = new TabAdapter(getActivity(), listBeen);
                     recyclerview.setAdapter(adapter);
                 } else {
@@ -82,5 +87,22 @@ public class TabFragments extends Fragment {
                 }
             }
         });
+        recyclerview.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
+                recyclerview, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // ...
+                Intent intent = new Intent(getActivity(), ShoppingCarActivity.class);
+                intent.putExtra("position", http + listBeen.get(position).getImgUrl());
+                intent.putExtra("shopName", listBeen.get(position).getItemName());
+                intent.putExtra("shopPrice", "￥" + listBeen.get(position).getPrice());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                // ...
+            }
+        }));
     }
 }
