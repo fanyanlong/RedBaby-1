@@ -16,16 +16,48 @@
         android:layout_marginLeft="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text_title_tabfragment"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="测试"
-            android:textColor="@color/hei"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/item_home_nine_dianjiu_image"
+                    android:layout_width="45dp"
+                    android:layout_height="35dp"
+                    android:layout_alignStart="@+id/item_home_nine_desc_text"
+                    android:layout_below="@+id/item_home_nine_bigpicture_image"
+                    android:src="@drawable/dise"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/item_home_nine_bigpicture_image"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toLeftOf="@+id/item_home_nine_name_text"
+                    android:text="包邮"
+                    android:textColor="#ffffff"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text_title_tabfragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="测试"
+                android:textColor="@color/hei"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/text_content_tabfragment"
@@ -50,18 +82,52 @@
                 android:layout_marginTop="20dp"
                 android:text="测试"
                 android:textColor="@color/red"
-                android:textSize="15sp"
                 />
 
             <TextView
                 android:id="@+id/texts_price_tabfragment"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
+                android:layout_weight="1"
                 android:text="￥195.00"
-                android:textSize="15sp"
                 />
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circular_bead"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/icon_visitors"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="2人团"
+                    android:textColor="#ff00"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="#ff00"
+                    android:gravity="center"
+                    android:text="立即开团"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
