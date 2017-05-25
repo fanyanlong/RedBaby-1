@@ -269,7 +269,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             });
         }
-
     }
 
     @Override
