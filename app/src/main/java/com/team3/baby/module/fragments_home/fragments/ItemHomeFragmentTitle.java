@@ -12,16 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.gson.Gson;
-import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
-import com.team3.baby.base.BaseFragment;
-import com.team3.baby.module.fragments_home.adapter.MyRecyclerAdapter;
 import com.team3.baby.module.fragments_home.adapter.MyRecyclerTitleAdapter;
-import com.team3.baby.module.fragments_home.bean.SixTitleBean;
-import com.team3.baby.module.fragments_home.bean.TitleBean;
+import com.team3.baby.module.fragments_home.bean.HomeJsonBean;
 import com.team3.baby.module.fragments_home.url.Url;
 import com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout;
-import com.team3.baby.utils.HttpUtils;
 import com.team3.baby.utils.OkUtils;
 
 import java.util.List;
@@ -30,8 +25,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * 类用途
@@ -96,8 +89,8 @@ public class ItemHomeFragmentTitle extends Fragment {
             @Override
             public void onSuccess(String result) {
                 Gson gson = new Gson();
-                SixTitleBean titleBean = gson.fromJson(result, SixTitleBean.class);
-                List<SixTitleBean.DataBean> list = titleBean.getData();
+                HomeJsonBean titleBean = gson.fromJson(result, HomeJsonBean.class);
+                List<HomeJsonBean.DataBean> list = titleBean.getData();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
                 mRvFragmentHomeRectcler.setLayoutManager(linearLayoutManager);

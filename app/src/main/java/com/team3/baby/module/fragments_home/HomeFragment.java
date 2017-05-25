@@ -105,6 +105,7 @@ public class HomeFragment extends Fragment {
                     public void onClick(View view) {
                         Intent intent= new Intent(getContext(), XiaoXi.class);
                         startActivity(intent);
+
                     }
                 });
                 mImageScanInclude.setOnClickListener(new View.OnClickListener() {
