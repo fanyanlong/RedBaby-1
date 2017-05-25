@@ -1,5 +1,6 @@
 package com.team3.baby.module.fragments_groupBuy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -21,8 +22,14 @@ import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 import com.team3.baby.module.fragments_groupBuy.fragment.TabFragment;
 import com.team3.baby.module.fragments_groupBuy.fragment.TabFragments;
 import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
+import com.team3.baby.module.main_activity.v.MainActivity;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMWeb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +57,7 @@ public class GroupBuyFragment extends Fragment {
     TextView texttopGroupbuy;
     private String http = "http:";
     private ArrayList<String> catesName;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
@@ -120,8 +128,55 @@ public class GroupBuyFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imager_right_fragment_groupbuy:
+                UMWeb umWeb = new UMWeb("www.baidu.com");//要分享的连接
+              /*  umWeb.setTitle(mAuthor_name);//分享的描述
+                umWeb.setDescription(mTitle);*///分享的标题
+// UMImage image = new UMImage(this, mUrl);//资源文件
+                new ShareAction(getActivity())
+                        .withText("hello")
+        /*.withMedia(umWeb)*/
+                        .withMedia(umWeb)//注意：把分享类加到里面
+                        .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN)
+                        .setCallback(umShareListener).open();
 
                 break;
         }
     }
+
+    //分享回调
+    private UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+            //分享开始的回调
+        }
+
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Log.d("plat", "platform" + platform);
+
+            Toast.makeText(getActivity(), platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            Toast.makeText(getActivity(), platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+            if (t != null) {
+                Log.d("throw", "throw:" + t.getMessage());
+            }
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(getActivity(), platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    //登录回传的方法直接粘贴就行
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(getActivity()).onActivityResult(requestCode, resultCode, data);
+    }
+
 }

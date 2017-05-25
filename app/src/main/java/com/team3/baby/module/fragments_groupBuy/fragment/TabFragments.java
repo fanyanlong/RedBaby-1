@@ -2,7 +2,6 @@ package com.team3.baby.module.fragments_groupBuy.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,7 +16,7 @@ import android.widget.Toast;
 
 import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
-import com.team3.baby.module.fragments_groupBuy.adapter.RecyclerItemClickListener;
+import com.team3.baby.module.fragments_groupBuy.utils.RecyclerItemClickListener;
 import com.team3.baby.module.fragments_groupBuy.adapter.TabAdapter;
 import com.team3.baby.module.fragments_groupBuy.bean.TabBean;
 import com.team3.baby.module.fragments_groupBuy.utils.DividerItemDecoration;
