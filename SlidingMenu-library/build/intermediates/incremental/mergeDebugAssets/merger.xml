@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\Studio\RedBaby\SlidingMenu-library\assets"/><source path="E:\Studio\RedBaby\SlidingMenu-library\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\Studio\RedBaby\SlidingMenu-library\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\AS\workSpace\RedBaby\SlidingMenu-library\assets"/><source path="D:\AS\workSpace\RedBaby\SlidingMenu-library\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\AS\workSpace\RedBaby\SlidingMenu-library\src\debug\assets"/></dataSet></merger>
