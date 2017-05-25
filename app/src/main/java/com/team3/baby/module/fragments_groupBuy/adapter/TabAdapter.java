@@ -64,7 +64,7 @@ public class TabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 .imager_tabfragments);
         holders.text_title_tabfragments.setText(listBeen.get(position).getItemName());
         holders.text_content_tabfragments.setText(listBeen.get(position).getItemDesc());
-        holders.text_price_tabfragments.setText("￥：" + listBeen.get(position).getPrice() + "");
+        holders.text_price_tabfragments.setText("￥" + listBeen.get(position).getPrice() + "");
     }
 
     @Override
