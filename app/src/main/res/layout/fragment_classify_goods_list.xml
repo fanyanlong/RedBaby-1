@@ -94,9 +94,17 @@
             android:text="包装"/>
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_classify_goodslist"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <include layout="@layout/include_progress"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_classify_goodslist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
 
 </LinearLayout>
