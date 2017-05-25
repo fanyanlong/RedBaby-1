@@ -32,7 +32,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.enrollsList = enrollsList;
     }
 
-    //视图1
+    //视图
     public class ViewHolders extends RecyclerView.ViewHolder {
         private ImageView imager_tabfragment;
         private TextView text_title_tabfragment, text_content_tabfragment, text_price_tabfragment,texts_price_tabfragment;
