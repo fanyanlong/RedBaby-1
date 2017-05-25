@@ -115,7 +115,7 @@ public class HeadBaseAdapter extends BaseAdapter {
                     tableShoppingDao.update(tableShopping);
                 }
 
-                //格式化，价格只显示小数点后两位
+                //格式化，价格只显示小数点后两位..
 
 
                 //发布消息
