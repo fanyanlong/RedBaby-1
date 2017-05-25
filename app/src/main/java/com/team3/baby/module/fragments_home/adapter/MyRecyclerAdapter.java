@@ -85,7 +85,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         switch (viewType) {
             case 0:
                 ViewHolder_One holder_one = (ViewHolder_One) holder;
-                Glide.with(context).load(Url.IMAGE + list.get(1).getTag().get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher).into(holder_one.item_home_one_image);
+                Glide.with(context).load(Url.IMAGE + list.get(1).getTag().get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two).into(holder_one.item_home_one_image);
                 setClickListener(holder_one);
                 break;
             case 1:
