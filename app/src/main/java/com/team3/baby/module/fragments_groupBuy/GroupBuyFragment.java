@@ -29,6 +29,7 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
 import java.util.ArrayList;
@@ -128,15 +129,15 @@ public class GroupBuyFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imager_right_fragment_groupbuy:
-                UMWeb umWeb = new UMWeb("www.baidu.com");//要分享的连接
-              /*  umWeb.setTitle(mAuthor_name);//分享的描述
-                umWeb.setDescription(mTitle);*///分享的标题
-// UMImage image = new UMImage(this, mUrl);//资源文件
+                UMWeb umWeb = new UMWeb(UrlGroupBuy.url);//要分享的连接
+                umWeb.setTitle("红孩子母婴");//分享的描述
+                umWeb.setDescription("乐拼购：苏宁易购手机版乐分享，拼便宜，乐拼购来了，好货一起拼");//分享的标题
+                // UMImage umImage = new UMImage(getActivity(), R.mipmap.ic_launcher);
                 new ShareAction(getActivity())
                         .withText("hello")
-        /*.withMedia(umWeb)*/
                         .withMedia(umWeb)//注意：把分享类加到里面
-                        .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN)
+                        .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE,
+                                SHARE_MEDIA.WEIXIN_FAVORITE, SHARE_MEDIA.WEIXIN)
                         .setCallback(umShareListener).open();
 
                 break;
