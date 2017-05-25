@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 import com.team3.baby.R;
 import com.team3.baby.app.App;
 import com.team3.baby.base.BaseFragment;
-import com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirm_settlementActivity;
+import com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity;
 import com.team3.baby.module.fragments_shopping.shopping_bean.Shopping_Bean;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 import com.team3.baby.rxbus.event.Account_shoppingcar;
@@ -117,7 +117,7 @@ public class ShoppingFragment extends BaseFragment {
         tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), IndentAffirm_settlementActivity.class);
+                Intent intent = new Intent(getActivity(), IndentAffirmActivity.class);
                 startActivity(intent);
             }
         });
