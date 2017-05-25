@@ -19,7 +19,7 @@
     package="com.team3.baby">
     package="com.team3.baby">
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    package = "com.example.android.multidex.myapplication">
     <application
         android:name=".app.App"
         android:allowBackup="true"

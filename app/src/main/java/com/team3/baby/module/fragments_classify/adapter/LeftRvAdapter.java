@@ -78,7 +78,6 @@ public class LeftRvAdapter extends RecyclerView.Adapter<LeftRvAdapter.ViewHolder
                 @Override
                 public void onClick(View v) {
                     layoutPosition = holder.getLayoutPosition(); // 1
-
                     mOnItemClickListener.onItemClick(holder.itemView, layoutPosition); // 2
                     notifyDataSetChanged();
                 }

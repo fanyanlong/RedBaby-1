@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 import com.team3.baby.utils.ImageUtils;
@@ -53,6 +54,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
         final String position = intent.getStringExtra("position");
         final String shopName = intent.getStringExtra("shopName");
         final String shopPrice = intent.getStringExtra("shopPrice");
+        Logger.d(shopPrice);
         ImageUtils.loadImageNormal(this, position, ivShoppingPicture);
         tvShoppingName.setText(shopName);
         tvShoppingPrice.setText(shopPrice);
