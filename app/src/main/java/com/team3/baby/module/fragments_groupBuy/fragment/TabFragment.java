@@ -29,6 +29,8 @@ import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
@@ -101,7 +103,22 @@ public class TabFragment extends Fragment {
                     for (int i = 0; i < adsList.size(); i++) {
                         imagerlist.add(http + adsList.get(i).getImgUrl());
                     }
-                    banner.setImages(imagerlist).setImageLoader(new GlideImageLoader()).start();
+                    //设置banner样式
+                    banner.setBannerStyle(BannerConfig.NUM_INDICATOR);
+                    //设置图片加载器
+                    banner.setImageLoader(new GlideImageLoader());
+                    //设置图片集合
+                    banner.setImages(imagerlist);
+                    //设置banner动画效果
+                    banner.setBannerAnimation(Transformer.RotateDown);
+                    //设置自动轮播，默认为true
+                    banner.isAutoPlay(true);
+                    //设置轮播时间
+                    banner.setDelayTime(1500);
+                    //设置指示器位置（当banner模式中有指示器时）
+                    banner.setIndicatorGravity(BannerConfig.CENTER);
+                    //banner设置方法全部调用完毕时最后调用
+                    banner.start();
                     banner.setOnBannerListener(new OnBannerListener() {
                         @Override
                         public void OnBannerClick(int position) {
