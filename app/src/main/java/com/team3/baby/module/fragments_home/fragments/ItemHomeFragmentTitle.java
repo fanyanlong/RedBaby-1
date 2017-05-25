@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_home.adapter.MyRecyclerTitleAdapter;
-import com.team3.baby.module.fragments_home.bean.HomeJsonBean;
+import com.team3.baby.module.fragments_home.bean.HomeBean;
 import com.team3.baby.module.fragments_home.url.Url;
 import com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout;
 import com.team3.baby.utils.OkUtils;
@@ -89,8 +89,8 @@ public class ItemHomeFragmentTitle extends Fragment {
             @Override
             public void onSuccess(String result) {
                 Gson gson = new Gson();
-                HomeJsonBean titleBean = gson.fromJson(result, HomeJsonBean.class);
-                List<HomeJsonBean.DataBean> list = titleBean.getData();
+                HomeBean titleBean = gson.fromJson(result, HomeBean.class);
+                List<HomeBean.DataBean> list = titleBean.getData();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
                 mRvFragmentHomeRectcler.setLayoutManager(linearLayoutManager);

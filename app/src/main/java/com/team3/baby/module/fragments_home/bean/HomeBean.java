@@ -10,7 +10,7 @@ import java.util.List;
  * 时间: 2017/5/25 14:03.
  */
 
-public class HomeJsonBean {
+public class HomeBean {
 
 
     /**
