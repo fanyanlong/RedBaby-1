@@ -44,8 +44,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/fragment_shopping_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            ></android.support.v7.widget.RecyclerView>
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 
@@ -53,8 +52,7 @@
         android:id="@+id/lv_foot_foot"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:visibility="gone">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,17 +96,22 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"></View>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="合计:￥"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="合计："
+                    android:text="0.0"
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -138,14 +141,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/settlement_selector">
+            android:background="@drawable/settlement_selector"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="去结算("
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/tv_goto_settlement"
-                android:layout_width="match_parent"
+                android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="去结算"
+                android:text="0"
+                android:textColor="@color/white" />
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="）"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
