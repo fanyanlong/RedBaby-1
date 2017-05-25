@@ -80,6 +80,11 @@ public class IndentAffirmActivity extends AppCompatActivity {
 
         //gh
         Intent intent = getIntent();
+        String totalPrice = intent.getStringExtra("totalPrice");
+        String totalCount = intent.getStringExtra("totalCount");
+
+        tvMoneyPayAffirmIndentActivity.setText("¥"+totalPrice);
+        tvZongPrice.setText("¥"+totalPrice);
         int code = intent.getIntExtra("code", 0);
         if (code == 1) {
             layoutSingleShopAffirmIndentActivity.setVisibility(View.VISIBLE);
@@ -87,6 +92,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
             String pic_url = intent.getStringExtra("position");
             String shopName = intent.getStringExtra("shopName");
             String shopPrice = intent.getStringExtra("shopPrice");
+
             int num = intent.getIntExtra("number", 0);
             ImageUtils.loadImageNormal(this, pic_url, ivThumbnailAffirmIndentActivity);
             tvShopTitleAffirmIndentActivity.setText(shopName);
@@ -109,20 +115,20 @@ public class IndentAffirmActivity extends AppCompatActivity {
                 if (list.size() == 2) {
                     ImageUtils.loadImageNormal(this, list.get(0).getShopping_pic(), ivMore1AffirmIndentActivity);
                     ImageUtils.loadImageNormal(this, list.get(1).getShopping_pic(), ivMore2AffirmIndentActivity);
-                    for (int i = 0; i < list.size(); i++) {
+                    /*for (int i = 0; i < list.size(); i++) {
                         count += list.get(i).getShopping_count();
-                    }
-                    tvCountAffirmIndentActivity.setText("共"+count+"件");
+                    }*/
+                    tvCountAffirmIndentActivity.setText("共"+totalCount+"件");
                 }
                 if (list.size() > 3 || list.size() == 3) {
                     ImageUtils.loadImageNormal(this, list.get(0).getShopping_pic(), ivMore1AffirmIndentActivity);
                     ImageUtils.loadImageNormal(this, list.get(1).getShopping_pic(), ivMore2AffirmIndentActivity);
                     ImageUtils.loadImageNormal(this, list.get(2).getShopping_pic(), ivMore3AffirmIndentActivity);
 
-                    for (int i = 0; i < list.size(); i++) {
+                   /* for (int i = 0; i < list.size(); i++) {
                         count += list.get(i).getShopping_count();
-                    }
-                    tvCountAffirmIndentActivity.setText("共"+count+"件");
+                    }*/
+                    tvCountAffirmIndentActivity.setText("共"+totalCount+"件");
 
                 }
 
