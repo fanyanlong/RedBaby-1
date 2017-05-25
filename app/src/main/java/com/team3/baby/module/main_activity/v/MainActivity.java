@@ -111,6 +111,8 @@ public class MainActivity extends FragmentActivity implements MainView {
 
         // TODO: add setContentView(...) invocation
         setContentView(R.layout.activity_main);
+
+
         ButterKnife.bind(this);
         initData();
         setListener();
