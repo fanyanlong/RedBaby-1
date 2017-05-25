@@ -181,6 +181,12 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = View.inflate(getContext(), R.layout.fragment_myebuy, null);
+        view.findViewById(R.id.iv_back_myebuy_include).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
         recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
         recyclerAddHeader = new RecyclerAddHeader(getContext());
         UMShareAPI.get(getActivity());
@@ -189,6 +195,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         View inflate = recyclerAddHeader.inflate;
         denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
         ImageView qqdenglu = (ImageView) view.findViewById(R.id.iv_qq_denglu);
+        view.findViewById(R.id.bt_denglu_myebuy);
         //qq登录
         qqdenglu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,6 +210,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         et_mima_include = (EditText) view.findViewById(R.id.et_mima_include);
         rb_abc_myebuy = (CheckBox) view.findViewById(R.id.rb_abc_myebuy);
         zhuce = (TextView) view.findViewById(R.id.tv_zhuce_mebuy);
+        zhuce.setOnClickListener(this);
         touxiang = (ImageView) inflate.findViewById(R.id.iv_touxiang_wode_fragment);
         touxiang.setOnClickListener(this);
         phone = (TextView) inflate.findViewById(R.id.tv_phone_myebuy_fragment);
@@ -228,6 +236,9 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(et_mima_include.getText()) && !TextUtils.isEmpty(et_zhanghao_include.getText())) {
                     edit.putBoolean("yidenglu", true);
+                    edit.putString("name", et_zhanghao_include.getText().toString());
+                    edit.putString("iconurl", iconurl);
+                    edit.putString("gender", gender);
                     denglujiemian.setVisibility(View.INVISIBLE);
                     sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
                     edit.commit();
@@ -276,7 +287,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
             Glide.with(getActivity()).load(sharedPreferences.getString("iconurl", "")).into(touxiang);
             phone.setText(sharedPreferences.getString("name", ""));
-            Toast.makeText(getActivity(), sharedPreferences.getString("name", "") + "：欢迎您回来RedBaby", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getActivity(), sharedPreferences.getString("name", "") + "：欢迎您回来RedBaby", Toast.LENGTH_SHORT).show();
         } else {
             denglujiemian.setVisibility(View.VISIBLE);
             sv_yidenglu_myebuy.setVisibility(View.INVISIBLE);

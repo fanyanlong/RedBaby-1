@@ -24,16 +24,15 @@ import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 import com.team3.baby.rxbus.event.Account_shoppingcar;
 import com.team3.baby.utils.OkUtils;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.greenrobot.dao.query.QueryBuilder;
+import de.greenrobot.event.EventBus;
+import de.greenrobot.event.Subscribe;
+import de.greenrobot.event.ThreadMode;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
 
@@ -64,7 +63,7 @@ public class ShoppingFragment extends BaseFragment {
     private String totalCount;
 
     //处理消息的方法
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.MainThread)
     public void onMessageEvent(Account_shoppingcar messageEvent) {
 
         Log.d(TAG, "onShowMessageEvent: --------------" + messageEvent.getPrice());
@@ -131,7 +130,8 @@ public class ShoppingFragment extends BaseFragment {
 
 
     }
-//
+
+    //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view

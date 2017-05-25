@@ -76,4 +76,11 @@ dependencies {
     compile 'com.mylhyl:acp:1.1.7'
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
 
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+}
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
 }
