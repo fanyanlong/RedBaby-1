@@ -63,7 +63,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 .imager_tabfragment);
         holders.text_title_tabfragment.setText(enrollsList.get(position).getItemName());
         holders.text_content_tabfragment.setText(enrollsList.get(position).getItemDesc());
-        holders.text_price_tabfragment.setText("￥："+enrollsList.get(position).getPrice() + "");
+        holders.text_price_tabfragment.setText("￥"+enrollsList.get(position).getPrice() + "");
     }
 
     @Override
