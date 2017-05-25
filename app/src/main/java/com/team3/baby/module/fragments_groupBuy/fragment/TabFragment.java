@@ -65,7 +65,6 @@ public class TabFragment extends Fragment {
     private List<BoutiqueBean.EnrollsBean.ListBean> enrollsList;
     public TabFragment(String url) {
         this.url = url;
-
     }
 
     @Nullable

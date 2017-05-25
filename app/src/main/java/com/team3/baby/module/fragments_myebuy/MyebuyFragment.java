@@ -176,6 +176,12 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+    }
+
 
     @Override
     public void onClick(View view) {
