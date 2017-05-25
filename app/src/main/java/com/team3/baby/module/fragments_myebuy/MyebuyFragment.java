@@ -236,9 +236,9 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(et_mima_include.getText()) && !TextUtils.isEmpty(et_zhanghao_include.getText())) {
                     edit.putBoolean("yidenglu", true);
-                    edit.putString("name", et_zhanghao_include.getText().toString());
+                   /* edit.putString("name", et_zhanghao_include.getText().toString());
                     edit.putString("iconurl", iconurl);
-                    edit.putString("gender", gender);
+                    edit.putString("gender", gender);*/
                     denglujiemian.setVisibility(View.INVISIBLE);
                     sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
                     edit.commit();
@@ -285,8 +285,12 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             denglujiemian.setVisibility(View.INVISIBLE);
 
             sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
-            Glide.with(getActivity()).load(sharedPreferences.getString("iconurl", "")).into(touxiang);
-            phone.setText(sharedPreferences.getString("name", ""));
+            if (iconurl != null) {
+                Glide.with(getActivity()).load(sharedPreferences.getString("iconurl", "")).into(touxiang);
+                phone.setText(sharedPreferences.getString("name", ""));
+            }
+
+
             // Toast.makeText(getActivity(), sharedPreferences.getString("name", "") + "：欢迎您回来RedBaby", Toast.LENGTH_SHORT).show();
         } else {
             denglujiemian.setVisibility(View.VISIBLE);

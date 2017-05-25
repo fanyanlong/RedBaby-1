@@ -48,64 +48,7 @@ public class MainActivity extends FragmentActivity implements MainView {
     ImageView ivGroupBuyMainActivity;
     @BindView(R.id.rdoBtn_hide_main_activity)
     RadioButton rdoBtnHideMainActivity;
-    /*private UMAuthListener umAuthListener = new UMAuthListener() {
 
-        private String name;
-
-        @Override
-        public void onStart(SHARE_MEDIA platform) {
-            //授权开始的回调
-        }
-
-        @Override
-        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-            //   Toast.makeText(getApplicationContext(), "Authorize succeed", Toast.LENGTH_SHORT).show();
-            switch (action) {
-                // 授权成功的状态
-                case UMAuthListener.ACTION_AUTHORIZE:
-                    // Toast.makeText(SecondActivity.this, "ACTION_AUTHORIZE111", Toast.LENGTH_SHORT).show();
-                    UMShareAPI mShareAPI = UMShareAPI.get(MainActivity.this);
-                    mShareAPI.getPlatformInfo(MainActivity.this, platform, umAuthListener);
-                    break;
-                // 登录成功后的 获取用户信息的// 登录成功后的 获取用户信息的---------------
-
-
-                case UMAuthListener.ACTION_GET_PROFILE:
-                    //  Toast.makeText(SecondActivity.this, "zoule", Toast.LENGTH_SHORT).show();
-                    String name = data.get("name");
-                    String iconurl = data.get("iconurl");
-                    String gender = data.get("gender");
-                    SharedPreferences sharedPreferences = getSharedPreferences("config", Context.MODE_PRIVATE);
-
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-
-                    edit.putBoolean("QQ", true);
-                    edit.putString("name", name);
-                    edit.putString("iconurl", iconurl);
-                    edit.putString("gender", gender);
-                    edit.putBoolean("yidenglu", true);
-                    edit.commit();
-
-
-                    Toast.makeText(MainActivity.this, name + gender + "：欢迎您来到今日头条", Toast.LENGTH_SHORT).show();
-                    break;
-
-
-            }
-
-        }
-
-        @Override
-        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-            Toast.makeText(getApplicationContext(), "Authorize fail", Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onCancel(SHARE_MEDIA platform, int action) {
-            Toast.makeText(getApplicationContext(), "Authorize cancel", Toast.LENGTH_SHORT).show();
-        }
-    };
-    */
 
     private GroupBuyFragment groupBuyFragment;
     private HomeFragment homeFragment;
@@ -165,7 +108,7 @@ public class MainActivity extends FragmentActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+//qq登录api调用
         UMShareAPI.get(this);
         // TODO: add setContentView(...) invocation
         setContentView(R.layout.activity_main);
