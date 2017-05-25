@@ -16,7 +16,7 @@ import com.team3.baby.module.fragments_home.url.Url;
 import java.util.List;
 
 /**
- * 类用途:
+ * 类用途: 这是适配器类
  * 作者:崔涵淞
  * 时间: 2017/5/21 20:26.
  */
