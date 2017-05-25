@@ -11,11 +11,15 @@ import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareConfig;
 
 import java.util.logging.Level;
 
 import me.redbaby.greendao.DaoMaster;
 import me.redbaby.greendao.DaoSession;
+
+import static android.R.attr.data;
 
 /**
  * 类的用途：
@@ -54,7 +58,13 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PlatformConfig.setQQZone("1106029755","AaFrTt1byVgUpWIq");
+        UMShareAPI.get(this);
+        UMShareConfig config = new UMShareConfig();
+        config.isNeedAuthOnGetUserInfo(true);
+        config.isOpenShareEditActivity(true);
+        config.setSinaAuthType(UMShareConfig.AUTH_TYPE_SSO);
+        config.setFacebookAuthType(UMShareConfig.AUTH_TYPE_SSO);
+        config.setShareToLinkedInFriendScope(UMShareConfig.LINKED_IN_FRIEND_SCOPE_ANYONE);
         mAppApplication = this;
         //green dao
         setupDatabase();
@@ -134,5 +144,8 @@ public class App extends Application {
 
     public SQLiteDatabase getDb() {
         return db;
+    }
+    {
+        PlatformConfig.setQQZone("1106029755","AaFrTt1byVgUpWIq");
     }
 }

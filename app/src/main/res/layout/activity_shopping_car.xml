@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_shopping_car"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_shopping_car"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:src="@mipmap/ucwv_btn_back" />
+            android:src="@mipmap/ucwv_btn_back"/>
 
         <View
             android:layout_width="40dp"
@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/shop"
-            android:textSize="25sp" />
+            android:textSize="25sp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/particulars"
-            android:textSize="25sp" />
+            android:textSize="25sp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/evaluate"
-            android:textSize="25sp" />
+            android:textSize="25sp"/>
 
         <View
             android:layout_width="10dp"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:src="@mipmap/commodity_shoppingcard" />
+            android:src="@mipmap/commodity_shoppingcard"/>
 
         <View
             android:layout_width="10dp"
@@ -67,7 +67,7 @@
             android:layout_gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:src="@mipmap/ucwv_ebuy" />
+            android:src="@mipmap/ucwv_ebuy"/>
     </LinearLayout>
 
     <LinearLayout
@@ -80,7 +80,7 @@
             android:id="@+id/iv_shoppingPicture"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -101,13 +101,14 @@
                     android:gravity="center_vertical"
                     android:lines="2"
                     android:text="aaa"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"/>
 
                 <ImageView
-                    android:src="@mipmap/commodity_shear_bg"
-                    android:layout_weight="3"
+                    android:id="@+id/image_shoppingPrice"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:src="@mipmap/commodity_shear_bg"/>
             </LinearLayout>
 
 
@@ -119,7 +120,7 @@
                 android:gravity="center_vertical"
                 android:text="ccc"
                 android:textColor="@color/red"
-                android:textSize="30sp" />
+                android:textSize="30sp"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -143,19 +144,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/commodity_castom_down" />
+                    android:src="@mipmap/commodity_castom_down"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@drawable/collect_selector" />
+                    android:src="@drawable/collect_selector"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/commodity_shop_down" />
+                    android:src="@mipmap/commodity_shop_down"/>
             </LinearLayout>
 
 
@@ -166,7 +167,7 @@
                 android:layout_weight="3"
                 android:background="@color/yellow"
                 android:gravity="center"
-                android:text="@string/immediately_buy" />
+                android:text="@string/immediately_buy"/>
 
             <TextView
                 android:id="@+id/tv_join_shopping_car"
@@ -175,7 +176,7 @@
                 android:layout_weight="3"
                 android:background="@color/red"
                 android:gravity="center"
-                android:text="@string/join_shopping_car" />
+                android:text="@string/join_shopping_car"/>
 
         </LinearLayout>
     </LinearLayout>
