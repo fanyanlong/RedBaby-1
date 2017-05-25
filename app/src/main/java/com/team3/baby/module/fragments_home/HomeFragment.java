@@ -18,11 +18,13 @@ import com.mylhyl.acp.Acp;
 import com.mylhyl.acp.AcpListener;
 import com.mylhyl.acp.AcpOptions;
 import com.team3.baby.R;
+import com.team3.baby.module.fragments_home.activity.HomeSeekActivity;
 import com.team3.baby.module.fragments_home.adapter.HomeAdapter;
 import com.team3.baby.module.fragments_home.bean.TitleBean;
 import com.team3.baby.module.fragments_home.fragments.ItemHomeFragment;
 import com.team3.baby.module.fragments_home.fragments.ItemHomeFragmentTitle;
 import com.team3.baby.module.fragments_home.url.Url;
+import com.team3.baby.module.fragments_myebuy.XiaoXi;
 import com.team3.baby.utils.OkUtils;
 import com.team3.baby.zxing.activity.CaptureActivity;
 
@@ -91,7 +93,21 @@ public class HomeFragment extends Fragment {
                 mVpHomeFragment.setAdapter(adapter);//给ViewPager设置适配器
                 mTabTopHomeFragment.setupWithViewPager(mVpHomeFragment);//将TabLayout和ViewPager关联起来。
                 mTabTopHomeFragment.setTabsFromPagerAdapter(adapter);//给Tabs设置适配器
+                mLinearInquireInclude.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(), HomeSeekActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                mImageMesInclude.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent= new Intent(getContext(), XiaoXi.class);
+                        startActivity(intent);
 
+                    }
+                });
                 mImageScanInclude.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -101,6 +117,7 @@ public class HomeFragment extends Fragment {
                                                 , Manifest.permission.READ_PHONE_STATE
                                                 , Manifest.permission.WRITE_EXTERNAL_STORAGE
                                         )
+
                 /*以下为自定义提示语、按钮文字
                 .setDeniedMessage()
                 .setDeniedCloseBtn()

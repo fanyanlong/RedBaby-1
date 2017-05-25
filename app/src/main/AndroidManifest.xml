@@ -4,7 +4,7 @@
     package="com.team3.baby">
     package="com.team3.baby">
     <uses-permission android:name="android.permission.INTERNET"/>
-    <!--崔涵淞 添加 5.23 二维码需要权限-->
+    <!-- 崔涵淞 添加 5.23 二维码需要权限 -->
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
 
@@ -65,7 +65,7 @@
             android:name=".module.fragments_shopping.AddIndent_carActivity"
             android:theme="@style/MyDialogStyleBottom"/>
         android:theme="@style/MyDialogStyleBottom" />
-        <!--崔涵淞添加 二维码-->
+        <!-- 崔涵淞添加 二维码 -->
         <activity
             android:name=".zxing.activity.CaptureActivity"
             android:screenOrientation="portrait"
@@ -84,11 +84,12 @@
 
         <activity android:name=".module.fragments_groupBuy.utils.WebViewUtils">
         </activity>
-        <!--QQ登录-->
+        <!-- QQ登录 -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="58f4ae9e76661320e800000f">
         </meta-data>
+
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -102,13 +103,14 @@
                 <data android:scheme="tencent1106029755"/>
             </intent-filter>
         </activity>
-        <!--QQ登录-->
+        <!-- QQ登录 -->
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
+        <activity android:name=".module.fragments_home.activity.HomeSeekActivity">
+        </activity>
     </application>
 
 </manifest>

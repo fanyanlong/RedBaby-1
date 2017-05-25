@@ -27,7 +27,7 @@ import me.redbaby.greendao.Table_shoppingDao;
  * function:
  */
 public class HeadBaseAdapter extends BaseAdapter {
-
+    private int shopping_count;
     private Context context;
     private List<Table_shopping> list;
     // private int number;
@@ -82,27 +82,44 @@ public class HeadBaseAdapter extends BaseAdapter {
 
 
         holder.textView_subtract.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
-                //shopCarBean.setNumber(number+1);
-                //Table_shopping tableShopping = new Table_shopping();
+
+                float price = 0;
+                float price1 = 0;
+                int number = 0;
+                for (int i = 0; i < alist.size(); i++) {
+                    shopping_count = alist.get(i).getShopping_count();
+                    float shopping_price = alist.get(i).getShopping_price();
+                    shopping_price = shopping_price * alist.get(i).getShopping_count();
+                    price = price + shopping_price;
+                    number = shopping_count + number;
+                }
+
                 int count = list.get(position).getShopping_count();
                 float shopping_price = list.get(position).getShopping_price();
-                float price = 0;
-                price -= shopping_price;
+                Table_shopping tableShopping = alist.get(position);
                 if (count > 1) {
-                    Table_shopping tableShopping = alist.get(position);
-
+                    price1 = price - shopping_price;
                     count = count - 1;
+                    number = number - 1;
                     tableShopping.setShopping_count(count);
                     tableShoppingDao.update(tableShopping);
                     holder.textView_unmber.setText(count + "");
+                    String price_ = new DecimalFormat("##.##").format(price1);
+                    EventBus.getDefault().post(new Account_shoppingcar(price_, number + ""));
+                } else {
+                    tableShopping.setShopping_count(1);
+                    tableShoppingDao.update(tableShopping);
                 }
-                //格式化，价格只显示小数点后两位
-                String price_ = new DecimalFormat("##.##").format(price);
+
+                //格式化，价格只显示小数点后两位..
+
 
                 //发布消息
-                EventBus.getDefault().post(new Account_shoppingcar(price_, count + ""));
+                ;
 
             }
         });
@@ -110,20 +127,32 @@ public class HeadBaseAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
+                float price = 0;
+                float price1 = 0;
+                int number = 0;
+                for (int i = 0; i < alist.size(); i++) {
+                    shopping_count = alist.get(i).getShopping_count();
+                    float shopping_price = alist.get(i).getShopping_price();
+                    shopping_price = shopping_price * alist.get(i).getShopping_count();
+                    price = price + shopping_price;
+                    number = shopping_count + number;
+                }
+
+
                 float shopping_price = list.get(position).getShopping_price();
                 Table_shopping tableShopping = alist.get(position);
-                float price = 0;
-                price = shopping_price + shopping_price;
+                price1 = price + shopping_price;
 
                 int count = list.get(position).getShopping_count();
                 count = count + 1;
+                number = number + 1;
                 tableShopping.setShopping_count(count);
                 tableShoppingDao.update(tableShopping);
                 holder.textView_unmber.setText(count + "");
                 //格式化，价格只显示小数点后两位
-                String price_ = new DecimalFormat("##.##").format(price);
+                String price_ = new DecimalFormat("##.##").format(price1);
                 //发布消息
-                EventBus.getDefault().post(new Account_shoppingcar(price_, count + ""));
+                EventBus.getDefault().post(new Account_shoppingcar(price_, number + ""));
 
             }
         });

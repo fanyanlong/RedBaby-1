@@ -37,6 +37,7 @@ import de.greenrobot.dao.query.QueryBuilder;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
 
+import static android.view.View.GONE;
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 /**
@@ -52,27 +53,32 @@ public class ShoppingFragment extends BaseFragment {
     TextView tvGotoSettlement;
     @BindView(R.id.tv_compile_fragment_shopping)
     TextView tvCompileFragmentShopping;
-    @BindView(R.id.lv_foot_foot)
-    LinearLayout lvFootFoot;
+    //@BindView(R.id.lv_foot_foot)
+    public static  LinearLayout lvFootFoot;
     @BindView(R.id.tv_total_price)
     TextView tvTotalPrice;
 
 
     private HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
     private SampleHeader sam;
+    private String totalPrice;
+    private String totalCount;
 
     //处理消息的方法
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(Account_shoppingcar messageEvent) {
+
         Log.d(TAG, "onShowMessageEvent: --------------" + messageEvent.getPrice());
         tvTotalPrice.setText(messageEvent.getPrice());
-        tvGotoSettlement.setText(messageEvent.getCount());
+        tvGotoSettlement.setText("去结算（" + messageEvent.getCount() + "）");
     }
 
     @Override
     protected View initView() {
         View view = View.inflate(mContext, R.layout.fragment_shopping, null);
         sam = new SampleHeader(mContext);
+         lvFootFoot  = (LinearLayout) view.findViewById(R.id.lv_foot_foot);
+
         return view;
 
     }
@@ -113,11 +119,15 @@ public class ShoppingFragment extends BaseFragment {
 
             }
         });
-
+        //
         tvGotoSettlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                totalPrice = tvTotalPrice.getText().toString();
+                totalCount = tvGotoSettlement.getText().toString();
                 Intent intent = new Intent(getActivity(), IndentAffirmActivity.class);
+                intent.putExtra("totalPrice", totalPrice);
+                intent.putExtra("totalCount", totalCount);
                 startActivity(intent);
             }
         });
@@ -125,6 +135,7 @@ public class ShoppingFragment extends BaseFragment {
 
     }
 
+    //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view
@@ -139,6 +150,7 @@ public class ShoppingFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        selectData();
         sam.AddListView(mContext);
         Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
         QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
@@ -147,6 +159,8 @@ public class ShoppingFragment extends BaseFragment {
         if (list.size() != 0) {
             tvCompileFragmentShopping.setText("编辑");
             lvFootFoot.setVisibility(View.VISIBLE);
+        } else {
+            lvFootFoot.setVisibility(GONE);
         }
 
     }
@@ -164,4 +178,25 @@ public class ShoppingFragment extends BaseFragment {
         //取消事件注册
         EventBus.getDefault().unregister(this);
     }
+
+
+    //查询数据库
+    public void selectData() {
+        final Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+        QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
+        final List<Table_shopping> alist = queryBuilder.list();
+        float price = 0;
+        int number = 0;
+        for (int i = 0; i < alist.size(); i++) {
+            float shopping_price = alist.get(i).getShopping_price();
+            shopping_price = shopping_price * alist.get(i).getShopping_count();
+            price = price + shopping_price;
+            int count = alist.get(i).getShopping_count();
+            number = number + count;
+        }
+        tvTotalPrice.setText(price + "");
+        tvGotoSettlement.setText("去结算（" + number + "）");
+
+    }
+
 }

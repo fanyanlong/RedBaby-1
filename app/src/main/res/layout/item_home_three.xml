@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:background="#ffffff"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
     <View
@@ -58,14 +59,15 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 169.00"
+                    android:text="¥169.00"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/item_home_three_text1"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥225.00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -83,14 +85,15 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 29.90"
+                    android:text="¥29.90"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/item_home_three_text2"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥225.00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -107,14 +110,15 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 35.90"
+                    android:text="¥35.90"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/item_home_three_text3"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥72.00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -131,14 +135,15 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 33.00"
+                    android:text="¥33.00"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/item_home_three_text4"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥69.00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -155,14 +160,15 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 79.00"
+                    android:text="¥79.00"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/item_home_three_text5"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥218.00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -179,14 +185,15 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 145.00"
+                    android:text="¥145.00"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/item_home_three_text6"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥219.90"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -203,14 +210,15 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 89.00"
+                    android:text="¥89.00"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/item_home_three_text7"
                     android:gravity="center"
-                    android:text="111"
+                    android:text="¥126.80"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -228,7 +236,7 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="¥ 00.00"
+                    android:text="¥00.00"
                     android:textColor="#ff00"
                     android:textSize="20sp"
                     android:layout_width="match_parent"

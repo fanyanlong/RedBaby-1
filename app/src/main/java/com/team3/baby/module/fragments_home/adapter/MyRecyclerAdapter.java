@@ -2,6 +2,7 @@ package com.team3.baby.module.fragments_home.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,7 +85,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         switch (viewType) {
             case 0:
                 ViewHolder_One holder_one = (ViewHolder_One) holder;
-                Glide.with(context).load(Url.IMAGE + list.get(1).getTag().get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher).into(holder_one.item_home_one_image);
+                Glide.with(context).load(Url.IMAGE + list.get(1).getTag().get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two).into(holder_one.item_home_one_image);
                 setClickListener(holder_one);
                 break;
             case 1:
@@ -315,7 +316,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, WebViewUtils.class);
-                    intent.putExtra("url",list.get(1).getTag().get(0).getLinkUrl());
+                    intent.putExtra("url", list.get(1).getTag().get(0).getLinkUrl());
                     context.startActivity(intent);
                 }
             });
@@ -359,6 +360,14 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         ImageView image6;
         ImageView image7;
         ImageView image8;
+        TextView item_home_three_text1;
+        TextView item_home_three_text2;
+        TextView item_home_three_text3;
+        TextView item_home_three_text4;
+        TextView item_home_three_text5;
+        TextView item_home_three_text6;
+        TextView item_home_three_text7;
+
 
         public ViewHolder_Three(View itemView) {
             super(itemView);
@@ -371,6 +380,22 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             image6 = (ImageView) itemView.findViewById(R.id.item_home_three_image6);
             image7 = (ImageView) itemView.findViewById(R.id.item_home_three_image7);
             image8 = (ImageView) itemView.findViewById(R.id.item_home_three_image8);
+            item_home_three_text1 = (TextView) itemView.findViewById(R.id.item_home_three_text1);
+            item_home_three_text2 = (TextView) itemView.findViewById(R.id.item_home_three_text2);
+            item_home_three_text3 = (TextView) itemView.findViewById(R.id.item_home_three_text3);
+            item_home_three_text4 = (TextView) itemView.findViewById(R.id.item_home_three_text4);
+            item_home_three_text5 = (TextView) itemView.findViewById(R.id.item_home_three_text5);
+            item_home_three_text6 = (TextView) itemView.findViewById(R.id.item_home_three_text6);
+            item_home_three_text7 = (TextView) itemView.findViewById(R.id.item_home_three_text7);
+            item_home_three_text1.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text2.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text3.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text4.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text5.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text6.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            item_home_three_text7.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+
+
             image1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -535,7 +560,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     intent.putExtra("position", Url.IMAGE + list.get(15).getTag()
                             .get(1).getPicUrl());
                     //Log.e("==================",Url.IMAGE+list.get(3).getTag().get(1).getLinkUrl());
-                    intent.putExtra("shopName",list.get(15).getTag()
+                    intent.putExtra("shopName", list.get(15).getTag()
                             .get(1).getElementName());
                     intent.putExtra("shopPrice", "¥151.2");
                     context.startActivity(intent);
@@ -546,7 +571,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, ShoppingCarActivity.class);
-                    intent.putExtra("position",Url.IMAGE + list.get(15).getTag()
+                    intent.putExtra("position", Url.IMAGE + list.get(15).getTag()
                             .get(2).getPicUrl());
                     intent.putExtra("shopName", list.get(15).getTag()
                             .get(2).getElementName());
@@ -581,7 +606,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, ShoppingCarActivity.class);
-                    intent.putExtra("position",Url.IMAGE + list.get(15).getTag()
+                    intent.putExtra("position", Url.IMAGE + list.get(15).getTag()
                             .get(5).getPicUrl());
                     intent.putExtra("shopName", list.get(15).getTag()
                             .get(5).getElementName());
@@ -601,7 +626,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     context.startActivity(intent);
                 }
             });
-
 
 
         }
@@ -648,7 +672,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     intent.putExtra("position", Url.IMAGE + list.get(17).getTag()
                             .get(1).getPicUrl());
 
-                    intent.putExtra("shopName",list.get(17).getTag()
+                    intent.putExtra("shopName", list.get(17).getTag()
                             .get(1).getElementName());
                     intent.putExtra("shopPrice", "¥151.2");
                     context.startActivity(intent);
@@ -659,7 +683,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, ShoppingCarActivity.class);
-                    intent.putExtra("position",Url.IMAGE + list.get(17).getTag()
+                    intent.putExtra("position", Url.IMAGE + list.get(17).getTag()
                             .get(2).getPicUrl());
                     intent.putExtra("shopName", list.get(17).getTag()
                             .get(2).getElementName());
@@ -695,7 +719,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, ShoppingCarActivity.class);
-                    intent.putExtra("position",Url.IMAGE + list.get(17).getTag()
+                    intent.putExtra("position", Url.IMAGE + list.get(17).getTag()
                             .get(5).getPicUrl());
                     intent.putExtra("shopName", list.get(17).getTag()
                             .get(5).getElementName());
@@ -707,7 +731,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, ShoppingCarActivity.class);
-                    intent.putExtra("position",Url.IMAGE + list.get(17).getTag()
+                    intent.putExtra("position", Url.IMAGE + list.get(17).getTag()
                             .get(6).getPicUrl());
                     intent.putExtra("shopName", list.get(17).getTag()
                             .get(6).getElementName());

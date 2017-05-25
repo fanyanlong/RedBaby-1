@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:background="#ffffff"
               android:orientation="vertical">
 
     <View
@@ -29,6 +30,7 @@
         android:background="#cccccc"></View>
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -36,7 +38,7 @@
         <ImageView
             android:id="@+id/item_home_five_newborn_image"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="140dp"
             android:layout_weight="1"
             android:src="@mipmap/ic_launcher"/>
 
@@ -48,7 +50,7 @@
         <ImageView
             android:id="@+id/item_home_five_infant_image"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="140dp"
             android:layout_weight="1"
             android:src="@mipmap/ic_launcher"/>
     </LinearLayout>
@@ -68,7 +70,7 @@
             android:id="@+id/item_home_five_infant_prefecture_image"
             android:src="@mipmap/ic_launcher"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:layout_weight="1"/>
         <View
             android:layout_width="1dp"
@@ -80,7 +82,7 @@
             android:id="@+id/item_home_five_preschool_prefecture_image"
             android:src="@mipmap/ic_launcher"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:layout_weight="1"/>
     </LinearLayout>
     <View
@@ -97,7 +99,7 @@
             android:id="@+id/item_home_five_ready_prefecture_image"
             android:src="@mipmap/ic_launcher"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:layout_weight="1"/>
         <View
             android:layout_width="1dp"
@@ -109,7 +111,7 @@
             android:id="@+id/item_home_five_gestation_prefecture_image"
             android:src="@mipmap/ic_launcher"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:layout_weight="1"/>
     </LinearLayout>
 

@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,7 @@ import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
- * 类用途:
+ * 类用途
  * 作者:崔涵淞
  * 时间: 2017/5/23 21:27.
  */
@@ -57,7 +56,6 @@ public class ItemHomeFragmentTitle extends Fragment {
         ButterKnife.bind(this, view);
         Bundle bundle = getArguments();
         url = bundle.getString("url");
-        Log.e("===============",url);
         return view;
     }
 
@@ -88,7 +86,6 @@ public class ItemHomeFragmentTitle extends Fragment {
             }
         });*/
         OkUtils.getExcute(Url.HTTP+url, null, new OkUtils.MyCallback() {
-
             @Override
             public void onSuccess(String result) {
                 Gson gson = new Gson();

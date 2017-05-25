@@ -3,19 +3,28 @@ package com.team3.baby.module.fragments_shopping.indent_activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.team3.baby.R;
-import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
+import com.team3.baby.app.App;
 import com.team3.baby.utils.ImageUtils;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.greenrobot.dao.query.QueryBuilder;
+import me.redbaby.greendao.Table_shopping;
+import me.redbaby.greendao.Table_shoppingDao;
 
+/**
+ * @class describe
+ * @anthor 田杰谕
+ * @time 2017/5/25 下午5:10
+ */
 public class IndentAffirmActivity extends AppCompatActivity {
 
 
@@ -57,26 +66,46 @@ public class IndentAffirmActivity extends AppCompatActivity {
     TextView tvFreightPayAffirmIndentActivity;
     @BindView(R.id.tv_zong_price)
     TextView tvZongPrice;
-
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indent_affirm);
         ButterKnife.bind(this);
 
+        initAddress();
         initData();
+        initListener();
+    }
+
+    private void initListener() {
+        ivBackHeadInclude.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void initAddress() {
+
     }
 
     private void initData() {
 
-
-        ArrayList<String> picUrl = Shop_Utils.getPicUrl();
         Intent intent = getIntent();
+        String totalPrice = intent.getStringExtra("totalPrice");
+
+        tvMoneyPayAffirmIndentActivity.setText("¥"+totalPrice);
+        tvZongPrice.setText("¥"+totalPrice);
         int code = intent.getIntExtra("code", 0);
         if (code == 1) {
+            layoutSingleShopAffirmIndentActivity.setVisibility(View.VISIBLE);
+            layoutMoreShopAffirmIndentActivity.setVisibility(View.GONE);
             String pic_url = intent.getStringExtra("position");
             String shopName = intent.getStringExtra("shopName");
             String shopPrice = intent.getStringExtra("shopPrice");
+
             int num = intent.getIntExtra("number", 0);
             ImageUtils.loadImageNormal(this, pic_url, ivThumbnailAffirmIndentActivity);
             tvShopTitleAffirmIndentActivity.setText(shopName);
@@ -89,7 +118,42 @@ public class IndentAffirmActivity extends AppCompatActivity {
             tvZongPrice.setText("￥" + number);
             tvMoneyPayAffirmIndentActivity.setText("￥" + number);
         } else {
+            Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+            QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
+            List<Table_shopping> list = queryBuilder.list();
+            if (list.size() > 1) {
+                layoutMoreShopAffirmIndentActivity.setVisibility(View.VISIBLE);
+                layoutSingleShopAffirmIndentActivity.setVisibility(View.GONE);
 
+                if (list.size() == 2) {
+                    ImageUtils.loadImageNormal(this, list.get(0).getShopping_pic(), ivMore1AffirmIndentActivity);
+                    ImageUtils.loadImageNormal(this, list.get(1).getShopping_pic(), ivMore2AffirmIndentActivity);
+                    for (int i = 0; i < list.size(); i++) {
+                        count += list.get(i).getShopping_count();
+                    }
+                    tvCountAffirmIndentActivity.setText("共"+count+"件");
+                }
+                if (list.size() > 3 || list.size() == 3) {
+                    ImageUtils.loadImageNormal(this, list.get(0).getShopping_pic(), ivMore1AffirmIndentActivity);
+                    ImageUtils.loadImageNormal(this, list.get(1).getShopping_pic(), ivMore2AffirmIndentActivity);
+                    ImageUtils.loadImageNormal(this, list.get(2).getShopping_pic(), ivMore3AffirmIndentActivity);
+
+                    for (int i = 0; i < list.size(); i++) {
+                        count += list.get(i).getShopping_count();
+                    }
+                    tvCountAffirmIndentActivity.setText("共"+count+"件");
+
+                }
+
+            } else {
+                layoutSingleShopAffirmIndentActivity.setVisibility(View.VISIBLE);
+                layoutMoreShopAffirmIndentActivity.setVisibility(View.GONE);
+                ImageUtils.loadImageNormal(this, list.get(0).getShopping_pic(), ivThumbnailAffirmIndentActivity);
+                tvShopTitleAffirmIndentActivity.setText(list.get(0).getShopping_name());
+                tvShopPriceAffirmIndentActivity.setText("¥ "+list.get(0).getShopping_price());
+                tvShopNumAffirmIndentActivity.setText("x" + list.get(0).getShopping_count());
+
+            }
         }
 
 
