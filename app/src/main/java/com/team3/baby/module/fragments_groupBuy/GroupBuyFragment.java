@@ -172,7 +172,7 @@ public class GroupBuyFragment extends Fragment {
         }
     };
 
-    //登录回传的方法直接粘贴就行
+    //登录回传的方法
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
