@@ -2,7 +2,6 @@ package com.team3.baby.module.fragments_groupBuy.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +19,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_groupBuy.adapter.HorizontalAdapter;
 import com.team3.baby.module.fragments_groupBuy.adapter.RecAdapter;
-import com.team3.baby.module.fragments_groupBuy.adapter.RecyclerItemClickListener;
+import com.team3.baby.module.fragments_groupBuy.utils.RecyclerItemClickListener;
 import com.team3.baby.module.fragments_groupBuy.bean.BoutiqueBean;
 import com.team3.baby.module.fragments_groupBuy.utils.DividerItemDecoration;
 import com.team3.baby.module.fragments_groupBuy.utils.GlideImageLoader;
@@ -39,8 +37,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Response;
-
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 /**
  * 类用途：
