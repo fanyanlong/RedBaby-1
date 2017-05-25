@@ -8,7 +8,7 @@ import com.team3.baby.R;
 import com.youth.banner.loader.ImageLoader;
 
 /**
- * 类用途：
+ * 类用途
  * 作者：ShiZhuangZhuang
  * 时间：2017/5/23 14:15
  */
