@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
@@ -133,7 +132,7 @@ public class ClassifyFragment extends Fragment {
                         mRightAdapter.setmOnItemClickListener(new RightRvAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Toast.makeText(mContext, position + "", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(mContext, position + "", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(mContext, ClassifyGoodsListFragment.class);
 //                                intent.putExtra("pcci", mRightList.get(position).getPcci());
                                 startActivity(intent);
