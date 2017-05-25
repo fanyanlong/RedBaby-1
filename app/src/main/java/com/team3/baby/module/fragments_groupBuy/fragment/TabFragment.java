@@ -63,7 +63,6 @@ public class TabFragment extends Fragment {
     private String http = "http:";
     private List<BoutiqueBean.Enrolls1Bean.ListBeanX> listBeanXes;
     private List<BoutiqueBean.EnrollsBean.ListBean> enrollsList;
-
     public TabFragment(String url) {
         this.url = url;
 
