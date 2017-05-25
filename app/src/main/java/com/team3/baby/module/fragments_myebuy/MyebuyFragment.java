@@ -121,6 +121,13 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
 //
         View inflate = recyclerAddHeader.inflate;
         denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
+        ImageView qqdenglu = (ImageView) view.findViewById(R.id.iv_qq_denglu);
+        qqdenglu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), QQdenglu.class));
+            }
+        });
         sv_yidenglu_myebuy = (ScrollView) view.findViewById(R.id.sv_yidenglu_myebuy);
         bt_denglu_myebuy = (Button) view.findViewById(R.id.bt_denglu_myebuy);
         et_zhanghao_include = (EditText) view.findViewById(R.id.et_zhanghao_include);
