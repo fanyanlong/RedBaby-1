@@ -23,7 +23,6 @@ import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 import com.team3.baby.module.fragments_classify.util.UrlClassify;
 import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
-import com.team3.baby.module.main_activity.v.MainActivity;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 
@@ -174,14 +173,6 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
             case R.id.tv_04_classify_goodslist:
                 break;
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     //侧滑
