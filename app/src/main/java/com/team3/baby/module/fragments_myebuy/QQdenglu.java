@@ -15,5 +15,6 @@ public class QQdenglu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qq_layout);
+        //qq
     }
 }
