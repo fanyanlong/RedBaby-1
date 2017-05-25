@@ -44,8 +44,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.5.1'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     /*史壮壮
-                      *recyclerview
-                     */
+                          *recyclerview
+                         */
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     //Glide图片加载
@@ -57,8 +57,8 @@ dependencies {
     //金虎 5.19 16:40 logger
     compile 'com.orhanobut:logger:1.15'
     /*史壮壮
-                    *无限录播
-                    */
+                        *无限录播
+                        */
     //金虎 5.22 20:54 gson
     compile 'com.google.code.gson:gson:2.8.0'
     /*无限录播*/
@@ -71,5 +71,4 @@ dependencies {
     compile 'com.lzy.net:okgo:+'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.makeramen:roundedimageview:2.3.0'
-    compile project(':SlidingMenu-library')
 }

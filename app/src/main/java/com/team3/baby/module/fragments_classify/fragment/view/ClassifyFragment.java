@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.lzy.okgo.OkGo;
@@ -49,6 +50,8 @@ public class ClassifyFragment extends Fragment {
     @BindView(R.id.recycler_right_classify)
     RecyclerView mRecyclerRightClassify;
     Unbinder unbinder;
+    @BindView(R.id.progress_classify)
+    ProgressBar mProgressClassify;
     private LeftRvAdapter mAdapterLeft;
     private List<LeftClassifyBean> mLeftList = new ArrayList<>();
     private List<RightClassifyBean> mRightList = new ArrayList<>();
@@ -88,7 +91,7 @@ public class ClassifyFragment extends Fragment {
                         mAdapterLeft.setmOnItemClickListener(new LeftRvAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
                                 mTranceInfo.onTranceInfo(position);
                             }
                         });
@@ -136,8 +139,10 @@ public class ClassifyFragment extends Fragment {
                                 startActivity(intent);
                             }
                         });
+                        mProgressClassify.setVisibility(View.GONE);
                     }
                 });
+
     }
 
     private void initRightRv(final List<RightClassifyBean> list) {

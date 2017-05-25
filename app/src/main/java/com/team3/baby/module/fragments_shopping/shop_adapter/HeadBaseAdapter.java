@@ -26,7 +26,7 @@ public class HeadBaseAdapter extends BaseAdapter {
 
     private Context context;
     private List<Table_shopping> list;
-    private int number;
+   // private int number;
 
     public HeadBaseAdapter(Context context, List<Table_shopping> list) {
         this.context = context;
@@ -70,7 +70,7 @@ public class HeadBaseAdapter extends BaseAdapter {
         holder.textView_price.setText(list.get(position).getShopping_price() + "");
         holder.textView_unmber.setText(list.get(position).getShopping_count() + "");
 
-        number = list.get(position).getShopping_count();
+
 
         final Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
        // final ShopCarBean shopCarBean = list.get(position);
@@ -83,16 +83,33 @@ public class HeadBaseAdapter extends BaseAdapter {
             public void onClick(View v) {
                 //shopCarBean.setNumber(number+1);
                 //Table_shopping tableShopping = new Table_shopping();
-                Table_shopping tableShopping = alist.get(position);
-                tableShopping.setShopping_count(number+1);
-                tableShoppingDao.update(tableShopping);
+                int count = list.get(position).getShopping_count();
+                if (count>1) {
+                    Table_shopping tableShopping = alist.get(position);
+
+
+
+                    count = count - 1;
+                    tableShopping.setShopping_count(count);
+                    tableShoppingDao.update(tableShopping);
+                    holder.textView_unmber.setText(count + "");
+                }
             }
         });
         holder.textView_and.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                number = number + 1;
-                holder.textView_unmber.setText(number + "");
+
+
+                Table_shopping tableShopping = alist.get(position);
+
+
+                int count = list.get(position).getShopping_count();
+                count = count+1;
+                tableShopping.setShopping_count(count);
+                tableShoppingDao.update(tableShopping);
+                holder.textView_unmber.setText(count + "");
+
             }
         });
 

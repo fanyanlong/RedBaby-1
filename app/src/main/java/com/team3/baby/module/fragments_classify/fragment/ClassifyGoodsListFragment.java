@@ -1,19 +1,17 @@
 package com.team3.baby.module.fragments_classify.fragment;
 
-import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_classify.adapter.GoodsListAdapter;
@@ -23,7 +21,7 @@ import com.team3.baby.module.fragments_classify.util.RecyclerViewDivider;
 import com.team3.baby.module.fragments_classify.util.UrlClassify;
 import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
-import com.team3.baby.module.main_activity.v.MainActivity;
+import com.team3.baby.utils.BackUtils;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.HttpUtils;
 
@@ -65,7 +63,8 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
     TextView mTv04ClassifyGoodslist;
     @BindView(R.id.rv_classify_goodslist)
     RecyclerView mRvClassifyGoodslist;
-    private SlidingMenu mMenu;
+    @BindView(R.id.progress_classify)
+    ProgressBar mProgressClassify;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -88,7 +87,7 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
                 GoodsListBean goodsListBean = GsonUtils.gsonToBean(s, GoodsListBean.class);
                 List<GoodsListBean.GoodsBean> goods = goodsListBean.getGoods();
                 initRv(goods);
-
+                mProgressClassify.setVisibility(View.GONE);
             }
         });
     }
@@ -144,13 +143,7 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back_classify_goodslist:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Instrumentation inst = new Instrumentation();
-                        inst.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
-                    }
-                }).start();
+                BackUtils.toBack();
                 break;
             case R.id.tv_screen_classify_goodslist:
                 //侧滑
@@ -173,43 +166,6 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
                 break;
             case R.id.tv_04_classify_goodslist:
                 break;
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    //侧滑
-    public void toSlideingMenu() {
-        mMenu = new SlidingMenu(this);
-        //NewMainActivity 此UI类，
-        mMenu.attachToActivity(ClassifyGoodsListFragment.this, SlidingMenu.SLIDING_CONTENT);
-        mMenu.setMenu(R.layout.slidingmenu_classify);//侧滑页实际布局
-//        initViewSlidingMenu(mMenu);//查找布局内控件的方法
-        // 设置可以左右滑动的菜单
-        mMenu.setMode(SlidingMenu.RIGHT);
-        // 设置滑动菜单视图的宽度
-        int widthPixels = this.getResources().getDisplayMetrics().widthPixels;
-        mMenu.setBehindWidth(widthPixels / 9 * 8);
-        // 设置渐入渐出效果的值
-        mMenu.setFadeDegree(0.35f);
-        // 设置触摸屏幕的模式,这里设置为全屏
-        mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        // 设置下方视图的在滚动时的缩放比例
-        mMenu.setBehindScrollScale(0.0f);
-        //
-        mMenu.setShadowWidthRes(R.dimen.shadow_width);
-        mMenu.setShadowDrawable(R.drawable.shadow);
-        //判断侧滑页是否是打开的
-        if (!mMenu.isSecondaryMenuShowing()) {
-            mMenu.showContent();
-        } else {
-            mMenu.showSecondaryMenu();
         }
     }
 }

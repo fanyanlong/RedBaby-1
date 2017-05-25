@@ -31,7 +31,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.beanXes = beanXes;
     }
 
-    //视图1
+    //视图
     public class ViewHolderss extends RecyclerView.ViewHolder {
         private ImageView roundeimager_horizontala;
         private TextView text_title_horizontala, text_content_horizontala, text_price_horizontala;
@@ -68,4 +68,5 @@ public class HorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public int getItemCount() {
         return beanXes.size();
     }
+    
 }
