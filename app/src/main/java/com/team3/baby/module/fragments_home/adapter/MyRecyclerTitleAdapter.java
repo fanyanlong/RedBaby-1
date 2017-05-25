@@ -79,7 +79,7 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 ViewHolder1 holder1 = (ViewHolder1) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(0)
                         .get_$88001().getTag().get(0).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder1.item_home_one_image);
                 break;
 
@@ -87,51 +87,51 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 ViewHolder2 holder2 = (ViewHolder2) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(0).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image0);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(1).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image1);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(2).getPicUrl()).
-                        placeholder(R.mipmap.ic_launcher)
+                        placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image2);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(3).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image3);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(4).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image4);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(5).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image5);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
-                        .get_$88003().getTag().get(6).getPicUrl()
-                ).placeholder(R.mipmap.ic_launcher)
+                        .get_$88003().getTag().get(6).getPicUrl())
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image6);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(7).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image7);
                 Glide.with(context).load(Url.IMAGE + list.get(1)
                         .get_$88003().getTag().get(8).getPicUrl())
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder2.image8);
                 break;
             case 2:
                 ViewHolder3 holder3 = (ViewHolder3) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(3).get_$88005().getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder3.item_home_nine_headline_image);
                 Glide.with(context).load(Url.IMAGE + list.get(4).get_$88015().getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder3.item_home_nine_bigpicture_image);
                 Glide.with(context).load(Url.IMAGE + list.get(6).get_$88015().getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.ic_launcher)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder3.item_home_nine_bigpicture1_image);
                 holder3.item_home_nine_name_text.setText(list.get(4).get_$88015().getTag().get(0).getElementName());
                 holder3.item_home_nine_desc_text.setText(list.get(4).get_$88015().getTag().get(0).getElementDesc());
@@ -141,7 +141,7 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 holder3.item_home_nine_price1_text.setText(list.get(6).get_$88015().getTag().get(0).getItemPrice());
                 break;
             case 3:
-               ViewHolder4 holder4 = (ViewHolder4) holder;
+                ViewHolder4 holder4 = (ViewHolder4) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(9).get_$88005().getTag()
                         .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
                         .into(holder4.item_home_six_trademark_image);
