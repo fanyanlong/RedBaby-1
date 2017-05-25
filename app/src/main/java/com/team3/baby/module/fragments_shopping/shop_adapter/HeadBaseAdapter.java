@@ -12,12 +12,11 @@ import com.team3.baby.app.App;
 import com.team3.baby.rxbus.event.Account_shoppingcar;
 import com.team3.baby.utils.ImageUtils;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.text.DecimalFormat;
 import java.util.List;
 
 import de.greenrobot.dao.query.QueryBuilder;
+import de.greenrobot.event.EventBus;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
 

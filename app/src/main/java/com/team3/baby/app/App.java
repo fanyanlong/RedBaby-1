@@ -19,8 +19,6 @@ import java.util.logging.Level;
 import me.redbaby.greendao.DaoMaster;
 import me.redbaby.greendao.DaoSession;
 
-import static android.R.attr.data;
-
 /**
  * 类的用途：
  * Created by jinhu
@@ -28,6 +26,7 @@ import static android.R.attr.data;
  */
 
 public class App extends Application {
+
     public DaoSession daoSession;
     public SQLiteDatabase db;
     public DaoMaster.DevOpenHelper helper;
