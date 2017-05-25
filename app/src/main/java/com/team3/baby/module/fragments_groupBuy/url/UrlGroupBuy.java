@@ -28,6 +28,7 @@ public class UrlGroupBuy {
             ".do?version=2&cateId=1008&page=1&size=10";
     public static final String NINE = "http://f.m.suning.com/api/pgs/cateView" +
             ".do?version=2&cateId=1017&page=1&size=10";
+    public static final String fenxiang="http://c.m.suning.com/pgmuy.html";
 
 
 }

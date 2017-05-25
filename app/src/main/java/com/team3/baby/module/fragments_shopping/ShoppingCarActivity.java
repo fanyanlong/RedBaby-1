@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
@@ -63,6 +64,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
         final String position = intent.getStringExtra("position");
         final String shopName = intent.getStringExtra("shopName");
         final String shopPrice = intent.getStringExtra("shopPrice");
+        Logger.d(shopPrice);
         ImageUtils.loadImageNormal(this, position, ivShoppingPicture);
         tvShoppingName.setText(shopName);
         tvShoppingPrice.setText(shopPrice);
@@ -101,8 +103,8 @@ public class ShoppingCarActivity extends AppCompatActivity {
         imageShoppingPrice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UMWeb umWeb = new UMWeb(UrlGroupBuy.url);//要分享的连接
-                umWeb.setTitle(position);//分享的描述
+                UMWeb umWeb = new UMWeb(position);//要分享的连接
+                umWeb.setTitle("红孩子母婴");//分享的描述
                 umWeb.setDescription(shopName);//分享的标题
                 // UMImage umImage = new UMImage(getActivity(), R.mipmap.ic_launcher);
                 new ShareAction(ShoppingCarActivity.this)
@@ -115,6 +117,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
         });
 
     }
+
     //分享回调
     private UMShareListener umShareListener = new UMShareListener() {
         @Override
@@ -126,13 +129,15 @@ public class ShoppingCarActivity extends AppCompatActivity {
         public void onResult(SHARE_MEDIA platform) {
             Log.d("plat", "platform" + platform);
 
-            Toast.makeText(ShoppingCarActivity.this, platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ShoppingCarActivity.this, platform + " 分享成功啦", Toast.LENGTH_SHORT)
+                    .show();
 
         }
 
         @Override
         public void onError(SHARE_MEDIA platform, Throwable t) {
-            Toast.makeText(ShoppingCarActivity.this, platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ShoppingCarActivity.this, platform + " 分享失败啦", Toast.LENGTH_SHORT)
+                    .show();
             if (t != null) {
                 Log.d("throw", "throw:" + t.getMessage());
             }
@@ -140,7 +145,8 @@ public class ShoppingCarActivity extends AppCompatActivity {
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-            Toast.makeText(ShoppingCarActivity.this, platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ShoppingCarActivity.this, platform + " 分享取消了", Toast.LENGTH_SHORT)
+                    .show();
         }
     };
 

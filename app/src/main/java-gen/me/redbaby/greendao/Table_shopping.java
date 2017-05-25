@@ -100,4 +100,5 @@ public class Table_shopping {
         this.shopping_state = shopping_state;
     }
 
+
 }

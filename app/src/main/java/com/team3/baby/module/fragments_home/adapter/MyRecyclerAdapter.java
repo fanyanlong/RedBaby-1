@@ -2,19 +2,16 @@ package com.team3.baby.module.fragments_home.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.team3.baby.R;
-import com.team3.baby.module.fragments_classify.adapter.LeftRvAdapter;
+import com.team3.baby.module.fragments_groupBuy.utils.WebViewUtils;
 import com.team3.baby.module.fragments_home.bean.TitleBean;
 import com.team3.baby.module.fragments_home.inter_face.MyOnItemClickListener;
 import com.team3.baby.module.fragments_home.inter_face.MyOnItemLongClickListener;
@@ -314,6 +311,14 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             super(itemView);
             item_home_one_image = (ImageView) itemView.findViewById(R.id.item_home_one_image);
 
+            item_home_one_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewUtils.class);
+                    intent.putExtra("url",list.get(1).getTag().get(0).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 

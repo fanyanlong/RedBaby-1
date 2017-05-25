@@ -1,8 +1,43 @@
 package com.team3.baby.module.fragments_shopping;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
+import com.cundong.recyclerview.HeaderSpanSizeLookup;
+import com.cundong.recyclerview.RecyclerViewUtils;
+import com.google.gson.Gson;
+import com.team3.baby.R;
+import com.team3.baby.app.App;
 import com.team3.baby.base.BaseFragment;
+import com.team3.baby.module.fragments_shopping.indent_activity.IndentAffirmActivity;
+import com.team3.baby.module.fragments_shopping.shopping_bean.Shopping_Bean;
+import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
+import com.team3.baby.rxbus.event.Account_shoppingcar;
+import com.team3.baby.utils.OkUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import de.greenrobot.dao.query.QueryBuilder;
+import me.redbaby.greendao.Table_shopping;
+import me.redbaby.greendao.Table_shoppingDao;
+
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 /**
  * @class describe
@@ -11,21 +46,7 @@ import com.team3.baby.base.BaseFragment;
  */
 
 public class ShoppingFragment extends BaseFragment {
-    @Override
-    protected View initView() {
-        return null;
-    }
-
-    @Override
-    protected void setListener() {
-
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-   /* @BindView(R.id.fragment_shopping_recyclerView)
+    @BindView(R.id.fragment_shopping_recyclerView)
     RecyclerView fragmentShoppingRecyclerView;
     @BindView(R.id.tv_goto_settlement)
     TextView tvGotoSettlement;
@@ -39,13 +60,17 @@ public class ShoppingFragment extends BaseFragment {
 
     private HeaderAndFooterRecyclerViewAdapter mHeaderAndFooterRecyclerViewAdapter = null;
     private SampleHeader sam;
+    private String totalPrice;
+    private String totalCount;
 
     //处理消息的方法
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(Account_shoppingcar messageEvent) {
+        totalPrice = messageEvent.getPrice();
+        totalCount = messageEvent.getCount();
         Log.d(TAG, "onShowMessageEvent: --------------" + messageEvent.getPrice());
         tvTotalPrice.setText(messageEvent.getPrice());
-        tvGotoSettlement.setText(messageEvent.getCount());
+        tvGotoSettlement.setText("去结算（" + messageEvent.getCount() + "）");
     }
 
     @Override
@@ -97,6 +122,8 @@ public class ShoppingFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), IndentAffirmActivity.class);
+                intent.putExtra("totalPrice",totalPrice);
+                intent.putExtra("totalCount",totalCount);
                 startActivity(intent);
             }
         });
@@ -118,6 +145,7 @@ public class ShoppingFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        selectData();
         sam.AddListView(mContext);
         Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
         QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
@@ -142,5 +170,26 @@ public class ShoppingFragment extends BaseFragment {
         super.onStop();
         //取消事件注册
         EventBus.getDefault().unregister(this);
-    }*/
+    }
+
+
+    //查询数据库
+    public void selectData() {
+        final Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+        QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
+        final List<Table_shopping> alist = queryBuilder.list();
+        float price = 0;
+        int number = 0;
+        for (int i = 0; i < alist.size(); i++) {
+            float shopping_price = alist.get(i).getShopping_price();
+            shopping_price = shopping_price * alist.get(i).getShopping_count();
+            price = price + shopping_price;
+            int count = alist.get(i).getShopping_count();
+            number = number + count;
+        }
+        tvTotalPrice.setText(price + "");
+        tvGotoSettlement.setText("去结算（" + number + "）");
+
+    }
+
 }

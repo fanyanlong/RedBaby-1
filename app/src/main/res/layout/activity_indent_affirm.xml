@@ -443,7 +443,7 @@
             android:paddingBottom="15dp"
             android:paddingTop="15dp"
             android:text="实付金额："
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/tv_zong_price"
@@ -454,7 +454,7 @@
             android:paddingTop="15dp"
             android:text="$1111"
             android:textColor="@color/red"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -466,6 +466,6 @@
             android:paddingTop="15dp"
             android:text="提交订单"
             android:textColor="@color/white"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
 </LinearLayout>
