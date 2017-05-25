@@ -100,11 +100,11 @@
         <Button
             android:id="@+id/bt_denglu_myebuy"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="25dp"
-            android:background="#999999"
+            android:background="#ffff"
             android:text="登录" />
 
         <TextView
@@ -125,17 +125,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:orientation="vertical">
 
         <include layout="@layout/include_xian"></include>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="20dp"
             android:gravity="center"
             android:text="其他方式登录"
-            android:textSize="20sp" />
+            android:textSize="12sp" />
+
+        <include layout="@layout/include_xixian"></include>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -150,12 +152,11 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_marginTop="10dp"
                     android:id="@+id/iv_qq_denglu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:padding="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:src="@mipmap/qq213" />
 
 
@@ -165,7 +166,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="qq登录"
-                    android:textSize="22sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -176,12 +177,12 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_marginTop="10dp"
                     android:id="@+id/iv_hui_denglu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:padding="10dp"
+                    android:layout_gravity="center"
+
+                    android:layout_marginTop="10dp"
                     android:src="@mipmap/icon" />
 
 
@@ -191,11 +192,18 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="会员登录"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
+
+
         </LinearLayout>
+
+
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="66dp" />
 
 </LinearLayout>

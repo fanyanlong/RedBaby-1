@@ -122,6 +122,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         View inflate = recyclerAddHeader.inflate;
         denglujiemian = (LinearLayout) view.findViewById(R.id.include_weidenglu);
         ImageView qqdenglu = (ImageView) view.findViewById(R.id.iv_qq_denglu);
+        //qq登录
         qqdenglu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,13 +152,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         inflate.findViewById(R.id.ll_anquan_myebuy_fragment).setOnClickListener(this);
         inflate.findViewById(R.id.ll_shoucang_myebuy_fragment).setOnClickListener(this);
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
 
-        edit = sharedPreferences.edit();
-        if (sharedPreferences.getBoolean("yidenglu", false)) {
-            denglujiemian.setVisibility(View.INVISIBLE);
-            sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
-        }
         bt_denglu_myebuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,12 +182,26 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
+
+        edit = sharedPreferences.edit();
+        if (sharedPreferences.getBoolean("yidenglu", false)) {
+            denglujiemian.setVisibility(View.INVISIBLE);
+            sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
+        } else {
+            denglujiemian.setVisibility(View.VISIBLE);
+            sv_yidenglu_myebuy.setVisibility(View.INVISIBLE);
+        }
+    }
 
     @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case  R.id.tv_zhuce_mebuy:
+            case R.id.tv_zhuce_mebuy:
 
                 startActivity(new Intent(getActivity(), Zhuce.class));
                 break;
