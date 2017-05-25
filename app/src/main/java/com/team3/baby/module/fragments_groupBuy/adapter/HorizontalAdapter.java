@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_groupBuy.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,8 @@ public class HorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     //视图
     public class ViewHolderss extends RecyclerView.ViewHolder {
         private ImageView roundeimager_horizontala;
-        private TextView text_title_horizontala, text_content_horizontala, text_price_horizontala;
+        private TextView text_title_horizontala, text_content_horizontala,
+                text_price_horizontala, texts_price_horizontala;
 
         public ViewHolderss(View root) {
             super(root);
@@ -43,9 +45,11 @@ public class HorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             text_title_horizontala = (TextView) root.findViewById(R.id.text_title_horizontala);
             text_content_horizontala = (TextView) root.findViewById(R.id.text_content_horizontala);
             text_price_horizontala = (TextView) root.findViewById(R.id.text_price_horizontala);
-
+            texts_price_horizontala = (TextView) root.findViewById(R.id.texts_price_horizontala);
+            texts_price_horizontala.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         }
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout
@@ -68,5 +72,5 @@ public class HorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public int getItemCount() {
         return beanXes.size();
     }
-    
+
 }
