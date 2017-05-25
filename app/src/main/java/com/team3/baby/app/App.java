@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -18,8 +20,6 @@ import java.util.logging.Level;
 
 import me.redbaby.greendao.DaoMaster;
 import me.redbaby.greendao.DaoSession;
-
-import static android.R.attr.data;
 
 /**
  * 类的用途：
@@ -123,6 +123,24 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //支部包
+//        com.alipay.api.DefaultAlipayClient.DefaultAlipayClient(
+// String serverUrl,
+// String appId,
+// String privateKey,
+// String format,
+// String charset,
+// String alipayPulicKey,
+// String signType);
+        AlipayClient alipayClient = new
+                DefaultAlipayClient(
+                "https://openapi.alipaydev.com/gateway.do",
+                "2016080400168438",
+                "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCJP5Qv/IHIuC/3wohG2/SpBRt6S3HLxjir6e7sfuRoCJSS5VC4kpjQTfSZyy3N0FixAE1VNtNLi8Gj/0FJjtzHv5jM14N1LdX6USGnn5EQ4JdxAKCbi9woq0oNuu3/FzioDokAWoHH3Gx+E/X0uhuh2jGnoj8JNdSzJLl1X2uHSCdzGQxOpdJ9mX+HpGMRomf5sb8xbj8Osfn5JjEmL8BFPbCQeqJKInwBUgmymUCTHok2ufglDW1tbwlfEPpqUOJNzg+78JJ+oYwVSWU3So+22oOG+RiH8w5P1ZD0zxDAKfvzCDWDxGgYSxvelVbshhZr042sqRKxOv2E57F/Rax5AgMBAAECggEAVy4Qli6hzfrZVVq3L7N2BIre+l7D6Pl/dAwDnSu5MDALGAgbrzJHaUGrVqmN7ccjH0Oe27sYmksq9F4mfXAG48bba3qV4S/9VKSGaTBdeEgBSmFoo4VCkn7DaldL6BY7Ad1Bvvy+pVJpg+hv+kThWnz7v4y618He2vA/8cNrzSDcIe1s4XC6pEI5sMwa2MDM2GFvYhTsj8miaJ6fZfV4GX7/C3h9h30ekRUTQqMHmbW/SDefwlvrgyC1DKilIKvgmnJhstMlqEAlwyqhxfdMAROUZKaK9tBeh1ZdkIqUTnXkO1kbuKP4UwDDxXY50FJDhs37jII46+AK/FWjZ0tYUQKBgQD14OMMS4LExd8U7wqfPTCq9Dw3g0nIYRE6/CfyTysPLtkX3Do1bEGiZjlbFpXNNjtalaT5N7rPAk0lP1W1jN6mBuJheW7qTEV9WkIa9RnkEX6dOX8XYHOjiIZ7FSI6bdLHIHwjs2zTDjHUl+KXzdEz1r2WmUS293ElUloZ6nIptQKBgQCO5e13mO+6loifrDzJKyYrPR+JOHmRzLApasfx2y0eW/TIKd1mHusQaNNyvsgDgQOSaYV1hw0neTHwvASvCpcR0xsnhx/Lzm4y23ibviC+SgKE367ISxO3v4yAbxHWp0oY7TQRp85eBpF/Xv0vbqAy63cs2cJ/z41NjzqxB1UiNQKBgEaXypg9Fc5pASOBfgs6Bj8O4DsP9p8RP2EwBEgNcs9pI+s1z4CHFFEMCGuekGPari/TxwnGdlv4zS1kgbceOs5wK47Qzod2Xn0e7NvQgx5352I8n8CWcJ0DFZlA+BLOdTW2ne2iFhyCdswSz3vGG8pGXShf2NqvME0G19eY+C4BAoGAVMms2zfNlqLXMhbagmqt3R4JZjwyNgaDyC9pr+HipY7ecR4WFg/mXfg07nKw7xNP8UHXRGL7tR4+OZ72EH5yIMtn405T2XQFAvwiVha8CuyTDhBC/uk9K9vmHBbLONhOKPgl2wv8cOHo1vCfvdMgDtaUAfK7a2bVat2/b2bwZrkCgYEAtsHK+/p/ZhWT4uldfyTg+RjtVqGPDvrp3ErGNaDt+d3uyBGizFG6e0JKafFdC8l2qdRRekYa9KuJrRf7xvvHQ3mP5u39v8kfxOkbnzKfXvXgP/hSQvo6tRBnbGlk9l1hGPPTlPzyet7zjvD3joZro8EcGWq6+zmh4mbbHQGPOfI=",
+                "json",
+                "utf-8",
+                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0rVPmLaeRkJ3g4fDpQw0Y9S3ECIbzOcgx+MLs+oAr6MeKiQdSDjbBOgagNPMk7l3Q2n/r0m0r5pyNZlOCSYWz5PW18UIdjvd7ErcoAdSaMTgvdKjBzZGaDqrA6gLtp4eiYkaFB41zQwxtLapZFrH8PgfqtdGJWo/Wbarw0q05LkUWqZLSsVaht+Q/crqGObG1sLLlgYa6npNIc2e7TS6SCSuMHIXiI/uF+Kxp/1y7qRpWpHa4XD9jKTodZnde0wBW00+CFIxCCqchmsXwcwwjlYCjuar4Qh8nUE6gtBphc1Vz/1GjreVtDxrorT6mFFL9pqazLnYwOVR4ouVclaOhwIDAQAB",
+                "RSA2");
     }
 
 
@@ -145,7 +163,8 @@ public class App extends Application {
     public SQLiteDatabase getDb() {
         return db;
     }
+
     {
-        PlatformConfig.setQQZone("1106029755","AaFrTt1byVgUpWIq");
+        PlatformConfig.setQQZone("1106029755", "AaFrTt1byVgUpWIq");
     }
 }
