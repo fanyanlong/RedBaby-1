@@ -69,18 +69,9 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_qitaorder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/ll_checkorder_tou"
-        android:orientation="vertical">
-
-
-    </LinearLayout>
 
     <LinearLayout
-        android:visibility="invisible"
+
         android:id="@+id/ll_netorder"
         android:layout_width="match_parent"
 
@@ -88,18 +79,15 @@
         android:layout_below="@id/ll_checkorder_tou"
         android:orientation="vertical">
 
-        <TableLayout
-            android:id="@+id/tablelayout_order_myebuy"
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablelayout_allorder_myebuy"
             android:layout_width="match_parent"
-            android:layout_height="55dp"></TableLayout>
+            android:layout_height="55dp"></android.support.design.widget.TabLayout>
 
-        <FrameLayout
-            android:id="@+id/fragment_order_myebuy"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_dingdan_myebuy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#cccccc">
-
-        </FrameLayout>
+            android:layout_height="match_parent"></android.support.v4.view.ViewPager>
     </LinearLayout>
 
 

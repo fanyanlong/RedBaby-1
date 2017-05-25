@@ -116,7 +116,7 @@ public class ClassifyGoodsListFragment extends AppCompatActivity {
                 Intent intent = new Intent(ClassifyGoodsListFragment.this, ShoppingCarActivity.class);
                 intent.putExtra("position", image);
                 intent.putExtra("shopName", auxdescription);
-                intent.putExtra("shopPrice", price);
+                intent.putExtra("shopPrice", "￥" + price);
                 startActivity(intent);
 
             }

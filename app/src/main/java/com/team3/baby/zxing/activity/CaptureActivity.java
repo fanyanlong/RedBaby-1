@@ -31,10 +31,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 
 import com.google.zxing.Result;
 import com.team3.baby.R;
@@ -125,7 +123,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         // going to show the help on
         // first launch. That led to bugs where the scanning rectangle was the
         // wrong size and partially
-        // off screen.
+        // off screen
+
         cameraManager = new CameraManager(getApplication());
 
         handler = null;
@@ -138,9 +137,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         } else {
             // Install the callback and wait for surfaceCreated() to init the
             // camera.
-            scanPreview.getHolder().addCallback(this);
+            scanPreview.getHolder().addCallback(CaptureActivity.this);
         }
-
         inactivityTimer.onResume();
     }
 

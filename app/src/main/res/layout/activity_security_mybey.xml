@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back_security"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@mipmap/ucwv_btn_back" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="账户安全"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/tv_juhao_shoucang"
+            android:layout_width="38dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:src="@mipmap/ucwv_ebuy" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="228dp"
+        android:background="#99ccc9"
+        android:orientation="vertical">
+
+        <com.team3.baby.module.fragments_myebuy.coutoum_circle.MyCircle
+            android:id="@+id/coutoum_circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android_custom:roundColor="#D1D1D1"
+            android_custom:roundProgressColor="@android:color/black"
+            android_custom:textSize="50sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

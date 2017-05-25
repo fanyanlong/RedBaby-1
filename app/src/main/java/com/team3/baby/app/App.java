@@ -10,6 +10,7 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.cookie.store.PersistentCookieStore;
+import com.umeng.socialize.PlatformConfig;
 
 import java.util.logging.Level;
 
@@ -53,6 +54,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        PlatformConfig.setQQZone("1106029755","AaFrTt1byVgUpWIq");
         mAppApplication = this;
         //green dao
         setupDatabase();

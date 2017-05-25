@@ -5,7 +5,8 @@
               android:layout_height="match_parent">
 
     <com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout
-       android:id="@+id/ppf_fragment_home_recyclerview"
+       android:layout_weight="1"
+        android:id="@+id/ppf_fragment_home_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
@@ -15,5 +16,8 @@
             android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
     </com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout>
+    <View
 
+        android:layout_width="match_parent"
+        android:layout_height="60dp"></View>
 </LinearLayout>
