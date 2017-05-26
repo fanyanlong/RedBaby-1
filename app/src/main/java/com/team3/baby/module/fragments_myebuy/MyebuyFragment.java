@@ -85,7 +85,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
 
         @Override
         public void onStart(SHARE_MEDIA platform) {
-            //授权开始的回调
+            //授权开始的回调ddd
         }
 
         @Override
@@ -127,12 +127,12 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
 
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-            Toast.makeText(getContext(), "Authorize fail", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Authorize fail", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onCancel(SHARE_MEDIA platform, int action) {
-            Toast.makeText(getContext(), "Authorize cancel", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Authorize cancel", Toast.LENGTH_SHORT).show();
         }
     };
     private SharedPreferences sharedPreferences;
@@ -180,7 +180,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = View.inflate(getContext(), R.layout.fragment_myebuy, null);
+        View view = View.inflate(getActivity(), R.layout.fragment_myebuy, null);
         view.findViewById(R.id.iv_back_myebuy_include).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -188,7 +188,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             }
         });
         recyclerCailoveMyebuy = (RecyclerView) view.findViewById(R.id.recycler_cailove_myebuy);
-        recyclerAddHeader = new RecyclerAddHeader(getContext());
+        recyclerAddHeader = new RecyclerAddHeader(getActivity());
         UMShareAPI.get(getActivity());
         sharedPreferences = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
 //头布局
@@ -243,7 +243,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
                     sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
                     edit.commit();
                 } else {
-                    Toast.makeText(getContext(), "用户名密码不正确", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "用户名密码不正确", Toast.LENGTH_SHORT).show();
                 }
             }
         });
