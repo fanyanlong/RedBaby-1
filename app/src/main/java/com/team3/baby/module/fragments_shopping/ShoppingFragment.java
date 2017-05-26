@@ -54,7 +54,7 @@ public class ShoppingFragment extends BaseFragment {
     @BindView(R.id.tv_compile_fragment_shopping)
     TextView tvCompileFragmentShopping;
     //@BindView(R.id.lv_foot_foot)
-    public static  LinearLayout lvFootFoot;
+    public static LinearLayout lvFootFoot;
     @BindView(R.id.tv_total_price)
     TextView tvTotalPrice;
 
@@ -77,7 +77,7 @@ public class ShoppingFragment extends BaseFragment {
     protected View initView() {
         View view = View.inflate(mContext, R.layout.fragment_shopping, null);
         sam = new SampleHeader(mContext);
-         lvFootFoot  = (LinearLayout) view.findViewById(R.id.lv_foot_foot);
+        lvFootFoot = (LinearLayout) view.findViewById(R.id.lv_foot_foot);
 
         return view;
 

@@ -1,5 +1,6 @@
 package com.team3.baby.module.main_activity.v;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -18,6 +19,7 @@ import com.team3.baby.module.fragments_home.HomeFragment;
 import com.team3.baby.module.fragments_myebuy.MyebuyFragment;
 import com.team3.baby.module.fragments_shopping.ShoppingFragment;
 import com.team3.baby.module.main_activity.p.MainPresenter;
+import com.umeng.socialize.UMShareAPI;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,14 +49,13 @@ public class MainActivity extends FragmentActivity implements MainView {
     @BindView(R.id.rdoBtn_hide_main_activity)
     RadioButton rdoBtnHideMainActivity;
 
+
     private GroupBuyFragment groupBuyFragment;
     private HomeFragment homeFragment;
     private MyebuyFragment myebuyFragment;
     private ShoppingFragment shoppingFragment;
     private ClassifyFragment classFragment;
     private MainPresenter p;
-
-
 
 
     protected void initData() {
@@ -68,7 +69,6 @@ public class MainActivity extends FragmentActivity implements MainView {
         p.addFragment();
 
     }
-
 
 
     protected void setListener() {
@@ -108,7 +108,8 @@ public class MainActivity extends FragmentActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+//qq登录api调用diaoyong54
+        UMShareAPI.get(this);
         // TODO: add setContentView(...) invocation
         setContentView(R.layout.activity_main);
 
@@ -155,6 +156,12 @@ public class MainActivity extends FragmentActivity implements MainView {
         return transaction;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+
+    }
 
 }
 

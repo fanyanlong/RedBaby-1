@@ -8,7 +8,7 @@ import com.team3.baby.R;
 import com.youth.banner.loader.ImageLoader;
 
 /**
- * 类用途：
+ * 类用途
  * 作者：ShiZhuangZhuang
  * 时间：2017/5/23 14:15
  */
@@ -16,6 +16,9 @@ public class GlideImageLoader extends ImageLoader {
     @Override
     public void displayImage(Context context, Object path, ImageView imageView) {
         //Glide 加载图片简单用法
-        Glide.with(context).load(path).placeholder(R.mipmap.home_store_card_header_icon).into(imageView);
+        Glide.with(context)
+                .load(path)
+                .transform(new GlideRoundTransform(context,20))
+                .into(imageView);
     }
 }

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.team3.baby.R;
-import com.team3.baby.module.fragments_home.bean.HomeJsonBean;
+import com.team3.baby.module.fragments_home.bean.HomeBean;
 import com.team3.baby.module.fragments_home.url.Url;
 
 import java.util.List;
@@ -23,10 +23,10 @@ import java.util.List;
  */
 
 public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<HomeJsonBean.DataBean> list;
+    private List<HomeBean.DataBean> list;
     private Context context;
 
-    public MyRecyclerTitleAdapter(Context context, List<HomeJsonBean.DataBean> list) {
+    public MyRecyclerTitleAdapter(Context context, List<HomeBean.DataBean> list) {
         this.list = list;
         this.context = context;
     }
