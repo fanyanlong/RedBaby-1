@@ -167,7 +167,7 @@ public class AddIndent_carActivity extends AppCompatActivity {
 
 
     }
-
+//
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         WindowManager wm = this.getWindowManager();

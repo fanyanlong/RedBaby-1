@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * 作者：ShiZhuangZhuang
  * 时间：2017/5/21 19:58
  */
-
 public class UrlGroupBuy {
     public static final String url = "http://f.m.suning.com/api/pgs/channelViewNew.do?version=2";
     public static final String ONE = "http://f.m.suning.com/api/pgs/cateView" +

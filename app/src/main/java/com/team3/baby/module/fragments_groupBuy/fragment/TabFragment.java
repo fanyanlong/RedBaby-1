@@ -87,7 +87,7 @@ public class TabFragment extends Fragment {
         recyclerview.setHasFixedSize(true);
         //设置分隔线
         recyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
-                .VERTICAL, 10, ContextCompat.getColor(getActivity(), R.color.danhui)));
+                .VERTICAL));
 
         //设置增加或删除条目的动画
         recyclerview.setItemAnimator(new DefaultItemAnimator());
@@ -166,8 +166,8 @@ public class TabFragment extends Fragment {
         //设置固定大小
         recyclerTabfragment.setHasFixedSize(true);
         //设置分隔线
-        recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
-                .HORIZONTAL, 10, ContextCompat.getColor(getActivity(), R.color.danhui)));
+        /*recyclerTabfragment.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager
+                .HORIZONTAL,10,R.color.danhui));*/
         //设置增加或删除条目的动画
         recyclerTabfragment.setItemAnimator(new DefaultItemAnimator());
         HttpUtils.getData(url, new StringCallback() {
