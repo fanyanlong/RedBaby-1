@@ -32,7 +32,7 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 /**
- * 类用途：
+ * 类用途
  * 作者：ShiZhuangZhuang
  * 时间：2017/5/24 16:44
  */
