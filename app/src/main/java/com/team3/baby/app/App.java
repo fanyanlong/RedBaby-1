@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -66,6 +68,7 @@ public class App extends Application {
         config.setFacebookAuthType(UMShareConfig.AUTH_TYPE_SSO);
         config.setShareToLinkedInFriendScope(UMShareConfig.LINKED_IN_FRIEND_SCOPE_ANYONE);
         mAppApplication = this;
+        SpeechUtility.createUtility(this, SpeechConstant.APPID +"=5926da9e");
         //green dao
         setupDatabase();
         //ok go 金虎 5.23

@@ -1,5 +1,6 @@
 package com.team3.baby.module.fragments_home.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -46,6 +47,13 @@ public class HomeSeekActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        mHomeSeekVoiceText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeSeekActivity.this,VoiceActivity.class);
+                startActivity(intent);
             }
         });
     }
