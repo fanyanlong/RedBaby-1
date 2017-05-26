@@ -5,16 +5,18 @@ package com.team3.baby.module.fragments_groupBuy.utils;
  * 作者：ShiZhuangZhuang
  * 时间：2017/5/21 18:46
  */
-        import android.content.Context;
-        import android.content.res.TypedArray;
-        import android.graphics.Canvas;
-        import android.graphics.Paint;
-        import android.graphics.Rect;
-        import android.graphics.drawable.Drawable;
-        import android.support.v4.content.ContextCompat;
-        import android.support.v7.widget.LinearLayoutManager;
-        import android.support.v7.widget.RecyclerView;
-        import android.view.View;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
 
 /**
  * Created by dan on 2017/5/9.
@@ -51,20 +53,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         mDivider = a.getDrawable(0);
         a.recycle();
     }
-
-    /**
-     * 自定义分割线
-     *
-     * @param context
-     * @param orientation 列表方向
-     * @param drawableId  分割线图片
-     */
-    public DividerItemDecoration(Context context, int orientation, int drawableId) {
-        this(context, orientation);
-        mDivider = ContextCompat.getDrawable(context, drawableId);
-        mDividerHeight = mDivider.getIntrinsicHeight();
-    }
-
     /**
      * 自定义分割线
      *

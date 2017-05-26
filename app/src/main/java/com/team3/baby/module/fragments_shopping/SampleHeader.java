@@ -14,7 +14,11 @@ import com.team3.baby.R;
 import com.team3.baby.app.App;
 import com.team3.baby.module.fragments_shopping.shop_adapter.HeadBaseAdapter;
 import com.team3.baby.module.main_activity.v.MainActivity;
+import com.team3.baby.rxbus.event.Account_shoppingcar;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.text.DecimalFormat;
 import java.util.List;
 
 import de.greenrobot.dao.query.QueryBuilder;
@@ -30,6 +34,7 @@ import static com.team3.baby.module.fragments_shopping.ShoppingFragment.lvFootFo
  */
 public class SampleHeader extends RelativeLayout {
 
+    private int shopping_count;
     private View view;
     private HeadBaseAdapter adapter;
     private LinearLayout lv_head_head;
@@ -103,6 +108,26 @@ public class SampleHeader extends RelativeLayout {
                 tableShoppingDao.delete(list.get(position));
                 list.remove(position);
                 adapter.notifyDataSetChanged();
+
+
+                final Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+                // final ShopCarBean shopCarBean = list.get(position);
+                QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
+                final List<Table_shopping> alist = queryBuilder.list();
+
+                float price = 0;
+                float price1 = 0;
+                int number = 0;
+                for (int i = 0; i < alist.size(); i++) {
+                    shopping_count = alist.get(i).getShopping_count();
+                    float shopping_price = alist.get(i).getShopping_price();
+                    shopping_price = shopping_price * alist.get(i).getShopping_count();
+                    price1 = price1 + shopping_price;
+                    number = shopping_count + number;
+                }
+
+                String price_ = new DecimalFormat("##.##").format(price1);
+                EventBus.getDefault().post(new Account_shoppingcar(price_, number + ""));
                 if (list.size() == 0) {
                     lv_head_head.setVisibility(VISIBLE);
                     lvFootFoot.setVisibility(GONE);

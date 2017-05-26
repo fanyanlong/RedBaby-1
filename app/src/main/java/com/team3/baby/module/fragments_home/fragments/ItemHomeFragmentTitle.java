@@ -52,7 +52,7 @@ public class ItemHomeFragmentTitle extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = View.inflate(getContext(), R.layout.fragment_home_title, null);
+        View view = View.inflate(getActivity(), R.layout.fragment_home_title, null);
         ButterKnife.bind(this, view);
         Bundle bundle = getArguments();
         url = bundle.getString("url");
@@ -91,10 +91,10 @@ public class ItemHomeFragmentTitle extends Fragment {
                 Gson gson = new Gson();
                 HomeBean titleBean = gson.fromJson(result, HomeBean.class);
                 List<HomeBean.DataBean> list = titleBean.getData();
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
 
                 mRvFragmentHomeRectcler.setLayoutManager(linearLayoutManager);
-                MyRecyclerTitleAdapter adapter = new MyRecyclerTitleAdapter(getContext(),list);
+                MyRecyclerTitleAdapter adapter = new MyRecyclerTitleAdapter(getActivity(),list);
                 mRvFragmentHomeRectcler.setAdapter(adapter);
             }
 

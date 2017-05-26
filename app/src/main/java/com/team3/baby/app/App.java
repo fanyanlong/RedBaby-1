@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.lzy.okgo.OkGo;
@@ -21,8 +23,6 @@ import java.util.logging.Level;
 import me.redbaby.greendao.DaoMaster;
 import me.redbaby.greendao.DaoSession;
 
-import static android.R.attr.data;
-
 /**
  * 类的用途：
  * Created by jinhu
@@ -30,6 +30,7 @@ import static android.R.attr.data;
  */
 
 public class App extends Application {
+
     public DaoSession daoSession;
     public SQLiteDatabase db;
     public DaoMaster.DevOpenHelper helper;
@@ -148,7 +149,8 @@ public class App extends Application {
     public SQLiteDatabase getDb() {
         return db;
     }
+
     {
-        PlatformConfig.setQQZone("1106029755","AaFrTt1byVgUpWIq");
+        PlatformConfig.setQQZone("1106029755", "AaFrTt1byVgUpWIq");
     }
 }
