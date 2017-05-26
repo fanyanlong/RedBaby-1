@@ -108,7 +108,7 @@ public class MainActivity extends FragmentActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//qq登录api调用diaoyong
+//qq登录api调用diaoyong54
         UMShareAPI.get(this);
         // TODO: add setContentView(...) invocation
         setContentView(R.layout.activity_main);
