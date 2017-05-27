@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = View.inflate(getContext(), R.layout.fragment_home, null);
+        View view = View.inflate(getActivity(), R.layout.fragment_home, null);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
                 ItemHomeFragment itemHomeFragment1 = new ItemHomeFragment().newInstance(Url.TITLE);
                 listFram.add(itemHomeFragment1);
                 listStr.add("上新");
-                mInflater = LayoutInflater.from(getContext());
+                mInflater = LayoutInflater.from(getActivity());
                 for (int i = 0; i < data.get(0).getTag().size(); i++) {
                     ItemHomeFragmentTitle itemHomeFragmentTitle = new ItemHomeFragmentTitle().newInstance(data.get(0).getTag().get(i).getElementDesc().trim());
                     listFram.add(itemHomeFragmentTitle);
@@ -96,14 +96,14 @@ public class HomeFragment extends Fragment {
                 mLinearInquireInclude.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getContext(), HomeSeekActivity.class);
+                        Intent intent = new Intent(getActivity(), HomeSeekActivity.class);
                         startActivity(intent);
                     }
                 });
                 mImageMesInclude.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent= new Intent(getContext(), XiaoXi.class);
+                        Intent intent= new Intent(getActivity(), XiaoXi.class);
                         startActivity(intent);
 
                     }
@@ -116,7 +116,9 @@ public class HomeFragment extends Fragment {
                                         .setPermissions(Manifest.permission.CAMERA
                                                 , Manifest.permission.READ_PHONE_STATE
                                                 , Manifest.permission.WRITE_EXTERNAL_STORAGE
-                                        )
+
+
+                        )
 
                 /*以下为自定义提示语、按钮文字
                 .setDeniedMessage()
@@ -128,7 +130,7 @@ public class HomeFragment extends Fragment {
                                 new AcpListener() {
                                     @Override
                                     public void onGranted() {
-                                        startActivity(new Intent(getContext(), CaptureActivity.class));
+                                        startActivity(new Intent(getActivity(), CaptureActivity.class));
 
                                     }
 
