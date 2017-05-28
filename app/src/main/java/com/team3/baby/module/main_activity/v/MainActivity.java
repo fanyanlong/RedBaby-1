@@ -32,7 +32,7 @@ import butterknife.ButterKnife;
  */
 
 public class MainActivity extends FragmentActivity implements MainView {
-
+//df
     @BindView(R.id.relative_layout_main_activity)
     RelativeLayout relativeLayoutMainActivity;
     @BindView(R.id.rdoBtn_home_main_activity)
