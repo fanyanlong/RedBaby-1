@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_classify.fragment.view.ClassifyFragment;
 import com.team3.baby.module.fragments_groupBuy.GroupBuyFragment;
@@ -111,6 +112,11 @@ public class MainActivity extends FragmentActivity implements MainView {
 //qq登录api调用diaoyong54
         UMShareAPI.get(this);
         // TODO: add setContentView(...) invocation
+        //在使用SDK各组件之前初始化context信息，传入ApplicationContext
+        //注意该方法要再setContentView方法之前实现
+
+
+        SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_main);
 
 
