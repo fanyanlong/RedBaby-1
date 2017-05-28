@@ -1,5 +1,6 @@
 package com.team3.baby.module.fragments_home.activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.iflytek.cloud.RecognizerResult;
@@ -16,9 +18,12 @@ import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
 import com.mylhyl.acp.Acp;
+import com.mylhyl.acp.AcpListener;
+import com.mylhyl.acp.AcpOptions;
 import com.team3.baby.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +47,8 @@ public class VoiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice);
         ButterKnife.bind(this);
+
+
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5926da9e");
         mVoiceDianjiYuyinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
