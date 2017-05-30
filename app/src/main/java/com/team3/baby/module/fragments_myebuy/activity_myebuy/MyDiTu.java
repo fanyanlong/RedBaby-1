@@ -17,6 +17,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -60,6 +61,9 @@ public class MyDiTu extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //在使用SDK各组件之前初始化context信息，传入ApplicationContext
+        //注意该方法要再setContentView方法之前实现
+        SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.ditu);
         tv = (TextView) findViewById(R.id.dizhi);
         que = (Button) findViewById(R.id.bt_qurendizhi_mebuy);
@@ -118,7 +122,7 @@ public class MyDiTu extends Activity {
                         LatLng latLng = new LatLng(39.963175, 116.400244);
                         //构建Marker图标
                         BitmapDescriptor bitmap = BitmapDescriptorFactory
-                                .fromResource(R.mipmap.icon_marka);
+                                .fromResource(R.mipmap.a);
 
                         //-------------------------------------------------------------------------------------------
 
@@ -131,7 +135,7 @@ public class MyDiTu extends Activity {
 //-------------------------------------------------------------------------------------------
                         LatLng latLngA = new LatLng(39.963175, 116.300244);
                         BitmapDescriptor bdAgrop = BitmapDescriptorFactory
-                                .fromResource(R.mipmap.icon_gcoding);
+                                .fromResource(R.mipmap.a);
                         //第二种方式添加掉下动画效果
                         final MarkerOptions ooA = new MarkerOptions().position(latLngA).icon(bdAgrop)
                                 .zIndex(9).draggable(true);
