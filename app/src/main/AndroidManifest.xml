@@ -8,7 +8,7 @@
     <!--崔涵淞 添加 5.23 二维码需要权限-->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
-          package="com.team3.baby">
+    package="com.team3.baby">
 
     <!-- 崔涵淞 添加 5月25日 21:37 语音识别权限 -->
     <!--连接网络权限，用于执行云端语音能力 -->
@@ -23,8 +23,8 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <!-- 崔涵淞 添加 5.23 二维码需要权限 -->
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -98,6 +98,7 @@
             android:name=".zxing.activity.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity android:name=".module.fragments_myebuy.activity_myebuy.MyDiTu"></activity>
         <activity
             android:name=".zxing.activity.ResultActivity"
             android:screenOrientation="portrait"
@@ -137,11 +138,9 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity android:name=".module.fragments_home.activity.HomeSeekActivity">
-        </activity>
-        <activity android:name=".module.fragments_home.activity.VoiceActivity">
-        </activity>
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".module.fragments_home.activity.HomeSeekActivity"></activity>
+        <activity android:name=".module.fragments_home.activity.VoiceActivity"></activity>
     </application>
     <!--QQ权限-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -155,4 +154,19 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 地图权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="kPPdFePwg4pAjKlKyv13fri2mcr07xir" />
 </manifest>

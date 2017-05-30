@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_classify.fragment.view.ClassifyFragment;
 import com.team3.baby.module.fragments_groupBuy.GroupBuyFragment;
@@ -31,7 +32,7 @@ import butterknife.ButterKnife;
  */
 
 public class MainActivity extends FragmentActivity implements MainView {
-
+//df
     @BindView(R.id.relative_layout_main_activity)
     RelativeLayout relativeLayoutMainActivity;
     @BindView(R.id.rdoBtn_home_main_activity)
@@ -111,6 +112,7 @@ public class MainActivity extends FragmentActivity implements MainView {
 //qq登录api调用diaoyong54
         UMShareAPI.get(this);
         // TODO: add setContentView(...) invocation
+
         setContentView(R.layout.activity_main);
 
 

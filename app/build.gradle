@@ -22,9 +22,9 @@ android {
     }
 
     //金虎 5.23 9:32
-    sourceSets{
-        main{
-            java.srcDirs=['src/main/java','src/main/java-gen']
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java-gen']
         }
     }
 }
@@ -42,10 +42,10 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
     //    金虎，5.17 14:49 添加
+
     // butterknife
     compile 'com.jakewharton:butterknife:8.5.1'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     //Glide图片加载
@@ -56,7 +56,6 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     //金虎 5.19 16:40 logger
     compile 'com.orhanobut:logger:1.15'
-
     //金虎 5.22 20:54 gson
     compile 'com.google.code.gson:gson:2.8.0'
     /*无限录播*/
@@ -84,4 +83,5 @@ dependencies {
     compile files('libs/alipaySingle-20170510.jar')
     compile files('libs/Msc.jar')
     compile files('libs/Sunflower.jar')
+    compile files('libs/BaiduLBS_Android.jar')
 }
