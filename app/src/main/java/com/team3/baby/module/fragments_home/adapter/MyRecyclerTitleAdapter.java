@@ -483,8 +483,6 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             item_home_nine_name1_text = (TextView) itemView.findViewById(R.id.item_home_nine_name1_text);
             item_home_nine_desc1_text = (TextView) itemView.findViewById(R.id.item_home_nine_desc1_text);
             item_home_nine_price1_text = (TextView) itemView.findViewById(R.id.item_home_nine_price1_text);
-
-
         }
     }
 

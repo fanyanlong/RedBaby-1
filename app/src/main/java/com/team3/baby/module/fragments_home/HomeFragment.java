@@ -82,9 +82,8 @@ public class HomeFragment extends Fragment {
                 ItemHomeFragment itemHomeFragment1 = new ItemHomeFragment().newInstance(Url.TITLE);
                 listFram.add(itemHomeFragment1);
                 listStr.add("上新");
-                mInflater = LayoutInflater.from(getActivity());
-                for (int i = 0; i < data.get(0).getTag().size(); i++) {
 
+                for (int i = 0; i < data.get(0).getTag().size(); i++) {
                     ItemHomeFragmentTitle itemHomeFragmentTitle = new ItemHomeFragmentTitle().newInstance(data.get(0).getTag().get(i).getElementDesc());
                     listFram.add(itemHomeFragmentTitle);
                     listStr.add(data.get(0).getTag().get(i).getElementName());
