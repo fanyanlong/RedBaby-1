@@ -43,10 +43,10 @@ public class ShowItem extends Activity {
         findViewById(R.id.tv_addaddress_mye).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowItem.this, MyDiTu.class);
+              /*  Intent intent = new Intent(ShowItem.this, MyDiTu.class);
 
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         });
         lv = (ListView) findViewById(R.id.lv_dizhi_mebuy);

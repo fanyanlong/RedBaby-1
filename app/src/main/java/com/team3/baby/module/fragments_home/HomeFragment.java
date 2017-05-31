@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,15 +77,18 @@ public class HomeFragment extends Fragment {
                 Gson gson = new Gson();
                 TitleBean titleBean = gson.fromJson(result, TitleBean.class);
                 List<TitleBean.DataBean> data = titleBean.getData();
+                data.get(0).getTag().remove(4);
+                data.get(0).getTag().remove(5);
                 ItemHomeFragment itemHomeFragment1 = new ItemHomeFragment().newInstance(Url.TITLE);
                 listFram.add(itemHomeFragment1);
                 listStr.add("上新");
                 mInflater = LayoutInflater.from(getActivity());
                 for (int i = 0; i < data.get(0).getTag().size(); i++) {
-                    ItemHomeFragmentTitle itemHomeFragmentTitle = new ItemHomeFragmentTitle().newInstance(data.get(0).getTag().get(i).getElementDesc().trim());
+
+                    ItemHomeFragmentTitle itemHomeFragmentTitle = new ItemHomeFragmentTitle().newInstance(data.get(0).getTag().get(i).getElementDesc());
                     listFram.add(itemHomeFragmentTitle);
-                    //listStr.add("上新");
                     listStr.add(data.get(0).getTag().get(i).getElementName());
+
                 }
 
                 mTabTopHomeFragment.setTabMode(TabLayout.MODE_SCROLLABLE);

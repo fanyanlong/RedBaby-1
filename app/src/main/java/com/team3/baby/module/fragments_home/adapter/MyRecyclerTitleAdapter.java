@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_home.bean.HomeBean;
 import com.team3.baby.module.fragments_home.url.Url;
+import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
 
 import java.util.List;
 
@@ -373,6 +375,89 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             item_home_three_text5.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             item_home_three_text6.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             item_home_three_text7.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+
+            image1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(1).getPicUrl());
+                    //Log.e("==================",Url.IMAGE+list.get(3).getTag().get(1).getLinkUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(1).getElementName());
+                    intent.putExtra("shopPrice", "¥169.0");
+                    context.startActivity(intent);
+                }
+            });
+
+            image2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(2).getPicUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(2).getElementName());
+                    intent.putExtra("shopPrice", "¥29.0");
+                    context.startActivity(intent);
+                }
+            });
+            image3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(3).getPicUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(3).getElementName());
+                    intent.putExtra("shopPrice", "¥35.90");
+                    context.startActivity(intent);
+                }
+            });
+            image4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(4).getPicUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(4).getElementName());
+                    intent.putExtra("shopPrice", "¥33.0");
+                    context.startActivity(intent);
+                }
+            });
+            image5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(5).getPicUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(6).getElementName());
+                    intent.putExtra("shopPrice", "¥79.0");
+                    context.startActivity(intent);
+                }
+            });
+            image6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(6).getPicUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(6).getElementName());
+                    intent.putExtra("shopPrice", "¥145.0");
+                    context.startActivity(intent);
+                }
+            });
+            image7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(7).getPicUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(7).getElementName());
+                    intent.putExtra("shopPrice", "¥89.0");
+                    context.startActivity(intent);
+                }
+            });
+            image8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ShoppingCarActivity.class);
+                    intent.putExtra("position", Url.IMAGE + list.get(1).get_$88003().getTag().get(8).getPicUrl());
+                    intent.putExtra("shopName", list.get(1).get_$88003().getTag().get(8).getElementName());
+                    intent.putExtra("shopPrice", "¥0.0");
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
