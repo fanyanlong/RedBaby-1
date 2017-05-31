@@ -204,8 +204,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
      * [防止快速点击]
      *
      * @return
-     */
-    private boolean fastClick() {
+     */private boolean fastClick() {
         long lastClick = 0;
         if (System.currentTimeMillis() - lastClick <= 1000) {
             return false;
@@ -213,6 +212,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
         lastClick = System.currentTimeMillis();
         return true;
     }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
