@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="39dp"
         android:text="您的收货地址："
-        android:textSize="22sp"></TextView>
+        android:textSize="15sp"></TextView>
 
     <Button
         android:id="@+id/bt_qurendizhi_mebuy"
