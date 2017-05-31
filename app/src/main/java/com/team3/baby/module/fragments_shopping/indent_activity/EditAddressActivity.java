@@ -39,6 +39,38 @@ public class EditAddressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_address);
         ButterKnife.bind(this);
         tvHeadInclude.setText("新增地址");
+        initListener();
+    }
+
+    private void initListener() {
+        /*itemAreaEditAddressActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Acp.getInstance(EditAddressActivity.this).request(new AcpOptions.Builder()
+                                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                        , Manifest.permission.READ_PHONE_STATE
+                                        , Manifest.permission.SEND_SMS)
+                *//*以下为自定义提示语、按钮文字
+                .setDeniedMessage()
+                .setDeniedCloseBtn()
+                .setDeniedSettingBtn()
+                .setRationalMessage()
+                .setRationalBtn()*//*
+                                .build(),
+                        new AcpListener() {
+                            @Override
+                            public void onGranted() {
+                                Intent intent = new Intent(EditAddressActivity.this,LocationActivity.class);
+                                startActivity(intent);
+
+                            }
+
+                            @Override
+                            public void onDenied(List<String> permissions) {
+                            }
+                        });
+            }
+        });*/
     }
 
 }

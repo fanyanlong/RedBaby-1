@@ -30,7 +30,7 @@ public class ImageUtils {
                 //加载图片地址
                 .load(url)
                 //图片加载失败后显示本地图片
-                .placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                .placeholder(R.mipmap.ahahah)
                 //设置渐现效果
                 //.crossFade()
                 //设置缓存

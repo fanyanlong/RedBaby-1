@@ -2,14 +2,12 @@ package com.team3.baby.module.fragments_myebuy;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.team3.baby.R;
-import com.team3.baby.module.main_activity.v.MainActivity;
 
 /**
  * @类的用途:
@@ -53,11 +51,5 @@ public class Setting extends Activity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 }

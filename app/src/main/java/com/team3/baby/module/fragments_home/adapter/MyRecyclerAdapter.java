@@ -96,50 +96,50 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 holder_two.probation_text.setText(list.get(2).getTag().get(3).getElementName());
                 holder_two.pregnant_text.setText(list.get(2).getTag().get(4).getElementName());
                 Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_two.lotto_image);
                 Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_two.centre_image);
                 Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
-                        .get(2).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(2).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_two.import_image);
                 Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
-                        .get(3).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(3).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_two.probation_image);
                 Glide.with(context).load(Url.IMAGE + list.get(2).getTag()
-                        .get(4).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(4).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_two.pregnant_image);
                 setClickListener(holder_two);
                 break;
             case 2:
                 ViewHolder_Three holder_three = (ViewHolder_Three) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image0);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image1);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(2).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(2).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image2);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(3).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(3).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image3);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(4).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(4).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image4);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(5).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(5).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image5);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(6).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(6).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image6);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(7).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(7).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image7);
                 Glide.with(context).load(Url.IMAGE + list.get(3).getTag()
-                        .get(8).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(8).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_three.image8);
 
                 setClickListener(holder_three);
@@ -148,69 +148,69 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             case 3:
                 ViewHolder_Four holder_four = (ViewHolder_Four) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(5).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_four.item_home_four_activity_image);
                 Glide.with(context).load(Url.IMAGE + list.get(6).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_four.item_home_four_big_poly_hui_image);
                 Glide.with(context).load(Url.IMAGE + list.get(6).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_four.item_home_four_tesco_image);
                 setClickListener(holder_four);
                 break;
             case 4:
                 ViewHolder_Five holder_five = (ViewHolder_Five) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(8).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_five.item_home_five_knowledge_image);
                 Glide.with(context).load(Url.IMAGE + list.get(9).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_five.item_home_five_newborn_image);
                 Glide.with(context).load(Url.IMAGE + list.get(9).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_five.item_home_five_infant_image);
                 Glide.with(context).load(Url.IMAGE + list.get(10).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_five.item_home_five_infant_prefecture_image);
                 Glide.with(context).load(Url.IMAGE + list.get(10).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_five.item_home_five_preschool_prefecture_image);
                 Glide.with(context).load(Url.IMAGE + list.get(11).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_five.item_home_five_ready_prefecture_image);
                 Glide.with(context).load(Url.IMAGE + list.get(11).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_five.item_home_five_gestation_prefecture_image);
                 setClickListener(holder_five);
                 break;
             case 5:
                 ViewHolder_Six holder_Six = (ViewHolder_Six) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(13).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_trademark_image);
                 Glide.with(context).load(Url.IMAGE + list.get(14).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_trademark_hui_image);
                 Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_image1);
                 Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
-                        .get(2).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(2).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_image2);
                 Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
-                        .get(3).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(3).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_image3);
                 Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
-                        .get(4).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(4).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_image4);
                 Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
-                        .get(5).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(5).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_image5);
                 Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
-                        .get(6).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(6).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_image6);
                 Glide.with(context).load(Url.IMAGE + list.get(15).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_Six.item_home_six_image7);
                 holder_Six.item_home_six_name1.setText(list.get(15).getTag().get(1).getElementName());
                 holder_Six.item_home_six_name2.setText(list.get(15).getTag().get(2).getElementName());
@@ -224,28 +224,28 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             case 6:
                 ViewHolder_Seven holder_seven = (ViewHolder_Seven) holder;
                 Glide.with(context).load(Url.IMAGE + list.get(16).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_good_method_image);
                 Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
-                        .get(1).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(1).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_image1);
                 Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
-                        .get(2).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(2).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_image2);
                 Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
-                        .get(3).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(3).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_image3);
                 Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
-                        .get(4).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(4).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_image4);
                 Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
-                        .get(5).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(5).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_image5);
                 Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
-                        .get(6).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(6).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_image6);
                 Glide.with(context).load(Url.IMAGE + list.get(17).getTag()
-                        .get(0).getPicUrl()).placeholder(R.mipmap.commodity_hua_validate_lable_two)
+                        .get(0).getPicUrl()).placeholder(R.mipmap.ahahah)
                         .into(holder_seven.item_home_seven_image7);
                 holder_seven.item_home_seven_name1.setText(list.get(17).getTag().get(1).getElementName());
                 holder_seven.item_home_seven_name2.setText(list.get(17).getTag().get(2).getElementName());

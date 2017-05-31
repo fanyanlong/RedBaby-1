@@ -1,6 +1,5 @@
 package com.team3.baby.module.fragments_myebuy;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -18,7 +17,6 @@ import com.team3.baby.module.fragments_myebuy.fragment_pingjia.Order_Net_Fragmen
 import com.team3.baby.module.fragments_myebuy.fragment_pingjia.Order_ping_Fragment;
 import com.team3.baby.module.fragments_myebuy.fragment_pingjia.Order_shou_Fragment;
 import com.team3.baby.module.fragments_myebuy.fragment_pingjia.Order_zhi_Fragment;
-import com.team3.baby.module.main_activity.v.MainActivity;
 
 import java.util.ArrayList;
 
@@ -113,14 +111,6 @@ public class CheckOrder extends FragmentActivity {
         }
     }
 
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
 }
 

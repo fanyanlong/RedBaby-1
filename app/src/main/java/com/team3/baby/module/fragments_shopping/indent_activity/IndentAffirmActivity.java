@@ -96,6 +96,13 @@ public class IndentAffirmActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        noAddressLayoutIndentAffirmActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IndentAffirmActivity.this, EditAddressActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initAddress() {
