@@ -1,12 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 android {
-
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     compileSdkVersion 25
     buildToolsVersion '25.0.2'
-
     defaultConfig {
         applicationId "com.team3.baby"
         minSdkVersion 19
@@ -24,12 +22,11 @@ android {
     }
 
     //金虎 5.23 9:32
-    sourceSets{
-        main{
-            java.srcDirs=['src/main/java','src/main/java-gen']
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java-gen']
         }
     }
-
 }
 
 dependencies {
@@ -86,7 +83,5 @@ dependencies {
     compile files('libs/alipaySingle-20170510.jar')
     compile files('libs/Msc.jar')
     compile files('libs/Sunflower.jar')
-    //田杰谕 地址选择器
-   // compile 'com.smarttop:jd-address:1.1.0'
-
+    compile files('libs/BaiduLBS_Android.jar')
 }
