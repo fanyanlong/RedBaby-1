@@ -131,6 +131,7 @@
                 <data android:scheme="tencent1106029755"/>
             </intent-filter>
         </activity>
+        <activity android:name=".module.main_activity.Main2Activity"/>
         <!-- QQ登录 -->
         <activity
             android:name="com.tencent.connect.common.AssistActivity"

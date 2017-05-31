@@ -7,7 +7,7 @@ import android.os.Message;
 
 import com.team3.baby.R;
 import com.team3.baby.base.BaseActivity;
-import com.team3.baby.module.main_activity.v.MainActivity;
+import com.team3.baby.module.main_activity.Main2Activity;
 
 import butterknife.ButterKnife;
 
@@ -36,7 +36,7 @@ public class WelcomeActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            Intent intent = new Intent(WelcomeActivity.this, Main2Activity.class);
             startActivity(intent);
             finish();
         }

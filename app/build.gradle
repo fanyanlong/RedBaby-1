@@ -84,4 +84,6 @@ dependencies {
     compile files('libs/Msc.jar')
     compile files('libs/Sunflower.jar')
     compile files('libs/BaiduLBS_Android.jar')
+    //田杰谕 5.31
+    //compile 'com.smarttop:jd-address:1.1.0'
 }
