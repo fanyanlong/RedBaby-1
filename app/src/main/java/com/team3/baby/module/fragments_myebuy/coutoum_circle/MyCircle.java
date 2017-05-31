@@ -160,7 +160,7 @@ public class MyCircle extends View {
         roundColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundColor, Color.BLUE);
         roundProgressColor = mTypedArray.getColor(R.styleable.RoundProgressBar_roundProgressColor, Color.GREEN);
         textColor = mTypedArray.getColor(R.styleable.RoundProgressBar_textColor, Color.GREEN);
-        textSize = mTypedArray.getDimension(R.styleable.RoundProgressBar_textSize, 155);
+        textSize = mTypedArray.getDimension(R.styleable.RoundProgressBar_textSize, 130);
         roundWidth = mTypedArray.getDimension(R.styleable.RoundProgressBar_roundWidth, 25);
         max = mTypedArray.getInteger(R.styleable.RoundProgressBar_max, 100);
         textIsDisplayable = mTypedArray.getBoolean(R.styleable.RoundProgressBar_textIsDisplayable, true);
@@ -177,37 +177,37 @@ public class MyCircle extends View {
         super.onDraw(canvas);
         //获取圆心的x坐标
         centre = getWidth() / 2;
-        int radius = (int) (centre - 320); //圆环的半径
-        paint.setColor(roundColor); //设置圆环的颜色
+        int radius = (int) (centre - (centre - 100)); //圆环的半径
+        paint.setColor(Color.argb(255, 179, 38, 28)); //设置圆环的颜色
         paint.setStyle(Paint.Style.STROKE); //设置空心
         paint.setStrokeWidth(20); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
-        canvas.drawCircle(centre, centre - 180, radius, paint); //画出圆环
+        canvas.drawCircle(centre, centre - 100, radius, paint); //画出圆环
         Log.e("log", centre + "");
 
 
-        int radius2 = (int) (centre - 340); //圆环的半径
+        int radius2 = (int) (centre - (centre - 90)); //圆环的半径
         paint.setColor(Color.WHITE); //设置圆环的颜色
         paint.setStyle(Paint.Style.STROKE); //设置空心
         paint.setStrokeWidth(20); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
-        canvas.drawCircle(centre, centre - 180, radius2, paint); //画出圆环
+        canvas.drawCircle(centre, centre - 100, radius2, paint); //画出圆环
 
-        int radius3 = (int) (centre - 338); //圆环的半径
+        int radius3 = (int) (centre - (centre - 95)); //圆环的半径
         paint.setColor(Color.argb(255, 122, 166, 166)); //设置圆环的颜色
         paint.setStyle(Paint.Style.STROKE); //设置空心
         paint.setStrokeWidth(5); //设置圆环的宽度
         paint.setAntiAlias(true);  //消除锯齿
-        canvas.drawCircle(centre, centre - 180, radius3, paint); //画出圆环
+        canvas.drawCircle(centre, centre - 100, radius3, paint); //画出圆环
 
-        int radius4 = (int) (centre - 350); //圆环的半径
+        int radius4 = (int) (centre - (centre - 85)); //圆环的半径
         paint.setColor(setcolor(progress)); //设置圆环的颜色
         paint.setStyle(Paint.Style.FILL_AND_STROKE); //设置实心
-
         paint.setAntiAlias(true);  //消除锯齿
-        canvas.drawCircle(centre, centre - 180, radius4, paint); //画出圆环
+        canvas.drawCircle(centre, centre - 100, radius4, paint); //画出圆环
 
-        paint.setStrokeWidth(0);
+
+        paint.setStrokeWidth(5);
         paint.setColor(textColor);
         paint.setTextSize(textSize);
         paint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD)); //设置字体
@@ -215,7 +215,7 @@ public class MyCircle extends View {
         float textWidth = paint.measureText(percent + "");   //测量字体宽度，我们需要根据字体的宽度设置在圆环中间
 
 
-        canvas.drawText(progress + "", centre - textWidth / 2, centre - 180 + textSize / 2, paint); //画出进度百分比
+        canvas.drawText(progress + "", centre - textWidth / 2, centre - 120 + textSize / 2, paint); //画出进度百分比
 
 
     }
