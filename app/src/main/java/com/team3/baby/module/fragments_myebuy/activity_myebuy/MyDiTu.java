@@ -109,7 +109,7 @@ public class MyDiTu extends Activity {
                         initLocation();
                         mLocationClient.start();
                         //普通地图
-                        //  mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                        baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
                         //卫星地图
                         //  mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
                         //开启交通图

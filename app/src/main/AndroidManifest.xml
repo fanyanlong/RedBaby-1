@@ -74,7 +74,8 @@
         <activity android:name=".module.fragments_shopping.indent_activity.IndentAffirmActivity" />
         <activity android:name=".module.fragments_myebuy.Myhistory" />
         <activity android:name=".module.fragments_myebuy.Accountsecurity" />
-        <activity android:name=".module.main_activity.v.MainActivity" />
+        <activity android:name=".module.main_activity.v.MainActivity"
+        android:launchMode="singleTask"/>
         <activity android:name=".alipay.PayDemoActivity" />
         <activity android:name=".module.fragments_shopping.indent_activity.EditAddressActivity" />
         <activity android:name=".module.fragments_shopping.ShoppingCarActivity" />
@@ -118,6 +119,10 @@
             android:name="UMENG_APPKEY"
             android:value="58f4ae9e76661320e800000f" />
 
+        <!--百度地图-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="zKLCrYHmZv5aBow4Fcj0v2TU9Djxsabv" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
