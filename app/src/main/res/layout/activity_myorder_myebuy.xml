@@ -36,7 +36,7 @@
                 android:checked="true"
                 android:gravity="center"
                 android:text="网上订单"
-                android:textColor="@drawable/dingdan_selecter_ziti"
+
                 android:textSize="18sp" />
 
             <RadioButton
