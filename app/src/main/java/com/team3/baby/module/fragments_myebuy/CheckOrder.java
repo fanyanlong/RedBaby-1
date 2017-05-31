@@ -112,8 +112,6 @@ public class CheckOrder extends FragmentActivity {
     }
 
 
-
-
 }
 
 
