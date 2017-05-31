@@ -1,13 +1,11 @@
 package com.team3.baby.module.fragments_myebuy;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_myebuy.coutoum_circle.MyCircle;
-import com.team3.baby.module.main_activity.v.MainActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -82,13 +80,7 @@ public class Accountsecurity extends Activity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 
 
 }

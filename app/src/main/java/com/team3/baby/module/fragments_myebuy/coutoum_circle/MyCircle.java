@@ -20,7 +20,7 @@ import com.team3.baby.R;
 
 public class MyCircle extends View {
     /**
-     * 画笔对象的引用
+     * 画笔对象的 引用
      */
     private Paint paint;
 
@@ -236,7 +236,7 @@ public class MyCircle extends View {
 
 
     public synchronized int setcolor(int progress) {
-        if (progress < 80&&progress>50) {
+        if (progress < 80 && progress > 50) {
             return Color.YELLOW;
         }
         if (progress < 50) {
