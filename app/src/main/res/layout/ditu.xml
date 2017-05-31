@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dizhi"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:text="您的收货地址："
+        android:textSize="22sp"></TextView>
+
+    <Button
+        android:id="@+id/bt_qurendizhi_mebuy"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:text="确定" />
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true" />
+</LinearLayout>
