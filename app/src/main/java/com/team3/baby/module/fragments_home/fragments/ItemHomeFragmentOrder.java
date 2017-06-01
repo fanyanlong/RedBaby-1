@@ -59,7 +59,7 @@ public class ItemHomeFragmentOrder extends Fragment {
 
         return view;
     }
-
+//爱国
     private void setListener() {
         mAdapter.setmOnItemClickListener(new MyRecyclerOrderAdapter.OnItemClickListener() {
             @Override
