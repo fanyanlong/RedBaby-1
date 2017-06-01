@@ -44,7 +44,14 @@ public class Setting extends Activity {
                 edit = sharedPreferences.edit();
                 edit.putBoolean("yidenglu", false);
                 edit.commit();
+                SharedPreferences sp = getSharedPreferences("addAddress", MODE_PRIVATE);
+                SharedPreferences.Editor edit1 = sp.edit();
+                edit1.clear();
+                edit1.commit();
+
                 finish();
+
+
             }
         });
        
