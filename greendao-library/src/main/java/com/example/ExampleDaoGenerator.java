@@ -27,7 +27,7 @@ public class ExampleDaoGenerator {
         Entity note = schema.addEntity("Table_shopping");
 
         note.addIdProperty();
-        note.addIntProperty("shopping_id").notNull();
+        note.addStringProperty("shopping_id").notNull();
         note.addStringProperty("shopping_name ").notNull();
 
 

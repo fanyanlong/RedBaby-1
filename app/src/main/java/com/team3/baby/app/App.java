@@ -65,6 +65,9 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //logger jinhu 6-1 8:56
+//        Logger.addLogAdapter(new AndroidLogAdapter());
+
         UMShareAPI.get(this);
         UMShareConfig config = new UMShareConfig();
         config.isNeedAuthOnGetUserInfo(true);
@@ -131,6 +134,8 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
 
 

@@ -15,6 +15,9 @@ import com.cundong.recyclerview.HeaderAndFooterRecyclerViewAdapter;
 import com.cundong.recyclerview.HeaderSpanSizeLookup;
 import com.cundong.recyclerview.RecyclerViewUtils;
 import com.google.gson.Gson;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
 import com.team3.baby.app.App;
 import com.team3.baby.base.BaseFragment;
@@ -27,8 +30,11 @@ import com.team3.baby.utils.OkUtils;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -36,6 +42,8 @@ import butterknife.ButterKnife;
 import de.greenrobot.dao.query.QueryBuilder;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
+import okhttp3.Call;
+import okhttp3.Response;
 
 import static android.view.View.GONE;
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
@@ -63,6 +71,8 @@ public class ShoppingFragment extends BaseFragment {
     private SampleHeader sam;
     private String totalPrice;
     private String totalCount;
+    private List<String> mIdList;
+    private List<Integer> mNumList;
 
     //处理消息的方法
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -125,6 +135,53 @@ public class ShoppingFragment extends BaseFragment {
             public void onClick(View v) {
                 totalPrice = tvTotalPrice.getText().toString();
                 totalCount = tvGotoSettlement.getText().toString();
+
+                //post 购物车信息
+
+                JSONArray idArray = new JSONArray();
+                for (int i = 0; i < mIdList.size(); i++) {
+                    String idString = mIdList.get(i);
+                    idArray.put(idString);
+                }
+//                String idArray_String = idArray.toString().trim();
+//                Logger.d(idArray_String);
+
+                JSONArray numArray = new JSONArray();
+                int numInt = 0;
+                for (int i = 0; i < mNumList.size(); i++) {
+                    numInt = mNumList.get(i);
+                    numArray.put(numInt);
+                }
+//                String numArray_String = numArray.toString();
+//                Logger.d(numArray_String);
+
+                HashMap params = new HashMap<String,JSONArray>();
+                //params.put("storeId", "58401d1906c02a2b8877bd13");
+                params.put("productIds", idArray);
+                params.put("quantities", numArray);
+                JSONObject jsonObject = new JSONObject(params);
+                Logger.d("JSON=="+jsonObject.toString());
+               String mUrl="http://service.alinq.cn:2800/UserShop/ShoppingCart/UpdateItems?storeId=58401d1906c02a2b8877bd13";
+
+
+                OkGo.post(mUrl)//"http://service.alinq.cn:2800/UserShop/ShoppingCart/UpdateItems")
+                        .headers("application-key", "58424776034ff82470d06d3d")
+                        .headers("user-token", "584cfabb4918e4186a77ff1e")
+                        .headers("Content-Type", "application/json")
+//                        .params("storeId", "58401d1906c02a2b8877bd13")
+//                        .params("productIds", idArray.toString())
+//                        .addUrlParams("productIds", mIdList)
+//                        .params("quantities", numArray.toString())
+//                        .addUrlParams("quantities", mNumList)
+                        .upJson(jsonObject.toString())
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onSuccess(String s, Call call, Response response) {
+                                Logger.d(s);
+                            }
+
+                        });
+
                 Intent intent = new Intent(getActivity(), IndentAffirmActivity.class);
                 intent.putExtra("totalPrice", totalPrice);
                 intent.putExtra("totalCount", totalCount);
@@ -187,12 +244,18 @@ public class ShoppingFragment extends BaseFragment {
         final List<Table_shopping> alist = queryBuilder.list();
         float price = 0;
         int number = 0;
+        String id = "";
+        mIdList = new ArrayList<>();
+        mNumList = new ArrayList<>();
         for (int i = 0; i < alist.size(); i++) {
             float shopping_price = alist.get(i).getShopping_price();
             shopping_price = shopping_price * alist.get(i).getShopping_count();
             price = price + shopping_price;
             int count = alist.get(i).getShopping_count();
+            mNumList.add(count);
             number = number + count;
+            id = alist.get(i).getShopping_id();
+            mIdList.add(id);
         }
         tvTotalPrice.setText(price + "");
         tvGotoSettlement.setText("去结算（" + number + "）");

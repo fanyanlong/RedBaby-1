@@ -7,7 +7,8 @@ package me.redbaby.greendao;
 public class Table_shopping {
 
     private Long id;
-    private int shopping_id;
+    /** Not-null value. */
+    private String shopping_id;
     /** Not-null value. */
     private String shopping_name ;
     private float shopping_price;
@@ -23,7 +24,7 @@ public class Table_shopping {
         this.id = id;
     }
 
-    public Table_shopping(Long id, int shopping_id, String shopping_name , float shopping_price, String shopping_url, String shopping_pic, int shopping_count, int shopping_state) {
+    public Table_shopping(Long id, String shopping_id, String shopping_name , float shopping_price, String shopping_url, String shopping_pic, int shopping_count, int shopping_state) {
         this.id = id;
         this.shopping_id = shopping_id;
         this.shopping_name  = shopping_name ;
@@ -42,11 +43,13 @@ public class Table_shopping {
         this.id = id;
     }
 
-    public int getShopping_id() {
+    /** Not-null value. */
+    public String getShopping_id() {
         return shopping_id;
     }
 
-    public void setShopping_id(int shopping_id) {
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setShopping_id(String shopping_id) {
         this.shopping_id = shopping_id;
     }
 
@@ -99,6 +102,5 @@ public class Table_shopping {
     public void setShopping_state(int shopping_state) {
         this.shopping_state = shopping_state;
     }
-
 
 }
