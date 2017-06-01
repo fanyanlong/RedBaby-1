@@ -92,11 +92,11 @@
                   android:textColor="#000"
                   android:textSize="15sp"/>
         <TextView
+            android:id="@+id/tv_area_edit_address_activity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="15dp"
-
             android:text="请点击选择送货区域"
             android:textSize="15sp"/>
         <ImageView android:layout_width="wrap_content"
@@ -161,4 +161,13 @@
             android:layout_marginTop="30dp"
 
             android:text="保存并使用"/>
+
+    <LinearLayout
+        android:id="@+id/layout_city_address_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+    </LinearLayout>
 </LinearLayout>

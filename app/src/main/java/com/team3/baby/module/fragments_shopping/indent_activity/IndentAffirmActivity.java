@@ -1,6 +1,7 @@
 package com.team3.baby.module.fragments_shopping.indent_activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -70,6 +71,12 @@ public class IndentAffirmActivity extends AppCompatActivity {
     int count = 0;
     @BindView(R.id.tv_submit_affirm_indent_activity)
     TextView tvSubmitAffirmIndentActivity;
+    @BindView(R.id.have_address_layout_indent_affirm_activity)
+    LinearLayout haveAddressLayoutIndentAffirmActivity;
+    @BindView(R.id.nameAndPhone_indent_affirm_activity)
+    TextView nameAndPhoneIndentAffirmActivity;
+    @BindView(R.id.myAddress_indent_affirm_activity)
+    TextView myAddressIndentAffirmActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +84,15 @@ public class IndentAffirmActivity extends AppCompatActivity {
         setContentView(R.layout.activity_indent_affirm);
         ButterKnife.bind(this);
 
-        initAddress();
+
         initData();
         initListener();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initAddress();
     }
 
     private void initListener() {
@@ -106,6 +119,24 @@ public class IndentAffirmActivity extends AppCompatActivity {
     }
 
     private void initAddress() {
+        SharedPreferences sharedPreferences = getSharedPreferences("addAddress", MODE_PRIVATE);
+       /* edit.putString("address",etAddress);
+        edit.putString("consignee",etConsignee);
+        edit.putString("phoneNum",etPhoneNum);
+        edit.putString("area",tvArea);*/
+        String address = sharedPreferences.getString("address", "");
+        String consignee = sharedPreferences.getString("consignee", "");
+        String phoneNum = sharedPreferences.getString("phoneNum", "");
+        String area = sharedPreferences.getString("area", "");
+        if (address.equals("") && consignee.equals("") && phoneNum.equals("") && area.equals("")) {
+            noAddressLayoutIndentAffirmActivity.setVisibility(View.VISIBLE);
+            haveAddressLayoutIndentAffirmActivity.setVisibility(View.GONE);
+        } else {
+            noAddressLayoutIndentAffirmActivity.setVisibility(View.GONE);
+            haveAddressLayoutIndentAffirmActivity.setVisibility(View.VISIBLE);
+            nameAndPhoneIndentAffirmActivity.setText(consignee+"    "+phoneNum);
+            myAddressIndentAffirmActivity.setText(area+address);
+        }
 
     }
 
