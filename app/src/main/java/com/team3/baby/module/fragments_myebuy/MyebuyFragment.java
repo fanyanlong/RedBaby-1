@@ -285,7 +285,7 @@ public class MyebuyFragment extends Fragment implements View.OnClickListener {
             denglujiemian.setVisibility(View.INVISIBLE);
 
             sv_yidenglu_myebuy.setVisibility(View.VISIBLE);
-            if (iconurl != null) {
+            if (sharedPreferences.getBoolean("QQ", false)) {
                 Glide.with(getActivity()).load(sharedPreferences.getString("iconurl", "")).into(touxiang);
                 phone.setText(sharedPreferences.getString("name", ""));
             }

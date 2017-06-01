@@ -6,13 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_classify.fragment.view.ClassifyFragment;
 import com.team3.baby.module.fragments_groupBuy.GroupBuyFragment;
@@ -163,6 +164,28 @@ public class MainActivity extends FragmentActivity implements MainView {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 
+    }
+
+    /**
+     * 返回键，两次退出，第一次提示
+     */
+    private long firstTime = 0;
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                long secondTime = System.currentTimeMillis();
+                if (secondTime - firstTime > 2000) {
+                    Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                    firstTime = secondTime;
+                    return true;
+                } else {
+                    System.exit(0);
+                }
+                break;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 
 }

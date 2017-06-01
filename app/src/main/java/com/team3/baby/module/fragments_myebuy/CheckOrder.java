@@ -31,14 +31,16 @@ public class CheckOrder extends FragmentActivity {
     private ArrayList<Fragment> fragments;
     private String[] titles;
     private TabLayout tablatout;
+    private RadioButton rb_net_order;
+    private RadioButton rb_qita_order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_myorder_myebuy);
-        final RadioButton rb_net_order = (RadioButton) findViewById(R.id.rb_net_order);
-        final RadioButton rb_qita_order = (RadioButton) findViewById(R.id.rb_qita_order);
+        rb_net_order = (RadioButton) findViewById(R.id.rb_net_order);
+        rb_qita_order = (RadioButton) findViewById(R.id.rb_qita_order);
 
         rb_qita_order.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

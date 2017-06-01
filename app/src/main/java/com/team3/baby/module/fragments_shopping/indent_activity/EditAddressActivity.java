@@ -1,7 +1,9 @@
 package com.team3.baby.module.fragments_shopping.indent_activity;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -9,7 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mylhyl.acp.Acp;
+import com.mylhyl.acp.AcpListener;
+import com.mylhyl.acp.AcpOptions;
 import com.team3.baby.R;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,26 +50,26 @@ public class EditAddressActivity extends AppCompatActivity {
     }
 
     private void initListener() {
-        /*itemAreaEditAddressActivity.setOnClickListener(new View.OnClickListener() {
+        itemAreaEditAddressActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Acp.getInstance(EditAddressActivity.this).request(new AcpOptions.Builder()
                                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE
                                         , Manifest.permission.READ_PHONE_STATE
                                         , Manifest.permission.SEND_SMS)
-                *//*以下为自定义提示语、按钮文字
+                /*//以下为自定义提示语、按钮文字
                 .setDeniedMessage()
                 .setDeniedCloseBtn()
                 .setDeniedSettingBtn()
                 .setRationalMessage()
-                .setRationalBtn()*//*
+                .setRationalBtn()*/
                                 .build(),
                         new AcpListener() {
                             @Override
                             public void onGranted() {
-                                Intent intent = new Intent(EditAddressActivity.this,LocationActivity.class);
+                               /* Intent intent = new Intent(EditAddressActivity.this,LocationActivity.class);
                                 startActivity(intent);
-
+*/
                             }
 
                             @Override
@@ -70,7 +77,7 @@ public class EditAddressActivity extends AppCompatActivity {
                             }
                         });
             }
-        });*/
+        });
     }
 
 }
