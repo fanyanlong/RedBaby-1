@@ -74,6 +74,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     private Rect mCropRect = null;
     private ImageView cameraFlashControl;
     private ImageView button_function;
+    private ImageView mImage_ercode_return;
 
     public Handler getHandler() {
         return handler;
@@ -330,6 +331,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         cameraFlashControl.setOnClickListener(this);
         button_function = (ImageView) findViewById(R.id.image_button2);
         button_function.setOnClickListener(this);
+        mImage_ercode_return = (ImageView) findViewById(R.id.image_ercode_return);
+        mImage_ercode_return.setOnClickListener(this);
     }
 
     @Override
@@ -349,6 +352,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
                 innerIntent.setType("image/*");
                 Intent wrapperIntent = Intent.createChooser(innerIntent, "选择二维码图片");
                 CaptureActivity.this.startActivityForResult(wrapperIntent, REQUEST_CODE);
+                break;
+            case R.id.image_ercode_return:
+                    finish();
                 break;
         }
     }
