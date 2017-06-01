@@ -119,6 +119,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
     }
 
     private void initAddress() {
+
         SharedPreferences sharedPreferences = getSharedPreferences("addAddress", MODE_PRIVATE);
        /* edit.putString("address",etAddress);
         edit.putString("consignee",etConsignee);
