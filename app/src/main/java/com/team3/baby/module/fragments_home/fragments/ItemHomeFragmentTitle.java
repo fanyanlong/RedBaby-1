@@ -72,19 +72,6 @@ public class ItemHomeFragmentTitle extends Fragment {
                 mHandler.sendEmptyMessageDelayed(0, 2000);
             }
         });
-     /*   HttpUtils.getData(Url.TITLE, new StringCallback() {
-            @Override
-            public void onSuccess(String s, Call call, Response response) {
-                Gson gson = new Gson();
-                TitleBean titleBean = gson.fromJson(s, TitleBean.class);
-                List<TitleBean.DataBean> list = titleBean.getData();
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-
-                mRvFragmentHomeRectcler.setLayoutManager(linearLayoutManager);
-                MyRecyclerTitleAdapter adapter = new MyRecyclerTitleAdapter(getContext(),list);
-                mRvFragmentHomeRectcler.setAdapter(adapter);
-            }
-        });*/
         OkUtils.getExcute(Url.HTTP+url, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {

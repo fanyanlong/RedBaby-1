@@ -3,6 +3,8 @@ package com.team3.baby.utils;
 import android.os.Handler;
 import android.os.Message;
 
+import org.json.JSONException;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -64,7 +66,11 @@ public class OkUtils {
                 if (msg.what == GET_EXCUTE) {
                     String json = (String) msg.obj;
                     if (null != json) {
-                        callback.onSuccess(json);
+                        try {
+                            callback.onSuccess(json);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     } else {
                         callback.onError(json);
                     }
@@ -120,7 +126,11 @@ public class OkUtils {
                 if (msg.what == GET_ENQUEUE) {
                     String json = (String) msg.obj;
                     if (null != json) {
-                        callback.onSuccess(json);
+                        try {
+                            callback.onSuccess(json);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     } else {
                         callback.onError(json);
                     }
@@ -173,7 +183,7 @@ public class OkUtils {
      * 接口回调
      */
     public interface MyCallback {
-        void onSuccess(String result);
+        void onSuccess(String result) throws JSONException;
 
         void onError(String errorMsg);
     }

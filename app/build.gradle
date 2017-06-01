@@ -34,51 +34,27 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
     //崔涵淞 5.17 15:54 添加 首页TabLayout
-    compile 'com.android.support:design:25.3.1'
     //崔涵淞 5.19 14:45 添加 下拉刷新
-    compile 'in.srain.cube:ultra-ptr:1.0.11'
-    compile 'com.android.support:support-v4:25.3.1'
-    testCompile 'junit:junit:4.12'
     //    金虎，5.17 14:49 添加
 
     // butterknife
-    compile 'com.jakewharton:butterknife:8.5.1'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
     //Glide图片加载
-    compile 'com.github.bumptech.glide:glide:3.6.1'
-    compile 'com.android.support:cardview-v7:25.3.1'
     compile project(':library')
     //金虎 5.18 22:13
-    compile 'com.squareup.okhttp3:okhttp:3.8.0'
     //金虎 5.19 16:40 logger
-    compile 'com.orhanobut:logger:1.15'
     //金虎 5.22 20:54 gson
-    compile 'com.google.code.gson:gson:2.8.0'
     /*无限录播*/
-    compile 'com.youth.banner:banner:1.4.9'
-    compile 'com.google.code.gson:gson:2.8.0'
     //金虎 5.23 9:32
-    compile 'de.greenrobot:greendao:2.1.0'
     compile project(':greendao-library')
     //金虎 5.23 13:48 okGo
-    compile 'com.lzy.net:okgo:+'
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
-    compile 'com.makeramen:roundedimageview:2.3.0'
     //田杰谕 5.25 运行时权限
-    compile 'com.mylhyl:acp:1.1.7'
     compile files('libs/umeng_social_api.jar')
     compile files('libs/umeng_social_net.jar')
     compile files('libs/umeng_social_tool.jar')
     compile files('libs/SocialSDK_QQ_Full.jar')
     compile files('libs/umeng_shareboard_widget.jar')
-    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    compile 'org.greenrobot:eventbus:3.0.0'
     //jinhu
-    compile 'com.android.support:multidex:1.0.0'
     compile files('libs/alipay-sdk-java20170511115337.jar')
     compile files('libs/alipaySingle-20170510.jar')
     compile files('libs/Msc.jar')
@@ -86,4 +62,28 @@ dependencies {
     compile files('libs/BaiduLBS_Android.jar')
     //田杰谕 5.31
     //compile 'com.smarttop:jd-address:1.1.0'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.orhanobut:logger:1.15'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'de.greenrobot:greendao:2.1.0'
+    compile 'com.lzy.net:okgo:+'
+    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+    compile 'com.makeramen:roundedimageview:2.3.0'
+    compile 'com.mylhyl:acp:1.1.7'
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:multidex:1.0.0'
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

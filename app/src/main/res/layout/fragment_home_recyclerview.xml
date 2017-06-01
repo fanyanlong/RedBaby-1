@@ -17,7 +17,6 @@
 
     </com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout>
     <View
-
         android:layout_width="match_parent"
         android:layout_height="60dp"></View>
 </LinearLayout>
