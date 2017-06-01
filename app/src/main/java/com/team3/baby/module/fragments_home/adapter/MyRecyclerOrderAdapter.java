@@ -34,8 +34,7 @@ public class MyRecyclerOrderAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
-    private String IMAGE_01 = "http://service.alinq.cn:2800/AdminServices/Shop/";
-    private String IMAGE_02 = "?application-key=58424776034ff82470d06d3d&storeId=58401d1906c02a2b8877bd13";
+
     private ArrayList<OrderBean> list;
     private Context mContext;
     public MyRecyclerOrderAdapter(Context mContext, ArrayList<OrderBean> listOrder) {
