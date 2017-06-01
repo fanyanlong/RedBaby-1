@@ -23,6 +23,7 @@ import com.team3.baby.module.fragments_home.activity.HomeSeekActivity;
 import com.team3.baby.module.fragments_home.adapter.HomeAdapter;
 import com.team3.baby.module.fragments_home.bean.TitleBean;
 import com.team3.baby.module.fragments_home.fragments.ItemHomeFragment;
+import com.team3.baby.module.fragments_home.fragments.ItemHomeFragmentOrder;
 import com.team3.baby.module.fragments_home.fragments.ItemHomeFragmentTitle;
 import com.team3.baby.module.fragments_home.url.Url;
 import com.team3.baby.module.fragments_myebuy.XiaoXi;
@@ -51,7 +52,7 @@ public class HomeFragment extends Fragment {
     @BindView(R.id.image_mes_include)
     ImageView mImageMesInclude;
 
-    private LayoutInflater mInflater;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,7 +71,6 @@ public class HomeFragment extends Fragment {
         OkUtils.getEnqueue(Url.TITLE, null, new OkUtils.MyCallback() {
             @Override
             public void onSuccess(String result) {
-                List<String> mTitleList = new ArrayList<>();//页卡标题集合
 
                 List<Fragment> listFram = new ArrayList<Fragment>();
                 List<String> listStr = new ArrayList<String>();
@@ -82,7 +82,9 @@ public class HomeFragment extends Fragment {
                 ItemHomeFragment itemHomeFragment1 = new ItemHomeFragment().newInstance(Url.TITLE);
                 listFram.add(itemHomeFragment1);
                 listStr.add("上新");
-
+                ItemHomeFragmentOrder itemHomeFragmentOrder = new ItemHomeFragmentOrder().newInstance(Url.ORDER);
+                listFram.add(itemHomeFragmentOrder);
+                listStr.add("订单");
                 for (int i = 0; i < data.get(0).getTag().size(); i++) {
                     ItemHomeFragmentTitle itemHomeFragmentTitle = new ItemHomeFragmentTitle().newInstance(data.get(0).getTag().get(i).getElementDesc());
                     listFram.add(itemHomeFragmentTitle);

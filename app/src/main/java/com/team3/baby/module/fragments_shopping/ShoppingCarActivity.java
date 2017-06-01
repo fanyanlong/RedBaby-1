@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
 import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
 import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
@@ -21,10 +23,15 @@ import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMWeb;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Response;
 
 
 public class ShoppingCarActivity extends AppCompatActivity {
@@ -64,7 +71,9 @@ public class ShoppingCarActivity extends AppCompatActivity {
         final String position = intent.getStringExtra("position");
         final String shopName = intent.getStringExtra("shopName");
         final String shopPrice = intent.getStringExtra("shopPrice");
-        Logger.d(shopPrice);
+        final String pid = intent.getStringExtra("pid");
+
+
         ImageUtils.loadImageNormal(this, position, ivShoppingPicture);
         tvShoppingName.setText(shopName);
         tvShoppingPrice.setText(shopPrice);
@@ -98,6 +107,29 @@ public class ShoppingCarActivity extends AppCompatActivity {
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
+
+                HashMap<String, String> params = new HashMap<>();
+                params.put("storeId", "58401d1906c02a2b8877bd13");
+                params.put("key2", "{productId:"+pid+", count: 1}");
+                JSONObject jsonObject = new JSONObject(params);
+
+
+                OkGo.post("http://service.alinq.cn:2800/UserShop/ShoppingCart/AddItem")
+                .headers("application-key","58424776034ff82470d06d3d")
+                .headers("user-token","584cfabb4918e4186a77ff1e")
+                .headers("Content-Type","application/json")
+                .upJson(jsonObject.toString())
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                         Logger.d(s);
+                    }
+                });
+
+
+
+
+
             }
         });
         imageShoppingPrice.setOnClickListener(new View.OnClickListener() {
