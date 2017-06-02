@@ -79,7 +79,12 @@ public class EditAddressActivity extends AppCompatActivity implements OnAddressS
                 onDialog();
             }
         });
-
+        ivBackHeadInclude.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btnSaveAndUseEditAddressActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

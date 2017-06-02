@@ -90,7 +90,7 @@ public class GroupBuyFragment extends Fragment {
                     String[] urlstr = new String[]{UrlGroupBuy.url, UrlGroupBuy.ONE, UrlGroupBuy
                             .TWO, UrlGroupBuy.THREE, UrlGroupBuy.FORM, UrlGroupBuy.FIVE,
                             UrlGroupBuy.SIX, UrlGroupBuy.SEVEN, UrlGroupBuy.EIGHT, UrlGroupBuy
-                            .NINE};
+                            .NINE,UrlGroupBuy.SEVEN};
                     ArrayList<String> urlList = new ArrayList<>();
                     for (int i = 0; i < urlstr.length; i++) {
                         urlList.add(urlstr[i]);

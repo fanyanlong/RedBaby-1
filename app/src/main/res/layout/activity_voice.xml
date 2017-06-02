@@ -33,7 +33,6 @@
     <TextView
 
         android:id="@+id/voice_text"
-        android:text="111"
         android:textSize="20sp"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
