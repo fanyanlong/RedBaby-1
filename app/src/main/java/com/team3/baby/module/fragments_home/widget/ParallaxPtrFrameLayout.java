@@ -11,6 +11,10 @@ package com.team3.baby.module.fragments_home.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.team3.baby.module.fragments_home.bean.HomeBean;
+
+import java.util.List;
+
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
 
@@ -45,4 +49,6 @@ public class ParallaxPtrFrameLayout extends PtrFrameLayout {
     public ParallaxHeader getHeader() {
         return mParallaxHeader;
     }
+
+
 }

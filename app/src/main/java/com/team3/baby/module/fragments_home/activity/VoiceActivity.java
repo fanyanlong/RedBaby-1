@@ -48,7 +48,12 @@ public class VoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_voice);
         ButterKnife.bind(this);
 
-
+        mVoiceFanhuiImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5926da9e");
         mVoiceDianjiYuyinBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -27,8 +27,8 @@ public class HomeSeekActivity extends AppCompatActivity {
 
     @BindView(R.id.home_seek_return_image)
     ImageView mHomeSeekReturnImage;
-    @BindView(R.id.home_seek_voice_text)
-    ImageView mHomeSeekVoiceText;
+    @BindView(R.id.home_seek_voice_image)
+    ImageView mHomeSeekVoiceImage;
     @BindView(R.id.linear_inquire_include)
     LinearLayout mLinearInquireInclude;
     @BindView(R.id.home_seek_search_text)
@@ -52,13 +52,18 @@ public class HomeSeekActivity extends AppCompatActivity {
     }
 
     private void initData() {
+
+
+
+
+
         mHomeSeekReturnImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-        mHomeSeekVoiceText.setOnClickListener(new View.OnClickListener() {
+        mHomeSeekVoiceImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //6.0动态添加

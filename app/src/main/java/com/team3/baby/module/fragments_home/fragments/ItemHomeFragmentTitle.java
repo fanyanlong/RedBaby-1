@@ -46,8 +46,7 @@ public class ItemHomeFragmentTitle extends Fragment {
             mPpfFragmentHomeTop.refreshComplete();
         }
     };
-
-
+    private List<HomeBean.DataBean> mList;
 
 
     @Override
@@ -77,11 +76,11 @@ public class ItemHomeFragmentTitle extends Fragment {
             public void onSuccess(String result) {
                 Gson gson = new Gson();
                 HomeBean titleBean = gson.fromJson(result, HomeBean.class);
-                List<HomeBean.DataBean> list = titleBean.getData();
+                mList = titleBean.getData();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
 
                 mRvFragmentHomeRectcler.setLayoutManager(linearLayoutManager);
-                MyRecyclerTitleAdapter adapter = new MyRecyclerTitleAdapter(getActivity(),list);
+                MyRecyclerTitleAdapter adapter = new MyRecyclerTitleAdapter(getActivity(), mList);
                 mRvFragmentHomeRectcler.setAdapter(adapter);
             }
 
