@@ -439,7 +439,14 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             item_home_three_text6.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             item_home_three_text7.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
 
-
+            image0.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(3).getTag().get(0).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
             image1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -575,6 +582,54 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             item_home_five_ready_prefecture_image = (ImageView) itemView.findViewById(R.id.item_home_five_ready_prefecture_image);
             item_home_five_gestation_prefecture_image = (ImageView) itemView.findViewById(R.id.item_home_five_gestation_prefecture_image);
 
+            item_home_five_newborn_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(10).getTag().get(0).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
+            item_home_five_infant_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(10).getTag().get(1).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
+            item_home_five_infant_prefecture_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(10).getTag().get(2).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
+            item_home_five_preschool_prefecture_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(10).getTag().get(3).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
+            item_home_five_ready_prefecture_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(10).getTag().get(4).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
+            item_home_five_gestation_prefecture_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(10).getTag().get(5).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
@@ -612,6 +667,16 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             item_home_six_name4 = (TextView) itemView.findViewById(R.id.item_home_six_name4);
             item_home_six_name5 = (TextView) itemView.findViewById(R.id.item_home_six_name5);
             item_home_six_name6 = (TextView) itemView.findViewById(R.id.item_home_six_name6);
+
+            item_home_six_trademark_hui_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(14).getTag().get(0).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
+
 
             item_home_six_image1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -724,6 +789,15 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             item_home_seven_name4 = (TextView) itemView.findViewById(R.id.item_home_seven_name4);
             item_home_seven_name5 = (TextView) itemView.findViewById(R.id.item_home_seven_name5);
             item_home_seven_name6 = (TextView) itemView.findViewById(R.id.item_home_seven_name6);
+
+            item_home_seven_good_method_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, WebViewShow.class);
+                    intent.putExtra("url", list.get(16).getTag().get(0).getLinkUrl());
+                    context.startActivity(intent);
+                }
+            });
 
             item_home_seven_image1.setOnClickListener(new View.OnClickListener() {
                 @Override
