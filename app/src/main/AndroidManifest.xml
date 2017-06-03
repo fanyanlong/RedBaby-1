@@ -145,7 +145,8 @@
         <activity android:name=".module.fragments_home.activity.HomeSeekActivity"/>
         <activity android:name=".module.fragments_home.activity.VoiceActivity"/>
         <activity android:name=".module.fragments_home.activity.WebViewShow">
-
+        </activity>
+        <activity android:name=".order.OrderDetailsActivity">
         </activity>
     </application>
 

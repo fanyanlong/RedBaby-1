@@ -10,32 +10,38 @@ public class ExampleDaoGenerator {
         Schema schema = new Schema(1, "me.redbaby.greendao");
 
 
-
-
         addNote(schema);
-
+        addOrderNote(schema);
 
 //        new DaoGenerator().generateAll(schema, "/Users/tangqi/android-dev/AndroidStudioProjects/MyGreenDAO/app/src/main/java-gen");
         new DaoGenerator().generateAll(schema, "C:/team/RedBaby/app/src/main/java-gen");
     }
 
+
     /**
      * @param schema
      */
     private static void addNote(Schema schema) {
-
         Entity note = schema.addEntity("Table_shopping");
-
         note.addIdProperty();
         note.addStringProperty("shopping_id").notNull();
         note.addStringProperty("shopping_name ").notNull();
-
-
         note.addFloatProperty("shopping_price").notNull();
         note.addStringProperty("shopping_url");
         note.addStringProperty("shopping_pic");
         note.addIntProperty("shopping_count").notNull();
         note.addIntProperty("shopping_state").notNull();
+    }
+
+    /**
+     * 订单信息
+     *
+     * @param schema
+     */
+    private static void addOrderNote(Schema schema) {
+        Entity note = schema.addEntity("Table_order");
+        note.addIdProperty();
+        note.addStringProperty("order_id").notNull();
     }
 }
 
