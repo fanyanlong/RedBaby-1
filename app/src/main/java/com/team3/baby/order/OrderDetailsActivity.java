@@ -40,7 +40,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
                         Logger.d(s);
-                        //订单对象
+                        //订单对象4
                         OrderBean orderBean = GsonUtils.gsonToBean(s, OrderBean.class);
                     }
                 });
