@@ -9,18 +9,32 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
 import com.team3.baby.alipay.PayDemoActivity;
 import com.team3.baby.app.App;
+import com.team3.baby.bean.OrderBean;
+import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.ImageUtils;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.greenrobot.dao.query.QueryBuilder;
+import me.redbaby.greendao.Table_order;
+import me.redbaby.greendao.Table_orderDao;
 import me.redbaby.greendao.Table_shopping;
 import me.redbaby.greendao.Table_shoppingDao;
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * @class describe
@@ -105,6 +119,8 @@ public class IndentAffirmActivity extends AppCompatActivity {
         tvSubmitAffirmIndentActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //生成订单，跳转到支付界面
+                postOrder();
                 Intent intent = new Intent(IndentAffirmActivity.this, PayDemoActivity.class);
                 startActivity(intent);
             }
@@ -117,6 +133,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void initAddress() {
 
@@ -135,8 +152,8 @@ public class IndentAffirmActivity extends AppCompatActivity {
         } else {
             noAddressLayoutIndentAffirmActivity.setVisibility(View.GONE);
             haveAddressLayoutIndentAffirmActivity.setVisibility(View.VISIBLE);
-            nameAndPhoneIndentAffirmActivity.setText(consignee+"    "+phoneNum);
-            myAddressIndentAffirmActivity.setText(area+address);
+            nameAndPhoneIndentAffirmActivity.setText(consignee + "    " + phoneNum);
+            myAddressIndentAffirmActivity.setText(area + address);
         }
 
     }
@@ -204,10 +221,72 @@ public class IndentAffirmActivity extends AppCompatActivity {
                 tvShopNumAffirmIndentActivity.setText("x" + list.get(0).getShopping_count());
 
             }
-        }
 
+        }
+        //遍历数据库，取需值，形成订单
+        getOrderParam();
 
     }
 
+    private void getOrderParam() {
+        Table_shoppingDao tableShoppingDao = App.getApplication().getDaoSession().getTable_shoppingDao();
+        QueryBuilder<Table_shopping> queryBuilder = tableShoppingDao.queryBuilder();
+        List<Table_shopping> list = queryBuilder.list();
+        int number = 0;
+        String id = "";
+        mIdList = new ArrayList<>();
+        mNumList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            int count = list.get(i).getShopping_count();
+            mNumList.add(count);
+            number = number + count;
+            id = list.get(i).getShopping_id();
+            mIdList.add(id);
+        }
+    }
+
+    //生成订单
+    private void postOrder() {
+        JSONArray idArray = new JSONArray();
+        for (int i = 0; i < mIdList.size(); i++) {
+            String idString = mIdList.get(i);
+            idArray.put(idString);
+        }
+
+        JSONArray numArray = new JSONArray();
+        int numInt = 0;
+        for (int i = 0; i < mNumList.size(); i++) {
+            numInt = mNumList.get(i);
+            numArray.put(numInt);
+        }
+
+        HashMap params = new HashMap<String, JSONArray>();
+        params.put("productIds", idArray);
+        params.put("quantities", numArray);
+        JSONObject jsonObject = new JSONObject(params);
+        Logger.d("JSON==" + jsonObject.toString());
+        String mUrl = "http://service.alinq.cn:2800/UserShop/Order/CreateOrder?storeId=58401d1906c02a2b8877bd13";
+
+        OkGo.post(mUrl)
+                .headers("application-key", "58424776034ff82470d06d3d")
+                .headers("user-token", "584cfabb4918e4186a77ff1e")
+                .headers("Content-Type", "application/json")
+                .upJson(jsonObject.toString())
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        Logger.d(s);
+                        OrderBean orderBean = GsonUtils.gsonToBean(s, OrderBean.class);
+                        String id = orderBean.getId();
+                        Table_orderDao table_orderDao = App.getApplication().getDaoSession().getTable_orderDao();
+                        Table_order order = new Table_order();
+                        order.setOrder_id(id);
+                        table_orderDao.insert(order);
+                    }
+                });
+    }
+
+    private List<String> mIdList;
+    private List<Integer> mNumList;
 
 }

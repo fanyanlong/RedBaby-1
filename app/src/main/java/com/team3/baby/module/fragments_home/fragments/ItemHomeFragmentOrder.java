@@ -65,7 +65,7 @@ public class ItemHomeFragmentOrder extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(getActivity(),ShoppingCarActivity.class);
-                intent.putExtra("pid",mList.get(position).getProductId());
+                intent.putExtra("pid",mList.get(position).getProductId()+"");
                 intent.putExtra("position", Url.IMAGE_01+mList.get(position).getImagePath()+Url.IMAGE_02 );
                 intent.putExtra("shopName", mList.get(position).getName());
                 intent.putExtra("shopPrice", "¥"+mList.get(position).getPrice());
