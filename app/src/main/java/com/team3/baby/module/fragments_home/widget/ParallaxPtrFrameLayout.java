@@ -45,4 +45,6 @@ public class ParallaxPtrFrameLayout extends PtrFrameLayout {
     public ParallaxHeader getHeader() {
         return mParallaxHeader;
     }
+
+
 }

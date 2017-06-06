@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.team3.baby.R;
+import com.team3.baby.module.fragments_home.activity.WebViewShow;
 import com.team3.baby.module.fragments_home.bean.HomeBean;
 import com.team3.baby.module.fragments_home.url.Url;
 import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
@@ -138,10 +139,10 @@ public class MyRecyclerTitleAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                         .into(holder3.item_home_nine_bigpicture1_image);
                 holder3.item_home_nine_name_text.setText(list.get(4).get_$88015().getTag().get(0).getElementName());
                 holder3.item_home_nine_desc_text.setText(list.get(4).get_$88015().getTag().get(0).getElementDesc());
-                holder3.item_home_nine_price_text.setText(list.get(4).get_$88015().getTag().get(0).getItemPrice());
+                holder3.item_home_nine_price_text.setText("¥"+list.get(4).get_$88015().getTag().get(0).getItemPrice());
                 holder3.item_home_nine_name1_text.setText(list.get(6).get_$88015().getTag().get(0).getElementName());
                 holder3.item_home_nine_desc1_text.setText(list.get(6).get_$88015().getTag().get(0).getElementDesc());
-                holder3.item_home_nine_price1_text.setText(list.get(6).get_$88015().getTag().get(0).getItemPrice());
+                holder3.item_home_nine_price1_text.setText("¥"+list.get(6).get_$88015().getTag().get(0).getItemPrice());
                 break;
             case 3:
                 ViewHolder4 holder4 = (ViewHolder4) holder;

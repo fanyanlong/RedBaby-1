@@ -1,6 +1,5 @@
 package com.team3.baby.module.fragments_home.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,37 +7,24 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.lzy.okgo.callback.StringCallback;
 import com.team3.baby.R;
-import com.team3.baby.base.BaseFragment;
-import com.team3.baby.module.fragments_home.HomeFragment;
 import com.team3.baby.module.fragments_home.adapter.MyRecyclerAdapter;
 import com.team3.baby.module.fragments_home.bean.TitleBean;
-import com.team3.baby.module.fragments_home.inter_face.MyOnItemClickListener;
 import com.team3.baby.module.fragments_home.url.Url;
 import com.team3.baby.module.fragments_home.widget.ParallaxPtrFrameLayout;
-import com.team3.baby.module.fragments_shopping.ShoppingCarActivity;
-import com.team3.baby.utils.HttpUtils;
 import com.team3.baby.utils.OkUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import java.util.logging.LogRecord;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * 类用途:

@@ -69,6 +69,7 @@ public class AddIndent_carActivity extends AppCompatActivity {
         final String position = intent.getStringExtra("position");
         final String shopName = intent.getStringExtra("shopName");
         final String shopPrice = intent.getStringExtra("shopPrice");
+        final String pid = intent.getStringExtra("pid");
         ImageUtils.loadImageNormal(this, position, ivAddPicture);
         tvAddShoppingName.setText(shopName);
         tvAddShoppingPrice.setText(shopPrice);
@@ -103,6 +104,7 @@ public class AddIndent_carActivity extends AppCompatActivity {
                         bb.setShopping_pic(position);
                         bb.setShopping_price(price);
                         bb.setShopping_count(num);
+                        bb.setShopping_id(pid);
                         table_shoppingDao.insert(bb);
                         com.orhanobut.logger.Logger.d(bb);
                     }
@@ -113,6 +115,7 @@ public class AddIndent_carActivity extends AppCompatActivity {
                     bb.setShopping_pic(position);
                     bb.setShopping_price(price);
                     bb.setShopping_count(num);
+                    bb.setShopping_id(pid);
                     table_shoppingDao.insert(bb);
                     Logger.d("---------------------------->list");
                 }

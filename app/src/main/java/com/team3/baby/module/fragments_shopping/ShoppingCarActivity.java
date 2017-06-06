@@ -14,7 +14,6 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
-import com.team3.baby.module.fragments_groupBuy.url.UrlGroupBuy;
 import com.team3.baby.module.fragments_shopping.shoppingutils.Shop_Utils;
 import com.team3.baby.utils.ImageUtils;
 import com.umeng.socialize.ShareAction;
@@ -95,8 +94,6 @@ public class ShoppingCarActivity extends AppCompatActivity {
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
                 startActivity(intent);
-
-
             }
         });
         tvJoinShoppingCar.setOnClickListener(new View.OnClickListener() {
@@ -106,28 +103,27 @@ public class ShoppingCarActivity extends AppCompatActivity {
                 intent.putExtra("position", position);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
+                intent.putExtra("pid",pid);
                 startActivity(intent);
 
                 HashMap<String, String> params = new HashMap<>();
                 params.put("storeId", "58401d1906c02a2b8877bd13");
-                params.put("key2", "{productId:"+pid+", count: 1}");
+                params.put("productId", pid);
+                params.put("count", "1");
                 JSONObject jsonObject = new JSONObject(params);
 
-
                 OkGo.post("http://service.alinq.cn:2800/UserShop/ShoppingCart/AddItem")
-                .headers("application-key","58424776034ff82470d06d3d")
-                .headers("user-token","584cfabb4918e4186a77ff1e")
-                .headers("Content-Type","application/json")
-                .upJson(jsonObject.toString())
-                .execute(new StringCallback() {
-                    @Override
-                    public void onSuccess(String s, Call call, Response response) {
-                         Logger.d(s);
-                    }
-                });
+                        .headers("application-key", "58424776034ff82470d06d3d")
+                        .headers("user-token", "584cfabb4918e4186a77ff1e")
+                        .headers("Content-Type", "application/json")
+                        .upJson(jsonObject.toString())
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onSuccess(String s, Call call, Response response) {
+                                Logger.d(s);
+                            }
 
-
-
+                        });
 
 
             }
