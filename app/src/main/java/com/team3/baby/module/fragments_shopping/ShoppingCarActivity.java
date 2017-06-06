@@ -103,7 +103,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
                 intent.putExtra("position", position);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopPrice", shopPrice);
-                intent.putExtra("pid",pid);
+                intent.putExtra("pid", pid);
                 startActivity(intent);
 
                 HashMap<String, String> params = new HashMap<>();
@@ -122,10 +122,7 @@ public class ShoppingCarActivity extends AppCompatActivity {
                             public void onSuccess(String s, Call call, Response response) {
                                 Logger.d(s);
                             }
-
                         });
-
-
             }
         });
         imageShoppingPrice.setOnClickListener(new View.OnClickListener() {

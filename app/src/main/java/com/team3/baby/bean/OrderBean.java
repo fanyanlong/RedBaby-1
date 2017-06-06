@@ -15,14 +15,17 @@ public class OrderBean {
      * BalanceAmount : 0
      * CouponDiscount : 0
      * CouponTitle :
-     * CreateDateTime : 2017-05-31T21:05:03
+     * CreateDateTime : 2017-06-06T08:38:26
      * CustomerId : 5e69475d-5135-4eb0-9215-068c2c10c747
      * Discount : 0
      * Freight : 0
-     * Id : 6150cd17-f6c6-42f5-8c15-5501783a7bc7
-     * OrderDetails : [{"ImageUrl":"/Images/Editor/cf277e420e5b4902b0176132f462e61c_640_640.jpeg","Price":0.01,"ProductId":"d0dfc5a5-b6b0-4050-b667-10277f41b59d","ProductName":"苏格兰蝴蝶夫人沐浴礼盒","Quantity":1,"Unit":"礼盒"},{"ImageUrl":"/Images/Editor/f3f24b2f5cd545b5ac6d5fb883c2a70b_360_360.jpeg","Price":1980,"ProductId":"e4b77948-00b3-48e5-b8ab-6cc943d0f276","ProductName":"UCAFE全自动胶囊咖啡机","Quantity":1,"Unit":"白色"}]
-     * Status : Created
-     * StatusText : 已创建
+     * Id : 7c9ae4ae-bf9d-4a76-b05c-f7486840a415
+     * OrderDate : 2017-06-06T08:38:42
+     * OrderDetails : [{"ImageUrl":"/Images/Editor/96a34cac654f47e9acb46c4ca0ca169a_360_360.jpeg","Price":34,"ProductId":"205338e7-33de-46aa-ad79-4ac56dfdc9ef","ProductName":"合禾果枇杷蜜","Quantity":2,"Unit":"300g"}]
+     * Remark :
+     * Serial : 20170606083842
+     * Status : Paid
+     * StatusText : 已付款
      * Sum : 0
      */
 
@@ -35,6 +38,9 @@ public class OrderBean {
     private int Discount;
     private int Freight;
     private String Id;
+    private String OrderDate;
+    private String Remark;
+    private String Serial;
     private String Status;
     private String StatusText;
     private int Sum;
@@ -112,6 +118,30 @@ public class OrderBean {
         this.Id = Id;
     }
 
+    public String getOrderDate() {
+        return OrderDate;
+    }
+
+    public void setOrderDate(String OrderDate) {
+        this.OrderDate = OrderDate;
+    }
+
+    public String getRemark() {
+        return Remark;
+    }
+
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    public String getSerial() {
+        return Serial;
+    }
+
+    public void setSerial(String Serial) {
+        this.Serial = Serial;
+    }
+
     public String getStatus() {
         return Status;
     }
@@ -146,16 +176,16 @@ public class OrderBean {
 
     public static class OrderDetailsBean {
         /**
-         * ImageUrl : /Images/Editor/cf277e420e5b4902b0176132f462e61c_640_640.jpeg
-         * Price : 0.01
-         * ProductId : d0dfc5a5-b6b0-4050-b667-10277f41b59d
-         * ProductName : 苏格兰蝴蝶夫人沐浴礼盒
-         * Quantity : 1
-         * Unit : 礼盒
+         * ImageUrl : /Images/Editor/96a34cac654f47e9acb46c4ca0ca169a_360_360.jpeg
+         * Price : 34
+         * ProductId : 205338e7-33de-46aa-ad79-4ac56dfdc9ef
+         * ProductName : 合禾果枇杷蜜
+         * Quantity : 2
+         * Unit : 300g
          */
 
         private String ImageUrl;
-        private double Price;
+        private int Price;
         private String ProductId;
         private String ProductName;
         private int Quantity;
@@ -169,11 +199,11 @@ public class OrderBean {
             this.ImageUrl = ImageUrl;
         }
 
-        public double getPrice() {
+        public int getPrice() {
             return Price;
         }
 
-        public void setPrice(double Price) {
+        public void setPrice(int Price) {
             this.Price = Price;
         }
 

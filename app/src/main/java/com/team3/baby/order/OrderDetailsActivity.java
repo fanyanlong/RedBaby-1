@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lzy.okgo.OkGo;
@@ -65,6 +66,12 @@ public class OrderDetailsActivity extends AppCompatActivity {
     TextView mTvOrderGotopay;
     @BindView(R.id.btn_order_cancelOrder)
     Button mBtnOrderCancelOrder;
+    @BindView(R.id.tv_status_order_details)
+    TextView mTvStatusOrderDetails;
+    @BindView(R.id.imageView4)
+    ImageView mImageView4;
+    @BindView(R.id.ll_order_zhifu)
+    LinearLayout mLlOrderZhifu;
     private TextView tv_orderdetails;
     private String mOrder_id;
 
@@ -91,6 +98,14 @@ public class OrderDetailsActivity extends AppCompatActivity {
                         Logger.d(s);
                         //订单对象4
                         OrderBean orderBean = GsonUtils.gsonToBean(s, OrderBean.class);
+                        if (orderBean.getStatus().equals("Paid")) {
+                            mTvStatusOrderDetails.setText(orderBean.getStatusText());//订单状态
+                            tv_orderdetails.setText(orderBean.getSerial());//订单号
+
+                        } else if (orderBean.getStatus().equals("Created")) {
+
+                        }
+
                     }
                 });
     }

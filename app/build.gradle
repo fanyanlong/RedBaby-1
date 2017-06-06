@@ -73,9 +73,9 @@ dependencies {
     //田杰谕 5.31
     compile 'com.android.support:design:25.3.1'
     compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.smarttop:jd-address:1.1.0'
     compile 'com.android.support:design:25.3.1'
     compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.smarttop:jd-address:1.1.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
     compile 'com.android.support:support-v4:25.3.1'

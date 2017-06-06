@@ -13,9 +13,9 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
-import com.team3.baby.alipay.PayDemoActivity;
 import com.team3.baby.app.App;
 import com.team3.baby.bean.OrderBean;
+import com.team3.baby.order.OrderPayActivity;
 import com.team3.baby.utils.GsonUtils;
 import com.team3.baby.utils.ImageUtils;
 
@@ -121,7 +121,8 @@ public class IndentAffirmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //生成订单，跳转到支付界面
                 postOrder();
-                Intent intent = new Intent(IndentAffirmActivity.this, PayDemoActivity.class);
+//                Intent intent = new Intent(IndentAffirmActivity.this, PayDemoActivity.class);
+                Intent intent = new Intent(IndentAffirmActivity.this, OrderPayActivity.class);
                 startActivity(intent);
             }
         });
