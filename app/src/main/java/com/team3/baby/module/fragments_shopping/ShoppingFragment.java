@@ -2,6 +2,7 @@ package com.team3.baby.module.fragments_shopping;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -47,6 +48,7 @@ import okhttp3.Response;
 
 import static android.view.View.GONE;
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+import static com.team3.baby.R.id.tv_compile_fragment_shopping;
 
 /**
  * @class describe
@@ -59,7 +61,7 @@ public class ShoppingFragment extends BaseFragment {
     RecyclerView fragmentShoppingRecyclerView;
     @BindView(R.id.tv_goto_settlement)
     TextView tvGotoSettlement;
-    @BindView(R.id.tv_compile_fragment_shopping)
+    @BindView(tv_compile_fragment_shopping)
     TextView tvCompileFragmentShopping;
     //@BindView(R.id.lv_foot_foot)
     public static LinearLayout lvFootFoot;
@@ -91,13 +93,25 @@ public class ShoppingFragment extends BaseFragment {
 
         return view;
 
+
     }
 
     @Override
     protected void setListener() {
-
+        tvCompileFragmentShopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),ScreenAdapterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setListener();
+    }
 
     @Override
     protected void initData() {
@@ -219,6 +233,7 @@ public class ShoppingFragment extends BaseFragment {
         } else {
             lvFootFoot.setVisibility(GONE);
         }
+
 
     }
 

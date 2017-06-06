@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_screen_adapter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.team3.baby.module.fragments_shopping.ScreenAdapterActivity">
+
+    <TextView android:id="@+id/tv_screen_adapter_activity"
+              android:layout_width="match_parent"
+              android:layout_height="86px"
+              android:layout_centerHorizontal="true"
+              android:background="#ffffff"
+              android:gravity="center"
+              android:text="This is a List!"
+              android:textSize="32px"
+    />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_screen_adapter_activity"
+        android:layout_below="@id/tv_screen_adapter_activity"/>
+</RelativeLayout>

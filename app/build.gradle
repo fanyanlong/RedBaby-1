@@ -95,7 +95,8 @@ dependencies {
     compile 'com.android.support.test.espresso:espresso-core:2.2.2'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.android.support:multidex:1.0.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //泓洋屏幕适配布局
+    compile 'com.zhy:autolayout:1.4.5'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

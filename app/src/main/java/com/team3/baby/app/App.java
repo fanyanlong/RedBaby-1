@@ -15,6 +15,7 @@ import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareConfig;
+import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.logging.Level;
 
@@ -67,7 +68,7 @@ public class App extends Application {
         super.onCreate();
         //logger jinhu 6-1 8:56
 //        Logger.addLogAdapter(new AndroidLogAdapter());
-
+        AutoLayoutConifg.getInstance().useDeviceSize();
         UMShareAPI.get(this);
         UMShareConfig config = new UMShareConfig();
         config.isNeedAuthOnGetUserInfo(true);
