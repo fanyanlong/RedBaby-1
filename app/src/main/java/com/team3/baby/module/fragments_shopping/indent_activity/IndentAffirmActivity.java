@@ -91,6 +91,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
     TextView nameAndPhoneIndentAffirmActivity;
     @BindView(R.id.myAddress_indent_affirm_activity)
     TextView myAddressIndentAffirmActivity;
+    private String mOrider_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,8 +123,7 @@ public class IndentAffirmActivity extends AppCompatActivity {
                 //生成订单，跳转到支付界面
                 postOrder();
 //                Intent intent = new Intent(IndentAffirmActivity.this, PayDemoActivity.class);
-                Intent intent = new Intent(IndentAffirmActivity.this, OrderPayActivity.class);
-                startActivity(intent);
+
             }
         });
         noAddressLayoutIndentAffirmActivity.setOnClickListener(new View.OnClickListener() {
@@ -278,11 +278,15 @@ public class IndentAffirmActivity extends AppCompatActivity {
                     public void onSuccess(String s, Call call, Response response) {
                         Logger.d(s);
                         OrderBean orderBean = GsonUtils.gsonToBean(s, OrderBean.class);
-                        String id = orderBean.getId();
+                        mOrider_id = orderBean.getId();
                         Table_orderDao table_orderDao = App.getApplication().getDaoSession().getTable_orderDao();
                         Table_order order = new Table_order();
-                        order.setOrder_id(id);
+                        order.setOrder_id(mOrider_id);
                         table_orderDao.insert(order);
+                        //
+                        Intent intent = new Intent(IndentAffirmActivity.this, OrderPayActivity.class);
+                        intent.putExtra("order_id",mOrider_id);
+                        startActivity(intent);
                     }
                 });
     }

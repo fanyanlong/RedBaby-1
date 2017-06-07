@@ -11,19 +11,14 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.orhanobut.logger.Logger;
 import com.team3.baby.R;
-import com.team3.baby.app.App;
 
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import de.greenrobot.dao.query.QueryBuilder;
-import me.redbaby.greendao.Table_order;
-import me.redbaby.greendao.Table_orderDao;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -44,15 +39,18 @@ public class OrderPayActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        Intent intent = getIntent();
+        mOrder_id = intent.getStringExtra("order_id");
         //读取数据库，订单号信息
-        Table_orderDao orderDao = App.getApplication().getDaoSession().getTable_orderDao();
+    /*    Table_orderDao orderDao = App.getApplication().getDaoSession().getTable_orderDao();
         QueryBuilder<Table_order> queryBuilder = orderDao.queryBuilder();
         List<Table_order> orderList = queryBuilder.list();
         if (null != orderList) {
             for (int i = 0; i < orderList.size(); i++) {
+                Logger.d("0000000000000" + orderList.get(i).getOrder_id());
                 mOrder_id = orderList.get(i).getOrder_id();
             }
-        }
+        }*/
         //
         mTvOrderPay.setText(mOrder_id);
     }
@@ -66,7 +64,9 @@ public class OrderPayActivity extends AppCompatActivity {
             case R.id.btn_affirm_order_pay:
                 //确认订单
                 affirmOrder(mOrder_id);
-                startActivity(new Intent(OrderPayActivity.this, OrderDetailsActivity.class));
+                Intent intent = new Intent(OrderPayActivity.this, OrderDetailsActivity.class);
+                intent.putExtra("order_id", mOrder_id);
+                startActivity(intent);
                 finish();
                 break;
         }
@@ -81,7 +81,7 @@ public class OrderPayActivity extends AppCompatActivity {
         params.put("remark", null);
         JSONObject jsonObject = new JSONObject(params);
 
-        OkGo.post("http://service.alinq.cn:2800/UserShop/ShoppingCart/AddItem")
+        OkGo.post(url)
                 .headers("application-key", "58424776034ff82470d06d3d")
                 .headers("user-token", "584cfabb4918e4186a77ff1e")
                 .headers("Content-Type", "application/json")

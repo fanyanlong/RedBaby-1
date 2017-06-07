@@ -15,6 +15,7 @@ import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareConfig;
+import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.logging.Level;
 
@@ -51,6 +52,7 @@ public class App extends Application {
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
     }
+
     /**
      * 获得全局的shareperence
      *
@@ -67,7 +69,7 @@ public class App extends Application {
         super.onCreate();
         //logger jinhu 6-1 8:56
 //        Logger.addLogAdapter(new AndroidLogAdapter());
-
+        AutoLayoutConifg.getInstance().useDeviceSize();
         UMShareAPI.get(this);
         UMShareConfig config = new UMShareConfig();
         config.isNeedAuthOnGetUserInfo(true);
@@ -76,7 +78,7 @@ public class App extends Application {
         config.setFacebookAuthType(UMShareConfig.AUTH_TYPE_SSO);
         config.setShareToLinkedInFriendScope(UMShareConfig.LINKED_IN_FRIEND_SCOPE_ANYONE);
         mAppApplication = this;
-        SpeechUtility.createUtility(this, SpeechConstant.APPID +"=5926da9e");
+        SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5926da9e");
         //green dao
         setupDatabase();
         //ok go 金虎 5.23
